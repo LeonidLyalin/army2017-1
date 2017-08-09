@@ -1,0 +1,86 @@
+<ion-scroll scrollY="true">
+  <ion-list scrollY="true">
+    <ion-item>
+
+      <ion-searchbar
+        [(ngModel)]="this.filterProvider.partOfName"
+        (ionInput)="selectParticipantSearch()"
+        (ionCancel)="cancelFilterName()"
+        placeholder="{{filterProvider.findName}}">
+      </ion-searchbar>
+
+
+    </ion-item>
+
+    <ion-item text-wrap>
+      <i class="fa fa-tasks fa-2x"></i>
+      {{filterProvider.thematicTitle}}
+      <button ion-button (click)="cancelFilterThematic()" item-right color="army-red">
+        <ion-icon name="close"></ion-icon>
+      </button>
+      <button ion-button (click)="filterThematic()" item-right color="army-red">
+        <ion-icon name="list"></ion-icon>
+      </button>
+    </ion-item>
+    <ion-item *ngIf="filterProvider.thematicField && (filterProvider.thematicField!='')">
+      <ion-label text-wrap>{{filterProvider.thematicField}}</ion-label>
+
+    </ion-item>
+
+
+    <ion-item text-wrap>
+      <i class="fa fa-university fa-2x"></i>
+      {{filterProvider.mapTitle}}
+
+      <button ion-button (click)="cancelFilterMap()" item-right color="army-red">
+        <ion-icon name="close"></ion-icon>
+      </button>
+      <button ion-button (click)="filterMap()" item-right color="army-red">
+        <ion-icon name="list"></ion-icon>
+      </button>
+
+    </ion-item>
+    <ion-item *ngIf="filterProvider.mapField && (filterProvider.mapField!='')">
+      <ion-label text-wrap>{{filterProvider.mapField}}</ion-label>
+
+    </ion-item>
+
+    <ion-item text-wrap *ngIf="filterProvider.mapField && (filterProvider.mapField!='')">
+      <i class="fa fa-map-marker fa-2x"></i>
+      {{filterProvider.placeTitle}}
+
+      <button ion-button (click)="cancelFilterPlace()" item-right color="army-red">
+        <ion-icon name="close"></ion-icon>
+      </button>
+      <button ion-button (click)="filterPlace()" item-right color="army-red">
+        <ion-icon name="list"></ion-icon>
+      </button>
+
+    </ion-item>
+
+    <ion-item *ngIf="filterProvider.placeField && (filterProvider.placeField!='')">
+
+      <ion-label text-wrap>{{filterProvider.placeField}}</ion-label>
+
+    </ion-item>
+
+    <ion-item>
+      <i class="fa fa-id-card fa-2x"></i>
+      {{filterProvider.countryTitle}}
+
+      <button ion-button (click)="cancelFilterCountry()" item-right color="army-red">
+        <ion-icon name="close"></ion-icon>
+      </button>
+      <button ion-button (click)="filterCountry()" item-right color="army-red">
+        <ion-icon name="list"></ion-icon>
+      </button>
+
+    </ion-item>
+    <ion-item *ngIf="filterProvider.countryField && (filterProvider.countryField!='')">
+      <ion-label text-wrap>{{filterProvider.countryField}}</ion-label>
+
+    </ion-item>
+
+
+  </ion-list>
+</ion-scroll>

@@ -1,0 +1,104 @@
+<!--
+  Generated template for the HowToGetPatriotByTransportPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-navbar>
+        <ion-title text-wrap>{{titleStr}}</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <div *ngIf="lang=='ru'">
+        <ion-card>
+            <ion-card-header text-wrap text-center>
+                <h2>С Киевского вокзала</h2>
+            </ion-card-header>
+            <ion-card-content text-wrap>
+                <ion-row>
+                    <ion-item text-wrap>Общая схема проезда.</ion-item>
+                    <button ion-button clear small color="danger" icon-left
+                            (click)="this.showLeafLetMapSimple('bytransportalabino.jpg','simple')" text-wrap>
+                        <ion-icon name='map'></ion-icon>
+                        Как добраться общественным транспортом
+                    </button>
+
+                </ion-row>
+
+                <ion-label>Электропоездом с Киевского вокзала:</ion-label>
+                <h4>До станции “Селятино”</h4>
+
+                <h6>Только в период с 22 по 25 августа!</h6>
+                <h6>Время отправления электропоездов:</h6>
+
+                <ion-item>7.58</ion-item>
+                <ion-item>8.16; 8.53</ion-item>
+                <ion-item>9.00; 9.13; 9.23; 9.33; 9.39; 9.48</ion-item>
+                <ion-item>10.07; 10.15; 10.28; 10.54</ion-item>
+                <ion-item>11.14; 11.33; 11.48</ion-item>
+                <ion-item>12.09; 12.26; 12.49; 12.59</ion-item>
+                <ion-item>13.19; 13.51; 14.35</ion-item>
+
+
+                <ion-label>Электропоездом до Киевского вокзала</ion-label>
+                <h4>От станции “Селятино”</h4>
+                <h6>Только в период с 22 по 25 августа !</h6>
+
+                <h6>Время отправления электропоездов:</h6>
+
+                <ion-item>13.05; 13.16; 13.29; 13.51</ion-item>
+                <ion-item>14.34; 14.50</ion-item>
+                <ion-item>15.07; 15.25; 15.33; 15.47</ion-item>
+                <ion-item>16.07; 16.20; 16.38; 16.50</ion-item>
+                <ion-item>17.12; 17.18; 17.31; 17.37; 17.46</ion-item>
+                <ion-item>18.10; 18.20; 18.37; 18.47; 18.57</ion-item>
+                <ion-item>19.16; 19.34; 19.43; 19.52</ion-item>
+                <ion-item>20.21; 20.58</ion-item>
+
+                <ion-row>
+                    <ion-item text-wrap>Далее – бесплатным автобусом Форума (Маршрут №6) до парадной площадки полигона
+                        “Алабино”. Режим работы автобусов с 9:00 до 19:00 с интервалом 5-7 мин.
+                    </ion-item>
+                    <ion-item text-wrap>Далее - проход через зону досмотра. Для прохода через зону досмотра и посадки в
+                        автобус
+                        требуется входной билет или бедж.
+                    </ion-item>
+                    <ion-item text-wrap>Далее - бесплатным автобусом Форума (Маршрут №3) до Сухопутного и Водного
+                        демонстрационных
+                        кластеров и до КВЦ “Патриот”.
+                    </ion-item>
+                    <button ion-button clear small color="danger" icon-left
+                            (click)="this.showLeafLetMapSimple('toalabinobytrain.jpg','simple')" text-wrap>
+                        <ion-icon name='map'></ion-icon>
+                        Схема транспортно-пересадочного узла "Селятино"
+                    </button>
+                </ion-row>
+
+
+            </ion-card-content>
+
+
+        </ion-card>
+    </div>
+
+    <div *ngIf="lang=='en'">
+        <ion-list>
+            <ion-item>
+                <button ion-button>
+                    By car
+                </button>
+            </ion-item>
+            <ion-item>
+                <button ion-button>
+                    КВЦ "Патриот" и полигон "Алабино"
+                </button>
+            </ion-item>
+        </ion-list>
+    </div>
+
+</ion-content>

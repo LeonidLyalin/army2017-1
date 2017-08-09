@@ -1,0 +1,96 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>{{titleStr}}</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-card>
+        <!-- <img src="assets/img/logo/{{participant.logo}}"/>-->
+        <ion-card-header text-wrap>
+            <h2>{{participant.name}}</h2>
+        </ion-card-header>
+
+        <!-- <ion-card-content>-->
+        <ion-row no-padding>
+            <ion-col>
+                <div *ngIf="showMap">
+                    <button ion-button clear small color="danger" icon-left (click)="showLeafLetMap1(participant)">
+                        <ion-icon name='map'></ion-icon>
+                        {{onMapStr}}
+                    </button>
+                </div>
+            </ion-col>
+            <ion-col>
+                <button *ngIf="userId" ion-button clear small color="danger" icon-left
+                        (click)="changeMyForum(participant.id)">
+                    <ion-icon item-left *ngIf="participant.my_forum_id" name="star" color="danger"></ion-icon>
+                    <ion-icon item-left *ngIf="!participant.my_forum_id" name="star-outline"></ion-icon>
+                    {{myForumStr}}
+                </button>
+            </ion-col>
+        </ion-row>
+
+
+        <ion-row>
+            <ion-col col-2>
+                <ion-icon name="pin" color="danger"></ion-icon>
+            </ion-col>
+            <ion-col col-10>
+                {{participant.place_name}}
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col col-2>
+                <ion-icon name="call" color="danger"></ion-icon>
+            </ion-col>
+            <ion-col col-10>
+                {{participant.phone}}
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col col-2>
+                <i class="fa fa-address-card" style="color:red"></i>
+            </ion-col>
+            <ion-col col-10>
+                {{participant.address}}
+            </ion-col>
+        </ion-row>
+
+        <ion-row>
+            <ion-col col-2>
+                <ion-icon name="at" color="danger"></ion-icon>
+            </ion-col>
+            <ion-col col-10>
+                {{participant.email}}
+            </ion-col>
+        </ion-row>
+
+        <ion-row>
+            <ion-col col-2>
+                <ion-icon name="laptop" color="danger"></ion-icon>
+            </ion-col>
+            <ion-col col-10>
+                <a href="{{participant.www}}">{{participant.www}}</a>
+            </ion-col>
+        </ion-row>
+
+
+        <ion-item text-wrap>
+            {{participant.desc}}
+        </ion-item>
+        <!--  </ion-card-content>-->
+
+        <ion-list>
+            <ion-list-header color="danger">
+                {{thematicStr}}
+            </ion-list-header>
+            <ion-item *ngFor="let thematicItem of thematic" text-wrap>
+                <ion-icon name="information-circle" item-left></ion-icon>
+                <h4 *ngIf="lang=='ru'">{{thematicItem.name_rus}}</h4>
+                <h4 *ngIf="lang=='en'">{{thematicItem.name_eng}}</h4>
+            </ion-item>
+        </ion-list>
+
+    </ion-card>
+</ion-content>

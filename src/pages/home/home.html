@@ -1,0 +1,122 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title text-left>{{titleStr}}</ion-title>
+    </ion-navbar>
+
+
+</ion-header>
+<ion-content class="cards-bg" style="background-image: url('assets/img/background.jpg')">
+    <ion-slides #slides (ionSlideWillChange)="onSlideChangeStart($event)" pager>
+
+
+        <ion-slide>
+
+            <ion-grid>
+                <ion-row>
+                    <ion-col col-4>
+
+                        <img tappable src="assets/img/homeicons/about-forum.png" height="{{iconHeight}}"
+                             width="{{iconWidth}}" (click)="aboutPage()"/>
+                        <p>{{aboutForumStr}}</p>
+
+
+                    </ion-col>
+                    <ion-col col-4>
+                        <img tappable src="assets/img/homeicons/map.png" height="{{iconHeight}}" width="{{iconWidth}}"
+                             (click)="forumMapPage()"/>
+                        <p>{{mapStr}}</p>
+                    </ion-col>
+                    <ion-col col-4>
+                        <img tappable src="assets/img/homeicons/exposure.png" height="{{iconHeight}}"
+                             width="{{iconWidth}}" (click)="participantPage()"/>
+                        <p>{{participantsStr}}</p>
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col col-4>
+                        <img tappable src="assets/img/homeicons/science-program-icon.png" height="{{iconHeight}}"
+                             width="{{iconWidth}}" (click)="conferencePage()"/>
+                        <p>{{conferenceStr}}</p>
+                    </ion-col>
+                    <ion-col col-4>
+                        <img tappable src="assets/img/homeicons/demo-program.jpg" height="{{iconHeight}}"
+                             width="{{iconWidth}}" (click)="DemoProgramPage()"/>
+                        <p>{{demoProgramStr}}</p>
+                    </ion-col>
+                    <ion-col col-4>
+                        <img tappable src="assets/img/homeicons/about-forum.png" height="{{iconHeight}}"
+                             width="{{iconWidth}}" (click)="ExhibitListPage()"/>
+                        <p>{{exhibitsMoDStr}}</p>
+                    </ion-col>
+                </ion-row>
+
+
+            </ion-grid>
+        </ion-slide>
+        <ion-slide>
+            <ion-grid>
+                <ion-row>
+                    <ion-col col-4>
+                        <ion-col col-4>
+                            <img tappable src="assets/img/homeicons/how-to-get.jpg" height="{{iconHeight}}"
+                                 width="{{iconWidth}}" (click)="howToGet()"/>
+                            <p>{{howDoYouGetStr}}</p>
+                        </ion-col>
+
+                    </ion-col>
+                    <ion-col col-4>
+                        <img tappable src="assets/img/homeicons/park-patriot-icon.png" height="{{iconHeight}}"
+                             width="{{iconWidth}}" (click)="parkPatriot()"/>
+                        <p>{{parkPatriotStr}}</p>
+                    </ion-col>
+                    <ion-col col-4>
+                        <img tappable src="assets/img/homeicons/q&a.png" height="{{iconHeight}}" width="{{iconWidth}}"/>
+                        <p>{{answersAndQuestionsStr}}</p>
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col col-4>
+                        <img tappable src="assets/img/homeicons/entrance-exit.png" height="{{iconHeight}}"
+                             width="{{iconWidth}}" (click)="showEnrance()"/>
+                        <p>{{entrancesExitsStr}}</p>
+                    </ion-col>
+                    <ion-col col-4>
+                        <img tappable src="assets/img/homeicons/restaurants.png" height="{{iconHeight}}"
+                             width="{{iconWidth}}" (click)="showCafe()"/>
+                        <p>{{restaurantsCafe}}</p>
+                    </ion-col>
+                    <ion-col col-4>
+                        <img tappable src="assets/img/homeicons/wc.png" height="{{iconHeight}}" width="{{iconWidth}}" (click)="showWC()"/>
+                        <p>{{wcStr}}</p>
+                    </ion-col>
+                </ion-row>
+
+            </ion-grid>
+        </ion-slide>
+        <ion-slide>
+            <ion-grid>
+                <ion-row>
+                    <ion-col col-4>
+                        <img tappable src="assets/img/homeicons/info.png" height="{{iconHeight}}"
+                             width="{{iconWidth}}" (click)="showInfo()"/>
+                        <p>{{infoStr}}</p>
+                    </ion-col>
+                    <ion-col col-4>
+                        <img tappable src="assets/img/homeicons/army-2017.jpg" height="{{iconHeight}}"
+                             width="{{iconWidth}}"/>
+                        <p>{{myForumStr}}</p>
+                    </ion-col>
+                    <ion-col col-4>
+                        <img tappable src="assets/img/homeicons/qr-scanner.png" height="{{iconHeight}}"
+                             width="{{iconWidth}}" (click)="BarScannerPage()"/>
+                        <p>{{qrScannerStr}}</p>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </ion-slide>
+    </ion-slides>
+
+</ion-content>

@@ -1,0 +1,72 @@
+<!--
+  Generated template for the HowToGetPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-navbar>
+        <ion-title>{{titleStr}}</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <div *ngIf="lang=='ru'">
+        <ion-card>
+            <ion-card-header>
+                КАК ДОБРАТЬСЯ НА АВТОМОБИЛЕ
+            </ion-card-header>
+            <ion-card-content text-wrap>
+                <ion-item text-wrap>Необходимо ЗАРАНЕЕ приобрести автопропуск для въезда и стоянки на парковке Форума,
+                    если вы
+                    будете добираться до объектов Форума на автомобиле.
+                </ion-item>
+                <ion-item text-wrap>Продажа автопропусков на въезде не производится.</ion-item>
+                <ion-item text-wrap>Перехватывающих парковок нет.</ion-item>
+
+
+                <ion-item text-wrap>Для стоянки автотранспорта посетителей Форума предусмотрен платный въезд и стоянка
+                    на парковке
+                    Парка
+                    “Патриот” (Р1)
+                </ion-item>
+
+                <ion-item text-wrap>Доступ на парковки – по ЗАРАНЕЕ приобретенным автопропускам.</ion-item>
+
+
+                <ion-item text-wrap>Рекомендуемый маршрут проезда до парковки Р1:</ion-item>
+                <ion-item text-wrap>по Минскому шоссе – до указателя “Парк Патриот” (55-й км. Минского щоссе).
+                    Въезд на территорию парковки – по эстакаде через Минское шоссе.
+                </ion-item>
+            </ion-card-content>
+            <ion-row no-padding>
+
+                <button ion-button clear small color="danger" icon-left
+                        (click)="this.showLeafLetMapSimple('bycar.jpg','simple')">
+                    <ion-icon name='map'></ion-icon>
+                    Как добраться на автомобиле
+                </button>
+
+            </ion-row>
+        </ion-card>
+    </div>
+
+    <div *ngIf="lang=='en'">
+        <ion-list>
+            <ion-item>
+                <button ion-button>
+                    By car
+                </button>
+            </ion-item>
+            <ion-item>
+                <button ion-button>
+                    КВЦ "Патриот" и полигон "Алабино"
+                </button>
+            </ion-item>
+        </ion-list>
+    </div>
+
+</ion-content>

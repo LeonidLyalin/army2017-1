@@ -1,0 +1,99 @@
+@font-face {
+  font-family: "custom-icons-army2017";
+  src: url('../assets/fonts/custom-icons-army2017.eot');
+  src: url('../assets/fonts/custom-icons-army2017.eot?#iefix') format('eot'),
+  url('../assets/fonts/custom-icons-army2017.woff2') format('woff2'),
+  url('../assets/fonts/custom-icons-army2017.woff') format('woff'),
+  url('../assets/fonts/custom-icons-army2017.ttf') format('truetype'),
+  url('../assets/fonts/custom-icons-army2017.svg#custom-icons-army2017') format('svg');
+}
+
+%army2017 {
+  font-family: "custom-icons-army2017";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  text-decoration: none;
+  text-transform: none;
+}
+
+@function army2017-char($filename) {
+  $char: "";
+  
+    @if $filename == arrow-down {
+      $char: "\EA01";
+    }
+  
+    @if $filename == arrow-left {
+      $char: "\EA02";
+    }
+  
+    @if $filename == arrow-right {
+      $char: "\EA03";
+    }
+  
+    @if $filename == arrow-up {
+      $char: "\EA04";
+    }
+  
+    @if $filename == filter-2 {
+      $char: "\EA05";
+    }
+  
+    @if $filename == filter {
+      $char: "\EA06";
+    }
+  
+    @if $filename == level-up {
+      $char: "\EA07";
+    }
+  
+    @if $filename == star {
+      $char: "\EA08";
+    }
+  
+  @return $char;
+}
+
+@mixin army2017($filename) {
+  &:before {
+    @extend %army2017;
+    content: army2017-char($filename);
+  }
+}
+
+
+  custom-icon.set-army2017.icon-arrow-down {
+    @include army2017(arrow-down);
+  }
+
+  custom-icon.set-army2017.icon-arrow-left {
+    @include army2017(arrow-left);
+  }
+
+  custom-icon.set-army2017.icon-arrow-right {
+    @include army2017(arrow-right);
+  }
+
+  custom-icon.set-army2017.icon-arrow-up {
+    @include army2017(arrow-up);
+  }
+
+  custom-icon.set-army2017.icon-filter-2 {
+    @include army2017(filter-2);
+  }
+
+  custom-icon.set-army2017.icon-filter {
+    @include army2017(filter);
+  }
+
+  custom-icon.set-army2017.icon-level-up {
+    @include army2017(level-up);
+  }
+
+  custom-icon.set-army2017.icon-star {
+    @include army2017(star);
+  }
+

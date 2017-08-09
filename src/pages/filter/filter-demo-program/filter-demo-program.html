@@ -1,0 +1,51 @@
+<ion-scroll scrollY="true">
+  <ion-list scrollY="true">
+    <ion-item>
+      <ion-searchbar
+        [(ngModel)]="filterProvider.partOfName"
+        (ionInput)="selectConferenceSearch()"
+        (ionCancel)="cancelFilterName()"
+        placeholder="{{filterProvider.findName}}">
+      </ion-searchbar>
+
+    </ion-item>
+
+
+    <ion-item text-wrap>
+      <i class="fa fa-map-marker fa-2x"></i>
+      {{filterProvider.placeTitle}}
+
+        <button ion-button (click)="cancelFilterPlace()" item-right color="army-red">
+          <ion-icon name="close"></ion-icon>
+        </button>
+        <button ion-button (click)="filterPlace()" item-right color="army-red">
+          <ion-icon name="list"></ion-icon>
+        </button>
+
+    </ion-item>
+    <ion-item *ngIf="filterProvider.placeField && (filterProvider.placeField!='')">
+
+      <ion-label text-wrap>{{filterProvider.placeField}}</ion-label>
+
+    </ion-item>
+
+    <ion-item>
+      <i class="fa fa-calendar fa-2x"></i>
+      {{filterProvider.dateTitle}}
+
+        <button ion-button (click)="cancelFilterDate()" item-right color="army-red">
+          <ion-icon name="close"></ion-icon>
+        </button>
+        <button ion-button (click)="filterDate()" item-right color="army-red">
+          <ion-icon name="list"></ion-icon>
+        </button>
+
+    </ion-item>
+    <ion-item *ngIf="filterProvider.dateField && (filterProvider.dateField!='')">
+      <ion-label text-wrap>{{filterProvider.dateField}}</ion-label>
+
+    </ion-item>
+
+  </ion-list>
+</ion-scroll>
+

@@ -1,0 +1,64 @@
+<!--
+  Generated template for the HowToGetRoutesPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-navbar>
+        <ion-title>{{titleStr}}</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <div *ngIf="lang=='ru'">
+        <ion-list>
+            <ion-item>
+                <button ion-item
+                        (click)="this.showLeafLetMapSimple('noroutes.jpg','simple')" text-wrap>
+                    <ion-icon name='map'></ion-icon>
+                    Без маршрутов
+                </button>
+            </ion-item>
+            <ion-item>
+                <button ion-item
+                        (click)="this.showLeafLetMapSimple('toalabino.jpg','simple')" text-wrap>
+                    <ion-icon name='map'></ion-icon>
+                    В Алабино
+                </button>
+            </ion-item>
+            <ion-item>
+                <button ion-item
+                        (click)="this.showLeafLetMapSimple('tokubinka.jpg','simple')" text-wrap>
+                    <ion-icon name='map'></ion-icon>
+                    До кубинки
+                </button>
+            </ion-item>
+            <ion-item>
+                <button ion-item
+                        (click)="this.showLeafLetMapSimple('topatriot.jpg','simple')" text-wrap>
+                    <ion-icon name='map'></ion-icon>
+                    До Парка Патриот
+                </button>
+            </ion-item>
+            <ion-item>
+                <button ion-item
+                        (click)="this.showLeafLetMapSimple('innerroutes.jpg','simple')" text-wrap>
+                    <ion-icon name='map'></ion-icon>
+                    Внутренние маршруты
+                </button>
+            </ion-item>
+            <ion-item>
+                <button ion-item
+                        (click)="this.showLeafLetMapSimple('allroutes.jpg','simple')" text-wrap>
+                    <ion-icon name='map'></ion-icon>
+                    Все маршруты
+                </button>
+            </ion-item>
+        </ion-list>
+    </div>
+
+</ion-content>

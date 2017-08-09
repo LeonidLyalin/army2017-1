@@ -1,0 +1,99 @@
+<!--
+  Generated template for the HowToGetPatriotByTransportPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-navbar>
+        <ion-title text-wrap>{{titleStr}}</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <div *ngIf="lang=='ru'">
+        <ion-card>
+            <ion-card-header text-wrap text-center="">
+                <h2>С Белорусского вокзала</h2>
+            </ion-card-header>
+            <ion-card-content text-wrap>
+                <ion-row>
+
+                    <button ion-button clear small color="danger" icon-left
+                            (click)="this.showLeafLetMapSimple('bytransportkubinka.jpg','simple')" text-wrap>
+                        <ion-icon name='map'></ion-icon>
+                        Как добраться общественным транспортом
+                    </button>
+
+                </ion-row>
+
+
+
+                <h4 text-center>До станции "Голицыно":</h4>
+                <h6>Время отправления электропоездов:</h6>
+                <ion-item>6.58;</ion-item>
+                <ion-item>7.15; 7.21; 7.27; 7.44; 7.50;</ion-item>
+                <ion-item>8.00; 8.06; 8.12; 8.18; 8.24; 8.30; 8.36; 8.42; 8.48;</ion-item>
+                <ion-item>9.12; 9.21; 9.28; 9.36; 9.53;</ion-item>
+                <ion-item>10.01; 10.23; 10.35; 10.41;</ion-item>
+                <ion-item>11.10; 11.32; 11.53;</ion-item>
+                <ion-item>12.02; 12.11; 12.53</ion-item>
+                <ion-row >
+                    <ion-item text-wrap>Далее от станции "Голицыно" – бесплатным автобусом Форума (Маршрут №4) до КВЦ “Патриот”.</ion-item>
+                    <button ion-button clear small color="danger" icon-left
+                            (click)="this.showLeafLetMapSimple('togolitsynobytrain.jpg','simple')" text-wrap>
+                        <ion-icon name='map'></ion-icon>
+                        Схема транспортно-пересадочного узла "Голицыно"
+                    </button>
+
+                </ion-row>
+
+                <h4 text-center>До станции "Кубинка-1":</h4>
+                <h6>Время отправления электропоездов:</h6>
+                <ion-item>6.58;</ion-item>
+                <ion-item>7.27; 7.44; 7.50;</ion-item>
+                <ion-item>8.00; 8.06; 8.12; 8.18; 8.30; 8.42;</ion-item>
+                <ion-item>9.12; 9.21; 9.28; 9.53;</ion-item>
+                <ion-item>10.23; 10.35;</ion-item>
+                <ion-item>11.10; 11.32; 11.53;</ion-item>
+                <ion-item>12.02</ion-item>
+
+
+                <ion-row>
+                    <ion-item text-wrap>Далее от станции "Кубинка-1" – бесплатным автобусом Форума (Маршрут №5) до КВЦ “Патриот”.</ion-item>
+                    <button ion-button clear small color="danger" icon-left
+                            (click)="this.showLeafLetMapSimple('tokubinkabytrain.jpg','simple')" text-wrap>
+                        <ion-icon name='map'></ion-icon>
+                        Схема транспортно-пересадочного узла "Кубинка-1"
+                    </button>
+
+                </ion-row>
+
+
+
+
+            </ion-card-content>
+
+
+        </ion-card>
+    </div>
+
+    <div *ngIf="lang=='en'">
+        <ion-list>
+            <ion-item>
+                <button ion-button>
+                    By car
+                </button>
+            </ion-item>
+            <ion-item>
+                <button ion-button>
+                    КВЦ "Патриот" и полигон "Алабино"
+                </button>
+            </ion-item>
+        </ion-list>
+    </div>
+
+</ion-content>

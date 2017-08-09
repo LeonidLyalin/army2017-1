@@ -1,0 +1,24 @@
+<ion-header>
+
+  <ion-navbar>
+
+    <ion-title>{{filterTitle}}</ion-title>
+    <button ion-button color="danger" (click)="dismiss('','')">
+      <ion-icon name="close-circle" ></ion-icon>
+    </button>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content no-padding>
+
+  <ion-list>
+
+      <ion-item tappable *ngFor="let filter  of filterList" (click)="dismiss(filter.value, filter.field)"  text-wrap>
+        {{filter.field}}
+      </ion-item>
+
+  </ion-list>
+
+</ion-content>
