@@ -148,12 +148,12 @@ addFromApi(){
         exhibitSingle.name_rus.toUpperCase()
 
       ], (r) => {
-        console.log('Inserted... Sucess..', parseInt(exhibitSingle.id));
+        //console.log('Inserted... Sucess..', parseInt(exhibitSingle.id));
         this.select().then(s => {
           resolve(true)
         });
       }, e => {
-        console.log('Inserted Error', e);
+        //console.log('Inserted Error', e);
         resolve(false);
       })
     })

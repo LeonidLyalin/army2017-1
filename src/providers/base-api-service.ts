@@ -13,7 +13,7 @@ export class BaseApi {
 
 
     constructor(public http: Http) {
-        console.log('new Base  api is created');
+        //console.log('new Base  api is created');
         this.baseUrlApi = this.baseUrl + '/api';
         this.baseUrlAjax = this.baseUrl + '/ajax';
     }
@@ -21,7 +21,7 @@ export class BaseApi {
     //public userId:any;
 
    getApi(apiPhp) {
-        console.log('**about to make HTTP call for', apiPhp);
+        //console.log('**about to make HTTP call for', apiPhp);
         /*var headers = new Headers();
         headers.append("Access-Control-Allow-Origin", '*');*/
        /* headers.append("Accept", 'application/json');
@@ -31,13 +31,13 @@ export class BaseApi {
         return this.http.get(`${this.baseUrlApi}/` + apiPhp)
             .map(response => {
                 this.result = response.json();
-                console.log("getApi result=", this.result);
+                //console.log("getApi result=", this.result);
                 return this.result;
             });
     }
 /*
     getApi(apiPhp) {
-        console.log('**about to make HTTP call for', apiPhp);
+        //console.log('**about to make HTTP call for', apiPhp);
        var headers = new Headers();
         headers.append("Access-Control-Allow-Origin", '*');
 
@@ -46,7 +46,7 @@ export class BaseApi {
         return this.http.get(apiPhp)
             .map(response => {
                 this.result = response.json();
-                console.log("getApi result=", this.result);
+                //console.log("getApi result=", this.result);
                 return this.result;
             });
     }

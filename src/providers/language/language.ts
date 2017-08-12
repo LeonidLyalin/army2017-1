@@ -12,7 +12,7 @@ import 'rxjs/add/operator/map';
 export class LanguageProvider {
 
   constructor(public http: Http) {
-    console.log('Hello LanguageProvider Provider');
+    //console.log('Hello LanguageProvider Provider');
   }
 
 }

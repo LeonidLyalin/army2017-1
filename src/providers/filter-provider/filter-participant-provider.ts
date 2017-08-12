@@ -42,13 +42,13 @@ export class FilterParticipantProvider extends BaseLangPageProvider {
               public http: Http,
               public events: Events) {
     super(navCtrl, events, http)
-    console.log('Hello FilterExhibitProvider Provider');
+    //console.log('Hello FilterExhibitProvider Provider');
 
   }
 
   setFilterValue(filterStr) {
     this.filterStr = filterStr;
-    console.log("provider this.filterStr",this.filterStr)
+    //console.log("provider this.filterStr",this.filterStr)
   }
 
   setRussianStrings() {

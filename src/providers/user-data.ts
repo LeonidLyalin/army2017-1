@@ -7,159 +7,156 @@ import {UserApi} from "./user/user-api.service";
 
 @Injectable()
 export class UserData {
-  _favorites: string[] = [];
-  HAS_LOGGED_IN = 'hasLoggedIn';
-  HAS_SEEN_TUTORIAL = 'hasSeenTutorial';
+    _favorites: string[] = [];
+    //HAS_LOGGED_IN = 'hasLoggedIn';
+    //HAS_SEEN_TUTORIAL = 'hasSeenTutorial';
 
 
-  authSuccessStr:string;
-  wrongLogStr:string;
-  lang:string;
+    authSuccessStr: string;
+    wrongLogStr: string;
+    signupSuccessStr: string;
+    signupWrongStr: string;
+    lang: string;
 
-  constructor(public events: Events,
-              public storage: Storage,
-              public userApi: UserApi,
-              public toastCtrl: ToastController) {
-    this.events.subscribe('language:change', () => {
+    constructor(public events: Events,
+                public storage: Storage,
+                public userApi: UserApi,
+                public toastCtrl: ToastController) {
+        this.events.subscribe('language:change', () => {
 
 
-      this.lang = localStorage.getItem('lang');
-      if (this.lang == 'ru') {
-        console.log('this.events.subscribe(language:change)', this.lang);
-        this.setRussianStrings();
-      }
-      else {
-        this.setEnglishStrings();
-      }
-    });
-  }
-
-  setRussianStrings(){
-    this.authSuccessStr='Вы успешно авторизовались';
-    this.wrongLogStr='Неправильный логин или пароль';
-  }
-  setEnglishStrings(){
-    this.authSuccessStr='Successful login';
-    this.wrongLogStr='Login or password is wrong';
-  }
-
-  hasFavorite(sessionName: string): boolean {
-    return (this._favorites.indexOf(sessionName) > -1);
-  };
-
-  addFavorite(sessionName: string): void {
-    this._favorites.push(sessionName);
-  };
-
-  removeFavorite(sessionName: string): void {
-    let index = this._favorites.indexOf(sessionName);
-    if (index > -1) {
-      this._favorites.splice(index, 1);
+            this.lang = localStorage.getItem('lang');
+            if (this.lang == 'ru') {
+                //console.log('this.events.subscribe(language:change)', this.lang);
+                this.setRussianStrings();
+            }
+            else {
+                this.setEnglishStrings();
+            }
+        });
     }
-  };
 
-  login(username, password: string): void {
-    this.userApi.getUser(username, password).subscribe(
-      res => {
-        console.log("res after login");
-        console.log(res);
-        console.log(res.result.ID);
-        try{
-        if (res.result.ID>0){
-          console.log("successful auth");
-          localStorage.setItem('userid', res.result.ID);
-          this.storage.set(this.HAS_LOGGED_IN, true);
+    setRussianStrings() {
+        this.authSuccessStr = 'Вы успешно авторизовались';
+        this.signupSuccessStr = 'Вы успешно зарегистрировались';
+        this.signupWrongStr = 'Ошибка при регистрации';
+        this.wrongLogStr = 'Неправильный логин или пароль';
+    }
 
-          //this.storage.set("userId", res);
-          console.log("username");
-          console.log(username);
-          this.setUsername(username);
-          console.log("lastname");
-          console.log(res.result.LAST_NAME);
-          this.setLastName(res.result.LAST_NAME);
-          console.log("userID");
-          console.log(res.result.ID);
-          this.setUserId(res.result.ID);
-          this.events.publish('user:login');
-          let toast = this.toastCtrl.create({
-            message: this.authSuccessStr,
-            duration: 3000
-          });
-          toast.present();
+    setEnglishStrings() {
+        this.authSuccessStr = 'Successful login';
+        this.signupSuccessStr = 'Successful sign up';
+        this.signupWrongStr = 'Error on sign up';
+        this.wrongLogStr = 'Login or password is wrong';
+    }
+
+    hasFavorite(sessionName: string): boolean {
+        return (this._favorites.indexOf(sessionName) > -1);
+    };
+
+    addFavorite(sessionName: string): void {
+        this._favorites.push(sessionName);
+    };
+
+    removeFavorite(sessionName: string): void {
+        let index = this._favorites.indexOf(sessionName);
+        if (index > -1) {
+            this._favorites.splice(index, 1);
         }
-        else{
-          let toast = this.toastCtrl.create({
-            message: this.wrongLogStr,
-            duration: 3000
-          });
-          toast.present();
-        }
-      }catch (err) {
-          console.log("error");
-          console.log(err);
-          return err;
-        }
-      }
-    );
+    };
 
-  };
+    login(login, password: string): void {
+        this.userApi.checkUser(login, password).subscribe(
+            res => {
+                //console.log("res after login");
+                //console.log(res);
+                try {
+                    if (res.result.ID > 0) {
+                        //console.log("successful auth");
+                        localStorage.setItem('userid', res.result.ID);
+                        //console.log("login",res.result.LOGIN);
+                        localStorage.setItem('login',res.result.LOGIN);
+                        //console.log("lastname",res.result.LAST_NAME);
+                        localStorage.setItem('lastname',res.result.LAST_NAME);
+                        //console.log(res.result.NAME);
+                        localStorage.setItem('name',res.result.NAME);
+                        //console.log(res.result.EMAIL);
+                        localStorage.setItem('email',res.result.EMAIL);
+                        //console.log("userID");
+                        this.events.publish('user:login');
+                        let toast = this.toastCtrl.create({
+                            message: this.authSuccessStr,
+                            duration: 3000
+                        });
+                        toast.present();
+                    }
+                    else {
+                        let toast = this.toastCtrl.create({
+                            message: this.wrongLogStr,
+                            duration: 3000
+                        });
+                        toast.present();
+                    }
+                } catch (err) {
+                    let toast = this.toastCtrl.create({
+                        message: this.wrongLogStr,
+                        duration: 3000
+                    });
+                    toast.present();
+                    //console.log("error");
+                    //console.log(err);
+                    return err;
+                }
+            }
+        );
 
-  signup(username: string): void {
-    this.storage.set(this.HAS_LOGGED_IN, true);
-    this.setUsername(username);
-    this.events.publish('user:signup');
-  };
+    };
 
-  logout(): void {
-    this.storage.remove(this.HAS_LOGGED_IN);
-    this.storage.remove('userid');
-    this.events.publish('user:logout');
-  };
+    async signup(login: string, password: string, name: string, lastname: string, email: string, confirm_password: string) {
+        confirm_password = confirm_password || confirm_password;
 
-  setUsername(username: string): void {
-    this.storage.set('username', username);
-      this.storage.set('userid', username);
-  };
+        this.userApi.createUser(login, password, name, lastname, email, confirm_password).subscribe(res => {
+            if (res > 0) {
+                // localStorage.set(this.HAS_LOGGED_IN, true);
+                localStorage.setItem('login', login);
+                localStorage.setItem('lastname', lastname);
+                localStorage.setItem('lastname', name);
+                localStorage.setItem('email', email);
+                this.events.publish('user:signup');
 
-  setLastName(lastname: string): void {
-    this.storage.set('lastname', lastname);
-  };
+            }
+            else {
+                let toast = this.toastCtrl.create({
+                    message: this.signupWrongStr,
+                    duration: 3000
+                });
+                toast.present();
+            }
+        });
 
+    };
 
-  setUserId(userId: string): void {
-    this.storage.set('userid', userId);
-  };
-
-  getUsername(): Promise<string> {
-    return this.storage.get('username').then((value) => {
-      return value;
-    });
-  };
-
-
-  getLastName(): Promise<string> {
-    return this.storage.get('lastname').then((value) => {
-      return value;
-    });
-  };
+    logout(): void {
+        //   localStorage.remove(this.HAS_LOGGED_IN);
+        localStorage.removeItem('login');
+        localStorage.removeItem('userid');
+        localStorage.removeItem('name');
+        localStorage.removeItem('lastname');
+        localStorage.removeItem('email');
+        this.events.publish('user:logout');
+    };
 
 
-  getUserId(): Promise<string> {
-    return this.storage.get('userid').then((value) => {
-      return value;
-    });
-  };
 
-  hasLoggedIn(): Promise<boolean> {
-    console.log(this.storage.get(this.HAS_LOGGED_IN));
-    return this.storage.get(this.HAS_LOGGED_IN).then((value) => {
-      return value === true;
-    });
-  };
 
-  checkHasSeenTutorial(): Promise<string> {
-    return this.storage.get(this.HAS_SEEN_TUTORIAL).then((value) => {
-      return value;
-    });
-  };
+
+
+    hasLoggedIn() {
+
+        let value = localStorage.getItem('userid');
+        //console.log('value=', value);
+        return !!((value) && (value != '0'));
+    };
+
+
 }

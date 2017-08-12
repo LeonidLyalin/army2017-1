@@ -2,9 +2,7 @@ import {Injectable} from '@angular/core';
 import {Http} from '@angular/http';
 import 'rxjs/add/operator/map';
 import {Events, NavController} from "ionic-angular";
-import {PlaceSql} from "../place-sql/place-sql";
-import {map, MapSql} from "../map-sql/map-sql";
-import {LeafletMapPage} from "../../pages/leaflet-map/leaflet-map";
+
 
 /*
   Generated class for the BaseLangPageProvider provider.
@@ -24,14 +22,14 @@ export class BaseLangPageProvider {
     noStr: string;
     addStr: string;
     loadStr: string;
-    login: boolean;
+    //login: boolean;
 
 
     constructor(public navCtrl: NavController,
                 /*public navParams: NavParams,*/
                 public events: Events,
-                public http: Http,) {
-        console.log('Hello BaseLangPageProvider Provider');
+                public http: Http) {
+        //console.log('Hello BaseLangPageProvider Provider');
 
         this.userId = localStorage.getItem('userid');
 
@@ -50,7 +48,7 @@ export class BaseLangPageProvider {
 
             this.lang = localStorage.getItem('lang');
             if (this.lang == 'ru') {
-                console.log('this.events.subscribe(language:change)', this.lang);
+                //console.log('this.events.subscribe(language:change)', this.lang);
                 this.setRussianStrings();
             }
             else {

@@ -1,89 +1,130 @@
 <ion-header>
-  <ion-navbar>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title>{{titleStr}}</ion-title>
-    <ion-buttons end>
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>{{titleStr}}</ion-title>
+        <ion-buttons end>
 
-      <button ion-button icon-only (click)="showMapMyForum()">
-        <ion-icon name="map"></ion-icon>
-      </button>
-    </ion-buttons>
-  </ion-navbar>
+            <button ion-button icon-only (click)="showMapMyForum()">
+                <ion-icon name="map"></ion-icon>
+            </button>
+        </ion-buttons>
+    </ion-navbar>
 
-  <ion-toolbar no-border-top>
-    <ion-segment [(ngModel)]="forumSegment">
-      <ion-segment-button value="participantItems" (ionchange)="changeForumSegment('participantItems')">
-        {{exhibitorsStr}}
-      </ion-segment-button>
-      <ion-segment-button value="conferenceItems" (ionchange)="changeForumSegment('conferenceItems')">
-        {{conferenceStr}}
-      </ion-segment-button>
-    </ion-segment>
-  </ion-toolbar>
+    <ion-toolbar no-border-top>
+        <ion-segment [(ngModel)]="forumSegment">
+            <ion-segment-button value="participantItems" (ionchange)="changeForumSegment('participantItems')" text-wrap>
+                {{participantStr}}
+            </ion-segment-button>
+            <ion-segment-button value="conferenceItems" (ionchange)="changeForumSegment('conferenceItems')" text-wrap>
+                {{conferenceStr}}
+            </ion-segment-button>
+            <ion-segment-button value="exhibitItems" (ionchange)="changeForumSegment('exhibitItems')" text-wrap>
+                {{exhibitStr}}
+            </ion-segment-button>
+            <ion-segment-button value="demoItems" (ionchange)="changeForumSegment('demoItems')" text-wrap>
+                {{demoStr}}
+            </ion-segment-button>
+        </ion-segment>
+    </ion-toolbar>
 </ion-header>
 
 
 <ion-content>
 
 
-  <div [ngSwitch]="forumSegment">
+    <div [ngSwitch]="forumSegment">
 
-    <ion-list *ngSwitchCase="'participantItems'">
-      <ion-item-sliding *ngFor="let participant of myForumParticipant" #slidingItem>
+        <ion-list *ngSwitchCase="'participantItems'">
+            <ion-item *ngFor="let participant of myForumParticipant" #slidingItem>
 
-        <button ion-item (click)="goToParticipantDetail(participant)">
-          <ion-icon item-left *ngIf="participant.my_forum_id" name="star" color="danger"></ion-icon>
-          <ion-icon item-left *ngIf="!participant.my_forum_id" name="star-outline"></ion-icon>
-          <p>{{participant.name}}</p>
-          <p><ion-icon name="pin" color="danger"></ion-icon>{{participant.place_name}}<p>
-        </button>
-        <ion-item-options>
-          <button ion-button color="danger" *ngIf="!participant.my_forum_id" (click)="addToMyForumSite(participant.id)">
-            {{addMyForumStr}}
-          </button>
-          <button ion-button color="favorite" *ngIf="participant.my_forum_id"
-                  (click)="delFromMyForum(participant.my_forum_id)">
-            {{delMyForumStr}}
-          </button>
-        </ion-item-options>
-
-      </ion-item-sliding>
-    </ion-list>
+                <button ion-item (click)="goToParticipantDetail(participant)">
+                    <ion-icon item-left *ngIf="participant.my_forum_id" name="star" color="danger"></ion-icon>
+                    <ion-icon item-left *ngIf="!participant.my_forum_id" name="star-outline"></ion-icon>
+                    <p>{{participant.name}}</p>
+                    <p *ngIf="participant.place_name">
+                        <ion-icon name="pin" color="danger"></ion-icon>
+                        {{participant.place_name}}
+                    <p>
+                </button>
 
 
-    <ion-list *ngSwitchCase="'conferenceItems'">
-      <ion-item-sliding text-wrap #slidingItem *ngFor="let conferenceSingle of myForumConference" no-padding="true"
-                        no-margin="true">
-        <button ion-item (click)="goToConferenceDetail(conferenceSingle)">
-          <ion-icon item-left *ngIf="conferenceSingle.my_forum_id" name="star" color="danger"></ion-icon>
-          <ion-icon item-left *ngIf="!conferenceSingle.my_forum_id" name="star-outline"></ion-icon>
-          <p>
-          <ion-icon name="calendar" color="danger"></ion-icon>
-          <b color="primary">{{conferenceSingle.date_event}}</b>
-          </p>
-          <p>
-            <ion-icon name="timer" color="danger"></ion-icon>
-            <b color="primary">{{conferenceSingle.time_beg}} : {{conferenceSingle.time_end}}</b>
-          </p>
-          <p>{{conferenceSingle.name}}</p>
-          <p>
-            <ion-icon name="pin" color="danger"></ion-icon>
-            <b>{{conferenceSingle.place_name_place}}</b>
-          <p>
-        </button>
-        <ion-item-options>
-          <button ion-button color="danger" *ngIf="!conferenceSingle.my_forum_id"
-                  (click)="addToMyForumSite(conferenceSingle.id)">
-            {{addMyForumStr}}
-          </button>
-          <button ion-button color="favorite" *ngIf="conferenceSingle.my_forum_id"
-                  (click)="delFromMyForum(conferenceSingle.my_forum_id)">
-            {{delMyForumStr}}
-          </button>
-        </ion-item-options>
-      </ion-item-sliding>
-    </ion-list>
-  </div>
+            </ion-item>
+        </ion-list>
+
+
+        <ion-list *ngSwitchCase="'conferenceItems'">
+            <ion-item text-wrap #slidingItem *ngFor="let conferenceSingle of myForumConference"
+                              no-padding="true"
+                              no-margin="true">
+                <button ion-item (click)="goToConferenceDetail(conferenceSingle)">
+                    <ion-icon item-left *ngIf="conferenceSingle.my_forum_id" name="star" color="danger"></ion-icon>
+                    <ion-icon item-left *ngIf="!conferenceSingle.my_forum_id" name="star-outline"></ion-icon>
+                    <p>
+                        <ion-icon name="calendar" color="danger"></ion-icon>
+                        <b color="primary">{{conferenceSingle.date_event}}</b>
+                    </p>
+                    <p>
+                        <ion-icon name="timer" color="danger"></ion-icon>
+                        <b color="primary">{{conferenceSingle.time_beg}} : {{conferenceSingle.time_end}}</b>
+                    </p>
+                    <p>{{conferenceSingle.name}}</p>
+                    <p *ngIf="conferenceSingle.place_name_place">
+                        <ion-icon name="pin" color="danger"></ion-icon>
+                        <b>{{conferenceSingle.place_name_place}}</b>
+                    <p>
+                </button>
+
+            </ion-item>
+        </ion-list>
+
+
+        <ion-list *ngSwitchCase="'exhibitItems'">
+
+            <ion-item *ngFor="let exhibit of myForumExhibit" text-wrap>
+                <button ion-item (click)="goToExhibitDetail(exhibit)">
+                    <ion-icon item-left *ngIf="exhibit.my_forum_id&&userId" name="star" color="danger"></ion-icon>
+                    <ion-icon item-left *ngIf="!exhibit.my_forum_id&&userId" name="star-outline"></ion-icon>
+                    <p>{{exhibit.name}}</p>
+                    <p *ngIf="!exhibit.place_name_place">
+                        <ion-icon name="pin" color="danger"></ion-icon>
+                        {{exhibit.place_name}}
+                    </p>
+                    <p *ngIf="exhibit.place_name_place">
+                        <ion-icon name="pin" color="danger"></ion-icon>
+                        {{exhibit.place_name_place}}
+                    </p>
+                </button>
+
+            </ion-item>
+        </ion-list>
+
+
+        <ion-list *ngSwitchCase="'demoItems'">
+
+            <ion-item *ngFor="let demo of myForumDemoProgram" text-wrap no-padding
+                      no-margin="true">
+                <button ion-item (click)="goToListDetail(demo)">
+                    <ion-icon item-left *ngIf="demo.my_forum_id" name="star" color="danger"></ion-icon>
+                    <ion-icon item-left *ngIf="!demo.my_forum_id" name="star-outline"></ion-icon>
+                    <p>
+                        <ion-icon name="calendar" color="danger"></ion-icon>
+                        <b color="primary">{{demo.date_event}} </b>
+                        <ion-icon name="timer" color="danger"></ion-icon>
+                        <b color="primary">{{demo.time_beg}} : {{demo.time_end}}</b>
+                    </p>
+
+                    <p>{{demo.name_first}}</p>
+                    <h6>{{demo.name_second}}</h6>
+                    <p>
+                        <ion-icon name="pin" color="danger"></ion-icon>
+                        <b>{{demo.place_name}}</b>
+                    <p>
+                </button>
+
+            </ion-item>
+        </ion-list>
+
+    </div>
 </ion-content>

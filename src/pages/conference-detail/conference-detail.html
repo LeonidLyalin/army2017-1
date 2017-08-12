@@ -8,24 +8,24 @@
   <ion-card>
 
     <ion-card-header text-wrap>
-      <p>{{conferenceSingle.name}}</p>
+      <p>{{element.name}}</p>
     </ion-card-header>
     <ion-card-content>
       <p><ion-icon name="calendar" color="danger"></ion-icon>
-        <b color="primary">{{conferenceSingle.date_event}} </b>
+        <b color="primary">{{element.date_event}} </b>
       </p>
       <p><ion-icon name="timer" color="danger"></ion-icon>
-        <b color="primary">{{conferenceSingle.time_beg}} : {{conferenceSingle.time_end}}</b>
+        <b color="primary">{{element.time_beg}} : {{element.time_end}}</b>
       </p>
-      <p *ngIf="!conferenceSingle.place_name_place"><ion-icon name="pin" color="danger"></ion-icon>
-        {{conferenceSingle.place_name}}</p>
-      <p *ngIf="conferenceSingle.place_name_place"><ion-icon name="pin" color="danger"></ion-icon>
-        {{conferenceSingle.place_name_place}}</p>
+      <p *ngIf="!element.place_name_place"><ion-icon name="pin" color="danger"></ion-icon>
+        {{element.place_name}}</p>
+      <p *ngIf="element.place_name_place"><ion-icon name="pin" color="danger"></ion-icon>
+        {{element.place_name_place}}</p>
       <p><ion-icon name="microphone" color="danger"></ion-icon>
-        {{conferenceSingle.format}}</p>
+        {{element.format}}</p>
 
       <p><ion-icon name="call" color="danger"></ion-icon>
-        {{conferenceSingle.contact}}</p>
+        {{element.contact}}</p>
     </ion-card-content>
 
     <ion-list>
@@ -40,15 +40,15 @@
     </ion-list>
     <ion-row no-padding>
       <ion-col>
-        <button ion-button clear small color="danger" icon-left (click)="this.showLeafLetMap(conferenceSingle,'conferenceDetail')">
+        <button ion-button clear small color="danger" icon-left (click)="this.showLeafLetMap(element,'conferenceDetail')">
           <ion-icon name='map' ></ion-icon>
           {{onMapStr}}
         </button>
       </ion-col>
       <ion-col>
-        <button ion-button clear small color="danger" icon-left>
-          <ion-icon item-left *ngIf="myForum" name="star" color="danger" (click)="deleteFromMyForum(myForum)"></ion-icon>
-          <ion-icon item-left *ngIf="!myForum" name="star-outline" (click)="addToMyForumSite(conferenceSingle.id)"></ion-icon>
+        <button ion-button clear small color="danger" icon-left (click)="changeMyForum(element)">
+          <ion-icon item-left *ngIf="element.my_forum_id" name="star" color="danger"> </ion-icon>
+          <ion-icon item-left *ngIf="!element.my_forum_id" name="star-outline" ></ion-icon>
           {{myForumStr}}
         </button>
       </ion-col>

@@ -14,28 +14,64 @@
 	</div>
 
 	<form #signupForm="ngForm" novalidate>
-		<ion-list no-lines>
+		<ion-list>
 			<ion-item>
-				<ion-label stacked color="primary">Логин</ion-label>
-				<ion-input [(ngModel)]="signup.username" name="username" type="text" #username="ngModel" required>
+				<ion-label stacked color="primary">{{loginStr}}</ion-label>
+				<ion-input [(ngModel)]="signup.login" name="login" type="text" #login="ngModel" required>
 				</ion-input>
 			</ion-item>
-			<p ion-text [hidden]="username.valid || submitted == false" color="danger" padding-left>
-				Username is required
+			<p ion-text [hidden]="login.valid || submitted == false" color="danger" padding-left>
+				{{loginIsReq}}
 			</p>
 
 			<ion-item>
-				<ion-label stacked color="primary">Пароль</ion-label>
+				<ion-label stacked color="primary">{{nameStr}}</ion-label>
+				<ion-input [(ngModel)]="signup.name" name="name" type="text" #name="ngModel" required>
+				</ion-input>
+			</ion-item>
+			<p ion-text [hidden]="name.valid || submitted == false" color="danger" padding-left>
+				{{nameIsReq}}
+			</p>
+
+			<ion-item>
+				<ion-label stacked color="primary">{{surnameStr}}</ion-label>
+				<ion-input [(ngModel)]="signup.lastname" name="lastname" type="text" #lastname="ngModel" required>
+				</ion-input>
+			</ion-item>
+			<p ion-text [hidden]="lastname.valid || submitted == false" color="danger" padding-left>
+				{{surnameIsReq}}
+			</p>
+
+			<ion-item>
+				<ion-label stacked color="primary">{{emailStr}}</ion-label>
+				<ion-input [(ngModel)]="signup.email" name="email" type="email" #email="ngModel" required>
+				</ion-input>
+			</ion-item>
+			<p ion-text [hidden]="email.valid || submitted == false" color="danger" padding-left>
+				{{emailIsReq}}
+			</p>
+
+			<ion-item>
+				<ion-label stacked color="primary">{{passwordStr}}</ion-label>
 				<ion-input [(ngModel)]="signup.password" name="password" type="password" #password="ngModel" required>
 				</ion-input>
 			</ion-item>
 			<p ion-text [hidden]="password.valid || submitted == false" color="danger" padding-left>
-				Password is required
+				{{passwordIsReq}}
+			</p>
+
+			<ion-item>
+				<ion-label stacked color="primary">{{confirmStr}}</ion-label>
+				<ion-input [(ngModel)]="signup.confirm_password" name="confirm_password" type="password" #confirm_password="ngModel" required>
+				</ion-input>
+			</ion-item>
+			<p ion-text [hidden]="confirm_password.valid || submitted == false" color="danger" padding-left>
+				{{confirmIsReq}}
 			</p>
 		</ion-list>
 
 		<div padding>
-			<button ion-button (click)="onSignup(signupForm)" type="submit" block>Зарегистрироваться</button>
+			<button ion-button (click)="onSignup(signupForm)" type="submit" block>{{signUpStr}}</button>
 		</div>
 	</form>
 

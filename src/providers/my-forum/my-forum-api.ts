@@ -18,18 +18,20 @@ export class MyForumApi extends BaseApi {
 
   constructor(public http: Http) {
     super(http);
-    console.log('Hello MyForumApi Provider');
+    //console.log('Hello MyForumApi Provider');
+
+
 
   }
 
   getMyForum(userID) {
 
 
-    console.log('**about to make HTTP call for all');
+    //console.log('**about to make HTTP call for all');
     return this.http.get(`${this.baseUrlApi}/my_forum/my_forum_list.php?USER=` + userID + `&LOWERCASE=1`)
       .map(response => {
         this.myForum = response.json();
-        console.log(this.myForum);
+        //console.log(this.myForum);
         return this.myForum;
       });
 
@@ -52,12 +54,14 @@ export class MyForumApi extends BaseApi {
   addToMyForumSite(id_block, id) {
     let user_id=localStorage.getItem('userid');
     if (!(user_id=>0) )
-    console.log('**about to add to MyForum');
-    return this.http.get(`${this.baseUrlAjax}/add_my_forum.php?USER_ID=` + user_id + `&ID_BLOCK=` + id_block + '&ID=' + id)
+    //console.log('**about to add to MyForum');
+      //console.log(`${this.baseUrlAjax}/add_my_forum.php?USER_ID=` + user_id + `&ID_BLOCK=` + id_block + '&ID=' + id);
+
+      return this.http.get(`${this.baseUrlAjax}/add_my_forum.php?USER_ID=` + user_id + `&ID_BLOCK=` + id_block + '&ID=' + id)
       .map(data => {
         let res=data.json();
-        console.log("added to MyForum");
-        console.log(res);
+        //console.log("added to MyForum");
+        //console.log(res);
         return res;
       });
   }
@@ -68,13 +72,13 @@ export class MyForumApi extends BaseApi {
    * @returns {Observable<R>}
    */
   delFromMyForum(id) {
-    console.log('**about to delete from MyForum');
-    console.log(id);
+    //console.log('**about to delete from MyForum');
+    //console.log(id);
     return this.http.get(`${this.baseUrlAjax}/del_my_forum.php?DEL_ID=` + id)
       .map(data => {
         let res=data.json;
-        console.log("deleted from MyForum");
-        console.log(res);
+        //console.log("deleted from MyForum");
+        //console.log(res);
         return res;
       });
   }

@@ -31,29 +31,29 @@ export class FilterParticipantPage extends BaseLangPageProvider {
 
     setRussianStrings() {
         super.setRussianStrings();
-        console.log('this.setRussianStrings()');
+        //console.log('this.setRussianStrings()');
 
 
     }
 
     setEnglishStrings() {
         super.setEnglishStrings();
-        console.log('this.setEnglishStrings()');
+        //console.log('this.setEnglishStrings()');
 
     }
 
     filterCreate() {
         if ((this.filterProvider.mapValue) && ( (!this.filterProvider.placeValue) || (this.filterProvider.placeValue == '')))
             this.filterCreateWhereStrMap().then(res => {
-                console.log(' filterMap()1 res=', <any>res);
+                //console.log(' filterMap()1 res=', <any>res);
                 this.filterProvider.setFilterValue(<string>res);
             });
         else
             this.filterCreateWhereStr().then(res => {
-                console.log(' filterMap() res=', <any>res);
+                //console.log(' filterMap() res=', <any>res);
                 this.filterProvider.setFilterValue(<string>res);
             });
-        console.log('this.filterProvider.filterStr=', this.filterProvider.filterStr);
+        //console.log('this.filterProvider.filterStr=', this.filterProvider.filterStr);
     }
 
     filterThematic() {
@@ -70,7 +70,7 @@ export class FilterParticipantPage extends BaseLangPageProvider {
         let filterModal = this.modalCtrl.create(FilterPage, parameters);
         filterModal.onDidDismiss(
             data => {
-                console.log(data);
+                //console.log(data);
                 this.filterProvider.thematicField = data["field"];
                 this.filterProvider.thematicValue = data["value"];
                 /* this.filterProvider.filterStr=this.filterCreateWhereStr();*/
@@ -94,7 +94,7 @@ export class FilterParticipantPage extends BaseLangPageProvider {
         let filterModal = this.modalCtrl.create(FilterPage, parameters);
         filterModal.onDidDismiss(
             data => {
-                console.log(data);
+                //console.log(data);
                 this.filterProvider.mapField = data["field"];
                 this.filterProvider.mapValue = data["value"];
                 // this.filterStr=this.filterCreateWhereStr();
@@ -119,7 +119,7 @@ export class FilterParticipantPage extends BaseLangPageProvider {
             let filterModal = this.modalCtrl.create(FilterPage, parameters);
             filterModal.onDidDismiss(
                 data => {
-                    console.log(data);
+                    //console.log(data);
                     this.filterProvider.placeField = data["field"];
                     this.filterProvider.placeValue = data["value"];
                     //this.filterProvider.filterStr=
@@ -144,7 +144,7 @@ export class FilterParticipantPage extends BaseLangPageProvider {
         let filterModal = this.modalCtrl.create(FilterPage, parameters);
         filterModal.onDidDismiss(
             data => {
-                console.log(data);
+                //console.log(data);
                 this.filterProvider.countryField = data["field"];
                 this.filterProvider.countryValue = data["value"];
                 //this.filterStr=this.filterCreateWhereStr();
@@ -156,10 +156,10 @@ export class FilterParticipantPage extends BaseLangPageProvider {
     }
 
     filterCreateWhereStr() {
-        console.log("this.thematicValue", this.filterProvider.thematicValue);
-        console.log("this.countryValue", this.filterProvider.countryValue);
-        console.log("this.mapValue=", this.filterProvider.mapValue);
-        console.log("(this.placeValue=", this.filterProvider.placeValue);
+        //console.log("this.thematicValue", this.filterProvider.thematicValue);
+        //console.log("this.countryValue", this.filterProvider.countryValue);
+        //console.log("this.mapValue=", this.filterProvider.mapValue);
+        //console.log("(this.placeValue=", this.filterProvider.placeValue);
         return new Promise(res => {
             let whereStr = '';
 
@@ -186,14 +186,14 @@ export class FilterParticipantPage extends BaseLangPageProvider {
                 let places = new BaseSql(this.http, 'place');
                 places.selectDistinct("id", "name_map='" + this.filterProvider.mapValue + "'").then(rs => {
                     let placeList = <any>rs;
-                    console.log("place", placeList);
+                    //console.log("place", placeList);
                     if (placeList.length > 0) whereStr += ((whereStr != '') ? ' and (' : ' (');
                     for (let i = 0; i < placeList.length; i++) {
                         whereStr += ' place=' + placeList[i].id;
                         if (i < placeList.length - 1) whereStr += ' or ';
                     }
                     whereStr += ')';
-                    console.log("((this.placeValue=='') && (this.mapValue!=''))", whereStr);
+                    //console.log("((this.placeValue=='') && (this.mapValue!=''))", whereStr);
                 })
 
             }
@@ -203,7 +203,7 @@ export class FilterParticipantPage extends BaseLangPageProvider {
                 whereStr += ((whereStr != '') ? ' and ' : '') + '(a.thematic="' + this.filterProvider.thematicValue + '" or a.thematic like "' + this.filterProvider.thematicValue +
                     ',%"' + ' or a.thematic like "%,' + this.filterProvider.thematicValue + '" or  a.thematic like "%,' + this.filterProvider.thematicValue + ',%")';
             }
-            console.log("(whereStr after thematic=", whereStr);
+            //console.log("(whereStr after thematic=", whereStr);
 
             /*if (this.partOfName != '') whereStr += ((whereStr != '') ? ' and ' : '') + ' a.name_rus like ' + '"%' + this.partOfName + '%"';
              */
@@ -211,19 +211,19 @@ export class FilterParticipantPage extends BaseLangPageProvider {
                 whereStr += ((whereStr != '') ? ' and ' : '') + '  a.place="' + this.filterProvider.placeValue + '"';
             if (whereStr != '') whereStr = ' where ' + whereStr;
 
-            console.log('so whereStr is =', whereStr);
+            //console.log('so whereStr is =', whereStr);
             this.filterProvider.setFilterValue(whereStr);
-            console.log('so whereStr is =', whereStr);
+            //console.log('so whereStr is =', whereStr);
 
             return res(whereStr)
         });
     }
 
     filterCreateWhereStrMap() {
-        console.log("this.thematicValue", this.filterProvider.thematicValue);
-        console.log("this.countryValue", this.filterProvider.countryValue);
-        console.log("this.mapValue=", this.filterProvider.mapValue);
-        console.log("(this.placeValue=", this.filterProvider.placeValue);
+        //console.log("this.thematicValue", this.filterProvider.thematicValue);
+        //console.log("this.countryValue", this.filterProvider.countryValue);
+        //console.log("this.mapValue=", this.filterProvider.mapValue);
+        //console.log("(this.placeValue=", this.filterProvider.placeValue);
         return new Promise(res => {
             let whereStr = '';
 
@@ -233,7 +233,7 @@ export class FilterParticipantPage extends BaseLangPageProvider {
                 let places = new BaseSql(this.http, 'place');
                 places.selectDistinct("id", "name_map='" + this.filterProvider.mapValue + "'").then(rs => {
                     let placeList = <any>rs;
-                    console.log("place", placeList);
+                    //console.log("place", placeList);
                     if (placeList.length > 0) whereStr += ((whereStr != '') ? ' and (' : ' (');
                     for (let i = 0; i < placeList.length; i++) {
                         whereStr += ' place=' + placeList[i].id;
@@ -249,13 +249,13 @@ export class FilterParticipantPage extends BaseLangPageProvider {
                             whereStr += ((whereStr != '') ? ' and ' : '') + 'a.country_eng="' + this.filterProvider.countryValue + '"';
                         }
                     }
-                    console.log("((this.placeValue=='') && (this.mapValue!=''))", whereStr);
+                    //console.log("((this.placeValue=='') && (this.mapValue!=''))", whereStr);
                     if (this.filterProvider.thematicValue) {
 
                         whereStr += ((whereStr != '') ? ' and ' : '') + '(a.thematic="' + this.filterProvider.thematicValue + '" or a.thematic like "' + this.filterProvider.thematicValue +
                             ',%"' + ' or a.thematic like "%,' + this.filterProvider.thematicValue + '" or  a.thematic like "%,' + this.filterProvider.thematicValue + ',%")';
                     }
-                    console.log("(whereStr after thematic=", whereStr);
+                    //console.log("(whereStr after thematic=", whereStr);
                     if ((this.filterProvider.partOfName) && (this.filterProvider.partOfName != '')) {
                         if (this.lang == 'ru') {
                             whereStr += ((whereStr != '') ? ' and ' : '') + ' a.name_rus_upper like' + '"%' + this.filterProvider.partOfName.toUpperCase() + '%"';
@@ -267,9 +267,9 @@ export class FilterParticipantPage extends BaseLangPageProvider {
                     }
 
                     if (whereStr != '') whereStr = ' where ' + whereStr;
-                    console.log('so whereStr is =', whereStr);
+                    //console.log('so whereStr is =', whereStr);
                     this.filterProvider.setFilterValue(whereStr);
-                    console.log('so whereStr is =', whereStr);
+                    //console.log('so whereStr is =', whereStr);
                 });
 
 
@@ -282,7 +282,7 @@ export class FilterParticipantPage extends BaseLangPageProvider {
     }
 
     setFilter() {
-        console.log(this.filterCreateWhereStr());
+        //console.log(this.filterCreateWhereStr());
         //this.filterStr = this.filterCreateWhereStr();
 
         this.filterProvider.setFilterValue(this.filterCreateWhereStr());

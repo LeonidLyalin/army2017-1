@@ -18,7 +18,7 @@ export class BaseListPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad BaseListPage');
+    //console.log('ionViewDidLoad BaseListPage');
   }
 
 }

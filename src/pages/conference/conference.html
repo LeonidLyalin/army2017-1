@@ -47,45 +47,34 @@
   </div>
 
   <div *ngIf="showMainList">
-    <div *ngFor="let conferenceSingle of listOut">
 
 
-      <ion-list>
 
-        <ion-item-sliding text-wrap="true" #slidingItem no-padding="true"
-                          no-margin="true">
-          <button ion-item (click)="goToConferenceDetail(conferenceSingle)">
-            <ion-icon item-left *ngIf="conferenceSingle.my_forum_id" name="star" color="danger"></ion-icon>
-            <ion-icon item-left *ngIf="!conferenceSingle.my_forum_id" name="star-outline"></ion-icon>
+      <ion-list >
+
+        <ion-item *ngFor="let element of listOut" text-wrap="true">
+          <button ion-item (click)="goToConferenceDetail(element)">
+            <ion-icon item-left *ngIf="element.my_forum_id&&userId" name="star" color="danger"></ion-icon>
+            <ion-icon item-left *ngIf="!element.my_forum_id&&userId" name="star-outline"></ion-icon>
             <p>
               <ion-icon name="calendar" color="danger"></ion-icon>
-              <b color="primary">{{conferenceSingle.date_event}} </b>
+              <b color="primary">{{element.date_event}} </b>
               <ion-icon name="timer" color="danger"></ion-icon>
-              <b color="primary">{{conferenceSingle.time_beg}} : {{conferenceSingle.time_end}}</b>
+              <b color="primary">{{element.time_beg}} : {{element.time_end}}</b>
             </p>
-            <p>{{conferenceSingle.name}}</p>
-            <p *ngIf="!conferenceSingle.place_name_place">
+            <p>{{element.name}}</p>
+            <p *ngIf="!element.place_name_place">
               <ion-icon name="pin" color="danger"></ion-icon>
-              {{conferenceSingle.place_name}}
+              {{element.place_name}}
             </p>
-            <p *ngIf="conferenceSingle.place_name_place">
+            <p *ngIf="element.place_name_place">
               <ion-icon name="pin" color="danger"></ion-icon>
-              {{conferenceSingle.place_name_place}}
+              {{element.place_name_place}}
             </p>
           </button>
-          <ion-item-options>
-            <button ion-button color="danger" *ngIf="!conferenceSingle.my_forum_id"
-                    (click)="addToMyForumSite(conferenceSingle.id)">
-              {{addMyForumStr}}
-            </button>
-            <button ion-button color="favorite" *ngIf="conferenceSingle.my_forum_id"
-                    (click)="deleteFromMyForum(conferenceSingle.my_forum_id)">
-              {{delMyForumStr}}
-            </button>
-          </ion-item-options>
-        </ion-item-sliding>
+        </ion-item>
       </ion-list>
-    </div>
+
   </div>
 
 

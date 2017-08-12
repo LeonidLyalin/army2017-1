@@ -6,19 +6,26 @@
 </ion-header>
 
 <ion-content class="outer-content">
-  <div padding-top text-center *ngIf="username">
+  <div padding-top text-center *ngIf="login">
     <img src="http://www.gravatar.com/avatar?d=mm&s=140" alt="avatar">
-    <h2>{{username}}</h2>
-    <h2>{{lastname}}</h2>
-    <ion-list inset>
+    <h4 text-center>{{loginStr}}</h4>
+    <h2 text-center>{{login}}</h2>
+    <h4 text-center>{{nameStr}}</h4>
+    <h2 text-center>{{name}}</h2>
+    <h4 text-center>{{lastnameStr}}</h4>
+    <h2 text-center>{{lastname}}</h2>
+    <h4 text-center>{{emailStr}}</h4>
+    <h2 text-centerА>{{email}}</h2>
+
+<!--    <ion-list inset>
       <button ion-item (click)="updatePicture()">{{updatePictureStr}}</button>
       <button ion-item (click)="changeUsername()">{{changeUserNameStr}}</button>
       <button ion-item (click)="changePassword()">{{changePasswordStr}}</button>
       <button ion-item (click)="support()">{{supportStr}}</button>
       <button ion-item (click)="logout()">{{logOutStr}}</button>
-    </ion-list>
+    </ion-list>-->
   </div>
-  <ion-buttons align-items-center>
-    <button ion-button (click)="exitProfile()">{{exitStr}}</button>
-  </ion-buttons>
+
+    <button ion-item  (click)="exitProfile()">{{exitStr}}</button>
+
 </ion-content>

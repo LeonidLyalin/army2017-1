@@ -4,6 +4,7 @@ import {WarTacticPage} from "../war-tactic-page/war-tactic-page";
 import {SectorVksPage} from "../sektor-vks-page/sector-vks-page";
 import {DemoOpkPage} from "../demo-opk-page/demo-opk-page";
 
+
 /**
  * Generated class for the ParkPatriotPage page.
  *

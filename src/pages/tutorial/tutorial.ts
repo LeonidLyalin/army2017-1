@@ -25,7 +25,7 @@ export class TutorialPage {
 
   startApp() {
     this.navCtrl.push(TabsPage).then(() => {
-      this.storage.set('hasSeenTutorial', 'true');
+      localStorage.set('hasSeenTutorial', 'true');
     })
   }
 

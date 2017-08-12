@@ -23,8 +23,7 @@ export class LeafletMapPage extends BaseListPageProvider {
 
 
     iconPath = 'assets/img/icons/';
-
-
+    mapPath = 'assets/img/maps/'
 
     map: any;
     bounds: any;
@@ -106,9 +105,9 @@ export class LeafletMapPage extends BaseListPageProvider {
         this.popupElement = navParams.get('popupElement');
         this.place = navParams.get('place');
         this.currentMap = navParams.get('map');
-        console.log("popupElement=", this.popupElement);
-        console.log("place=", this.place);
-        console.log("currentMap=", this.currentMap);
+        //console.log("popupElement=", this.popupElement);
+        //console.log("place=", this.place);
+        //console.log("currentMap=", this.currentMap);
 
         this.initIcons();
 
@@ -151,7 +150,7 @@ export class LeafletMapPage extends BaseListPageProvider {
 
     showHideHelp() {
         super.showHideHelp();
-        console.log(this.lang);
+        //console.log(this.lang);
     }
 
     /**
@@ -161,7 +160,7 @@ export class LeafletMapPage extends BaseListPageProvider {
 
         this.mapList = [];
 
-        console.log("createMapList(popupElement=", this.popupElement);
+        //console.log("createMapList(popupElement=", this.popupElement);
         if (this.popupElement && this.popupElement.length) {
 
             let flags = [], l = (this.popupElement.length);
@@ -174,13 +173,12 @@ export class LeafletMapPage extends BaseListPageProvider {
 
 
             }
-            console.log("mapList=", this.mapList);
+            //console.log("mapList=", this.mapList);
             //  this.showArrow = (this.mapList.length > 1);
 
         }
 
     }
-
 
 
     /**
@@ -194,8 +192,8 @@ export class LeafletMapPage extends BaseListPageProvider {
             this.map = L.map('map', {
                 crs: L.CRS.Simple,
                 attributionControl: false,
-                maxBounds: [[0, 0], [(this.content.contentHeight>Number(this.currentMap.height)?this.content.contentHeight:Number(this.currentMap.height)+this.iconArrowSize)
-                    ,(this.content.contentWidth>Number(this.currentMap.width)?this.content.contentWidth:Number(this.currentMap.width)+this.iconArrowSize) ]],
+                maxBounds: [[0, 0], [(this.content.contentHeight > Number(this.currentMap.height) ? this.content.contentHeight : Number(this.currentMap.height) + this.iconArrowSize)
+                    , (this.content.contentWidth > Number(this.currentMap.width) ? this.content.contentWidth : Number(this.currentMap.width) + this.iconArrowSize)]],
             });
             this.map.tap = true;
             this.map.on('click', (e) => {
@@ -208,30 +206,35 @@ export class LeafletMapPage extends BaseListPageProvider {
 
         }
         else (this.deleteLayers());
-        console.log("this.placeListForMap=", this.placeListForMap);
-        console.log("currentMap=", this.currentMap);
+        //console.log("this.placeListForMap=", this.placeListForMap);
+        //console.log("currentMap=", this.currentMap);
         this.map.options.minZoom = (this.currentMap.min_zoom ? this.currentMap.min_zoom : 0);
         this.map.options.maxZoom = (this.currentMap.max_zoom ? this.currentMap.max_zoom : 5);
-        this.map.options.zoom = (this.currentMap.begin_zoom ? this.currentMap.begin_zoom : 1);
+
         this.bounds = [[0, 0], [Number(this.currentMap.height), Number(this.currentMap.width)]];//new L.LatLngBounds(this.southWest, this.northEast);
 
-        console.log("this.bounds=", this.bounds);
-        L.imageOverlay('assets/img/maps/' + this.currentMap.name_map, this.bounds).addTo(this.map);
+        //console.log("this.bounds=", this.bounds);
+        L.imageOverlay(this.mapPath + this.currentMap.name_map, this.bounds).addTo(this.map);
         this.map.fitBounds(this.bounds);
+        this.map.options.zoom = (this.currentMap.begin_zoom ? this.currentMap.begin_zoom : 1);
         this.titleStr = this.currentMap['name_' + (this.lang == 'ru' ? 'rus' : 'eng')];
         //  this.map.dragging.disable();
 
         //  this.createPlaceListForMap();
         if ((this.typeOfMap == 'conference') || (this.typeOfMap == 'participant')
-            || (this.typeOfMap == 'exhibit') || (this.typeOfMap == 'simple') || (this.typeOfMap == 'demo-program')) {
+            || (this.typeOfMap == 'exhibit') || (this.typeOfMap == 'simple')
+            || (this.typeOfMap == 'demo-program')) {
             this.placeListForMap = await this.placeSql.selectWhere('name_map="' + this.currentMap.name_map + '"');
             // this.placeListForMap = <any>res;
             this.setSignsForMap();
             this.showArrowIcons();
             this.setIconsForMap();
-            if ((this.typeOfMap == 'participant') || (this.typeOfMap == 'conference') || (this.typeOfMap == 'exhibit')|| (this.typeOfMap == 'demo-program')) {
+            if ((this.typeOfMap == 'participant') || (this.typeOfMap == 'conference')
+                || (this.typeOfMap == 'exhibit') || (this.typeOfMap == 'demo-program')) {
                 this.setSigns();
             }
+
+
         }
 
 
@@ -243,7 +246,7 @@ export class LeafletMapPage extends BaseListPageProvider {
 
             this.leftArrow.addTo(this.map);
             this.leftArrow.on('click', (e) => {
-                console.log(e);
+                //console.log(e);
                 this.mapDirection('left')
             });
         }
@@ -255,7 +258,7 @@ export class LeafletMapPage extends BaseListPageProvider {
             });
         }
         if (this.currentMap.map_up) {
-            this.upArrow = L.marker([this.currentMap.height-this.iconArrowSize, this.currentMap.width / 2], {icon: this.upArrowIcon});
+            this.upArrow = L.marker([this.currentMap.height - this.iconArrowSize, this.currentMap.width / 2], {icon: this.upArrowIcon});
             this.upArrow.addTo(this.map);
             this.upArrow.on('click', (e) => {
                 this.mapDirection('up')
@@ -269,7 +272,7 @@ export class LeafletMapPage extends BaseListPageProvider {
             });
         }
         if (this.currentMap.place_previous) {
-            this.previousArrow = L.marker([this.currentMap.height-this.iconArrowSize, this.iconArrowSize], {icon: this.previousArrowIcon});
+            this.previousArrow = L.marker([this.currentMap.height - this.iconArrowSize, this.iconArrowSize], {icon: this.previousArrowIcon});
             //  this.previousArrow = L.marker([100, 100], {icon: this.previousArrowIcon});
             this.previousArrow.addTo(this.map);
             this.previousArrow.on('click', () => {
@@ -292,16 +295,16 @@ export class LeafletMapPage extends BaseListPageProvider {
 
     isInsideRect(x, y, coords, place_name) {
         if (this.typeOfMap != 'OpenStreetMap') {
-            console.log("isInsideRect coords=", coords);
-            console.log("isInsideRect x=", x);
-            console.log("isInsideRect y=", y);
+            //console.log("isInsideRect coords=", coords);
+            //console.log("isInsideRect x=", x);
+            //console.log("isInsideRect y=", y);
             let coordsList = coords.split(',');
-            console.log("isInsideRect coordsList=", coordsList);
+            //console.log("isInsideRect coordsList=", coordsList);
             let bounds = [[this.currentMap.height - coordsList[1], coordsList[0]], [this.currentMap.height - coordsList[3], coordsList[2]]];
-            console.log("bounds before ", place_name, bounds);
-            console.log("coordsList[1] before ", coordsList[1]);
-            console.log("height -coordsList[1] before ", this.currentMap.height - coordsList[1]);
-            console.log("coordsList[3] before ", coordsList[3]);
+            //console.log("bounds before ", place_name, bounds);
+            //console.log("coordsList[1] before ", coordsList[1]);
+            //console.log("height -coordsList[1] before ", this.currentMap.height - coordsList[1]);
+            //console.log("coordsList[3] before ", coordsList[3]);
             if ((this.currentMap.height - Number(coordsList[1])) > (this.currentMap.height - Number(coordsList[3]))) {
                 let tmp = coordsList[1];
                 coordsList[1] = coordsList[3];
@@ -312,9 +315,9 @@ export class LeafletMapPage extends BaseListPageProvider {
                 coordsList[0] = coordsList[2];
                 coordsList[2] = tmp;
             }
-            console.log("coordsList[1] after ", coordsList[1]);
+            //console.log("coordsList[1] after ", coordsList[1]);
             bounds = [[this.currentMap.height - coordsList[1], coordsList[0]], [this.currentMap.height - coordsList[3], coordsList[2]]];
-            console.log("bounds after", place_name, bounds);
+            //console.log("bounds after", place_name, bounds);
             //L.rectangle(this.bounds, {color: "red", weight: 1}).addTo(this.map);
 
             return (((y >= (this.currentMap.height - coordsList[1]))
@@ -322,16 +325,16 @@ export class LeafletMapPage extends BaseListPageProvider {
 
         }
         else {
-            console.log("isInsideRect coords=", coords);
-            console.log("isInsideRect x=", x);
-            console.log("isInsideRect y=", y);
+            //console.log("isInsideRect coords=", coords);
+            //console.log("isInsideRect x=", x);
+            //console.log("isInsideRect y=", y);
             let coordsList = coords.split(',');
-            console.log("isInsideRect coordsList=", coordsList);
+            //console.log("isInsideRect coordsList=", coordsList);
             let bounds = [[coordsList[1], coordsList[0]], [coordsList[3], coordsList[2]]];
-            console.log("bounds before ", place_name, bounds);
-            console.log("coordsList[1] before ", coordsList[1]);
-            console.log("height -coordsList[1] before ", this.currentMap.height - coordsList[1]);
-            console.log("coordsList[3] before ", coordsList[3]);
+            //console.log("bounds before ", place_name, bounds);
+            //console.log("coordsList[1] before ", coordsList[1]);
+            //console.log("height -coordsList[1] before ", this.currentMap.height - coordsList[1]);
+            //console.log("coordsList[3] before ", coordsList[3]);
             if ((Number(coordsList[1])) > ( Number(coordsList[3]))) {
                 let tmp = coordsList[1];
                 coordsList[1] = coordsList[3];
@@ -342,11 +345,11 @@ export class LeafletMapPage extends BaseListPageProvider {
                 coordsList[0] = coordsList[2];
                 coordsList[2] = tmp;
             }
-            console.log("coordsList[1] after ", coordsList[1]);
+            //console.log("coordsList[1] after ", coordsList[1]);
             bounds = [[coordsList[1], coordsList[0]], [coordsList[3], coordsList[2]]];
-            console.log("bounds after", place_name, bounds);
+            //console.log("bounds after", place_name, bounds);
             //L.rectangle(this.bounds, {color: "red", weight: 1}).addTo(this.map);
-            console.log((((x >= (coordsList[1]))            && (x <= (coordsList[3]))) && ((y >= (coordsList[0])) && (y <= (coordsList[2])))))
+            //console.log((((x >= (coordsList[1])) && (x <= (coordsList[3]))) && ((y >= (coordsList[0])) && (y <= (coordsList[2])))))
             return (((x >= (coordsList[1]))
                 && (x <= (coordsList[3]))) && ((y >= (coordsList[0])) && (y <= (coordsList[2]))));
         }
@@ -356,9 +359,9 @@ export class LeafletMapPage extends BaseListPageProvider {
 
         //prepare for check;
         let tmpBounds = [];
-        console.log("isInsidePoly coords=", coords);
+        //console.log("isInsidePoly coords=", coords);
         let coordsList = coords.split(',');
-        console.log("isInsidePoly coordsList=", coordsList);
+        //console.log("isInsidePoly coordsList=", coordsList);
         let vertx = [];
         let verty = [];
         let nvert = 0;
@@ -371,11 +374,11 @@ export class LeafletMapPage extends BaseListPageProvider {
             tmpBounds.push([this.currentMap.height - coordsList[i + 1], coordsList[i]]);
 
         }
-        console.log("isInsidePoly nvert=", nvert);
-        console.log("isInsidePoly vertx=", vertx);
-        console.log("isInsidePoly verty=", verty);
+        //console.log("isInsidePoly nvert=", nvert);
+        //console.log("isInsidePoly vertx=", vertx);
+        //console.log("isInsidePoly verty=", verty);
 
-        console.log("isInsidePoly tmpBounds=", tmpBounds);
+        //console.log("isInsidePoly tmpBounds=", tmpBounds);
         // L.polygon(tmpBounds, {color: 'blue', weight: 2}).addTo(this.map);
         return LeafletMapPage.pnpoly(nvert, vertx, verty, x, y);
     }
@@ -385,10 +388,10 @@ export class LeafletMapPage extends BaseListPageProvider {
 
         let mCoordsTmp = coords.split(',');
         let mCoords: number[] = [];
-        console.log('mCoordsTmp= ', mCoordsTmp);
+        //console.log('mCoordsTmp= ', mCoordsTmp);
         for (let mCoordsSingle of mCoordsTmp) {
             if (mCoordsSingle) {
-                console.log("mCoordsSingle=", mCoordsSingle);
+                //console.log("mCoordsSingle=", mCoordsSingle);
                 mCoords.push(Number(mCoordsSingle));
             }
 
@@ -406,7 +409,7 @@ export class LeafletMapPage extends BaseListPageProvider {
     private showPopup(content, coords) {
 
         //check if already on the map
-        console.log("content=", content);
+        //console.log("content=", content);
         let popup = L.popup({
             closeOnClick: false,
             autoClose: false,
@@ -471,17 +474,16 @@ export class LeafletMapPage extends BaseListPageProvider {
     }
 
 
-
     mapClick(e) {
-        console.log(e);
+        //console.log(e);
 
-        console.log(e.latlng.lng, e.latlng.lat, '');
-        console.log("this.placeListForMap", this.placeListForMap);
+        //console.log(e.latlng.lng, e.latlng.lat, '');
+        //console.log("this.placeListForMap", this.placeListForMap);
         if (this.placeListForMap.length) {
             let goDetail: boolean = false;
             let numFind: number;
             for (let i = 0; i < this.placeListForMap.length; i++) {
-                console.log("mapClick(e) this.placeListForMap[i]=", this.placeListForMap[i]);
+                //console.log("mapClick(e) this.placeListForMap[i]=", this.placeListForMap[i]);
 
                 if (this.placeListForMap[i].shape == 'rect' || !this.placeListForMap[i].shape) {
                     if (this.isInsideRect(e.latlng.lng, e.latlng.lat, this.placeListForMap[i].coords, this.placeListForMap[i].place_name)) {
@@ -492,7 +494,7 @@ export class LeafletMapPage extends BaseListPageProvider {
                     }
                 }
                 else {
-                    console.log('check for poly');
+                    //console.log('check for poly');
                     if (this.placeListForMap[i].shape == 'poly') {
                         if (this.isInsidePoly(e.latlng.lng, e.latlng.lat, this.placeListForMap[i].coords)) {
                             numFind = i;
@@ -503,14 +505,14 @@ export class LeafletMapPage extends BaseListPageProvider {
                 }
             }
             if (goDetail) {
-                console.log("this.placeListForMap[i]=", this.placeListForMap[numFind]);
+                //console.log("this.placeListForMap[i]=", this.placeListForMap[numFind]);
                 if (this.placeListForMap[numFind].goto) {
                     //goto to the new map
                     for (let i = 0; i < this.fullMapList.length; i++) {
                         if (this.fullMapList[i].name_map == this.placeListForMap[numFind].goto) {
                             this.currentMap = this.fullMapList[i];
 
-                            console.log("currentMap=", this.currentMap.name_map);
+                            //console.log("currentMap=", this.currentMap.name_map);
                             this.currentMapNumber = i;
                             break;
                         }
@@ -523,7 +525,7 @@ export class LeafletMapPage extends BaseListPageProvider {
                     tmpSql.getRusParticipantFull('where a.place=' + this.placeListForMap[numFind].id).then(res => {
                         if ((<any>res).length) {
                             let participant = <any>res;
-                            console.log("participant=", participant);
+                            //console.log("participant=", participant);
                             this.navCtrl.push(ParticipantDetailPage, {participant: participant, map: false})
                         }
                     });
@@ -546,7 +548,7 @@ export class LeafletMapPage extends BaseListPageProvider {
      */
     setMapAsPlace(mapAsPlace) {
         //first, find the place which was our map
-        console.log("mapAsPlace=", mapAsPlace);
+        //console.log("mapAsPlace=", mapAsPlace);
         let placeSql = new PlaceSql(this.http);
         placeSql.selectWhere(' goto="' + mapAsPlace + '"').then(res => {
             let place = <any>res[0];
@@ -558,6 +560,36 @@ export class LeafletMapPage extends BaseListPageProvider {
 
     }
 
+    /*
+        setSigns() {
+            if (!this.popupElement) return;
+            this.popupList = [];
+            for (let m = 0; m < this.placeListForMap.length; m++) {
+                let content: string = '';
+                for (let i = 0; i < this.popupElement.length; i++) {
+                    if ((this.popupElement[i].coords)
+                        && (this.popupElement[i].name_map == this.currentMap.name_map) &&
+                        ((this.popupElement[i].place_name_place == this.placeListForMap[m].name_rus)
+                            || (this.popupElement[i].place_name_place == this.placeListForMap[m].name_eng))) {
+                        content += '<b>' + (this.lang == 'ru' ? this.placeListForMap[m].name_rus : this.placeListForMap[m].name_eng) + '</b>' + '<br>';
+                        //console.log("this.popupElement[i].name_map ", this.popupElement[i].name_map);
+                        //console.log("this.currentMap.name_map=", this.currentMap.name_map);
+                        //console.log("this.popupElement[i].place_name_place=", this.popupElement[i].place_name_place);
+                        // //console.log("this.placeList[m]=", this.placeList[m]);
+
+                        if (this.typeOfMap == 'conference' || this.typeOfMap == 'demo-program') {
+                            content += this.popupElement[i].date_event + '. '
+                                + this.popupElement[i].time_beg + ':' +
+                                this.popupElement[i].time_end + '<br>';
+                        }
+                        content += this.popupElement[i].name.trim() + '<br>';
+                        //console.log("content=", content);
+
+                        this.showPopup(content, this.popupElement[i].coords);
+                    }
+                }
+            }
+        */
     /**
      * show popups/tooltips/pins for currentMap;
      */
@@ -565,28 +597,35 @@ export class LeafletMapPage extends BaseListPageProvider {
         if (!this.popupElement) return;
         this.popupList = [];
         for (let m = 0; m < this.placeListForMap.length; m++) {
-            let content: string = '';
+            // let content: string = '';
+            let contentPlace: string = '';
+            let contentName: string = '';
             for (let i = 0; i < this.popupElement.length; i++) {
+
                 if ((this.popupElement[i].coords)
                     && (this.popupElement[i].name_map == this.currentMap.name_map) &&
                     ((this.popupElement[i].place_name_place == this.placeListForMap[m].name_rus)
                         || (this.popupElement[i].place_name_place == this.placeListForMap[m].name_eng))) {
-                    content += '<b>' + (this.lang == 'ru' ? this.placeListForMap[m].name_rus : this.placeListForMap[m].name_eng) + '</b>' + '<br>';
-                    console.log("this.popupElement[i].name_map ", this.popupElement[i].name_map);
-                    console.log("this.currentMap.name_map=", this.currentMap.name_map);
-                    console.log("this.popupElement[i].place_name_place=", this.popupElement[i].place_name_place);
-                    // console.log("this.placeList[m]=", this.placeList[m]);
+                    if (contentPlace == '') contentPlace = '<b>' + (this.lang == 'ru' ? this.placeListForMap[m].name_rus : this.placeListForMap[m].name_eng) + '</b>' + '<br>';
+                    //console.log("this.popupElement[i].name_map ", this.popupElement[i].name_map);
+                    //console.log("this.currentMap.name_map=", this.currentMap.name_map);
+                    //console.log("this.popupElement[i].place_name_place=", this.popupElement[i].place_name_place);
+                    // //console.log("this.placeList[m]=", this.placeList[m]);
 
                     if (this.typeOfMap == 'conference' || this.typeOfMap == 'demo-program') {
-                        content += this.popupElement[i].date_event + '. '
+                        contentName += this.popupElement[i].date_event + '. '
                             + this.popupElement[i].time_beg + ':' +
                             this.popupElement[i].time_end + '<br>';
                     }
-                    content += this.popupElement[i].name.trim() + '<br>';
-                    console.log("content=", content);
+                    contentName += this.popupElement[i].name.trim() + '<br>';
+                    //console.log("contentPlace=", contentPlace);
+                    //console.log("contentName=", contentName);
 
-                    this.showPopup(content, this.popupElement[i].coords);
+
                 }
+            }
+            if ((contentPlace != '') && (contentName != '')) {
+                this.showPopup(contentPlace + contentName, this.placeListForMap[m].coords);
             }
         }
     }
@@ -662,7 +701,7 @@ export class LeafletMapPage extends BaseListPageProvider {
 
 
             this.placeListForMap.forEach(placeSign => {
-                console.log("placeSign=", placeSign);
+                //console.log("placeSign=", placeSign);
                 let zoom: number = this.map.getZoom();
                 let marker = (placeSign.marker ? placeSign.marker : this.map.getMaxZoom() + 1);
                 if (marker == 'min') marker = this.map.getMinZoom();
@@ -698,9 +737,9 @@ export class LeafletMapPage extends BaseListPageProvider {
         this.currentMap = this.navParams.get('map');
         this.iconStr = this.navParams.get('icons');
 
-        console.log("popupElement=", this.popupElement);
-        console.log("place=", this.place);
-        console.log("currentMap=", this.currentMap);
+        //console.log("popupElement=", this.popupElement);
+        //console.log("place=", this.place);
+        //console.log("currentMap=", this.currentMap);
 
 
         if (this.typeOfMap == 'participantDetail' || this.typeOfMap == 'conferenceDetail' || this.typeOfMap == 'exhibitDetail' ||
@@ -716,7 +755,34 @@ export class LeafletMapPage extends BaseListPageProvider {
             }
             this.showPopup(content, this.place[0].coords);
         }
-        if ((this.typeOfMap == 'conference') || (this.typeOfMap == 'participant') || (this.typeOfMap == 'exhibit') || (this.typeOfMap == 'demo-program')) {
+
+        if (this.typeOfMap == 'showmarker') {
+            await this.initMap();
+            let content = '';
+            if (this.popupElement) {
+                if (this.popupElement.name) content = this.popupElement.name
+                content = ((this.lang == 'ru') ? this.popupElement.name_rus : this.popupElement.name_eng);
+            }
+            if (this.place.length) {
+                this.place.forEach(placeSingle => {
+                    content = '';
+                    content = ((this.lang == 'ru') ? this.place.name_rus : this.place.name_eng);
+                    this.showMarker(content, placeSingle.coords);
+
+                })
+            }
+            else {
+                if (content == '') content = ((this.lang == 'ru') ? this.place.name_rus : this.place.name_eng);
+                this.showMarker(content, this.place.coords);
+            }
+            let xy = this.getCenter(this.place.coords);
+            //let marker = L.marker();
+            this.map.setView([this.currentMap.height - xy.x, xy.y]);
+
+        }
+
+        if ((this.typeOfMap == 'conference') || (this.typeOfMap == 'participant')
+            || (this.typeOfMap == 'exhibit') || (this.typeOfMap == 'demo-program')) {
             this.createMapList();
             this.currentMapNumber = 0;
             this.initMap();
@@ -741,16 +807,16 @@ export class LeafletMapPage extends BaseListPageProvider {
      */
     mapDirection(direction) {
         direction = 'map_' + direction;
-        console.log("currentMapNumber=", this.currentMapNumber);
-        console.log("direction=", direction);
-        console.log("fullMapList[currentMapNumber]=", this.fullMapList[this.currentMapNumber]);
-        console.log("fullMapList[currentMapNumber]=", this.fullMapList[this.currentMapNumber][direction]);
+        //console.log("currentMapNumber=", this.currentMapNumber);
+        //console.log("direction=", direction);
+        //console.log("fullMapList[currentMapNumber]=", this.fullMapList[this.currentMapNumber]);
+        //console.log("fullMapList[currentMapNumber]=", this.fullMapList[this.currentMapNumber][direction]);
         if (this.fullMapList[this.currentMapNumber][direction]) {
             for (let i = 0; i < this.fullMapList.length; i++) {
                 if (this.fullMapList[i].name_map == this.fullMapList[this.currentMapNumber][direction]) {
                     this.currentMap = this.fullMapList[i];
                     // setMap();
-                    console.log("currentMap=", this.currentMap.name_map);
+                    //console.log("currentMap=", this.currentMap.name_map);
                     this.currentMapNumber = i;
                     break;
                 }
@@ -769,16 +835,16 @@ export class LeafletMapPage extends BaseListPageProvider {
     mapPrevious() {
         let direction = "place_previous";
         let old_map_name = this.currentMap.name_map;
-        console.log("currentMapNumber=", this.currentMapNumber);
-        console.log("direction=", direction);
-        console.log("fullMapList[currentMapNumber]=", this.fullMapList[this.currentMapNumber]);
-        console.log("fullMapList[currentMapNumber]=", this.fullMapList[this.currentMapNumber][direction]);
+        //console.log("currentMapNumber=", this.currentMapNumber);
+        //console.log("direction=", direction);
+        //console.log("fullMapList[currentMapNumber]=", this.fullMapList[this.currentMapNumber]);
+        //console.log("fullMapList[currentMapNumber]=", this.fullMapList[this.currentMapNumber][direction]);
         if (this.currentMap[direction]) {
             for (let i = 0; i < this.fullMapList.length; i++) {
                 if (this.fullMapList[i].name_map == this.currentMap[direction]) {
                     this.currentMap = this.fullMapList[i];
                     // setMap();
-                    console.log("currentMap=", this.currentMap.name_map);
+                    //console.log("currentMap=", this.currentMap.name_map);
                     this.currentMapNumber = i;
                     break;
                 }
@@ -788,12 +854,12 @@ export class LeafletMapPage extends BaseListPageProvider {
         //this.setMap();
         this.initMap();
         // this.setButtonsEnable();
-        console.log("old_map_name=", old_map_name);
+        //console.log("old_map_name=", old_map_name);
         if (this.showPopups) this.setMapAsPlace(old_map_name);
     }
 
     updatePopups() {
-        console.log('updatePopups=', this.showPopups);
+        //console.log('updatePopups=', this.showPopups);
         if (this.showPopups) {
             for (let popup of this.popupList) {
                 if (popup.name_map == this.currentMap.name_map)
@@ -809,10 +875,10 @@ export class LeafletMapPage extends BaseListPageProvider {
     }
 
     mapOnZoom(e) {
-        console.log(e);
-        console.log("this.map.getCenter()=", this.map.getCenter());
+        //console.log(e);
+        //console.log("this.map.getCenter()=", this.map.getCenter());
         //Returns the geographical center of the map view
-        console.log("this.map.getZoom()=", this.map.getZoom());
+        //console.log("this.map.getZoom()=", this.map.getZoom());
         this.setSignsForMap();
         this.setSigns();
 
@@ -820,14 +886,14 @@ export class LeafletMapPage extends BaseListPageProvider {
     }
 
     doNothing() {
-        console.log('do nothing, as it was promised');
+        //console.log('do nothing, as it was promised');
     }
 
 
     /*  onSwipe(event) {
-        /!* console.log(event);
+        /!* //console.log(event);
          if (event.offsetDirection) {
-           console.log("event.offseDirection=", event.offsetDirection);
+           //console.log("event.offseDirection=", event.offsetDirection);
            switch (event.offsetDirection) {
              case 4:
                if (this.showLeftArrow) {

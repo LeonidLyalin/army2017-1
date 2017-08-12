@@ -13,17 +13,17 @@
 		<ion-list no-lines>
 			<ion-item>
 				<ion-label stacked color="danger">{{userNameStr}}</ion-label>
-				<ion-input [(ngModel)]="login.username" name="username" type="text" #username="ngModel" spellcheck="false" autocapitalize="off"
+				<ion-input [(ngModel)]="user.login" name="login" type="text" #login="ngModel" spellcheck="false" autocapitalize="off"
 					required>
 				</ion-input>
 			</ion-item>
-			<p ion-text [hidden]="username.valid || submitted == false" color="danger" padding-left>
+			<p ion-text [hidden]="login.valid || submitted == false" color="danger" padding-left>
 				{{needUserNameStr}}
 			</p>
 
 			<ion-item>
 				<ion-label stacked color="danger">{{passwordStr}}</ion-label>
-				<ion-input [(ngModel)]="login.password" name="password" type="password" #password="ngModel" required>
+				<ion-input [(ngModel)]="user.password" name="password" type="password" #password="ngModel" required>
 				</ion-input>
 			</ion-item>
 			<p ion-text [hidden]="password.valid || submitted == false" color="danger" padding-left>

@@ -1,13 +1,14 @@
 import {Component} from '@angular/core';
 
 import {HomePage} from '../home/home';
-import {AboutPage} from '../about/about';
+
 import {MyForumPage} from "../my-forum/my-forum";
 
 import {Events, NavController} from "ionic-angular";
 import {BaseLangPageProvider} from "../../providers/base-lang-page/base-lang-page";
 import {Http} from "@angular/http";
 import {BarScannerPage} from "../bar-scanner/bar-scanner";
+import {AboutForumPage} from "../about-forum/about-forum";
 
 
 @Component({
@@ -17,7 +18,7 @@ export class TabsPage extends BaseLangPageProvider {
   // this tells the tabs component which Pages
   // should be each tab's root Page
     tab1Root: any = HomePage;
-    tab2Root: any = AboutPage;
+    tab2Root: any = AboutForumPage;
     tab3Root: any = MyForumPage;
     tab4Root: any = BarScannerPage;
 

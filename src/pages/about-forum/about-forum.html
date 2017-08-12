@@ -1,0 +1,102 @@
+<!--
+  Generated template for the AboutForumPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-navbar>
+        <ion-title>{{titleStr}}</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <ion-card>
+
+        <img src="assets/img/army2017.png"/>
+
+        <ion-card-content>
+            <ion-card-title>
+                <ion-item>
+
+                    <button ion-button color="danger" icon-left
+                            (click)="showLeafLetMapSimple('patriot_expo_full.svg','simple')"
+                            text-wrap margin padding>
+                        <ion-icon name='map'></ion-icon>
+                        <h6 *ngIf="lang=='ru'" text-wrap>Карта Патриот Экспо</h6>
+                        <h6 *ngIf="lang=='en'" text-wrap>Patriot Expo Map</h6>
+                    </button>
+                </ion-item>
+            </ion-card-title>
+
+            <p *ngIf="lang=='ru'" text-wrap>
+                Форум «Армия-2017» третий год подряд проходит в конгрессно-выставочном центре парка «Патриот», полигоне
+                Алабино
+                и подмосковном аэродроме Кубинка. На Форуме можно посетить статическую экспозицию, наблюдать показ
+                возможностей
+                боевой техники, принять участие в обширной научно-деловой программе и увидеть разнообразные
+                культурно-досуговые
+                мероприятия военно-патриотической направленности.
+            </p>
+
+
+            <p *ngIf="lang=='ru'" text-wrap>С 22 по 27 августа на территории Конгрессно-выставочного центра пройдёт
+                третий Международный военно-технический форум «АРМИЯ-2017».</p>
+
+            <p *ngIf="lang=='ru'" text-wrap>В масштабном событии примут участие крупные отечественные и зарубежные
+                предприятия оборонно-промышленного комплекса, ведущие конструкторские бюро и научно-исследовательские
+                институты.</p>
+
+            <p *ngIf="lang=='ru'" text-wrap>Общая площадь экспозиции в павильонах и на открытых площадках превысит 300
+                тыс. квадратных метров.</p>
+
+            <p *ngIf="lang=='ru'" text-wrap>Динамические показы ходовых, лётных и огневых возможностей вооружения,
+                военной и специальной техники состоятся на аэродроме в Кубинке и полигоне «Алабино».</p>
+
+            <p *ngIf="lang=='ru'" text-wrap>Научно-деловая программа (22 – 24 августа) пройдёт в формате пленарных
+                заседаний, конференций, круглых столов и брифингов, что позволит обсудить актуальные вопросы обороны и
+                безопасности, дальнейшие направления совершенствования способов производства продукции военного
+                назначения.</p>
+
+            <p *ngIf="lang=='ru'" text-wrap>А с 25 по 27 августа – в открытые дни – каждый желающий сможет ознакомиться
+                с последними достижениями в области высоких технологий и перспективными разработками, которые
+                реализуются в военной сфере. *Билеты можно приобрести на официальном сайте форума.</p>
+
+            <p *ngIf="lang=='en'" text-wrap>Forum "Army-2017" for the third consecutive year is held in the congress and
+                exhibition center of the park "Patriot", the Alabino training ground
+                         And the Moscow airfield Kubinka. At the Forum you can visit the static exposition, watch the
+                demonstration of opportunities
+                         Combat equipment, take part in an extensive scientific and business program and see a variety
+                of cultural and recreational
+                         Measures of a military-patriotic orientation.</p>
+
+            <p *ngIf="lang=='en'" text-wrap>From 22 to 27 August, the third International Military Technical Forum
+                "ARMY-2017" will be held in the territory of the Congress and Exhibition Center.</p>
+
+            <p *ngIf="lang=='en'" text-wrap>Large-scale domestic and foreign enterprises of the defense industry
+                complex, leading design bureaus and research institutes will take part in the large-scale event.</p>
+
+            <p *ngIf="lang=='en'" text-wrap>The total area of ​​the exposition in pavilions and outdoor areas will
+                exceed 300 thousand square meters.</p>
+
+            <p *ngIf="lang=='en'" text-wrap>Dynamic displays of running, flight and fire capabilities of weapons,
+                military and special equipment will be held at the airfield in Kubinka and the Alabino training
+                ground.</p>
+
+            <p *ngIf="lang=='en'" text-wrap>The scientific and business program (August 22 - 24) will take place in the
+                format of plenary sessions, conferences, roundtables and briefings, which will allow us to discuss
+                topical issues of defense and security, and further directions for improving the methods of
+                manufacturing military products.</p>
+
+            <p *ngIf="lang=='en'" text-wrap>And from 25 to 27 August - on open days - everyone can get acquainted with
+                the latest achievements in the field of high technologies and promising developments that are being
+                implemented in the military sphere. * Tickets can be purchased on the official website of the forum.</p>
+        </ion-card-content>
+
+
+
+    </ion-card>
+</ion-content>

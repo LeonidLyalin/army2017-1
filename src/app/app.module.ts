@@ -7,7 +7,7 @@ import {HomePage} from '../pages/home/home';
 import {TabsPage} from '../pages/tabs/tabs';
 import {SettingsPage} from '../pages/settings/settings';
 import {AccountPage} from '../pages/account/account';
-import {EventPage} from '../pages/event/event';
+
 import {ParticipantSql} from '../providers/participant-sql';
 import {SplashScreen} from '@ionic-native/splash-screen';
 import {HttpModule} from "@angular/http";
@@ -66,7 +66,7 @@ import {FilterParticipantProvider} from '../providers/filter-provider/filter-par
 import {LanguageProvider} from '../providers/language/language';
 import {FilterConferenceProvider} from "../providers/filter-provider/filter-conference-provider";
 import {FilterConferencePage} from "../pages/filter/filter-conference/filter-conference";
-import {DemoProgramPage} from "../pages/demo-propgram/demo-program";
+import {DemoProgramPage} from "../pages/demo-program/demo-program";
 
 import {TableActionSql} from "../providers/table-action-sql/thematic-action-sql";
 import {BaseLangPageProvider} from '../providers/base-lang-page/base-lang-page';
@@ -76,7 +76,6 @@ import {BaseListPageProvider} from '../providers/base-list-page/base-list-page';
 import {CustomIconsModule} from 'ionic2-custom-icons';
 import {MapHelpPage} from "../pages/help/map-help/map-help";
 import {QrScannerPage} from "../pages/qr-scanner/qr-scanner";
-//import { QRScanner, QRScannerStatus } from '@ionic-native/qr-scanner';
 import {BarScannerPage} from "../pages/bar-scanner/bar-scanner";
 import {BarcodeScanner} from "@ionic-native/barcode-scanner";
 import {ExhibitPage} from "../pages/exhibit/exhibit";
@@ -96,17 +95,23 @@ import {HowToGetPatriotByCarPage} from "../pages/how-to-get/how-to-get-patriot/h
 import {HowToGetPatriotByTransportPage} from "../pages/how-to-get/how-to-get-patriot/how-to-get-patriot-by-transport/how-to-get-patriot-by-transport";
 import {HowToGetPatriotByTransportKievPage} from "../pages/how-to-get/how-to-get-patriot/how-to-get-patriot-by-transport-kiev/how-to-get-patriot-by-transport-kiev";
 import {HowToGetRoutesPage} from "../pages/how-to-get/how-to-get-routes/how-to-get-routes";
+import {AboutForumPage} from "../pages/about-forum/about-forum";
+import {PatriotPage} from "../pages/patriot/patriot";
+import {PatriotDetailPage} from "../pages/patriot-detail/patriot-detail";
+import {PatriotSql} from "../providers/patriot/patriot-sql";
+
+
 
 
 @NgModule({
     declarations: [
         MyApp,
         AboutPage,
+        AboutForumPage,
         HomePage,
         TabsPage,
         SettingsPage,
         AccountPage,
-        EventPage,
         ParticipantPage,
         MyForumPage,
         ParticipantDetailPage,
@@ -116,6 +121,7 @@ import {HowToGetRoutesPage} from "../pages/how-to-get/how-to-get-routes/how-to-g
         TutorialPage,
         ParkPatriotPage,
         WarTacticPage,
+
         SectorVksPage,
         DemoOpkPage,
         ThematicPage,
@@ -143,7 +149,9 @@ import {HowToGetRoutesPage} from "../pages/how-to-get/how-to-get-routes/how-to-g
         HowToGetPatriotByCarPage,
         HowToGetPatriotByTransportPage,
         HowToGetPatriotByTransportKievPage,
-        HowToGetRoutesPage
+        HowToGetRoutesPage,
+        PatriotDetailPage,
+        PatriotPage
 
 
     ],
@@ -171,11 +179,11 @@ import {HowToGetRoutesPage} from "../pages/how-to-get/how-to-get-routes/how-to-g
     entryComponents: [
         MyApp,
         AboutPage,
+        AboutForumPage,
         HomePage,
         TabsPage,
         SettingsPage,
         AccountPage,
-        EventPage,
         ParticipantPage,
         ConferencePage,
         MyForumPage,
@@ -186,6 +194,8 @@ import {HowToGetRoutesPage} from "../pages/how-to-get/how-to-get-routes/how-to-g
         TutorialPage,
         ParkPatriotPage,
         WarTacticPage,
+        PatriotDetailPage,
+        PatriotPage,
         SectorVksPage,
         DemoOpkPage,
         LeafletMapPage,
@@ -209,7 +219,6 @@ import {HowToGetRoutesPage} from "../pages/how-to-get/how-to-get-routes/how-to-g
         HowToGetPatriotByTransportPage,
         HowToGetPatriotByTransportKievPage,
         HowToGetRoutesPage
-
 
 
     ],
@@ -250,7 +259,9 @@ import {HowToGetRoutesPage} from "../pages/how-to-get/how-to-get-routes/how-to-g
         ExhibitApiService,
         ExhibitSql,
         FilterExhibitProvider,
-        FilterDemoProgramProvider
+        FilterDemoProgramProvider,
+        PatriotSql
+
 
 
     ]

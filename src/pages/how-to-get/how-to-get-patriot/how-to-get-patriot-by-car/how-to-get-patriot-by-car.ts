@@ -26,7 +26,7 @@ export class HowToGetPatriotByCarPage extends BaseListPageProvider {
 
     ionViewDidLoad() {
         super.ionViewDidLoad();
-        console.log('ionViewDidLoad HowToGetPage');
+        //console.log('ionViewDidLoad HowToGetPage');
     }
 
     setRussianStrings(){

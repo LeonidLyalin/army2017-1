@@ -14,17 +14,17 @@ export class ThematicApi extends BaseApi {
 
   constructor(public http: Http) {
     super(http);
-    console.log('conferenceSingle api is created');
+    //console.log('conferenceSingle api is created');
   }
 
   public userId:any;
 
   getThematic() {
-    console.log('**about to make HTTP call for all');
+    //console.log('**about to make HTTP call for all');
     return this.http.get(`${this.baseUrlApi}/thematic_list.php`)
       .map(response => {
         this.thematic = response.json();
-        console.log(this.thematic);
+        //console.log(this.thematic);
         return this.thematic;
       });
   }

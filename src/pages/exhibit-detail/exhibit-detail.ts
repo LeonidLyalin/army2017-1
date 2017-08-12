@@ -34,8 +34,8 @@ export class ExhibitDetailPage extends BaseListPageProvider {
                 public http: Http,
                ) {
         super(NavCtrl, navParams, events, http);
-        console.log("now in exhibit detail");
-        console.log(navParams);
+        //console.log("now in exhibit detail");
+        //console.log(navParams);
         this.thematic = [];
         if (navParams.data.element)
             if (navParams.data.element.length)
@@ -104,94 +104,6 @@ export class ExhibitDetailPage extends BaseListPageProvider {
         }
     }
 
-    /*   let singleSemiColon = doubleSemiColonStr.split(';');
-       if (singleSemiColon.length > 1) {
-         singleSemiColon.forEach(singleStr1 => {
-           let str = singleStr1.split(':');
-           this.characters.push(str[0] + ':');
-           this.characters.push(str[1].split(';'));
-         });
-       }
-       else {
-         let singleStr = singleSemiColon[0].split(':');
-         let str = singleStr.split(';');
-         this.characters.push(str[0] + ':');
-         this.characters.push(str[1].split(';'));
-       }
-     });
-   }
-   else {
-     let singleSemiColon = doubleSemiColon[0].split(';');
-     if (singleSemiColon.length > 1) {
-       singleSemiColon.forEach(singleStr => {
-         let str = singleStr.split(':');
-         this.characters.push(str[0] + ':');
-         this.characters.push(str[1].split(';'));
-       });
-     }
-     else {
-       let singleStr = singleSemiColon.split(':');
-       let str = singleStr.split(':');
-       this.characters.push(str[0] + ':');
-       this.characters.push(str[1].split(';'));
-     }
-   }*/
-
-
-    /*    else
-        <? if (count($arDesc) > 1): ?>
-        <? foreach ($arDesc as $desc): ?>
-        <? $i++; ?>
-        <? if ($i % 2): ?>
-        <h4 style="text-align: left"><?= $desc . ":" ?></h4>
-        <? else : ?>
-        <pre><? var_dump($desc) ?></pre><? ?>
-
-        <? $arPartDesc = explode(';;', $desc); ?>
-        <? if (count($arPartDesc) > 1): ?>
-        <? $m = 0 ?>
-        <? foreach ($arPartDesc as $partDesc): ?>
-        <? $m++ ?>
-        <? if ($m == 1) : ?>
-        <h5 style="text-align: left"><?= $partDesc . ':' ?></h5>
-        <? else: ?>
-        <? $arPropertyDesc = explode(';', $partDesc); ?>
-        <? foreach ($arPropertyDesc as $propertyDesc): ?>
-        <h5 style="text-align: left"><?= $propertyDesc . ';' ?></h5>
-        <? endforeach; ?>
-        <? endif; ?>
-        <? endforeach; ?>
-
-
-        <? else: ?>
-        <? $arPropertyDesc = explode(';', $arPartDesc[0]); ?>
-        <? foreach ($arPropertyDesc as $propertyDesc): ?>
-        <h5 style="text-align: left"><?= str_replace(' :', ': ', $propertyDesc) . ';'; ?></h5>
-        <? endforeach; ?>
-        <? endif; ?>
-
-        <? endif; ?>
-
-
-        <? endforeach; ?>
-        <? else: ?>
-        <? $arPropertyDesc = explode(';;', $arDesc[0]); ?>
-        <? if (count($arPropertyDesc) > 1): ?>
-        <? foreach ($arPropertyDesc as $propertyDesc): ?>
-        <? $arSinglePropertyDesc = explode(';', $propertyDesc); ?>
-        <? foreach ($arSinglePropertyDesc as $propertySingleDesc): ?>
-        <h5 style="text-align: left"><?= str_replace(' :', ': ', $propertySingleDesc) . ';'; ?></h5>
-        <? endforeach; ?>
-
-        <? endforeach; ?>
-        <? else: ?>
-        <? $arPropertyDesc = explode(';', $arPropertyDesc[0]); ?>
-        <? foreach ($arPropertyDesc as $propertyDesc): ?>
-        <h5 style="text-align: left"><?= str_replace(' :', ': ', $propertyDesc) . ';'; ?></h5>
-        <? endforeach; ?>
-        <? endif; ?>
-
-        <? endif ?>*/
 
 
     ionViewDidLoad() {
@@ -203,7 +115,7 @@ export class ExhibitDetailPage extends BaseListPageProvider {
             //getMyForumForId(this.conferenceSingle.id).then(
             rs => {
                 if (rs) {
-                //    console.log("res in conferenceSingle myForumExhibit", rs);
+                //    //console.log("res in conferenceSingle myForumExhibit", rs);
                     this.myForum = <any>rs;
                 }
 
@@ -213,21 +125,47 @@ export class ExhibitDetailPage extends BaseListPageProvider {
 
     }
 
-    /**
-     * delete event of the conference from MyForum
-     * @param id
-     */
-    deleteFromMyForum(id) {
-        this.sqlMyForum.delFromMyForum(id);
+
+
+
+    async changeMyForum(element) {
+        if (this.userId) {
+         //   let participant = this.participantList.find(x => x.id == id);
+            //element.my_forum_id = id.my_forum_id;
+            // //console.log('was added =', element);
+            if (element.my_forum_id > 0) {
+
+                element.my_forum_id = await this.deleteFromMyForum(element.id);
+                this.events.publish('myforum:delete:exhibit', (element.id)
+                );
+            }
+            else {
+                element.my_forum_id = await this.addToMyForumSite(element.id);
+                // ''this.participantApi
+                this.events.publish('myforum:add:exhibit', ({id: element.id, my_forum_id: element.my_forum_id})
+                );
+
+
+
+            }
+        }
     }
 
-    /**
-     * add event to MyForum on the site and the mobile app
-     * @param id
-     */
-    addToMyForumSite(id) {
-        this.sqlMyForum.addToMyForumSite(id, this.iblockId, this.userId)
+    deleteFromMyForum(id) {
+        if (this.userId) {
+            this.sqlMyForum.delFromMyForum(id).then(res => {
+                if (res) return null;
+                else return -1;
+            });
+        }
     }
+
+    async addToMyForumSite(id) {
+        if (this.userId) {
+            return await this.sqlMyForum.addToMyForumSite(id, this.iblockId, this.userId);
+        }
+    }
+
 
 
 }

@@ -37,36 +37,36 @@ export class ParticipantPage extends BaseListPageProvider {
                 public placeSql: PlaceSql) {
 //подгружаем список участников выставки
         super(navCtrl, navParams, events, http);//, placeSql, mapSql);
-
-        console.log("navParams in constructor", navParams);
-        console.log("navParams==null", this.navParams == null);
-        console.log("navParams.data.length", navParams.data.length);
+        events.subscribe('myforum:add:participant', (id) => {
+                //console.log('was added id =', id);
+                let element = this.listOut.find(x => x.id == id.id);
+                element.my_forum_id = id.my_forum_id;
+                //console.log('was added =', element);
+            }
+        );
+        events.subscribe('myforum:delete:participant', (id) => {
+                //console.log('was deleted id=', id);
+                let element = this.listOut.find(x => x.id == id);
+                element.my_forum_id = null;
+                //console.log('was deleted =', element);
+            }
+        );
+        //console.log("navParams in constructor", navParams);
+        //console.log("navParams==null", this.navParams == null);
+        //console.log("navParams.data.length", navParams.data.length);
         let param = navParams.get('select');
-        console.log("navParams.get('select')", param);
+        //console.log("navParams.get('select')", param);
         if (param == 'thematic') {
             let toast = this.toastCtrl.create({
                 message: this.loadStr,
                 duration: 5000
             });
             toast.present();
-            console.log("navParams.data", navParams.data.data);
+            //console.log("navParams.data", navParams.data.data);
             this.listOut = navParams.data.data;
         }
         this.iblockId = 1;//for my_forum
-        events.subscribe('myforum:add', (id) => {
-                console.log('was added id =', id);
-                let element = this.listOut.find(x => x.id == id.id);
-                element.my_forum_id = id.my_forum_id;
-                console.log('was added =', element);
-            }
-        );
-        events.subscribe('myforum:delete', (id) => {
-                console.log('was deleted id=', id);
-                let element = this.listOut.find(x => x.id == id);
-                element.my_forum_id = null;
-                console.log('was deleted =', element);
-            }
-        );
+
 
     }
 
@@ -81,17 +81,17 @@ export class ParticipantPage extends BaseListPageProvider {
 
     ionViewDidLoad() {
         super.ionViewDidLoad();
-        console.log('ionViewDidLoad MyForumPage');
-        console.log("this.navParams=", this.navParams);
-        console.log("this.navParams.data=", this.navParams.data);
-        console.log("navParams==null", this.navParams == null);
+        //console.log('ionViewDidLoad MyForumPage');
+        //console.log("this.navParams=", this.navParams);
+        //console.log("this.navParams.data=", this.navParams.data);
+        //console.log("navParams==null", this.navParams == null);
         let param = this.navParams.get('select');
         if (param == 'thematic') {
-            console.log("this.navParams in ioViewDidLoad =", this.navParams);
+            //console.log("this.navParams in ioViewDidLoad =", this.navParams);
             this.listOut = this.navParams.data.data;
         }
         else {
-            console.log("this.selectParticipantAll()");
+            //console.log("this.selectParticipantAll()");
             let toast = this.toastCtrl.create({
                 message: this.loadStr,
                 duration: 2000
@@ -109,15 +109,15 @@ export class ParticipantPage extends BaseListPageProvider {
      */
 
     /*    addToMyForum(id) {
-            console.log('add', id);
+            //console.log('add', id);
             this.myForumApi.addToMyForumSite(this.iblockId, id).subscribe(data => {
-                console.log("here are the results of adding through api");
-                console.log(data);
+                //console.log("here are the results of adding through api");
+                //console.log(data);
 
                 //  this.sqlMyForum.addItemAndSelect(data, this.userId, this.iblockId, id).then(res => {
                 this.sqlMyForum.addItem({id: data, user: this.userId, my_iblock_id: this.iblockId, my_id: id}).then(res => {
-                    console.log('added', id);
-                    console.log(res);
+                    //console.log('added', id);
+                    //console.log(res);
                     if (this.lang == 'ru') {
                         this.selectParticipantRus()
                     }
@@ -133,19 +133,19 @@ export class ParticipantPage extends BaseListPageProvider {
      * @param participant - record in the json format for current Participant element
      */
     goToParticipantDetail(participant) {
-        console.log("goToParticipantDetail()");
-        console.log(participant);
+        //console.log("goToParticipantDetail()");
+        //console.log(participant);
         // go to the session detail page
         // and pass in the session data
         if (this.lang == 'ru') {
             this.sqlMyForum.getRusParticipantFull('where a.id=' + participant.id).then(res => {
                 let participant = <any>res;
-                console.log("participantDetail=", participant);
+                //console.log("participantDetail=", participant);
                 this.navCtrl.push(ParticipantDetailPage, {
                     participant: participant,
                     listOut: this.listOut
                 }).then(res => {
-                    console.log("i return from page", res);
+                    //console.log("i return from page", res);
                 });
             });
         } else
@@ -155,7 +155,7 @@ export class ParticipantPage extends BaseListPageProvider {
                     participant: participant,
                     listOut: this.listOut
                 }).then(res => {
-                        console.log("i return from page", res);
+                        //console.log("i return from page", res);
 
                     }
                 );
@@ -167,12 +167,12 @@ export class ParticipantPage extends BaseListPageProvider {
     async changeName() {
         for (let i = 0; i < this.listOut.length; i++) {
             this.listOut[i].name = this.listOut[i].name.replace(/&quot;/g, '"');
-            console.log("this.listOut[i]=", this.listOut[i]);
-            console.log("this.listOut[i].name=", this.listOut[i].name);
-            console.log("this.listOut[i].place=", this.listOut[i].place);
+            //console.log("this.listOut[i]=", this.listOut[i]);
+            //console.log("this.listOut[i].name=", this.listOut[i].name);
+            //console.log("this.listOut[i].place=", this.listOut[i].place);
 
 
-            console.log(this.listOut[i].place);
+            //console.log(this.listOut[i].place);
 
             if (this.listOut[i].place && this.listOut[i].place.includes(',')) {
                 let placeStr = '';
@@ -182,9 +182,9 @@ export class ParticipantPage extends BaseListPageProvider {
 
                     let res = await this.placeSql.selectWhere('id=' + listPlaces[m]);
                     if (res) {
-                        console.log("res=", res);
+                        //console.log("res=", res);
                         placeStr += (placeStr == '' ? '' : ', ') + (this.lang == 'ru' ? res[0].name_rus : res[0].name_eng);
-                        console.log(listPlaces[m]);
+                        //console.log(listPlaces[m]);
                         this.listOut[i].place_name_place = placeStr;
                         this.listOut[i].place_name = placeStr;
                     }
@@ -199,8 +199,8 @@ export class ParticipantPage extends BaseListPageProvider {
     selectParticipantAll() {
         if (this.lang == 'ru') {
             this.sqlMyForum.getRusParticipant().then(res => {
-                console.log('this.sqlMyForum.getRusParticipant().then( res=', res);
-                console.log('(<participant[]>res).length=', (<participant[]>res).length);
+                //console.log('this.sqlMyForum.getRusParticipant().then( res=', res);
+                //console.log('(<participant[]>res).length=', (<participant[]>res).length);
                 this.listOut = res;
                 this.changeName();
 
@@ -208,8 +208,8 @@ export class ParticipantPage extends BaseListPageProvider {
         }
         else {
             this.sqlMyForum.getEngParticipant().then(res => {
-                console.log('this.sqlMyForum.getEngParticipant().then( res=', res);
-                console.log('(<participant[]>res).length=', (<participant[]>res).length);
+                //console.log('this.sqlMyForum.getEngParticipant().then( res=', res);
+                //console.log('(<participant[]>res).length=', (<participant[]>res).length);
                 this.listOut = res;
                 this.changeName();
 
@@ -236,11 +236,11 @@ export class ParticipantPage extends BaseListPageProvider {
 
     getListOut() {
         this.filterStr = this.filterProvider.filterStr;
-        console.log("this.filterStr", this.filterStr);
+        //console.log("this.filterStr", this.filterStr);
         if (this.lang == 'ru') {
             this.sqlMyForum.getRusParticipant(this.filterStr).then(res => {
-                console.log('our select');
-                console.log(res);
+                //console.log('our select');
+                //console.log(res);
                 this.listOut = res;
                 this.changeName();
 
@@ -248,8 +248,8 @@ export class ParticipantPage extends BaseListPageProvider {
         }
         else {
             this.sqlMyForum.getEngParticipant(this.filterStr).then(res => {
-                console.log('our select');
-                console.log(res);
+                //console.log('our select');
+                //console.log(res);
                 this.listOut = res;
                 this.changeName();
 

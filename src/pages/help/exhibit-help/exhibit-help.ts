@@ -56,7 +56,7 @@ export class ExhibitHelpPage extends BaseLangPageProvider {
     this.cancelFilterStr='Cancel filter of the parameter';
   }
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ParticipantHelpPage');
+    //console.log('ionViewDidLoad ParticipantHelpPage');
   }
 
 }

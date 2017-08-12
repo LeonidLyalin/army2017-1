@@ -5,9 +5,8 @@ import {
     AlertController
 } from 'ionic-angular';
 
-import {AboutPage} from "../about/about";
 
-import {ParkPatriotPage} from "../park-patriot-all/park-patriot/park-patriot";
+
 import {ParticipantPage} from "../participant/participant";
 import {ConferencePage} from "../conference/conference";
 import {BaseApi} from "../../providers/base-api-service";
@@ -19,8 +18,11 @@ import {BaseLangPageProvider} from "../../providers/base-lang-page/base-lang-pag
 import {LeafletMapPage} from "../leaflet-map/leaflet-map";
 import {BarScannerPage} from "../bar-scanner/bar-scanner";
 import {ExhibitPage} from "../exhibit/exhibit";
-import {DemoProgramPage} from "../demo-propgram/demo-program";
+import {DemoProgramPage} from "../demo-program/demo-program";
 import {HowToGetPage} from "../how-to-get/how-to-get";
+import {AboutForumPage} from "../about-forum/about-forum";
+
+import {PatriotPage} from "../patriot/patriot";
 
 
 @Component({
@@ -88,7 +90,7 @@ export class HomePage extends BaseLangPageProvider {
         this.participantsStr = 'Участники';
         this.exhibitsMoDStr = 'Экспонаты МО';
         this.conferenceStr = 'Конференция';
-        this.demoProgramStr = 'Демо программа';
+        this.demoProgramStr = 'Шоу программа';
         this.howDoYouGetStr = 'Как добраться';
         this.onTheForumStr = 'О Форуме "Армия-2017"';
         this.parkPatriotStr = 'Парк "Патриот"';
@@ -153,90 +155,155 @@ export class HomePage extends BaseLangPageProvider {
     // [{"name": "id", "type": "text PRIMARY KEY"},{"name": "name_rus", "type": "text"},{"name": "name_eng", "type": "text"},{"name": "coords", "type": "text"},{"name": "number_on_map", "type": "text"},{"name": "name_map", "type": "text"},{"name": "goto", "type": "text"},{"name": "shape", "type": "text"}, {"name": "marker", "type": "text"}, {"name": "tooltip", "type": "text"},{"name": "popup", "type": "text"}]
 //  [{"name":"id","type":"text PRIMARY KEY"},{"name":"map","type":"text"},{"name":"place_previous", "type":"text"},{"name":"name_map","type":"text"},{"name": "name_rus", "type": "text"}, {"name": "name_eng", "type": "text"}, {"name": "width", "type": "text"},{"name": "height", "type": "text"},{"name": "map_left", "type": "text"},{"name": "map_right", "type": "text"},{"name": "map_up", "type": "text"},{"name": "map_down", "type": "text"},{"name": "min_zoom", "type": "text"},{"name": "max_zoom", "type": "text"},{"name": "begin_zoom", "type": "text"}]
 
-       loadBase() {
-           let api = new BaseApi(this.http);
-           // api.getApi('universal_list.php?IBLOCK=21').subscribe(data => {
-           api.getApi('universal_list.php?IBLOCK=21').subscribe(data => {
-                   console.log("in home.ts after getApi=", data);
+     loadBase() {
+         let api = new BaseApi(this.http);
+         // api.getApi('universal_list.php?IBLOCK=21').subscribe(data => {
+         api.getApi('universal_list.php?IBLOCK=21').subscribe(data => {
+                 //console.log("in home.ts after getApi=", data);
 
-                   let tableAction = new TableActionSql(this.http);
-                   for (let i = 0; i < data.length; i++) {
+                 let tableAction = new TableActionSql(this.http);
+                 for (let i = 0; i < data.length; i++) {
 
-                       console.log("data.id", data[i]["ID"]);
-                       tableAction.checkForId(data[i]["ID"]).then(res => {
-                           console.log("tableAction.checkForId res=", res);
-                           if (!res) {
-                               // console.log(
-                               console.log("data.status", data[i]["STATUS"]);
-                               console.log("data.fields", data[i]["FIELDS"]);
-                               let fields = JSON.parse(data[i]["FIELDS"]);
-                               console.log("fields=", fields);
-                               console.log("fields.length=", fields.length);
-                               console.log("fields[1]", fields[1]);
-                               if (!this.platform.is('core')) {
-                                   let loader = this.loadingCtrl.create({
-                                       content: this.waitLoadStr,
-                                       duration: 30000,
-                                   });
-                                   loader.present().then(() => {
-                                       if (data[i]["STATUS"] == 'recreate') {
+                     //console.log("data.id", data[i]["ID"]);
+                     tableAction.checkForId(data[i]["ID"]).then(res => {
+                         //console.log("tableAction.checkForId res=", res);
+                         if (!res) {
+                             // //console.log(
+                             //console.log("data.status", data[i]["STATUS"]);
+                             //console.log("data.fields", data[i]["FIELDS"]);
+                             let fields = JSON.parse(data[i]["FIELDS"]);
+                             //console.log("fields=", fields);
+                             //console.log("fields.length=", fields.length);
+                             //console.log("fields[1]", fields[1]);
+                             if (!this.platform.is('core')) {
+                                 let loader = this.loadingCtrl.create({
+                                     content: this.waitLoadStr,
+                                     duration: 30000,
+                                 });
+                                 loader.present().then(() => {
+                                     if (data[i]["STATUS"] == 'recreate') {
 
-                                           console.log('mydata[i]["TABLE_NAME"]=', data[i]["TABLE_NAME"]);
-                                           console.log('fields=', fields);
-                                           console.log('mydata[i]["STATUS"]=', data[i]["STATUS"]);
-                                           console.log('constrains=', data[i]["CONSTRAINS"]);
-                                           let table = new BaseSql(this.http, data[i]["TABLE_NAME"], fields, data[i]["CONSTRAINS"], data[i]["STATUS"]);
-                                           table.loadApi(data[i]["API_PATH"]);
-                                       }
-                                       if (data[i]["STATUS"] == 'update') {
+                                         //console.log('mydata[i]["TABLE_NAME"]=', data[i]["TABLE_NAME"]);
+                                         //console.log('fields=', fields);
+                                         //console.log('mydata[i]["STATUS"]=', data[i]["STATUS"]);
+                                         //console.log('constrains=', data[i]["CONSTRAINS"]);
+                                         let table = new BaseSql(this.http, data[i]["TABLE_NAME"], fields, data[i]["CONSTRAINS"], data[i]["STATUS"]);
+                                         table.loadApi(data[i]["API_PATH"]);
+                                     }
+                                     if (data[i]["STATUS"] == 'update') {
 
-                                           console.log('mydata[i]["TABLE_NAME"]=', data[i]["TABLE_NAME"]);
-                                           console.log('fields=', fields);
-                                           console.log('mydata[i]["STATUS"]=', data[i]["STATUS"]);
-                                           console.log('constrains=', data[i]["CONSTRAINS"]);
-                                           let table = new BaseSql(this.http, data[i]["TABLE_NAME"], fields, data[i]["CONSTRAINS"], data[i]["STATUS"]);
-                                           table.updateApi(data[i]["API_PATH"] + '?DATE_MODIFY_FROM=' + data[i]["DATE_MODIFY_FROM"]);
-                                       }
-                                       tableAction.addItem({
-                                               id: data[i]["ID"],
-                                               table_name: data[i]["TABLE_NAME"],
-                                               action: data[i]["STATUS"],
-                                               date_change: this.getDate(),
-                                           }
-                                       ).then(res => {
-                                           console.log("tableAction.addItem res=", res);
-                                           loader.dismiss();
-                                       });
-                                       //loader.dismiss();
-                                   });
-                               }
-                           }
+                                         //console.log('mydata[i]["TABLE_NAME"]=', data[i]["TABLE_NAME"]);
+                                         //console.log('fields=', fields);
+                                         //console.log('mydata[i]["STATUS"]=', data[i]["STATUS"]);
+                                         //console.log('constrains=', data[i]["CONSTRAINS"]);
+                                         let table = new BaseSql(this.http, data[i]["TABLE_NAME"], fields, data[i]["CONSTRAINS"], data[i]["STATUS"]);
+                                         table.updateApi(data[i]["API_PATH"] + '?DATE_MODIFY_FROM=' + data[i]["DATE_MODIFY_FROM"]);
+                                     }
+                                     tableAction.addItem({
+                                             id: data[i]["ID"],
+                                             table_name: data[i]["TABLE_NAME"],
+                                             action: data[i]["STATUS"],
+                                             date_change: this.getDate(),
+                                         }
+                                     ).then(res => {
+                                         //console.log("tableAction.addItem res=", res);
+                                         loader.dismiss();
+                                     });
+                                     //loader.dismiss();
+                                 });
+                             }
+                         }
 
-                       })
-                       //if this action was never make
+                     })
+                     //if this action was never make
 
 
-                   }
+                 }
 
-               }
-           );
+             }
+         );
 
-       }
+     }
 
+   /* async loadBase() {
+        let api = new BaseApi(this.http);
+        // api.getApi('universal_list.php?IBLOCK=21').subscribe(data => {
+
+        let data = await  api.getApi('universal_list.php?IBLOCK=21').first().toPromise();
+        //console.log("in home.ts after getApi=", data);
+
+        let tableAction = new TableActionSql(this.http);
+        for (let i = 0; i < data.length; i++) {
+
+            //console.log("data.id", data[i]["ID"]);
+            let res = await tableAction.checkForId(data[i]["ID"]);
+            //console.log("tableAction.checkForId res=", res);
+            if (!res) {
+                // //console.log(
+                //console.log("data.status", data[i]["STATUS"]);
+                //console.log("data.fields", data[i]["FIELDS"]);
+                let fields = JSON.parse(data[i]["FIELDS"]);
+                //console.log("fields=", fields);
+                //console.log("fields.length=", fields.length);
+                //console.log("fields[1]", fields[1]);
+                if (!this.platform.is('core')) {
+                    let loader = this.loadingCtrl.create({
+                        content: this.waitLoadStr,
+                        duration: 30000,
+                    });
+                    await loader.present();
+                    if (data[i]["STATUS"] == 'recreate') {
+
+                        //console.log('mydata[i]["TABLE_NAME"]=', data[i]["TABLE_NAME"]);
+                        //console.log('fields=', fields);
+                        //console.log('mydata[i]["STATUS"]=', data[i]["STATUS"]);
+                        //console.log('constrains=', data[i]["CONSTRAINS"]);
+                        let table = new BaseSql(this.http, data[i]["TABLE_NAME"], fields, data[i]["CONSTRAINS"], data[i]["STATUS"]);
+                        await table.loadApi(data[i]["API_PATH"]);
+                    }
+                    if (data[i]["STATUS"] == 'update') {
+
+                        //console.log('mydata[i]["TABLE_NAME"]=', data[i]["TABLE_NAME"]);
+                        //console.log('fields=', fields);
+                        //console.log('mydata[i]["STATUS"]=', data[i]["STATUS"]);
+                        //console.log('constrains=', data[i]["CONSTRAINS"]);
+                        let table = new BaseSql(this.http, data[i]["TABLE_NAME"], fields, data[i]["CONSTRAINS"], data[i]["STATUS"]);
+                        await table.updateApi(data[i]["API_PATH"] + '?DATE_MODIFY_FROM=' + data[i]["DATE_MODIFY_FROM"]);
+                    }
+                    await tableAction.addItem({
+                            id: data[i]["ID"],
+                            table_name: data[i]["TABLE_NAME"],
+                            action: data[i]["STATUS"],
+                            date_change: this.getDate(),
+                        }
+                    );
+                    await loader.dismiss();
+
+                }
+            }
+
+
+        }
+
+
+    }*/
 
 
     ionViewWillEnter() {
         this.iconHeight = this.content.contentHeight / this.iconDivHeight;
         this.iconWidth = this.iconHeight;//must be th same
-        console.log("this.iconHeight=" + this.iconHeight);
+        //console.log("this.iconHeight=" + this.iconHeight);
         this.slides.update();
         this.menu.enable(true);
 
         this.viewCountStr = localStorage.getItem('viewcount');
         this.viewCount = Number(this.viewCountStr);
-        console.log('this.viewCount=', this.viewCount);
+        //console.log('this.viewCount=', this.viewCount);
 
         if (this.viewCount == 0) {
+            if (this.userId) {
+                this.events.publish('user:login');
+            }
             /**
              * init tables of database
              */
@@ -258,14 +325,14 @@ export class HomePage extends BaseLangPageProvider {
     }*/
 
     aboutPage() {
-        this.navCtrl.push(AboutPage);
+        this.navCtrl.push(AboutForumPage);
     }
 
     forumMapPage() {
         let mapSql = new BaseSql(this.http, 'map');
         mapSql.selectWhere('name_map="forum_map.jpg"').then(res => {
 
-            console.log("res=", res);
+            //console.log("res=", res);
             let map = <any>res[0];
             this.navCtrl.push(LeafletMapPage, {
                 typeOfMap: 'simple',
@@ -280,7 +347,7 @@ export class HomePage extends BaseLangPageProvider {
 
 
     parkPatriot() {
-        this.navCtrl.push(ParkPatriotPage);
+        this.navCtrl.push(PatriotPage,);
     }
 
     conferencePage() {
@@ -316,7 +383,7 @@ export class HomePage extends BaseLangPageProvider {
         let mapSql = new BaseSql(this.http, 'map');
         mapSql.selectWhere('name_map="patriot-expo.svg"').then(res => {
 
-            console.log("res=", res);
+            //console.log("res=", res);
             let map = <any>res[0];
             this.navCtrl.push(LeafletMapPage, {
                 typeOfMap: 'icon',
@@ -331,7 +398,7 @@ export class HomePage extends BaseLangPageProvider {
         let mapSql = new BaseSql(this.http, 'map');
         mapSql.selectWhere('name_map="patriot-expo.svg"').then(res => {
 
-            console.log("res=", res);
+            //console.log("res=", res);
             let map = <any>res[0];
             this.navCtrl.push(LeafletMapPage, {
                 typeOfMap: 'icon',
@@ -346,7 +413,7 @@ export class HomePage extends BaseLangPageProvider {
         let mapSql = new BaseSql(this.http, 'map');
         mapSql.selectWhere('name_map="patriot-expo.svg"').then(res => {
 
-            console.log("res=", res);
+            //console.log("res=", res);
             let map = <any>res[0];
             this.navCtrl.push(LeafletMapPage, {
                 typeOfMap: 'icon',
@@ -361,7 +428,7 @@ export class HomePage extends BaseLangPageProvider {
         let mapSql = new BaseSql(this.http, 'map');
         mapSql.selectWhere('name_map="patriot-expo.svg"').then(res => {
 
-            console.log("res=", res);
+            //console.log("res=", res);
             let map = <any>res[0];
             this.navCtrl.push(LeafletMapPage, {
                 typeOfMap: 'icon',
@@ -373,9 +440,10 @@ export class HomePage extends BaseLangPageProvider {
 
     }
 
-    howToGet(){
+    howToGet() {
         this.navCtrl.push(HowToGetPage);
     }
+
 
 }
 

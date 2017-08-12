@@ -14,7 +14,7 @@ import {SignupPage} from '../signup/signup';
     templateUrl: 'login.html'
 })
 export class LoginPage {
-    login: { username?: string, password?: string } = {};
+    user: { login?: string, password?: string } = {};
     submitted = false;
     lang: string;
 
@@ -33,7 +33,7 @@ export class LoginPage {
 
             this.lang = localStorage.getItem('lang');
             if (this.lang == 'ru') {
-                console.log('this.events.subscribe(language:change)', this.lang);
+                //console.log('this.events.subscribe(language:change)', this.lang);
                 this.setRussianStrings();
             }
             else {
@@ -60,7 +60,7 @@ export class LoginPage {
     setEnglishStrings() {
         this.loginStr = 'Login';
         this.userNameStr = 'Username';
-        this.needUserNameStr = 'Need a username';
+        this.needUserNameStr = 'Need a login';
         this.passwordStr = 'Password';
         this.needPasswordStr = 'Need a password';
         this.signUpStr = 'Sign Up';
@@ -70,7 +70,7 @@ export class LoginPage {
         this.submitted = true;
 
         if (form.valid) {
-            this.userData.login(this.login.username, this.login.password);
+            this.userData.login(this.user.login, this.user.password);
             this.navCtrl.push(TabsPage);
         }
     }

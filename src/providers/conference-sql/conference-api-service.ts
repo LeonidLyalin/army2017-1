@@ -14,18 +14,18 @@ export class ConferenceApi extends BaseApi{
 
   constructor(public http: Http) {
     super(http);
-    console.log('conferenceSingle api is created');
+    //console.log('conferenceSingle api is created');
   }
 
   public userId:any;
 
   getConference() {
-    console.log('**about to make HTTP call for all');
+    //console.log('**about to make HTTP call for all');
     return this.http.get(this.baseUrlApi+'conference_list.php')
       .map(response => {
         this.conference = response.json();
-        console.log("after API");
-        console.log(this.conference);
+        //console.log("after API");
+        //console.log(this.conference);
         return this.conference;
       });
   }

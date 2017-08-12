@@ -16,17 +16,17 @@ export class ParticipantApi extends BaseApi{
 
   constructor(public http: Http) {
     super(http);
-    console.log('conferenceSingle api is created');
+    //console.log('conferenceSingle api is created');
   }
 
   public userId:any;
 
   getParticipant() {
-    console.log('**about to make HTTP call for all');
+    //console.log('**about to make HTTP call for all');
     return this.http.get(this.baseUrlApi+'/participant_list_app.php')
       .map(response => {
         this.participants = response.json();
-        console.log(this.participants);
+        //console.log(this.participants);
         return this.participants;
       });
   }
@@ -36,14 +36,14 @@ export class ParticipantApi extends BaseApi{
   getParticipantData(iblockId, forceRefresh: boolean = false): Observable<any> {
     if (!forceRefresh && this.participantData[iblockId]) {
       this.currentParticipant = this.participantData[iblockId];
-      console.log('**no need to make HTTP call, just return the data');
+      //console.log('**no need to make HTTP call, just return the data');
       return Observable.of(this.currentParticipant);
     }
 
     // don't have data yet
 
     //@TODO make api/conferenceSingle.php to getOneParticipantRus single conferenceSingle
-    console.log('**about to make HTTP call');
+    //console.log('**about to make HTTP call');
     return this.http.get(`${this.baseUrlApi}/participant.php?ID={iblockId}`)
       .map(response => {
         this.participantData[iblockId] = response.json();

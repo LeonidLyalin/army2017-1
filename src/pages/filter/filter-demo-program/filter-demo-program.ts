@@ -28,21 +28,21 @@ export class FilterDemoProgramPage extends BaseLangPageProvider {
 
   setRussianStrings() {
     super.setRussianStrings();
-    console.log('this.setRussianStrings()');
+    //console.log('this.setRussianStrings()');
 
 
   }
 
   setEnglishStrings() {
     super.setEnglishStrings();
-    console.log('this.setEnglishStrings()');
+    //console.log('this.setEnglishStrings()');
 
   }
 
     setWholeFilter() {
 
             this.filterCreateWhereStr().then(res => {
-                console.log(' filterMap() res=', <any>res);
+                //console.log(' filterMap() res=', <any>res);
                 this.filterProvider.setFilterValue(<string>res);
             });
 
@@ -54,7 +54,7 @@ export class FilterDemoProgramPage extends BaseLangPageProvider {
     /* this.filterProvider.filterStr=this.filterCreateWhereStr();*/
 
       this.filterCreateWhereStr().then(res => {
-        console.log(' filterMap() res=', <any>res);
+        //console.log(' filterMap() res=', <any>res);
         this.filterProvider.setFilterValue(<string>res);
       });
 
@@ -81,7 +81,7 @@ export class FilterDemoProgramPage extends BaseLangPageProvider {
       let filterModal = this.modalCtrl.create(FilterPage, parameters);
       filterModal.onDidDismiss(
         data => {
-          console.log(data);
+          //console.log(data);
           this.filterProvider.placeField = data["field"];
           this.filterProvider.placeValue = data["value"];
           //this.filterProvider.filterStr=
@@ -108,7 +108,7 @@ export class FilterDemoProgramPage extends BaseLangPageProvider {
     let filterModal = this.modalCtrl.create(FilterPage, parameters);
     filterModal.onDidDismiss(
       data => {
-        console.log(data);
+        //console.log(data);
         this.filterProvider.dateField = data["field"];
         this.filterProvider.dateValue = data["value"];
         this.filterCreate();
@@ -120,8 +120,8 @@ export class FilterDemoProgramPage extends BaseLangPageProvider {
 
   filterCreateWhereStr() {
 
-    console.log("this.dateValue", this.filterProvider.dateValue);
-    console.log("this.placeValue=", this.filterProvider.placeValue);
+    //console.log("this.dateValue", this.filterProvider.dateValue);
+    //console.log("this.placeValue=", this.filterProvider.placeValue);
     return new Promise(res => {
       let whereStr = '';
 
@@ -151,7 +151,7 @@ export class FilterDemoProgramPage extends BaseLangPageProvider {
 
       if (whereStr != '') whereStr = ' where ' + whereStr;
       this.filterProvider.setFilterValue(whereStr);
-      console.log('so whereStr is =', whereStr);
+      //console.log('so whereStr is =', whereStr);
       return res(whereStr);
     });
   }
@@ -160,15 +160,15 @@ export class FilterDemoProgramPage extends BaseLangPageProvider {
 
 
 /*  setFilter() {
-    console.log(this.filterCreateWhereStr());
+    //console.log(this.filterCreateWhereStr());
     //this.filterStr = this.filterCreateWhereStr();
 
 
       this.filterCreateWhereStr().then(res => {
-          console.log(' filterMap() res=', <any>res);
+          //console.log(' filterMap() res=', <any>res);
           this.filterProvider.setFilterValue(<string>res);
       });
-    console.log('this.filterProvider.filterStr=', this.filterProvider.filterStr);
+    //console.log('this.filterProvider.filterStr=', this.filterProvider.filterStr);
   }*/
 
   selectConferenceSearch() {
@@ -176,10 +176,10 @@ export class FilterDemoProgramPage extends BaseLangPageProvider {
     // this.filterProvider.setFilterValue(this.filterCreateWhereStr());
 
       this.filterCreateWhereStr().then(res => {
-        console.log(' filterMap() res=', <any>res);
+        //console.log(' filterMap() res=', <any>res);
         this.filterProvider.setFilterValue(<string>res);
       });
-    console.log('this.filterProvider.filterStr=', this.filterProvider.filterStr);
+    //console.log('this.filterProvider.filterStr=', this.filterProvider.filterStr);
   }
 
   cancelFilterDate() {
@@ -187,10 +187,10 @@ export class FilterDemoProgramPage extends BaseLangPageProvider {
     this.filterProvider.dateValue = '';
 
       this.filterCreateWhereStr().then(res => {
-        console.log(' filterMap() res=', <any>res);
+        //console.log(' filterMap() res=', <any>res);
         this.filterProvider.setFilterValue(<string>res);
       });
-    console.log('this.filterProvider.filterStr=', this.filterProvider.filterStr);
+    //console.log('this.filterProvider.filterStr=', this.filterProvider.filterStr);
 
   }
 
@@ -201,10 +201,10 @@ export class FilterDemoProgramPage extends BaseLangPageProvider {
     this.filterProvider.placeValue = '';
 
       this.filterCreateWhereStr().then(res => {
-        console.log(' filterMap() res=', <any>res);
+        //console.log(' filterMap() res=', <any>res);
         this.filterProvider.setFilterValue(<string>res);
       });
-    console.log('this.filterProvider.filterStr=', this.filterProvider.filterStr);
+    //console.log('this.filterProvider.filterStr=', this.filterProvider.filterStr);
 
   }
 
@@ -213,10 +213,10 @@ export class FilterDemoProgramPage extends BaseLangPageProvider {
     this.filterProvider.partOfName = '';
 
       this.filterCreateWhereStr().then(res => {
-        console.log(' filterMap() res=', <any>res);
+        //console.log(' filterMap() res=', <any>res);
         this.filterProvider.setFilterValue(<string>res);
       });
-    console.log('this.filterProvider.filterStr=', this.filterProvider.filterStr);
+    //console.log('this.filterProvider.filterStr=', this.filterProvider.filterStr);
   }
 
 

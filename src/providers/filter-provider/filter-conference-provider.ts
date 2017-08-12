@@ -40,7 +40,7 @@ export class FilterConferenceProvider extends BaseLangPageProvider{
               public http: Http,
               public events: Events) {
     super(navCtrl, events, http)
-    console.log('Hello FilterExhibitProvider Provider');
+    //console.log('Hello FilterExhibitProvider Provider');
 
   }
 
@@ -71,14 +71,14 @@ export class FilterConferenceProvider extends BaseLangPageProvider{
 
   setFilterValue(filterStr) {
     this.filterStr = filterStr;
-    console.log("provider this.filterStr",this.filterStr)
+    //console.log("provider this.filterStr",this.filterStr)
   }
 
 /*  filterCreateWhereStr() {
-    console.log("this.thematicConferenceValue", this.thematicConferenceValue);
-    console.log("this.countryValue", this.countryValue);
-    console.log("this.mapValue=", this.mapValue);
-    console.log("(this.placeValue=", this.placeValue);
+    //console.log("this.thematicConferenceValue", this.thematicConferenceValue);
+    //console.log("this.countryValue", this.countryValue);
+    //console.log("this.mapValue=", this.mapValue);
+    //console.log("(this.placeValue=", this.placeValue);
     let whereStr = '';
 
     if ((this.partOfName) && (this.partOfName != '')) {
@@ -103,7 +103,7 @@ export class FilterConferenceProvider extends BaseLangPageProvider{
       let places = new BaseSql(this.http, 'place');
       places.selectDistinct('id', 'name_map="' + this.mapValue + '"').then(res => {
         let placeList = <any>res;
-        console.log("place", placeList);
+        //console.log("place", placeList);
         if (placeList.length() > 0) whereStr += ((whereStr != '') ? ' and (' : ' (');
         for (let i = 0; i < placeList.length(); i++) {
           whereStr += ' place=' + placeList[i].id;
@@ -111,7 +111,7 @@ export class FilterConferenceProvider extends BaseLangPageProvider{
         }
         whereStr += ')';
       })
-      console.log("((this.placeValue=='') && (this.mapValue!=''))", whereStr);
+      //console.log("((this.placeValue=='') && (this.mapValue!=''))", whereStr);
     }
 
     if (this.thematicConferenceValue) {
@@ -119,14 +119,14 @@ export class FilterConferenceProvider extends BaseLangPageProvider{
       whereStr += ((whereStr != '') ? ' and ' : '') + '(a.thematic="' + this.thematicConferenceValue + '" or a.thematic like "' + this.thematicConferenceValue +
         ',%"' + ' or a.thematic like "%,' + this.thematicConferenceValue + '" or  a.thematic like "%,' + this.thematicConferenceValue + ',%")';
     }
-    console.log("(whereStr after thematic=", whereStr);
+    //console.log("(whereStr after thematic=", whereStr);
 
     /!*if (this.partOfName != '') whereStr += ((whereStr != '') ? ' and ' : '') + ' a.name_rus like ' + '"%' + this.partOfName + '%"';
      *!/
     if (this.placeValue && (this.placeValue != ''))
       whereStr += ((whereStr != '') ? ' and ' : '') + '  a.place="' + this.placeValue + '"';
     if (whereStr != '') whereStr = ' where ' + whereStr;
-    console.log('so whereStr is =', whereStr);
+    //console.log('so whereStr is =', whereStr);
     return whereStr;
   }*/
 

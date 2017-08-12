@@ -1,55 +1,54 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title text-left>{{titleStr}}</ion-title>
-  </ion-navbar>
+    <ion-navbar>
+        <ion-title text-left>{{titleStr}}</ion-title>
+    </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <ion-card>
+    <ion-card>
 
-    <ion-card-header text-wrap>
-      <p>{{element.name_first}}</p>
-      <h6>{{element.name_second}}</h6>
-    </ion-card-header>
-    <ion-card-content>
-      <p><ion-icon name="calendar" color="danger"></ion-icon>
-        <b color="primary">{{element.date_event}} </b>
-      </p>
-      <p><ion-icon name="timer" color="danger"></ion-icon>
-        <b color="primary">{{element.time_beg}} : {{element.time_end}}</b>
-      </p>
+        <ion-card-header text-wrap>
+            <p>{{element.name_first}}</p>
+            <h6>{{element.name_second}}</h6>
+        </ion-card-header>
+        <ion-card-content>
+            <p>
+                <ion-icon name="calendar" color="danger"></ion-icon>
+                <b color="primary">{{element.date_event}} </b>
+            </p>
+            <p>
+                <ion-icon name="timer" color="danger"></ion-icon>
+                <b color="primary">{{element.time_beg}} : {{element.time_end}}</b>
+            </p>
 
-      <p *ngIf="!element.place_name_place">
-        <ion-icon name="pin" color="danger"></ion-icon>
-        {{element.place_name}}
-      </p>
-      <p *ngIf="element.place_name_place">
-        <ion-icon name="pin" color="danger"></ion-icon>
-        {{element.place_name_place}}
-      </p>
-
-
-
-
-
-    </ion-card-content>
+            <p *ngIf="!element.place_name_place">
+                <ion-icon name="pin" color="danger"></ion-icon>
+                {{element.place_name}}
+            </p>
+            <p *ngIf="element.place_name_place">
+                <ion-icon name="pin" color="danger"></ion-icon>
+                {{element.place_name_place}}
+            </p>
 
 
-    <ion-row no-padding>
-      <ion-col>
-        <button ion-button clear small color="danger" icon-left (click)="this.showLeafLetMap(element,'exhibitDetail')">
-          <ion-icon name='map'></ion-icon>
-          {{onMapStr}}
-        </button>
-      </ion-col>
-      <ion-col>
-        <button ion-button clear small color="danger" icon-left>
-          <ion-icon item-left *ngIf="myForum" name="star" color="danger"
-                    (click)="deleteFromMyForum(myForum)"></ion-icon>
-          <ion-icon item-left *ngIf="!myForum" name="star-outline" (click)="addToMyForumSite(element.id)"></ion-icon>
-          {{myForumStr}}
-        </button>
-      </ion-col>
-    </ion-row>
-  </ion-card>
+        </ion-card-content>
+
+
+        <ion-row no-padding>
+            <ion-col>
+                <button ion-button clear small color="danger" icon-left
+                        (click)="this.showLeafLetMap(element,'exhibitDetail')">
+                    <ion-icon name='map'></ion-icon>
+                    {{onMapStr}}
+                </button>
+            </ion-col>
+            <ion-col>
+                <button ion-button clear small color="danger" icon-left (click)="changeMyForum(element)">
+                    <ion-icon item-left *ngIf="element.my_forum_id" name="star" color="danger"></ion-icon>
+                    <ion-icon item-left *ngIf="!element.my_forum_id" name="star-outline"></ion-icon>
+                    {{myForumStr}}
+                </button>
+            </ion-col>
+        </ion-row>
+    </ion-card>
 </ion-content>

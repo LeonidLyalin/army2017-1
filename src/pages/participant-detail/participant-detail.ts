@@ -2,7 +2,6 @@ import {Component} from '@angular/core';
 
 import {Events, NavController, NavParams} from 'ionic-angular';
 import {ThematicSql} from "../../providers/thematic-sql";
-import {ParticipantSql} from "../../providers/participant-sql";
 import {MyForumSql} from "../../providers/my-forum-sql";
 import {Http} from "@angular/http";
 
@@ -20,12 +19,12 @@ import {LeafletMapPage} from "../leaflet-map/leaflet-map";
 })
 export class ParticipantDetailPage extends BaseLangPageProvider {
 
-
-    participant: any;
+    participantList: any;
+    // participant: any;
     thematic: any;
-   // myForum: any;
+    // myForum: any;
 
-    showMap: boolean;
+    //   showMap: boolean;
 
     iblockId: any;
     //interface strings
@@ -33,7 +32,7 @@ export class ParticipantDetailPage extends BaseLangPageProvider {
     onMapStr: string;
     myForumStr: string;
     thematicStr: string;
-    listOut:any;
+    listOut: any;
 
     constructor(public navParams: NavParams,
                 public navCtrl: NavController,
@@ -42,45 +41,57 @@ export class ParticipantDetailPage extends BaseLangPageProvider {
                 public placeSql: PlaceSql,
                 public mapSql: MapSql,
                 public events: Events,
-
                 http: Http) {
         super(navCtrl, events, http);
         //this.lang = localStorage.getItem('lang');
-        console.log("now in Participant detail");
-        console.log(navParams);
+        //console.log("now in Participant detail");
+        //console.log(navParams);
         this.thematic = [];
         /* if (this.navParams.data.map) this.showMap = this.navParams.data.map;
          else this.showMap = true;*/
-        if (this.navParams.data.map != null)
-            this.showMap = this.navParams.data.map;
-        else this.showMap = true;
+
         if (navParams.data.participant) {
             if (navParams.data.participant.length)
-                this.participant = navParams.data.participant[0];
-            else this.participant = navParams.data.participant;
+            //  this.participant = navParams.data.participant[0];
+                this.participantList = navParams.data.participant
+            //else this.participant = navParams.data.participant;
+            else this.participantList.push(navParams.data.participant);
         }
         else {
-            if (navParams.data.res) this.participant = navParams.data.res;
+            //   if (navParams.data.res) this.participant = navParams.data.res;
+            if (navParams.data.res) this.participantList.push(navParams.data.res);
         }
 
 
-        if (navParams.data.listOut){
-            this.listOut=navParams.data.listOut;
+        if (navParams.data.listOut) {
+            this.listOut = navParams.data.listOut;
         }
         this.changeName();
 
-        if (this.showMap) this.showMap = !!this.participant.place_name;
-        console.log('this.participant=', this.participant);
-        this.thematicSql.getThematicOfParticipant(this.participant.id).then(
-            res => {
-                console.log("res in thematic page=", res);
-                this.thematic = res;
+        this.prepareParticipant();
+        // if (this.showMap) this.showMap =
+        //console.log('this.participant=', this.participantList[0]);
 
-            }
-        );
+
         this.iblockId = 1;
 
 
+
+
+    }
+
+    async prepareParticipant() {
+        for (let participant of this.participantList) {
+            participant["thematic"] = [];
+            if (this.navParams.data.map != null)
+                participant["showMap"] = this.navParams.data.map;
+            else participant["showMap"] = true;
+            participant["showMap"] = !!this.participantList[0].place_name;
+            let res = await       this.thematicSql.getThematicOfParticipant(participant.id)
+            //console.log("res in thematic page=", res);
+            participant["thematic"] = res;
+            //console.log("participant=", participant);
+        }
     }
 
     setRussianStrings() {
@@ -101,36 +112,25 @@ export class ParticipantDetailPage extends BaseLangPageProvider {
 
     ionViewDidLoad() {
         super.ionViewDidLoad();
- /*       if (this.userId) {
-            this.participantSql.getFieldFromTable(this.participant.id, 'id', 'myforum').then(//getMyForumForId(this.participant.id).then(
-                res => {
-                    console.log("res in participant myForumParticipant", res);
-                    this.myForum = res;
-                }
-            )
-        }
-        else {
-            this.myForum = 0;
-        }*/
-
     }
 
-    async changeMyForum(id){
+    async changeMyForum(id) {
         if (this.userId) {
-            if (this.participant.my_forum_id>0){
+            let participant = this.participantList.find(x => x.id == id);
+            //element.my_forum_id = id.my_forum_id;
+            // //console.log('was added =', element);
+            if (participant.my_forum_id > 0) {
 
-                this.participant.my_forum_id =await this.deleteFromMyForum(id);
-                this.events.publish('myforum:delete', (id)
+                participant.my_forum_id = await this.deleteFromMyForum(id);
+                this.events.publish('myforum:delete:participant', (id)
                 );
             }
             else {
-                this.participant.my_forum_id=await this.addToMyForumSite(id);
-               // ''this.participantApi
-                this.events.publish('myforum:add', ({id:id, my_forum_id:this.participant.my_forum_id})
+                participant.my_forum_id = await this.addToMyForumSite(id);
+                // ''this.participantApi
+                this.events.publish('myforum:add:participant', ({id: id, my_forum_id: participant.my_forum_id})
                 );
-              /*  this.listOut.find(x=>x.id==this.participant,x=>{
-                    console.log("type script find=",x);
-                })*/
+
 
 
             }
@@ -139,8 +139,8 @@ export class ParticipantDetailPage extends BaseLangPageProvider {
 
     deleteFromMyForum(id) {
         if (this.userId) {
-            this.sqlMyForum.delFromMyForum(id).then(res=>{
-                if (res)  return null;
+            this.sqlMyForum.delFromMyForum(id).then(res => {
+                if (res) return null;
                 else return -1;
             });
         }
@@ -155,47 +155,49 @@ export class ParticipantDetailPage extends BaseLangPageProvider {
 
     async changeName() {
         // for (let i = 0; i < this.listOut.length; i++) {
-        this.participant.name = this.participant.name.replace(/&quot;/g, '"');
-        this.participant.desc = this.participant.desc.replace(/&quot;/g, '"');
-        this.participant.desc = this.participant.desc.replace(/\\r\\n/g, '');
-        console.log("this.listOut[i]=", this.participant);
-        console.log("this.listOut[i].name=", this.participant.name);
-        console.log("this.listOut[i].place=", this.participant.place);
+
+        for (let participant of  this.participantList) {
+            participant.name = participant.name.replace(/&quot;/g, '"');
+            participant.desc = participant.desc.replace(/&quot;/g, '"');
+            participant.desc = participant.desc.replace(/\\r\\n/g, '');
+            //console.log("this.listOut[i]=", participant);
+            //console.log("this.listOut[i].name=", participant.name);
+            //console.log("this.listOut[i].place=", participant.place);
 
 
-        console.log(this.participant.place);
+            //console.log(participant.place);
 
-        if (this.participant.place && this.participant.place.includes(',')) {
-            let placeStr = '';
+            if (participant.place && participant.place.includes(',')) {
+                let placeStr = '';
 
-            let listPlaces = this.participant.place.split(',');
-            for (let m = 0; m < listPlaces.length; m++) {
+                let listPlaces = participant.place.split(',');
+                for (let m = 0; m < listPlaces.length; m++) {
 
-                let res = await this.placeSql.selectWhere('id=' + listPlaces[m]);
-                if (res) {
-                    console.log("res=", res);
-                    placeStr += (placeStr == '' ? '' : ', ') + (this.lang == 'ru' ? res[0].name_rus : res[0].name_eng);
-                    console.log(listPlaces[m]);
-                    this.participant.place_name_place = placeStr;
-                    this.participant.place_name = placeStr;
+                    let res = await this.placeSql.selectWhere('id=' + listPlaces[m]);
+                    if (res) {
+                        //console.log("res=", res);
+                        placeStr += (placeStr == '' ? '' : ', ') + (this.lang == 'ru' ? res[0].name_rus : res[0].name_eng);
+                        //console.log(listPlaces[m]);
+                        participant.place_name_place = placeStr;
+                        participant.place_name = placeStr;
+                    }
                 }
+                if ((participant["showMap"]) && (this.participantList.length==1)) participant["showMap"] = !!participant.place_name;
+
             }
-            if (this.showMap) this.showMap = !!this.participant.place_name;
-
         }
-
 
     }
 
     showLeafLetMap1(participant) {
-        console.log("participant=", participant);
+        //console.log("participant=", participant);
 
 
         this.placeSql.selectWhere('id=' + participant.place).then(res => {
-            console.log('showLeafLetMap res=', res);
+            //console.log('showLeafLetMap res=', res);
             let place: place[] = (<place[]>res);
             this.mapSql.getRecordForFieldValue('name_map', "'" + place[0].name_map + "'").then(res => {
-                console.log("res=", res);
+                //console.log("res=", res);
                 let map = <map[]>res;
                 this.navCtrl.push(LeafletMapPage, {
                     typeOfMap: 'participantDetail',

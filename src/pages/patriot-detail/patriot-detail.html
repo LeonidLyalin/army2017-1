@@ -1,0 +1,38 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title text-left>{{titleStr}}</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-card>
+
+        <ion-card-header text-wrap>
+            <p text-wrap>{{element.name}}</p>
+        </ion-card-header>
+        <ion-card-content>
+
+            <img src="assets/img/patriot/{{element.image_file}}"/>
+            <p *ngIf="element.desc" text-wrap>
+                <ion-icon name="information-circle" color="danger"></ion-icon>
+                {{element.desc}}
+            </p>
+
+
+
+
+        </ion-card-content>
+
+
+        <ion-row no-padding>
+
+                <button ion-button clear small color="danger" icon-left
+                        (click)="this.showLeafLetPlaceOnMap(element,'showmarker')">
+                    <ion-icon name='map'></ion-icon>
+                    {{onMapStr}}
+                </button>
+
+
+        </ion-row>
+    </ion-card>
+</ion-content>

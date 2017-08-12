@@ -39,7 +39,7 @@ export class DemoProgramHelpPage extends BaseLangPageProvider {
   setRussianStrings() {
     super.setRussianStrings();
 
-    this.titleStr = 'Работа c демо программой';
+    this.titleStr = 'Работа c шоу программой';
     this.setOneFilterStr='Установить фильтр для параметра';
     this.cancelOneFilterStr='Сбросить фильтр для параметра';
     this.setFilterStr='Установить фильтр для параметра';
@@ -56,7 +56,7 @@ export class DemoProgramHelpPage extends BaseLangPageProvider {
     this.cancelFilterStr='Cancel filter of the parameter';
   }
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ParticipantHelpPage');
+    //console.log('ionViewDidLoad ParticipantHelpPage');
   }
 
 }

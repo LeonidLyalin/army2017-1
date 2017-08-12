@@ -14,16 +14,16 @@ export class PlaceApi extends BaseApi{
 
   constructor(public http: Http) {
     super(http);
-    console.log('conferenceSingle api is created');
+    //console.log('conferenceSingle api is created');
   }
   public userId:any;
 
   getPlace(name_map) {
-    console.log('**about to make HTTP call for all');
+    //console.log('**about to make HTTP call for all');
     return this.http.get(this.baseUrlApi+'/place_list.php?NAME_MAP='+name_map)
       .map(response => {
         this.place = response.json();
-        console.log(this.place);
+        //console.log(this.place);
         return this.place;
       });
   }

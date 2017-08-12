@@ -13,7 +13,7 @@ import {BaseListPageProvider} from "../../providers/base-list-page/base-list-pag
 })
 export class ConferenceDetailPage extends BaseListPageProvider {
 
-    conferenceSingle: any;
+    element: any;
     thematic: any;
     myForum: any;
 
@@ -35,12 +35,12 @@ export class ConferenceDetailPage extends BaseListPageProvider {
                 public http: Http,
                 ) {
         super(NavCtrl, navParams, events, http);
-        console.log("now in conference detail");
-        console.log(navParams);
+        //console.log("now in conference detail");
+        //console.log(navParams);
         this.thematic = [];
-        if (navParams.data.conferenceSingle)
-            this.conferenceSingle = navParams.data.conferenceSingle;
-        else if (navParams.data.res) this.conferenceSingle = navParams.data.res;
+        if (navParams.data.element)
+            this.element = navParams.data.element;
+        else if (navParams.data.res) this.element = navParams.data.res;
         this.iblockId = 14;
 
 
@@ -65,17 +65,17 @@ export class ConferenceDetailPage extends BaseListPageProvider {
     ionViewDidLoad() {
         super.ionViewDidLoad();
         // this.userId = localStorage.getItem('userid');
-        this.thematicConferenceSql.getThematicOfConference(this.conferenceSingle.id).then(
+        this.thematicConferenceSql.getThematicOfConference(this.element.id).then(
             res => {
                 if (res) {
-                    console.log("res in thematicConference page=", res);
+                    //console.log("res in thematicConference page=", res);
                     this.thematic = <any>res;
 
-                    /*  this.conferenceDetailSql.getFieldFromTable(this.conferenceSingle.id, 'id', 'myforum').then(
-                        //getMyForumForId(this.conferenceSingle.id).then(
+                    /*  this.conferenceDetailSql.getFieldFromTable(this.element.id, 'id', 'myforum').then(
+                        //getMyForumForId(this.element.id).then(
                         rs => {
                           if (rs) {
-                            console.log("res in conferenceSingle myForumitem", rs);
+                            //console.log("res in element myForumitem", rs);
                             this.myForum = <any>rs;
                           }
             
@@ -87,40 +87,51 @@ export class ConferenceDetailPage extends BaseListPageProvider {
 
     }
 
-    /**
-     * delete event of the conference from MyForum
-     * @param id
-     */
-    deleteFromMyForum(id) {
-        this.sqlMyForum.delFromMyForum(id);
-    }
+
 
     /**
      * add event to MyForum on the site and the mobile app
      * @param id
      */
-    addToMyForumSite(id) {
-        this.sqlMyForum.addToMyForumSite(id, this.iblockId, this.userId)
+
+
+    async changeMyForum(element) {
+        if (this.userId) {
+            //   let participant = this.participantList.find(x => x.id == id);
+            //element.my_forum_id = id.my_forum_id;
+            // //console.log('was added =', element);
+            if (element.my_forum_id > 0) {
+
+                element.my_forum_id = await this.deleteFromMyForum(element.id);
+                this.events.publish('myforum:delete:conference', (element.id)
+                );
+            }
+            else {
+                element.my_forum_id = await this.addToMyForumSite(element.id);
+                // ''this.participantApi
+                this.events.publish('myforum:add:conference', ({id: element.id, my_forum_id: element.my_forum_id})
+                );
+
+
+
+            }
+        }
     }
 
-    /*    showLeafLetMap(item, typeOfMap) {
-            console.log("item=", item);
-
-
-            this.placeSql.selectWhere('id=' + item.place).then(res => {
-                console.log('showLeafLetMap res=', res);
-                let place = (<any[]>res);
-                this.mapSql.getRecordForFieldValue('name_map', "'" + place[0].name_map + "'").then(res => {
-                    console.log("res=", res);
-                    let map = <map[]>res;
-                    this.navCtrl.push(LeafletMapPage, {
-                        typeOfMap: typeOfMap,
-                        popupElement: item,
-                        place: place,
-                        map: map
-                    });
-                });
+    deleteFromMyForum(id) {
+        if (this.userId) {
+            this.sqlMyForum.delFromMyForum(id).then(res => {
+                if (res) return null;
+                else return -1;
             });
-        }*/
+        }
+    }
+
+    async addToMyForumSite(id) {
+        if (this.userId) {
+            return await this.sqlMyForum.addToMyForumSite(id, this.iblockId, this.userId);
+        }
+    }
+
 
 }

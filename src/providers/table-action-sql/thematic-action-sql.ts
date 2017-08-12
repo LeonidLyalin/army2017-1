@@ -24,7 +24,7 @@ export class TableActionSql extends BaseSql{
       {name:"time_change", type:"text"    }
       ]
     );
-    console.log('Hello table_action constructor');
+    //console.log('Hello table_action constructor');
     //this.openDb();
   }
 

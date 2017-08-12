@@ -39,10 +39,11 @@ export class BaseListPageProvider extends BaseLangPageProvider {
     constructor(public navCtrl: NavController,
                 public navParams: NavParams,
                 public events: Events,
-                public http: Http,) {
+                public http: Http) {
         super(navCtrl, events, http);
-        console.log('Hello BaseListPageProvider Provider');
+        //console.log('Hello BaseListPageProvider Provider');
         this.listOut = [];
+
 
     }
 
@@ -92,7 +93,7 @@ export class BaseListPageProvider extends BaseLangPageProvider {
             }
         }
         this.showMainList = !(this.showHelp || this.showFilter);
-        console.log(this.lang);
+        //console.log(this.lang);
     }
 
     showMapList(typeOfMap_in) {
@@ -101,7 +102,7 @@ export class BaseListPageProvider extends BaseLangPageProvider {
         placeSql.selectWhere('id=' + this.listOut[0].place).then(res => {
             let place: place[] = (<place[]>res);
             mapSql.getRecordForFieldValue('name_map', "'" + place[0].name_map + "'").then(res => {
-                console.log("res=", res);
+                //console.log("res=", res);
                 let map = <map[]>res;
                 this.navCtrl.push(LeafletMapPage, {
                     typeOfMap: typeOfMap_in,
@@ -115,16 +116,16 @@ export class BaseListPageProvider extends BaseLangPageProvider {
 
 
     showLeafLetMap(item, typeOfMap) {
-        console.log("item=", item);
+        //console.log("item=", item);
         let placeSql = new PlaceSql(this.http);
         let mapSql = new MapSql(this.http);
 
 
         placeSql.selectWhere('id=' + item.place).then(res => {
-            console.log('showLeafLetMap res=', res);
+            //console.log('showLeafLetMap res=', res);
             let place = (<any[]>res);
             mapSql.getRecordForFieldValue('name_map', "'" + place[0].name_map + "'").then(res => {
-                console.log("res=", res);
+                //console.log("res=", res);
                 let map = <map[]>res;
                 this.navCtrl.push(LeafletMapPage, {
                     typeOfMap: typeOfMap,
@@ -139,7 +140,7 @@ export class BaseListPageProvider extends BaseLangPageProvider {
     showLeafLetMapSimple(name_map, typeOfMap) {
         let mapSql = new MapSql(this.http);
         mapSql.getRecordForFieldValue('name_map', "'" + name_map + "'").then(res => {
-            console.log("res=", res);
+            //console.log("res=", res);
             let map = <map[]>res;
             this.navCtrl.push(LeafletMapPage, {
                 typeOfMap: typeOfMap,
@@ -150,5 +151,30 @@ export class BaseListPageProvider extends BaseLangPageProvider {
         });
 
     }
+
+
+    showLeafLetPlaceOnMap(element, typeOfMap) {
+      //  //console.log("item=", item);
+        let placeSql = new PlaceSql(this.http);
+        let mapSql = new MapSql(this.http);
+
+
+        placeSql.selectWhere('id=' + element.place).then(res => {
+            //console.log('showLeafLetMap res=', res);
+            let place = (<any[]>res);
+            mapSql.getRecordForFieldValue('name_map', "'" + place[0].name_map + "'").then(res => {
+                //console.log("res=", res);
+                let map = <map[]>res;
+                this.navCtrl.push(LeafletMapPage, {
+                    typeOfMap: typeOfMap,
+                    popupElement: element,
+                    place: place,
+                    map: map
+                });
+            });
+        });
+    }
+
+
 
 }
