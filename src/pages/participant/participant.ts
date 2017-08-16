@@ -37,16 +37,16 @@ export class ParticipantPage extends BaseListPageProvider {
                 public placeSql: PlaceSql) {
 //подгружаем список участников выставки
         super(navCtrl, navParams, events, http);//, placeSql, mapSql);
-        events.subscribe('myforum:add:participant', (id) => {
-                //console.log('was added id =', id);
-                let element = this.listOut.find(x => x.id == id.id);
-                element.my_forum_id = id.my_forum_id;
+        events.subscribe('myforum:add:participant', (participant) => {
+                //console.log('was added id =', );
+                let element = this.listOut.find(x => Number(x.id) == Number(participant.id));
+                element.my_forum_id = participant.my_forum_id;
                 //console.log('was added =', element);
             }
         );
         events.subscribe('myforum:delete:participant', (id) => {
                 //console.log('was deleted id=', id);
-                let element = this.listOut.find(x => x.id == id);
+                let element = this.listOut.find(x => Number(x.id) == Number(id.id));
                 element.my_forum_id = null;
                 //console.log('was deleted =', element);
             }
@@ -90,7 +90,7 @@ export class ParticipantPage extends BaseListPageProvider {
             //console.log("this.navParams in ioViewDidLoad =", this.navParams);
             this.listOut = this.navParams.data.data;
         }
-        else {
+       /* else {
             //console.log("this.selectParticipantAll()");
             let toast = this.toastCtrl.create({
                 message: this.loadStr,
@@ -98,35 +98,12 @@ export class ParticipantPage extends BaseListPageProvider {
             });
             toast.present();
             this.selectParticipantAll()
-        }
+        }*/
 
     }
 
 
-    /**
-     * add a record in to the myforum table and in site infoblock "myforum" for current Participant element
-     * @param id
-     */
 
-    /*    addToMyForum(id) {
-            //console.log('add', id);
-            this.myForumApi.addToMyForumSite(this.iblockId, id).subscribe(data => {
-                //console.log("here are the results of adding through api");
-                //console.log(data);
-
-                //  this.sqlMyForum.addItemAndSelect(data, this.userId, this.iblockId, id).then(res => {
-                this.sqlMyForum.addItem({id: data, user: this.userId, my_iblock_id: this.iblockId, my_id: id}).then(res => {
-                    //console.log('added', id);
-                    //console.log(res);
-                    if (this.lang == 'ru') {
-                        this.selectParticipantRus()
-                    }
-                    else {
-                        this.selectParticipantEng()
-                    }
-                });
-            });
-        }*/
 
     /**
      * Show the detail view of the Participant

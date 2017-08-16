@@ -60,77 +60,49 @@ export class MyForumPage extends BaseListPageProvider {
     setEvents() {
         //for participants
 
-        this.events.subscribe('myforum:add:participant', (id) => {
-                //console.log('was added id =', id);
-                
-                let participant = this.myForumParticipant.find(x => x.id == id.id);
-            participant.my_forum_id = id.my_forum_id;
-                //console.log('was added =', participant);
+        this.events.subscribe('myforum:add:participant', (element) => {
+                //console.log('was added element =', element);
+                this.myForumParticipant.push(element);
+                /*  if (this.lang == 'ru') this.selectParticipantRus();
+                  else this.selectParticipantEng();*/
             }
         );
-        this.events.subscribe('myforum:delete:participan', (id) => {
-                //console.log('was deleted id=', id);
-                let participant = this.myForumParticipant.find(x => x.id == id);
-            participant.my_forum_id = null;
-                //console.log('was deleted =', participant);
-                if (this.lang == 'ru') this.selectParticipantRus();
-                else this.selectParticipantEng();
+        this.events.subscribe('myforum:delete:participant', (participant) => {
+
+
+                this.myForumParticipant = this.myForumParticipant.filter(obj => Number(obj.id) !== Number(participant.id));
             }
         );
 
         //for exhibit
-        this.events.subscribe('myforum:add:exhibit', (id) => {
-                //console.log('was added id =', id);
-                let exhibit = this.myForumExhibit.find(x => x.id == id.id);
-                exhibit.my_forum_id = id.my_forum_id;
-                //console.log('was added =', exhibit);
-                if (this.lang == 'ru') this.selectExhibitRus();
-                else this.selectExhibitEng();
-
+        this.events.subscribe('myforum:add:exhibit', (element) => {
+                //console.log('was added element =', element);
+                this.myForumExhibit.push(element);
             }
         );
         this.events.subscribe('myforum:delete:exhibit', (id) => {
-                //console.log('was deleted id=', id);
-                let exhibit = this.myForumExhibit.find(x => x.id == id);
-                exhibit.my_forum_id = null;
-                //console.log('was deleted =', exhibit);
-                if (this.lang == 'ru') this.selectExhibitRus();
-                else this.selectExhibitEng();
+                this.myForumExhibit = this.myForumExhibit.filter(obj => Number(obj.id) !== Number(id.id));
             }
         );
 
 //for DemoProgram
-        this.events.subscribe('myforum:add:demo', (id) => {
-                //console.log('was added id =', id);
-                let demo = this.myForumDemoProgram.find(x => x.id == id.id);
-                demo.my_forum_id = id.my_forum_id;
-                //console.log('was added =', demo);
-                if (this.lang == 'ru') this.selectDemoProgramRus();
-                else this.selectDemoProgramEng();
+        this.events.subscribe('myforum:add:demo', (element) => {
+                //console.log('was added element =', element);
+                this.myForumDemoProgram.push(element);
             }
         );
         this.events.subscribe('myforum:delete:demo', (id) => {
-                //console.log('was deleted id=', id);
-                let demo = this.myForumDemoProgram.find(x => x.id == id);
-                demo.my_forum_id = null;
-                //console.log('was deleted =', demo);
-                if (this.lang == 'ru') this.selectDemoProgramRus();
-                else this.selectDemoProgramEng();
+                this.myForumDemoProgram = this.myForumDemoProgram.filter(obj => Number(obj.id) !== Number(id.id));
             }
         );
-        //
-        this.events.subscribe('myforum:add:conference', (id) => {
-                //console.log('was added id =', id);
-                let conferenceSingle = this.myForumConference.find(x => x.id == id.id);
-                conferenceSingle.my_forum_id = id.my_forum_id;
-                //console.log('was added =', conferenceSingle);
+        //for conference
+        this.events.subscribe('myforum:add:conference', (element) => {
+                //console.log('was added element =', element);
+                this.myForumConference.push(element);
             }
         );
         this.events.subscribe('myforum:delete:conference', (id) => {
-                //console.log('was deleted id=', id);
-                let conferenceSingle = this.myForumConference.find(x => x.id == id);
-                conferenceSingle.my_forum_id = null;
-                //console.log('was deleted =', conferenceSingle);
+                this.myForumConference = this.myForumConference.filter(obj => Number(obj.id) !== Number(id.id));
             }
         );
     }
@@ -141,7 +113,7 @@ export class MyForumPage extends BaseListPageProvider {
         this.participantStr = 'Участники';
         this.conferenceStr = 'Конференция';
         this.exhibitStr = 'Экспонаты МO';
-        this.demoStr = 'Шоу программа';
+        this.demoStr = 'Программа';
 
 
     }
@@ -151,7 +123,7 @@ export class MyForumPage extends BaseListPageProvider {
         this.participantStr = 'Exhibitors';
         this.conferenceStr = 'Conference';
         this.exhibitStr = 'Exhibits of MoD';
-        this.demoStr = 'Show program';
+        this.demoStr = 'Program';
 
     }
 
@@ -166,22 +138,26 @@ export class MyForumPage extends BaseListPageProvider {
             this.sqlMyForum.delAll();
             //console.log('insert new elements for myforum');
             this.sqlMyForum.addItemList(this.myForumApi);
-            if (this.lang == 'ru') {
-                this.selectParticipantRus();
-                this.selectConferenceRus();
-                this.selectExhibitRus();
-                this.selectDemoProgramRus();
-            }
-            else {
-                this.selectParticipantEng();
-                this.selectConferenceEng();
-                this.selectExhibitEng();
-                this.selectDemoProgramEng();
-            }
+            this.selectAllList();
 
 
         });
 
+    }
+
+    selectAllList() {
+        if (this.lang == 'ru') {
+            this.selectParticipantRus();
+            this.selectConferenceRus();
+            this.selectExhibitRus();
+            this.selectDemoProgramRus();
+        }
+        else {
+            this.selectParticipantEng();
+            this.selectConferenceEng();
+            this.selectExhibitEng();
+            this.selectDemoProgramEng();
+        }
     }
 
     ionViewDidLoad() {
@@ -205,10 +181,12 @@ export class MyForumPage extends BaseListPageProvider {
 
     selectParticipantRus() {
         //console.log('selectParticipantRus');
+        this.myForumParticipant = [];
         this.sqlMyForum.getRusParticipantMyForum(this.userId).then(res => {
             //console.log('our select');
             //console.log(res);
             this.myForumParticipant = res;
+            this.changeNameParticipant();
         })
 
     }
@@ -216,10 +194,12 @@ export class MyForumPage extends BaseListPageProvider {
 
     selectParticipantEng() {
         //console.log('selectParticipantEng');
+        this.myForumParticipant = [];
         this.sqlMyForum.getEngParticipantMyForum(this.userId).then(res => {
             //console.log('our select');
             //console.log(res);
             this.myForumParticipant = res;
+            this.changeNameParticipant();
         })
 
     }
@@ -227,6 +207,7 @@ export class MyForumPage extends BaseListPageProvider {
 
     selectExhibitRus() {
         //console.log('selectParticipantRus');
+        this.myForumExhibit = [];
         this.sqlMyForum.getRusExhibitMyForum(this.userId).then(res => {
             //console.log('our select');
             //console.log(res);
@@ -238,6 +219,7 @@ export class MyForumPage extends BaseListPageProvider {
 
     selectExhibitEng() {
         //console.log('selectParticipantEng');
+        this.myForumExhibit = [];
         this.sqlMyForum.getEngExhibitMyForum(this.userId).then(res => {
             //console.log('our select');
             //console.log(res);
@@ -248,6 +230,7 @@ export class MyForumPage extends BaseListPageProvider {
 
     selectConferenceRus() {
         //console.log('selectConferenceRus');
+        this.myForumConference = [];
         this.sqlMyForum.getRusConferenceMyForum(this.userId).then(res => {
             //console.log('our select');
             //console.log(res);
@@ -259,6 +242,7 @@ export class MyForumPage extends BaseListPageProvider {
 
     selectConferenceEng() {
         //console.log('selectConferenceEng');
+        this.myForumConference = [];
         this.sqlMyForum.getEngConferenceMyForum(this.userId).then(res => {
             //console.log('our select');
             //console.log(res);
@@ -269,10 +253,12 @@ export class MyForumPage extends BaseListPageProvider {
 
     selectDemoProgramRus() {
         //console.log('selectConferenceRus');
+        this.myForumDemoProgram = [];
         this.sqlMyForum.getRusDemoProgramMyForum(this.userId).then(res => {
             //console.log('our select');
             //console.log(res);
             this.myForumDemoProgram = res;
+            this.changeNameDepoProgram();
         })
 
     }
@@ -280,10 +266,12 @@ export class MyForumPage extends BaseListPageProvider {
 
     selectDemoProgramEng() {
         //console.log('selectConferenceEng');
+        this.myForumDemoProgram = [];
         this.sqlMyForum.getEngDemoProgramMyForum(this.userId).then(res => {
             //console.log('our select');
             //console.log(res);
             this.myForumDemoProgram = res;
+            this.changeNameDepoProgram();
         })
 
     }
@@ -296,10 +284,10 @@ export class MyForumPage extends BaseListPageProvider {
 
     /*
       selectItems() {
-        ////////console.log("this.myForumParticipant");
+        //////////console.log("this.myForumParticipant");
         // this.myForumParticipant=this.sqlMyForum.getRows2();
 
-        ////////console.log(this.myForumParticipant);
+        //////////console.log(this.myForumParticipant);
         this.sqlMyForum.select().then(res => {
           //console.log('our select');
           //console.log(res);
@@ -354,42 +342,84 @@ export class MyForumPage extends BaseListPageProvider {
         // go to the session detail page
         // and pass in the session data
         this.navCtrl.push(ConferenceDetailPage, {
-            conferenceSingle
+            element: conferenceSingle
         });
     }
 
     showMapMyForum() {
         if (this.forumSegment == 'conferenceItems') {
+            if (this.myForumConference.length > 0) {
 
-            this.placeSql.select().then(res => {
-                let place: place[] = (<place[]>res);
-                this.mapSql.getRecordForFieldValue('name_map', "'" + place[0].name_map + "'").then(res => {
-                    //console.log("res=", res);
-                    let map = <map[]>res;
-                    this.navCtrl.push(LeafletMapPage, {
-                        typeOfMap: 'conference',
-                        popupElement: this.myForumConference,
-                        place: place,
-                        map: map
+                this.placeSql.selectWhere(' where id=' + this.myForumConference[0].place).then(res => {
+                    let place: place[] = (<place[]>res);
+                    this.mapSql.getRecordForFieldValue('name_map', "'" + place[0].name_map + "'").then(res => {
+                        //console.log("res=", res);
+                        let map = <map[]>res;
+                        this.navCtrl.push(LeafletMapPage, {
+                            typeOfMap: 'conference',
+                            popupElement: this.myForumConference,
+                            place: place,
+                            map: map
+                        });
                     });
                 });
-            });
+            }
         }
-        if (this.forumSegment == 'participantItems') {
 
-            this.placeSql.select().then(res => {
-                let place: place[] = (<place[]>res);
-                this.mapSql.getRecordForFieldValue('name_map', "'" + place[0].name_map + "'").then(res => {
-                    //console.log("res=", res);
-                    let map = <map[]>res;
-                    this.navCtrl.push(LeafletMapPage, {
-                        typeOfMap: 'participant',
-                        popupElement: this.myForumParticipant,
-                        place: place,
-                        map: map
+        if (this.forumSegment == 'participantItems') {
+            if (this.myForumParticipant.length > 0) {
+                let place = this.myForumParticipant.filter(obj => (obj.place&&(!obj.place.includes(','))));
+                if (place) {
+                    this.placeSql.selectWhere(' where id=' + place[0].place).then(res => {
+                        let place: place[] = (<place[]>res);
+                        this.mapSql.getRecordForFieldValue('name_map', "'" + place[0].name_map + "'").then(res => {
+                            //console.log("res=", res);
+                            let map = <map[]>res;
+                            this.navCtrl.push(LeafletMapPage, {
+                                typeOfMap: 'participant',
+                                popupElement: this.myForumParticipant,
+                                place: place,
+                                map: map
+                            });
+                        });
+                    });
+                }
+            }
+        }
+        if (this.forumSegment == 'demoProgramItems') {
+            if (this.myForumDemoProgram.length > 0) {
+                this.placeSql.selectWhere(' where id=' + this.myForumDemoProgram[0].place).then(res => {
+                    let place: place[] = (<place[]>res);
+                    this.mapSql.getRecordForFieldValue('name_map', "'" + place[0].name_map + "'").then(res => {
+                        //console.log("res=", res);
+                        let map = <map[]>res;
+                        this.navCtrl.push(LeafletMapPage, {
+                            typeOfMap: 'conference',
+                            popupElement: this.myForumDemoProgram,
+                            place: place,
+                            map: map
+                        });
                     });
                 });
-            });
+            }
+        }
+        if (this.forumSegment == 'exhibitItems') {
+            if (this.myForumExhibit.length > 0) {
+                this.placeSql.selectWhere(' where id=' + this.myForumExhibit[0].place).then(res => {
+                    let place: place[] = (<place[]>res);
+                    this.mapSql.getRecordForFieldValue('name_map', "'" + place[0].name_map + "'").then(res => {
+                        //console.log("res=", res);
+                        let map = <map[]>res;
+                        this.navCtrl.push(LeafletMapPage, {
+                            typeOfMap: 'exhibit',
+                            popupElement: this.myForumExhibit,
+                            place: place,
+                            map: map
+                        });
+                    });
+                });
+            }
+
         }
     }
 
@@ -429,5 +459,48 @@ export class MyForumPage extends BaseListPageProvider {
         });
     }
 
+    changeNameDepoProgram() {
+        this.myForumDemoProgram.forEach(element => {
+            //element.name.replace('&quot;','"');
+            let name = element.name.split('::');
+            if (name[0]) element["name_first"] = name[0].replace(/&quot;/g, '"');
+            else (element["name_first"] = element.name);
+            if (name[1]) element["name_second"] = name[1].replace(/&quot;/g, '"');
+
+        });
+    }
+
+
+    async changeNameParticipant() {
+        for (let i = 0; i < this.myForumParticipant.length; i++) {
+            this.myForumParticipant[i].name = this.myForumParticipant[i].name.replace(/&quot;/g, '"');
+            //console.log("this.myForumParticipant[i]=", this.myForumParticipant[i]);
+            //console.log("this.myForumParticipant[i].name=", this.myForumParticipant[i].name);
+            //console.log("this.myForumParticipant[i].place=", this.myForumParticipant[i].place);
+
+
+            //console.log(this.myForumParticipant[i].place);
+
+            if (this.myForumParticipant[i].place && this.myForumParticipant[i].place.includes(',')) {
+                let placeStr = '';
+
+                let listPlaces = this.myForumParticipant[i].place.split(',');
+                for (let m = 0; m < listPlaces.length; m++) {
+
+                    let res = await this.placeSql.selectWhere('id=' + listPlaces[m]);
+                    if (res) {
+                        //console.log("res=", res);
+                        placeStr += (placeStr == '' ? '' : ', ') + (this.lang == 'ru' ? res[0].name_rus : res[0].name_eng);
+                        //console.log(listPlaces[m]);
+                        this.myForumParticipant[i].place_name_place = placeStr;
+                        this.myForumParticipant[i].place_name = placeStr;
+                    }
+                }
+
+            }
+
+
+        }
+    }
 }
 

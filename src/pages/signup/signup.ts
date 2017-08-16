@@ -16,7 +16,8 @@ import {Http} from "@angular/http";
 export class SignupPage extends BaseLangPageProvider {
     signup: {
         login?: string, password?: string, name?: string,
-        lastname?: string, email?: string; confirm_password?: string
+        lastname?: string, email?: string; confirm_password?: string;
+        confirm_personal?:boolean
     } = {};
 
 
@@ -32,11 +33,15 @@ export class SignupPage extends BaseLangPageProvider {
     lastnameIsReq: string;
     emailIsReq: string;
     confirmIsReq: string;
+    personalStr: string;
+    personalIsReq: string;
 
     nameStr: string;
     lastnameStr: string;
     emailStr: string;
     confirmStr: string;
+
+    confirmPersonal:boolean=false;
 
     constructor(public navCtrl: NavController,
                 public userData: UserData,
@@ -56,11 +61,13 @@ export class SignupPage extends BaseLangPageProvider {
         this.emailIsReq = 'Необходима электронная почта';
         this.confirmIsReq = 'Необходимо подтверждение пароля';
         this.signUpStr = 'Зарегистрироваться';
+        this.personalStr = 'Даю согласие на испоьзование персонлаьных данных';
 
         this.nameStr = 'Имя';
         this.lastnameStr = 'Фамилия';
         this.emailStr = 'Электронная почта';
         this.confirmStr = 'Подтверждение пароля';
+        this.personalIsReq = 'Необходимо согласие на обработку персональных данных';
 
     }
 
@@ -75,11 +82,14 @@ export class SignupPage extends BaseLangPageProvider {
         this.emailIsReq = 'Email is required';
         this.confirmIsReq = 'Password confirm is required';
         this.signUpStr = 'Sign Up';
+        this.personalStr = 'I give my persmission to use my personal data';
 
         this.nameStr = 'Name';
         this.lastnameStr = 'Lastname';
         this.emailStr = 'Email';
         this.confirmStr = 'Confirm_password';
+
+        this.personalIsReq = 'Personal data using permission is required';
     }
 
     onSignup(form: NgForm) {

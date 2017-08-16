@@ -17,16 +17,13 @@
             <ion-grid>
                 <ion-row>
                     <ion-col col-4>
-
-                        <img tappable src="assets/img/homeicons/about-forum.png" height="{{iconHeight}}"
-                             width="{{iconWidth}}" (click)="aboutPage()"/>
+                        <a><img tappable src="assets/img/homeicons/about-forum.png" height="{{iconHeight}}"
+                                    width="{{iconWidth}}" (click)="aboutPage()"/></a>
                         <p>{{aboutForumStr}}</p>
-
-
                     </ion-col>
                     <ion-col col-4>
-                        <img tappable src="assets/img/homeicons/map.png" height="{{iconHeight}}" width="{{iconWidth}}"
-                             (click)="forumMapPage()"/>
+                        <a><img tappable src="assets/img/homeicons/map.png" height="{{iconHeight}}" width="{{iconWidth}}"
+                                (click)="forumMapPage()"/></a>
                         <p>{{mapStr}}</p>
                     </ion-col>
                     <ion-col col-4>
@@ -106,7 +103,7 @@
                     </ion-col>
                     <ion-col col-4>
                         <img tappable src="assets/img/homeicons/army-2017.jpg" height="{{iconHeight}}"
-                             width="{{iconWidth}}" (click)="showWarGames()"/>
+                             width="{{iconWidth}}" (click)="toLoginFormPage()"/>
                         <p>{{myForumStr}}</p>
                     </ion-col>
                     <ion-col col-4>

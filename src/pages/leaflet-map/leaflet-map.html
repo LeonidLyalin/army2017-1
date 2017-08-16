@@ -1,86 +1,87 @@
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.1/dist/leaflet.css"/>
 
-<ion-header>
+<ion-header swipeBackEnabled="false">
 
-  <ion-navbar>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title>{{titleStr}}</ion-title>
-    <ion-buttons end>
-      <button ion-button icon-only (click)="showHideHelp()" [style.color]="colorHelp">
-        <ion-icon name="help-circle"></ion-icon>
-      </button>
-    </ion-buttons>
-  </ion-navbar>
+    <ion-navbar swipeBackEnabled="false">
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>{{titleStr}}</ion-title>
+        <ion-buttons end>
+            <button ion-button icon-only (click)="showHideHelp()" [style.color]="colorHelp">
+                <ion-icon name="help-circle"></ion-icon>
+            </button>
+        </ion-buttons>
+    </ion-navbar>
 
-  <ion-toolbar *ngIf="showArrow">
-    <ion-buttons>
-      <button *ngIf="showLeftArrow" ion-button icon-only (click)="mapDirection('left')">
-        <i class="fa fa-arrow-circle-left fa-2x"></i>
-        <!-- <ion-icon name="arrow-round-back" color="white"></ion-icon>-->
-      </button>
-      <button *ngIf="!showLeftArrow" ion-button icon-only>
+    <ion-toolbar *ngIf="showArrow">
+        <ion-buttons>
+            <button *ngIf="showLeftArrow" ion-button icon-only (click)="mapDirection('left')">
+                <i class="fa fa-arrow-circle-left fa-2x"></i>
+                <!-- <ion-icon name="arrow-round-back" color="white"></ion-icon>-->
+            </button>
+            <button *ngIf="!showLeftArrow" ion-button icon-only>
 
-        <ion-icon name="arrow-round-back"></ion-icon>
-      </button>
-      <button *ngIf="showRightArrow" ion-button icon-only (click)="mapDirection('right')">
-        <i class="fa fa-arrow-circle-right fa-2x"></i>
-        <!--<ion-icon name="arrow-round-forward" color="white"></ion-icon>-->
-      </button>
-      <button *ngIf="!showRightArrow" ion-button icon-only>
-        <ion-icon name="arrow-round-forward"></ion-icon>
-      </button>
-      <button *ngIf="showUpArrow" ion-button icon-only (click)="mapDirection('up')">
-        <i class="fa fa-arrow-circle-up fa-2x"></i>
-        <!--<ion-icon name="arrow-round-up" color="white"></ion-icon>-->
-      </button>
-      <button *ngIf="!showUpArrow" ion-button icon-only>
-        <ion-icon name="arrow-round-up"></ion-icon>
-      </button>
-      <button *ngIf="showDownArrow" ion-button icon-only (click)="mapDirection('down')">
-        <i class="fa fa-arrow-circle-down fa-2x"></i>
-        <!--<ion-icon name="arrow-round-down" color="white"></ion-icon>-->
-      </button>
-      <button *ngIf="!showDownArrow" ion-button icon-only>
-        <ion-icon name="arrow-round-down"></ion-icon>
-      </button>
+                <ion-icon name="arrow-round-back"></ion-icon>
+            </button>
+            <button *ngIf="showRightArrow" ion-button icon-only (click)="mapDirection('right')">
+                <i class="fa fa-arrow-circle-right fa-2x"></i>
+                <!--<ion-icon name="arrow-round-forward" color="white"></ion-icon>-->
+            </button>
+            <button *ngIf="!showRightArrow" ion-button icon-only>
+                <ion-icon name="arrow-round-forward"></ion-icon>
+            </button>
+            <button *ngIf="showUpArrow" ion-button icon-only (click)="mapDirection('up')">
+                <i class="fa fa-arrow-circle-up fa-2x"></i>
+                <!--<ion-icon name="arrow-round-up" color="white"></ion-icon>-->
+            </button>
+            <button *ngIf="!showUpArrow" ion-button icon-only>
+                <ion-icon name="arrow-round-up"></ion-icon>
+            </button>
+            <button *ngIf="showDownArrow" ion-button icon-only (click)="mapDirection('down')">
+                <i class="fa fa-arrow-circle-down fa-2x"></i>
+                <!--<ion-icon name="arrow-round-down" color="white"></ion-icon>-->
+            </button>
+            <button *ngIf="!showDownArrow" ion-button icon-only>
+                <ion-icon name="arrow-round-down"></ion-icon>
+            </button>
 
-      <button *ngIf="showPreviousArrow" ion-button icon-only (click)="mapPrevious()">
+            <button *ngIf="showPreviousArrow" ion-button icon-only (click)="mapPrevious()">
 
-        <ion-icon name="arrow-dropup" color="white"></ion-icon>
+                <ion-icon name="arrow-dropup" color="white"></ion-icon>
 
-      </button>
-      {{mapTitle}}
+            </button>
+            {{mapTitle}}
 
-      <i class="fa fa-comment fa-2x" style="color:red"></i>
-      <ion-checkbox [(ngModel)]="showPopups"
-                    (click)="updatePopups()" end>
-      </ion-checkbox>
+            <i class="fa fa-comment fa-2x" style="color:red"></i>
+            <ion-checkbox [(ngModel)]="showPopups"
+                          (click)="updatePopups()" end>
+            </ion-checkbox>
 
-    </ion-buttons>
-  </ion-toolbar>
+        </ion-buttons>
+    </ion-toolbar>
 </ion-header>
 
 
-<ion-content no-padding no-margin="true" (swipe)="doNothing()">
-  <div *ngIf="showHelp">
-    <page-map-help>
-    </page-map-help>
-  </div>
-  <div tappable id="map">
+<ion-content no-padding no-margin="true" (swipe)="doNothing()" swipeBackEnabled="false">
+    <div *ngIf="showHelp">
+        <page-map-help>
+        </page-map-help>
+    </div>
 
-  </div>
+        <div tappable id="map" swipeBackEnabled="false">
+
+        </div>
 
 
-  <style>
-    #map {
-      width: 100%;
-      height: 100%;
-      border: 1px solid #ccc;
-      margin-bottom: 10px;
-    }
-  </style>
+    <style>
+        #map {
+            width: 100%;
+            height: 100%;
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+        }
+    </style>
 
 
 </ion-content>

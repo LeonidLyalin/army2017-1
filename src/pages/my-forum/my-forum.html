@@ -5,7 +5,9 @@
         </button>
         <ion-title>{{titleStr}}</ion-title>
         <ion-buttons end>
-
+            <button ion-button icon-only (click)="getApi()">
+                <ion-icon name="cloud"></ion-icon>
+            </button>
             <button ion-button icon-only (click)="showMapMyForum()">
                 <ion-icon name="map"></ion-icon>
             </button>
@@ -105,7 +107,7 @@
 
             <ion-item *ngFor="let demo of myForumDemoProgram" text-wrap no-padding
                       no-margin="true">
-                <button ion-item (click)="goToListDetail(demo)">
+                <button ion-item (click)="goToDemoProgramDetail(demo)">
                     <ion-icon item-left *ngIf="demo.my_forum_id" name="star" color="danger"></ion-icon>
                     <ion-icon item-left *ngIf="!demo.my_forum_id" name="star-outline"></ion-icon>
                     <p>

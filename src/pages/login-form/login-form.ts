@@ -25,7 +25,7 @@ export class LoginFormPage extends BaseLangPageProvider {
 
     user: { login?: string, password?: string } = {};
     submitted = false;
-    lang: string;
+    //  lang: string;
 
     //interface strings
 
@@ -36,6 +36,9 @@ export class LoginFormPage extends BaseLangPageProvider {
     needPasswordStr: string;
     signUpStr: string;
 
+    authSuccessStr: string;
+    wrongLogStr :string;
+
     constructor(public navCtrl: NavController,
                 public userData: UserData,
                 public events: Events,
@@ -44,10 +47,8 @@ export class LoginFormPage extends BaseLangPageProvider {
                 private toastCtrl: ToastController) {
         super(navCtrl, events, http);
 
-        this
-            .login = new FormControl('', Validators.required);
-        this
-            .password = new FormControl('', Validators.required);
+        this.login = new FormControl('', Validators.required);
+        this.password = new FormControl('', Validators.required);
 
 
         this.form = formBuilder.group({
@@ -70,6 +71,8 @@ export class LoginFormPage extends BaseLangPageProvider {
         this.passwordStr = 'Пароль';
         this.needPasswordStr = 'Требуется пароль';
         this.signUpStr = 'Регистрация';
+        this.authSuccessStr = 'Вы успешно авторизовались';
+        this.wrongLogStr = 'Неправильный логин или пароль';
     }
 
     setEnglishStrings() {
@@ -80,9 +83,11 @@ export class LoginFormPage extends BaseLangPageProvider {
         this.passwordStr = 'Password';
         this.needPasswordStr = 'Need a password';
         this.signUpStr = 'Sign Up';
+        this.authSuccessStr = 'Successful login';
+        this.wrongLogStr = 'Wrong login or password';
     }
 
-    onLogin() {
+    async onLogin() {
         if (!this.login.valid) {
             let toast = this.toastCtrl.create({
                 message: this.needUserNameStr,
@@ -99,17 +104,26 @@ export class LoginFormPage extends BaseLangPageProvider {
             toast.present();
             return;
         }
-        console.log("form=", this.form);
-        console.log("login=", this.login);
-        console.log("password", this.password);
-        /* this.submitted = true;
+        //console.log("form=", this.form);
+        //console.log("login=", this.login);
+        //console.log("password", this.password);
 
-         if (form.valid) {
-             this.userData.login(this.user.login, this.user.password);
-             this.navCtrl.push(TabsPage);
-         }*/
         if (this.form.valid) {
-            this.userData.login(this.login.value, this.password.value);
+            await this.userData.login(this.login.value, this.password.value);
+            /*if (this.userId && this.userId > 0) {
+                let toast = this.toastCtrl.create({
+                    message: this.authSuccessStr,
+                    duration: 2000
+                });
+                toast.present();
+            } else {
+                let toast = this.toastCtrl.create({
+                    message: this.wrongLogStr,
+                    duration: 2000
+                });
+                toast.present();
+            }*/
+
             this.navCtrl.push(TabsPage);
         }
     }
@@ -117,7 +131,6 @@ export class LoginFormPage extends BaseLangPageProvider {
     onSignup() {
         this.navCtrl.push(SignupPage);
     }
-
 
 
 }

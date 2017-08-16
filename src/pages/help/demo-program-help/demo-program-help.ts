@@ -39,7 +39,7 @@ export class DemoProgramHelpPage extends BaseLangPageProvider {
   setRussianStrings() {
     super.setRussianStrings();
 
-    this.titleStr = 'Работа c шоу программой';
+    this.titleStr = 'Работа c программой';
     this.setOneFilterStr='Установить фильтр для параметра';
     this.cancelOneFilterStr='Сбросить фильтр для параметра';
     this.setFilterStr='Установить фильтр для параметра';

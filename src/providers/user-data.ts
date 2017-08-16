@@ -65,7 +65,7 @@ export class UserData {
         }
     };
 
-    login(login, password: string): void {
+    async login(login, password: string) {
         this.userApi.checkUser(login, password).subscribe(
             res => {
                 //console.log("res after login");
@@ -84,19 +84,9 @@ export class UserData {
                         localStorage.setItem('email',res.result.EMAIL);
                         //console.log("userID");
                         this.events.publish('user:login');
-                        let toast = this.toastCtrl.create({
-                            message: this.authSuccessStr,
-                            duration: 3000
-                        });
-                        toast.present();
+
                     }
-                    else {
-                        let toast = this.toastCtrl.create({
-                            message: this.wrongLogStr,
-                            duration: 3000
-                        });
-                        toast.present();
-                    }
+
                 } catch (err) {
                     let toast = this.toastCtrl.create({
                         message: this.wrongLogStr,

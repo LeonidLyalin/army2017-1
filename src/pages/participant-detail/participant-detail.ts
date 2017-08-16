@@ -121,17 +121,15 @@ export class ParticipantDetailPage extends BaseLangPageProvider {
             // //console.log('was added =', element);
             if (participant.my_forum_id > 0) {
 
-                participant.my_forum_id = await this.deleteFromMyForum(id);
-                this.events.publish('myforum:delete:participant', (id)
+                participant.my_forum_id = await this.deleteFromMyForum(participant.my_forum_id);
+                this.events.publish('myforum:delete:participant', (participant)
                 );
             }
             else {
                 participant.my_forum_id = await this.addToMyForumSite(id);
                 // ''this.participantApi
-                this.events.publish('myforum:add:participant', ({id: id, my_forum_id: participant.my_forum_id})
-                );
-
-
+            //    this.events.publish('myforum:add:participant', ({id: id, my_forum_id: participant.my_forum_id})
+                this.events.publish('myforum:add:participant', participant);
 
             }
         }

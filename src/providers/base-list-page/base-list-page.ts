@@ -101,16 +101,18 @@ export class BaseListPageProvider extends BaseLangPageProvider {
         let mapSql = new MapSql(this.http);
         placeSql.selectWhere('id=' + this.listOut[0].place).then(res => {
             let place: place[] = (<place[]>res);
-            mapSql.getRecordForFieldValue('name_map', "'" + place[0].name_map + "'").then(res => {
-                //console.log("res=", res);
-                let map = <map[]>res;
-                this.navCtrl.push(LeafletMapPage, {
-                    typeOfMap: typeOfMap_in,
-                    popupElement: this.listOut,
-                    place: place,
-                    map: map
+            if (place[0].name_map) {
+                mapSql.getRecordForFieldValue('name_map', "'" + place[0].name_map + "'").then(res => {
+                    //console.log("res=", res);
+                    let map = <map[]>res;
+                    this.navCtrl.push(LeafletMapPage, {
+                        typeOfMap: typeOfMap_in,
+                        popupElement: this.listOut,
+                        place: place,
+                        map: map
+                    });
                 });
-            });
+            }
         });
     }
 
@@ -154,7 +156,7 @@ export class BaseListPageProvider extends BaseLangPageProvider {
 
 
     showLeafLetPlaceOnMap(element, typeOfMap) {
-      //  //console.log("item=", item);
+        //  //console.log("item=", item);
         let placeSql = new PlaceSql(this.http);
         let mapSql = new MapSql(this.http);
 
@@ -174,7 +176,6 @@ export class BaseListPageProvider extends BaseLangPageProvider {
             });
         });
     }
-
 
 
 }

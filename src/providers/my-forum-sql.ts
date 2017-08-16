@@ -240,7 +240,7 @@ export class MyForumSql extends BaseSql {
         //console.log('getRusParticipantMyForum()');
         return new Promise(res => {
             this.arr = [];
-            let query = 'select a.id, a.name_rus as name, a.place_name, a.place,  ' +
+            let query = 'select a.id, a.name_rus as name, a.place_name, a.place, a.desc_rus as desc, ' +
                 'a.date_event,  a.time_beg, a.time_end,' +
                 'b.id as my_forum_id, c.name_rus as place_name_place,c.coords, c.name_map ' +
                 'from demo_program a, myforum b  left join place c on a.place=c.id where a.id=b.my_id';
@@ -272,7 +272,7 @@ export class MyForumSql extends BaseSql {
         //console.log('getRusParticipantMyForum()');
         return new Promise(res => {
             this.arr = [];
-            let query = 'select a.id, a.name_eng as name, a.place_name, a.place, ' +
+            let query = 'select a.id, a.name_eng as name, a.place_name, a.place, a.desc_eng as desc, ' +
                 ' a.date_event,  a.time_beg, a.time_end,' +
                 'b.id as my_forum_id, c.name_eng as place_name, c.name_eng as place_name_place,c.coords, c.name_map ' +
                 'from conference a, myforum b  left join place c on a.place=c.id where a.id=b.my_id';
@@ -465,9 +465,10 @@ export class MyForumSql extends BaseSql {
             if ((userId) && (userId != '')) query += ' and b.user=' + userId;
 
             query += ' left join place c on a.place=c.id';
-            //console.log(query);
-            if (where != '') query = query + ' ' + where;
 
+            if (where != '') query += ' ' + where;
+            query += ' order by a.name_rus';
+            //console.log(query);
             this.db.executeSql(query, [], rs => {
                 //console.log("right after executeSql in getRusParticipant");
                 //console.log(rs);
@@ -543,7 +544,8 @@ export class MyForumSql extends BaseSql {
 
             query += ' left join place c on a.place=c.id';
 
-            if (where != '') query = query + ' ' + where;
+            if (where != '') query += ' ' + where;
+            query += ' order by a.name_eng';
             //console.log(query);
             this.db.executeSql(query, [], rs => {
                 //console.log("right after executeSql in getRusParticipant");
@@ -660,7 +662,7 @@ export class MyForumSql extends BaseSql {
         return new Promise(res => {
             this.arr = [];
             let userId = localStorage.getItem('userid');
-            let query = 'select a.id, a.name_rus as name, a.place_name, a.place,' +
+            let query = 'select a.id, a.name_rus as name, a.place_name, a.place, a.desc_rus as desc,' +
                 ' a.date_event,  a.time_beg, a.time_end,' +
                 'b.id as my_forum_id, c.name_rus as place_name_place, c.name_map, c.coords ' +
                 'from demo_program a left join myforum b on a.id=b.my_id ';
@@ -698,7 +700,7 @@ export class MyForumSql extends BaseSql {
         return new Promise(res => {
             this.arr = [];
             let userId = localStorage.getItem('userid');
-            let query = 'select a.id, a.name_eng as name, a.place_name, a.place,' +
+            let query = 'select a.id, a.name_eng as name, a.place_name, a.place, a.desc_rus as desc,' +
                 ' a.date_event,  a.time_beg, a.time_end,' +
                 'b.id as my_forum_id, c.name_eng as place_name_place, c.name_map, c.coords ' +
                 'from demo_program a left join myforum b on a.id=b.my_id ';

@@ -36,14 +36,14 @@ export class ConferencePage extends BaseListPageProvider {
     // this.listOut = [];
       events.subscribe('myforum:add:conference', (id) => {
               //console.log('was added id =', id);
-              let element = this.listOut.find(x => x.id == id.id);
+              let element = this.listOut.find(x => Number(x.id) == Number(id.id));
               element.my_forum_id = id.my_forum_id;
               //console.log('was added =', element);
           }
       );
       events.subscribe('myforum:delete:conference', (id) => {
               //console.log('was deleted id=', id);
-              let element = this.listOut.find(x => x.id == id);
+              let element = this.listOut.find(x => Number(x.id) == Number(id));
               element.my_forum_id = null;
               //console.log('was deleted =', element);
           }

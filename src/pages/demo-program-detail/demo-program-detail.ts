@@ -31,8 +31,7 @@ export class DemoProgramDetailPage extends BaseListPageProvider {
                 public exhibitDetailSql: ExhibitSql,
                 public sqlMyForum: MyForumSql,
                 public events: Events,
-                public http: Http,
-               ) {
+                public http: Http,) {
         super(NavCtrl, navParams, events, http);
         //console.log("now in exhibit detail");
         //console.log(navParams);
@@ -44,19 +43,20 @@ export class DemoProgramDetailPage extends BaseListPageProvider {
         else if (navParams.data.res) this.element = navParams.data.res;
         this.iblockId = 10;
 
+
     }
 
     setRussianStrings() {
-        super.setRussianStrings('Экспонат');
-        this.charactersStr = 'ТТХ';
+        super.setRussianStrings('Мероприятие');
+
         this.onMapStr = 'На карте';
         this.myForumStr = 'Мой форум';
         this.thematicStr = 'Тематика:'
     }
 
     setEnglishStrings() {
-        super.setEnglishStrings('Exhibit');
-        this.charactersStr = 'Technical characteristics';
+        super.setEnglishStrings('Мероприятие');
+
         this.onMapStr = 'Map';
         this.myForumStr = 'My Forum';
         this.thematicStr = 'Thematic Section:'
@@ -105,18 +105,17 @@ export class DemoProgramDetailPage extends BaseListPageProvider {
     }
 
 
-
-
     ionViewDidLoad() {
         super.ionViewDidLoad();
         // this.userId = localStorage.getItem('userid');
 
         this.prepareCharacteristics();
+        this.changeName();
         this.exhibitDetailSql.getFieldFromTable(this.element.id, 'id', 'myforum').then(
             //getMyForumForId(this.conferenceSingle.id).then(
             rs => {
                 if (rs) {
-                //    //console.log("res in conferenceSingle myForumExhibit", rs);
+                    //    //console.log("res in conferenceSingle myForumExhibit", rs);
                     this.myForum = <any>rs;
                 }
 
@@ -133,18 +132,14 @@ export class DemoProgramDetailPage extends BaseListPageProvider {
             // //console.log('was added =', element);
             if (element.my_forum_id > 0) {
 
-                element.my_forum_id = await this.deleteFromMyForum(element.id);
-                this.events.publish('myforum:delete:demo', (element.id)
+                element.my_forum_id = await this.deleteFromMyForum(element.my_forum_id);
+                this.events.publish('myforum:delete:demo', (element)
                 );
             }
             else {
                 element.my_forum_id = await this.addToMyForumSite(element.id);
                 // ''this.participantApi
-                this.events.publish('myforum:add:demo', ({id: element.id, my_forum_id: element.my_forum_id})
-                );
-
-
-
+                this.events.publish('myforum:add:demo', element);
             }
         }
     }
@@ -162,6 +157,23 @@ export class DemoProgramDetailPage extends BaseListPageProvider {
         if (this.userId) {
             return await this.sqlMyForum.addToMyForumSite(id, this.iblockId, this.userId);
         }
+    }
+
+    changeName() {
+
+            //this.element.name.replace('&quot;','"');
+            let name = this.element.name.split('::');
+            if (name[0]) this.element["name_first"] = name[0].replace(/&quot;/g,'"');
+            else (this.element["name_first"] = this.element.name);
+            if (name[1]) this.element["name_second"] = name[1].replace(/&quot;/g,'"');
+            this.element["desc"] = this.element["desc"].replace(/&quot;/g,'"');
+            this.element["desc"] = this.element["desc"].replace(/&quot;/g,'"');
+            this.element["desc"] = this.element["desc"].replace(/&#40;/g,'(');
+            this.element["desc"] = this.element["desc"].replace(/&#41;/g,')');
+            this.element["desc"] = this.element["desc"].replace(/&#39;/g,"'");
+            this.element["desc"] = this.element["desc"].replace(/<br/g,'');
+            this.element["desc"] = this.element["desc"].replace(/>/g,'');
+        
     }
 
 }

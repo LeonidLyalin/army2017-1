@@ -106,27 +106,20 @@ BaseLangPageProvider = __decorate([
 
 /***/ }),
 
-/***/ 140:
+/***/ 139:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomePage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ParticipantPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__participant_participant__ = __webpack_require__(87);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__conference_conference__ = __webpack_require__(288);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_base_api_service__ = __webpack_require__(29);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_http__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_base_sql__ = __webpack_require__(24);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_table_action_sql_thematic_action_sql__ = __webpack_require__(290);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__providers_base_lang_page_base_lang_page__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__leaflet_map_leaflet_map__ = __webpack_require__(54);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__bar_scanner_bar_scanner__ = __webpack_require__(153);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__exhibit_exhibit__ = __webpack_require__(292);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__demo_program_demo_program__ = __webpack_require__(294);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__how_to_get_how_to_get__ = __webpack_require__(295);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__about_forum_about_forum__ = __webpack_require__(159);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__patriot_patriot__ = __webpack_require__(301);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_my_forum_sql__ = __webpack_require__(26);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__participant_detail_participant_detail__ = __webpack_require__(54);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_filter_provider_filter_participant_provider__ = __webpack_require__(147);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_base_list_page_base_list_page__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_place_sql_place_sql__ = __webpack_require__(47);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__providers_participant_participant_api_service__ = __webpack_require__(286);
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -146,6 +139,45 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (this && this.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = y[op[0] & 2 ? "return" : op[0] ? "throw" : "next"]) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [0, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
+/**
+ * Created by lsl-info on 14.04.17.
+ * list of participants
+ */
 
 
 
@@ -155,372 +187,234 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-
-
-
-
-
-
-
-var HomePage = (function (_super) {
-    __extends(HomePage, _super);
-    function HomePage(navCtrl, menu, platform, http, loadingCtrl, events, alertCtrl) {
-        var _this = _super.call(this, navCtrl, events, http) || this;
+var ParticipantPage = (function (_super) {
+    __extends(ParticipantPage, _super);
+    function ParticipantPage(navCtrl, http, participantApi, sqlMyForum, navParams, toastCtrl, filterProvider, events, placeSql) {
+        var _this = 
+        //подгружаем список участников выставки
+        _super.call(this, navCtrl, navParams, events, http) || this;
         _this.navCtrl = navCtrl;
-        _this.menu = menu;
-        _this.platform = platform;
         _this.http = http;
-        _this.loadingCtrl = loadingCtrl;
+        _this.participantApi = participantApi;
+        _this.sqlMyForum = sqlMyForum;
+        _this.navParams = navParams;
+        _this.toastCtrl = toastCtrl;
+        _this.filterProvider = filterProvider;
         _this.events = events;
-        _this.alertCtrl = alertCtrl;
-        _this.showSkip = true;
-        // lang: string;
-        _this.iconDivHeight = 10; //divider for the evaliation of the icon optimal size according to content width
+        _this.placeSql = placeSql;
+        events.subscribe('myforum:add:participant', function (participant) {
+            //console.log('was added id =', );
+            var element = _this.listOut.find(function (x) { return Number(x.id) == Number(participant.id); });
+            element.my_forum_id = participant.my_forum_id;
+            //console.log('was added =', element);
+        });
+        events.subscribe('myforum:delete:participant', function (id) {
+            //console.log('was deleted id=', id);
+            var element = _this.listOut.find(function (x) { return Number(x.id) == Number(id.id); });
+            element.my_forum_id = null;
+            //console.log('was deleted =', element);
+        });
+        //console.log("navParams in constructor", navParams);
+        //console.log("navParams==null", this.navParams == null);
+        //console.log("navParams.data.length", navParams.data.length);
+        var param = navParams.get('select');
+        //console.log("navParams.get('select')", param);
+        if (param == 'thematic') {
+            var toast = _this.toastCtrl.create({
+                message: _this.loadStr,
+                duration: 5000
+            });
+            toast.present();
+            //console.log("navParams.data", navParams.data.data);
+            _this.listOut = navParams.data.data;
+        }
+        _this.iblockId = 1; //for my_forum
         return _this;
     }
-    HomePage.prototype.setRussianStrings = function () {
-        _super.prototype.setRussianStrings.call(this, 'Армия 2017');
-        //  this.title = 'Армия 2017';
-        this.aboutForumStr = 'О Форуме';
-        this.mapStr = 'Карта форума';
-        this.participantsStr = 'Участники';
-        this.exhibitsMoDStr = 'Экспонаты МО';
-        this.conferenceStr = 'Конференция';
-        this.demoProgramStr = 'Демо программа';
-        this.howDoYouGetStr = 'Как добраться';
-        this.onTheForumStr = 'О Форуме "Армия-2017"';
-        this.parkPatriotStr = 'Парк "Патриот"';
-        this.answersAndQuestionsStr = 'Вопросы и ответы';
-        this.entrancesExitsStr = 'Входы-выходы';
-        this.restaurantsCafe = 'Рестораны/кафе';
-        this.wcStr = 'Туалеты';
-        this.infoStr = 'Справочная информация';
-        this.myForumStr = 'Мой форум';
-        this.qrScannerStr = 'QR сканнер';
-        this.waitLoadStr = 'Загрузка...';
+    ParticipantPage.prototype.setRussianStrings = function () {
+        _super.prototype.setRussianStrings.call(this, 'Участники');
     };
-    HomePage.prototype.setEnglishStrings = function () {
-        _super.prototype.setEnglishStrings.call(this, 'Army 2017');
-        //this.title = 'Army 2017';
-        this.aboutForumStr = 'About';
-        this.mapStr = 'Map';
-        this.participantsStr = 'Exhibitors';
-        this.exhibitsMoDStr = 'Exhibits of the Mod';
-        this.conferenceStr = 'Conference';
-        this.demoProgramStr = 'Demo program';
-        this.howDoYouGetStr = 'How to get to';
-        this.onTheForumStr = 'Forum "Army-2017"';
-        this.parkPatriotStr = 'Park "Patriot"';
-        this.answersAndQuestionsStr = 'Answers & Questions';
-        this.entrancesExitsStr = 'Entrances & Exits';
-        this.restaurantsCafe = 'Restaurant & Cafe';
-        this.wcStr = 'WC';
-        this.infoStr = 'Info';
-        this.myForumStr = 'My Forum';
-        this.qrScannerStr = 'QR scanner';
-        this.waitLoadStr = 'Loading...';
+    ParticipantPage.prototype.setEnglishStrings = function () {
+        _super.prototype.setEnglishStrings.call(this, 'Exhibitors');
     };
-    HomePage.prototype.onSlideChangeStart = function (slider) {
-        this.showSkip = !slider.isEnd();
-    };
-    HomePage.prototype.getDate = function () {
-        var today = new Date();
-        var dd = today.getDate();
-        var ddStr;
-        var mmStr;
-        var mm = today.getMonth() + 1; //January is 0!
-        var yyyy = today.getFullYear();
-        if (dd < 10) {
-            ddStr = '0' + String(dd);
+    ParticipantPage.prototype.ionViewDidLoad = function () {
+        _super.prototype.ionViewDidLoad.call(this);
+        //console.log('ionViewDidLoad MyForumPage');
+        //console.log("this.navParams=", this.navParams);
+        //console.log("this.navParams.data=", this.navParams.data);
+        //console.log("navParams==null", this.navParams == null);
+        var param = this.navParams.get('select');
+        if (param == 'thematic') {
+            //console.log("this.navParams in ioViewDidLoad =", this.navParams);
+            this.listOut = this.navParams.data.data;
         }
-        else
-            ddStr = String(dd);
-        if (mm < 10) {
-            mmStr = '0' + String(mm);
-        }
-        else
-            mmStr = String(mm);
-        return ddStr + '.' + mmStr + '.' + yyyy;
+        /* else {
+             //console.log("this.selectParticipantAll()");
+             let toast = this.toastCtrl.create({
+                 message: this.loadStr,
+                 duration: 2000
+             });
+             toast.present();
+             this.selectParticipantAll()
+         }*/
     };
-    // objc[14286]: Class PLBuildVersion is implemented in both /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator.sdk/System/Library/PrivateFrameworks/AssetsLibraryServices.framework/AssetsLibraryServices (0x1105cccc0) and /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator.sdk/System/Library/PrivateFrameworks/PhotoLibraryServices.framework/PhotoLibraryServices (0x1103426f0). One of the two will be used. Which one is undefined.
-    // [{"name": "id", "type": "text PRIMARY KEY"},{"name": "name_rus", "type": "text"},{"name": "name_eng", "type": "text"},{"name": "coords", "type": "text"},{"name": "number_on_map", "type": "text"},{"name": "name_map", "type": "text"},{"name": "goto", "type": "text"},{"name": "shape", "type": "text"}, {"name": "marker", "type": "text"}, {"name": "tooltip", "type": "text"},{"name": "popup", "type": "text"}]
-    //  [{"name":"id","type":"text PRIMARY KEY"},{"name":"map","type":"text"},{"name":"place_previous", "type":"text"},{"name":"name_map","type":"text"},{"name": "name_rus", "type": "text"}, {"name": "name_eng", "type": "text"}, {"name": "width", "type": "text"},{"name": "height", "type": "text"},{"name": "map_left", "type": "text"},{"name": "map_right", "type": "text"},{"name": "map_up", "type": "text"},{"name": "map_down", "type": "text"},{"name": "min_zoom", "type": "text"},{"name": "max_zoom", "type": "text"},{"name": "begin_zoom", "type": "text"}]
-    HomePage.prototype.loadBase = function () {
+    /**
+     * Show the detail view of the Participant
+     * @param participant - record in the json format for current Participant element
+     */
+    ParticipantPage.prototype.goToParticipantDetail = function (participant) {
         var _this = this;
-        var api = new __WEBPACK_IMPORTED_MODULE_4__providers_base_api_service__["a" /* BaseApi */](this.http);
-        // api.getApi('universal_list.php?IBLOCK=21').subscribe(data => {
-        api.getApi('universal_list.php?IBLOCK=21').subscribe(function (data) {
-            //console.log("in home.ts after getApi=", data);
-            var tableAction = new __WEBPACK_IMPORTED_MODULE_7__providers_table_action_sql_thematic_action_sql__["a" /* TableActionSql */](_this.http);
-            var _loop_1 = function (i) {
-                //console.log("data.id", data[i]["ID"]);
-                tableAction.checkForId(data[i]["ID"]).then(function (res) {
-                    //console.log("tableAction.checkForId res=", res);
-                    if (!res) {
-                        // //console.log(
-                        //console.log("data.status", data[i]["STATUS"]);
-                        //console.log("data.fields", data[i]["FIELDS"]);
-                        var fields_1 = JSON.parse(data[i]["FIELDS"]);
-                        //console.log("fields=", fields);
-                        //console.log("fields.length=", fields.length);
-                        //console.log("fields[1]", fields[1]);
-                        if (!_this.platform.is('core')) {
-                            var loader_1 = _this.loadingCtrl.create({
-                                content: _this.waitLoadStr,
-                                duration: 30000,
-                            });
-                            loader_1.present().then(function () {
-                                if (data[i]["STATUS"] == 'recreate') {
-                                    //console.log('mydata[i]["TABLE_NAME"]=', data[i]["TABLE_NAME"]);
-                                    //console.log('fields=', fields);
-                                    //console.log('mydata[i]["STATUS"]=', data[i]["STATUS"]);
-                                    //console.log('constrains=', data[i]["CONSTRAINS"]);
-                                    var table = new __WEBPACK_IMPORTED_MODULE_6__providers_base_sql__["a" /* BaseSql */](_this.http, data[i]["TABLE_NAME"], fields_1, data[i]["CONSTRAINS"], data[i]["STATUS"]);
-                                    table.loadApi(data[i]["API_PATH"]);
-                                }
-                                if (data[i]["STATUS"] == 'update') {
-                                    //console.log('mydata[i]["TABLE_NAME"]=', data[i]["TABLE_NAME"]);
-                                    //console.log('fields=', fields);
-                                    //console.log('mydata[i]["STATUS"]=', data[i]["STATUS"]);
-                                    //console.log('constrains=', data[i]["CONSTRAINS"]);
-                                    var table = new __WEBPACK_IMPORTED_MODULE_6__providers_base_sql__["a" /* BaseSql */](_this.http, data[i]["TABLE_NAME"], fields_1, data[i]["CONSTRAINS"], data[i]["STATUS"]);
-                                    table.updateApi(data[i]["API_PATH"] + '?DATE_MODIFY_FROM=' + data[i]["DATE_MODIFY_FROM"]);
-                                }
-                                tableAction.addItem({
-                                    id: data[i]["ID"],
-                                    table_name: data[i]["TABLE_NAME"],
-                                    action: data[i]["STATUS"],
-                                    date_change: _this.getDate(),
-                                }).then(function (res) {
-                                    //console.log("tableAction.addItem res=", res);
-                                    loader_1.dismiss();
-                                });
-                                //loader.dismiss();
-                            });
-                        }
-                    }
+        //console.log("goToParticipantDetail()");
+        //console.log(participant);
+        // go to the session detail page
+        // and pass in the session data
+        if (this.lang == 'ru') {
+            this.sqlMyForum.getRusParticipantFull('where a.id=' + participant.id).then(function (res) {
+                var participant = res;
+                //console.log("participantDetail=", participant);
+                _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_4__participant_detail_participant_detail__["a" /* ParticipantDetailPage */], {
+                    participant: participant,
+                    listOut: _this.listOut
+                }).then(function (res) {
+                    //console.log("i return from page", res);
                 });
-                //if this action was never make
-            };
-            for (var i = 0; i < data.length; i++) {
-                _loop_1(i);
-            }
-        });
-    };
-    /* async loadBase() {
-         let api = new BaseApi(this.http);
-         // api.getApi('universal_list.php?IBLOCK=21').subscribe(data => {
- 
-         let data = await  api.getApi('universal_list.php?IBLOCK=21').first().toPromise();
-         //console.log("in home.ts after getApi=", data);
- 
-         let tableAction = new TableActionSql(this.http);
-         for (let i = 0; i < data.length; i++) {
- 
-             //console.log("data.id", data[i]["ID"]);
-             let res = await tableAction.checkForId(data[i]["ID"]);
-             //console.log("tableAction.checkForId res=", res);
-             if (!res) {
-                 // //console.log(
-                 //console.log("data.status", data[i]["STATUS"]);
-                 //console.log("data.fields", data[i]["FIELDS"]);
-                 let fields = JSON.parse(data[i]["FIELDS"]);
-                 //console.log("fields=", fields);
-                 //console.log("fields.length=", fields.length);
-                 //console.log("fields[1]", fields[1]);
-                 if (!this.platform.is('core')) {
-                     let loader = this.loadingCtrl.create({
-                         content: this.waitLoadStr,
-                         duration: 30000,
-                     });
-                     await loader.present();
-                     if (data[i]["STATUS"] == 'recreate') {
- 
-                         //console.log('mydata[i]["TABLE_NAME"]=', data[i]["TABLE_NAME"]);
-                         //console.log('fields=', fields);
-                         //console.log('mydata[i]["STATUS"]=', data[i]["STATUS"]);
-                         //console.log('constrains=', data[i]["CONSTRAINS"]);
-                         let table = new BaseSql(this.http, data[i]["TABLE_NAME"], fields, data[i]["CONSTRAINS"], data[i]["STATUS"]);
-                         await table.loadApi(data[i]["API_PATH"]);
-                     }
-                     if (data[i]["STATUS"] == 'update') {
- 
-                         //console.log('mydata[i]["TABLE_NAME"]=', data[i]["TABLE_NAME"]);
-                         //console.log('fields=', fields);
-                         //console.log('mydata[i]["STATUS"]=', data[i]["STATUS"]);
-                         //console.log('constrains=', data[i]["CONSTRAINS"]);
-                         let table = new BaseSql(this.http, data[i]["TABLE_NAME"], fields, data[i]["CONSTRAINS"], data[i]["STATUS"]);
-                         await table.updateApi(data[i]["API_PATH"] + '?DATE_MODIFY_FROM=' + data[i]["DATE_MODIFY_FROM"]);
-                     }
-                     await tableAction.addItem({
-                             id: data[i]["ID"],
-                             table_name: data[i]["TABLE_NAME"],
-                             action: data[i]["STATUS"],
-                             date_change: this.getDate(),
-                         }
-                     );
-                     await loader.dismiss();
- 
-                 }
-             }
- 
- 
-         }
- 
- 
-     }*/
-    HomePage.prototype.ionViewWillEnter = function () {
-        this.iconHeight = this.content.contentHeight / this.iconDivHeight;
-        this.iconWidth = this.iconHeight; //must be th same
-        //console.log("this.iconHeight=" + this.iconHeight);
-        this.slides.update();
-        this.menu.enable(true);
-        this.viewCountStr = localStorage.getItem('viewcount');
-        this.viewCount = Number(this.viewCountStr);
-        //console.log('this.viewCount=', this.viewCount);
-        if (this.viewCount == 0) {
-            if (this.userId) {
-                this.events.publish('user:login');
-            }
-            /**
-             * init tables of database
-             */
-            //   [{"name":"id", "type":"text PRIMARY KEY"},{"name":"name_place","type":"text"},{"name":"coords", "type":"text"}, {"name":"name_rus", "type":"text"},{"name":"purpose", "type":"text"},{"name":"characteristics", "type":"text"}, {"name":"name_eng", "type":"text"}, {"name":"purpose_eng", "type":"text"}, {"name":"composition", "type":"text"}, {"name":"characteristics_eng", "type":"text"},{"name":"map", "type":"text"},{"name":"name_map", "type":"text"},  {"name":"place","type":"text"}]
-            this.loadBase();
+            });
         }
-        this.viewCount++;
-        localStorage.setItem('viewcount', String(this.viewCount));
+        else
+            this.sqlMyForum.getEngParticipantFull('where a.id=' + participant.id).then(function (res) {
+                var participant = res;
+                _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_4__participant_detail_participant_detail__["a" /* ParticipantDetailPage */], {
+                    participant: participant,
+                    listOut: _this.listOut
+                }).then(function (res) {
+                    //console.log("i return from page", res);
+                });
+            });
     };
-    /*ionViewDidload() {
-
-
-    }*/
-    HomePage.prototype.aboutPage = function () {
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_14__about_forum_about_forum__["a" /* AboutForumPage */]);
-    };
-    HomePage.prototype.forumMapPage = function () {
-        var _this = this;
-        var mapSql = new __WEBPACK_IMPORTED_MODULE_6__providers_base_sql__["a" /* BaseSql */](this.http, 'map');
-        mapSql.selectWhere('name_map="forum_map.jpg"').then(function (res) {
-            //console.log("res=", res);
-            var map = res[0];
-            _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_9__leaflet_map_leaflet_map__["a" /* LeafletMapPage */], {
-                typeOfMap: 'simple',
-                icons: 'bus-stops.svg,check-in.svg',
-                map: map
+    ParticipantPage.prototype.changeName = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var i, placeStr, listPlaces, m, res;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        i = 0;
+                        _a.label = 1;
+                    case 1:
+                        if (!(i < this.listOut.length)) return [3 /*break*/, 6];
+                        this.listOut[i].name = this.listOut[i].name.replace(/&quot;/g, '"');
+                        if (!(this.listOut[i].place && this.listOut[i].place.includes(','))) return [3 /*break*/, 5];
+                        placeStr = '';
+                        listPlaces = this.listOut[i].place.split(',');
+                        m = 0;
+                        _a.label = 2;
+                    case 2:
+                        if (!(m < listPlaces.length)) return [3 /*break*/, 5];
+                        return [4 /*yield*/, this.placeSql.selectWhere('id=' + listPlaces[m])];
+                    case 3:
+                        res = _a.sent();
+                        if (res) {
+                            //console.log("res=", res);
+                            placeStr += (placeStr == '' ? '' : ', ') + (this.lang == 'ru' ? res[0].name_rus : res[0].name_eng);
+                            //console.log(listPlaces[m]);
+                            this.listOut[i].place_name_place = placeStr;
+                            this.listOut[i].place_name = placeStr;
+                        }
+                        _a.label = 4;
+                    case 4:
+                        m++;
+                        return [3 /*break*/, 2];
+                    case 5:
+                        i++;
+                        return [3 /*break*/, 1];
+                    case 6: return [2 /*return*/];
+                }
             });
         });
     };
-    ;
-    // this.navCtrl.push(ForumMapPage);
-    HomePage.prototype.parkPatriot = function () {
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_15__patriot_patriot__["a" /* PatriotPage */]);
-    };
-    HomePage.prototype.conferencePage = function () {
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__conference_conference__["a" /* ConferencePage */], { select: 'all' });
-    };
-    HomePage.prototype.participantPage = function () {
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__participant_participant__["a" /* ParticipantPage */], { select: 'all' });
-    };
-    /*toggleMenu(){
-      this.navCtrl.m
-    }*/
-    HomePage.prototype.BarScannerPage = function () {
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_10__bar_scanner_bar_scanner__["a" /* BarScannerPage */]);
-    };
-    HomePage.prototype.ExhibitListPage = function () {
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_11__exhibit_exhibit__["a" /* ExhibitPage */]);
-    };
-    HomePage.prototype.DemoProgramPage = function () {
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_12__demo_program_demo_program__["a" /* DemoProgramPage */]);
-    };
-    HomePage.prototype.showWC = function () {
+    ParticipantPage.prototype.selectParticipantAll = function () {
         var _this = this;
-        var mapSql = new __WEBPACK_IMPORTED_MODULE_6__providers_base_sql__["a" /* BaseSql */](this.http, 'map');
-        mapSql.selectWhere('name_map="patriot-expo.svg"').then(function (res) {
-            //console.log("res=", res);
-            var map = res[0];
-            _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_9__leaflet_map_leaflet_map__["a" /* LeafletMapPage */], {
-                typeOfMap: 'icon',
-                map: map,
-                icons: 'wc.svg',
-                titleStr: _this.wcStr
+        if (this.lang == 'ru') {
+            this.sqlMyForum.getRusParticipant().then(function (res) {
+                //console.log('this.sqlMyForum.getRusParticipant().then( res=', res);
+                //console.log('(<participant[]>res).length=', (<participant[]>res).length);
+                _this.listOut = res;
+                _this.changeName();
             });
+        }
+        else {
+            this.sqlMyForum.getEngParticipant().then(function (res) {
+                //console.log('this.sqlMyForum.getEngParticipant().then( res=', res);
+                //console.log('(<participant[]>res).length=', (<participant[]>res).length);
+                _this.listOut = res;
+                _this.changeName();
+            });
+        }
+    };
+    ParticipantPage.prototype.deleteFromMyForum = function (id) {
+        var _this = this;
+        this.sqlMyForum.delFromMyForum(id).then(function (res) {
+            //  this.selectParticipantAll();
+            _this.getListOut();
+            _this.changeName();
         });
     };
-    HomePage.prototype.showCafe = function () {
-        var _this = this;
-        var mapSql = new __WEBPACK_IMPORTED_MODULE_6__providers_base_sql__["a" /* BaseSql */](this.http, 'map');
-        mapSql.selectWhere('name_map="patriot-expo.svg"').then(function (res) {
-            //console.log("res=", res);
-            var map = res[0];
-            _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_9__leaflet_map_leaflet_map__["a" /* LeafletMapPage */], {
-                typeOfMap: 'icon',
-                map: map,
-                icons: 'cafe.svg,restaurant.svg',
-                titleStr: _this.restaurantsCafe
-            });
+    ParticipantPage.prototype.addToMyForumSite = function (id) {
+        this.sqlMyForum.addToMyForumSite(id, this.iblockId, this.userId, this.listOut).then(function (res) {
         });
     };
-    HomePage.prototype.showEnrance = function () {
+    ParticipantPage.prototype.getListOut = function () {
         var _this = this;
-        var mapSql = new __WEBPACK_IMPORTED_MODULE_6__providers_base_sql__["a" /* BaseSql */](this.http, 'map');
-        mapSql.selectWhere('name_map="patriot-expo.svg"').then(function (res) {
-            //console.log("res=", res);
-            var map = res[0];
-            _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_9__leaflet_map_leaflet_map__["a" /* LeafletMapPage */], {
-                typeOfMap: 'icon',
-                map: map,
-                icons: 'entranceA.svg,entranceB.svg,entranceC.svg',
-                titleStr: _this.entrancesExitsStr
+        this.filterStr = this.filterProvider.filterStr;
+        //console.log("this.filterStr", this.filterStr);
+        if (this.lang == 'ru') {
+            this.sqlMyForum.getRusParticipant(this.filterStr).then(function (res) {
+                //console.log('our select');
+                //console.log(res);
+                _this.listOut = res;
+                _this.changeName();
             });
-        });
-    };
-    HomePage.prototype.showInfo = function () {
-        var _this = this;
-        var mapSql = new __WEBPACK_IMPORTED_MODULE_6__providers_base_sql__["a" /* BaseSql */](this.http, 'map');
-        mapSql.selectWhere('name_map="patriot-expo.svg"').then(function (res) {
-            //console.log("res=", res);
-            var map = res[0];
-            _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_9__leaflet_map_leaflet_map__["a" /* LeafletMapPage */], {
-                typeOfMap: 'icon',
-                map: map,
-                icons: 'medpoint.svg,meeting-point.svg,mother-and-child.svg,media-center.svg,guest-hall.svg',
-                titleStr: _this.infoStr
+        }
+        else {
+            this.sqlMyForum.getEngParticipant(this.filterStr).then(function (res) {
+                //console.log('our select');
+                //console.log(res);
+                _this.listOut = res;
+                _this.changeName();
             });
-        });
+        }
     };
-    HomePage.prototype.howToGet = function () {
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_13__how_to_get_how_to_get__["a" /* HowToGetPage */]);
+    ParticipantPage.prototype.setFilterStrParticipant = function () {
+        this.getListOut();
+        this.showHideFilter();
     };
-    return HomePage;
-}(__WEBPACK_IMPORTED_MODULE_8__providers_base_lang_page_base_lang_page__["a" /* BaseLangPageProvider */]));
-__decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_13" /* ViewChild */])('slides'),
-    __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["r" /* Slides */])
-], HomePage.prototype, "slides", void 0);
-__decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_13" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* Content */]),
-    __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* Content */])
-], HomePage.prototype, "content", void 0);
-HomePage = __decorate([
+    ParticipantPage.prototype.cancelFilterStrParticipant = function () {
+        this.filterProvider.cancelFilter();
+        this.getListOut();
+        this.showHideFilter();
+    };
+    return ParticipantPage;
+}(__WEBPACK_IMPORTED_MODULE_6__providers_base_list_page_base_list_page__["a" /* BaseListPageProvider */]));
+ParticipantPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-home',template:/*ion-inline-start:"/Users/leonidlyalin/WebstormProjects/army2017/src/pages/home/home.html"*/'<ion-header>\n    <ion-navbar>\n        <button ion-button menuToggle>\n            <ion-icon name="menu"></ion-icon>\n        </button>\n        <ion-title text-left>{{titleStr}}</ion-title>\n    </ion-navbar>\n\n\n</ion-header>\n<ion-content class="cards-bg" style="background-image: url(\'assets/img/background.jpg\')">\n    <ion-slides #slides (ionSlideWillChange)="onSlideChangeStart($event)" pager>\n\n\n        <ion-slide>\n\n            <ion-grid>\n                <ion-row>\n                    <ion-col col-4>\n\n                        <img tappable src="assets/img/homeicons/about-forum.png" height="{{iconHeight}}"\n                             width="{{iconWidth}}" (click)="aboutPage()"/>\n                        <p>{{aboutForumStr}}</p>\n\n\n                    </ion-col>\n                    <ion-col col-4>\n                        <img tappable src="assets/img/homeicons/map.png" height="{{iconHeight}}" width="{{iconWidth}}"\n                             (click)="forumMapPage()"/>\n                        <p>{{mapStr}}</p>\n                    </ion-col>\n                    <ion-col col-4>\n                        <img tappable src="assets/img/homeicons/exposure.png" height="{{iconHeight}}"\n                             width="{{iconWidth}}" (click)="participantPage()"/>\n                        <p>{{participantsStr}}</p>\n                    </ion-col>\n                </ion-row>\n                <ion-row>\n                    <ion-col col-4>\n                        <img tappable src="assets/img/homeicons/science-program-icon.png" height="{{iconHeight}}"\n                             width="{{iconWidth}}" (click)="conferencePage()"/>\n                        <p>{{conferenceStr}}</p>\n                    </ion-col>\n                    <ion-col col-4>\n                        <img tappable src="assets/img/homeicons/demo-program.jpg" height="{{iconHeight}}"\n                             width="{{iconWidth}}" (click)="DemoProgramPage()"/>\n                        <p>{{demoProgramStr}}</p>\n                    </ion-col>\n                    <ion-col col-4>\n                        <img tappable src="assets/img/homeicons/about-forum.png" height="{{iconHeight}}"\n                             width="{{iconWidth}}" (click)="ExhibitListPage()"/>\n                        <p>{{exhibitsMoDStr}}</p>\n                    </ion-col>\n                </ion-row>\n\n\n            </ion-grid>\n        </ion-slide>\n        <ion-slide>\n            <ion-grid>\n                <ion-row>\n                    <ion-col col-4>\n                        <ion-col col-4>\n                            <img tappable src="assets/img/homeicons/how-to-get.jpg" height="{{iconHeight}}"\n                                 width="{{iconWidth}}" (click)="howToGet()"/>\n                            <p>{{howDoYouGetStr}}</p>\n                        </ion-col>\n\n                    </ion-col>\n                    <ion-col col-4>\n                        <img tappable src="assets/img/homeicons/park-patriot-icon.png" height="{{iconHeight}}"\n                             width="{{iconWidth}}" (click)="parkPatriot()"/>\n                        <p>{{parkPatriotStr}}</p>\n                    </ion-col>\n                    <ion-col col-4>\n                        <img tappable src="assets/img/homeicons/q&a.png" height="{{iconHeight}}" width="{{iconWidth}}"/>\n                        <p>{{answersAndQuestionsStr}}</p>\n                    </ion-col>\n                </ion-row>\n                <ion-row>\n                    <ion-col col-4>\n                        <img tappable src="assets/img/homeicons/entrance-exit.png" height="{{iconHeight}}"\n                             width="{{iconWidth}}" (click)="showEnrance()"/>\n                        <p>{{entrancesExitsStr}}</p>\n                    </ion-col>\n                    <ion-col col-4>\n                        <img tappable src="assets/img/homeicons/restaurants.png" height="{{iconHeight}}"\n                             width="{{iconWidth}}" (click)="showCafe()"/>\n                        <p>{{restaurantsCafe}}</p>\n                    </ion-col>\n                    <ion-col col-4>\n                        <img tappable src="assets/img/homeicons/wc.png" height="{{iconHeight}}" width="{{iconWidth}}" (click)="showWC()"/>\n                        <p>{{wcStr}}</p>\n                    </ion-col>\n                </ion-row>\n\n            </ion-grid>\n        </ion-slide>\n        <ion-slide>\n            <ion-grid>\n                <ion-row>\n                    <ion-col col-4>\n                        <img tappable src="assets/img/homeicons/info.png" height="{{iconHeight}}"\n                             width="{{iconWidth}}" (click)="showInfo()"/>\n                        <p>{{infoStr}}</p>\n                    </ion-col>\n                    <ion-col col-4>\n                        <img tappable src="assets/img/homeicons/army-2017.jpg" height="{{iconHeight}}"\n                             width="{{iconWidth}}" (click)="showWarGames()"/>\n                        <p>{{myForumStr}}</p>\n                    </ion-col>\n                    <ion-col col-4>\n                        <img tappable src="assets/img/homeicons/qr-scanner.png" height="{{iconHeight}}"\n                             width="{{iconWidth}}" (click)="BarScannerPage()"/>\n                        <p>{{qrScannerStr}}</p>\n                    </ion-col>\n                </ion-row>\n            </ion-grid>\n        </ion-slide>\n    </ion-slides>\n\n</ion-content>\n'/*ion-inline-end:"/Users/leonidlyalin/WebstormProjects/army2017/src/pages/home/home.html"*/
+        selector: 'page-participant',template:/*ion-inline-start:"/Users/leonidlyalin/WebstormProjects/army2017/src/pages/participant/participant.html"*/'<ion-header>\n    <ion-navbar>\n\n\n        <ion-title text-left>{{titleStr}}</ion-title>\n        <ion-buttons end>\n            <button ion-button icon-only (click)="showHideFilter()" [style.color]="colorFilter">\n                <i class="fa fa-filter fa-2x" aria-hidden="true"></i>\n            </button>\n            <button ion-button icon-only (click)="showMapList(\'participant\')">\n                <i class="fa fa-map fa-2x" aria-hidden="true"></i>\n            </button>\n            <button ion-button icon-only (click)="showHideHelp()" [style.color]="colorHelp">\n                <i class="fa fa-info-circle fa-2x" aria-hidden="true"></i>\n            </button>\n        </ion-buttons>\n\n    </ion-navbar>\n\n\n</ion-header>\n<ion-content no-padding="true" no-margin="true">\n    <div no-border-top *ngIf="showFilter">\n\n        <ion-item>\n            <ion-buttons align-items-center>\n                <button ion-button (click)="setFilterStrParticipant()" color="army-red">\n                    <ion-icon name="checkmark"></ion-icon>\n                    {{setFilterStr}}\n                </button>\n                <button ion-button (click)="cancelFilterStrParticipant()" color="army-red">\n                    <ion-icon name="close-circle"></ion-icon>\n                    {{cancelFilterStr}}\n                </button>\n            </ion-buttons>\n        </ion-item>\n        <page-filter-participant>\n        </page-filter-participant>\n    </div>\n\n\n    <div *ngIf="showHelp">\n        <page-participant-help>\n        </page-participant-help>\n    </div>\n    <div *ngIf="showMainList">\n        <ion-list text-wrap>\n\n            <!--  <ion-item-sliding *ngFor="let participant of listOut" #slidingItem>-->\n            <ion-item *ngFor="let participant of listOut" >\n\n                <button ion-item (click)="goToParticipantDetail(participant)">\n\n                        <ion-icon item-left *ngIf="participant.my_forum_id&&userId" name="star" color="danger"></ion-icon>\n                        <ion-icon item-left *ngIf="!participant.my_forum_id&&userId" name="star-outline"></ion-icon>\n\n                    <p text-wrap>{{participant.name}}</p>\n                    <p text-wrap *ngIf="participant.place_name_place">\n                        <ion-icon name="pin" color="danger"></ion-icon>\n                        {{participant.place_name_place}}\n                    <p>\n\n                </button>\n\n\n                <!--  <ion-item-options>\n                    <button ion-button color="danger" *ngIf="!participant.my_forum_id" (click)="addToMyForumSite(participant.id)">\n                      {{addMyForumStr}}\n                    </button>\n                    <button ion-button color="favorite" *ngIf="participant.my_forum_id"\n                            (click)="deleteFromMyForum(participant.my_forum_id)">\n                      {{delMyForumStr}}\n                    </button>\n                  </ion-item-options>-->\n\n            </ion-item>\n        </ion-list>\n    </div>\n</ion-content>\n'/*ion-inline-end:"/Users/leonidlyalin/WebstormProjects/army2017/src/pages/participant/participant.html"*/,
+        providers: [__WEBPACK_IMPORTED_MODULE_5__providers_filter_provider_filter_participant_provider__["a" /* FilterParticipantProvider */]],
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* NavController */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* MenuController */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["p" /* Platform */],
-        __WEBPACK_IMPORTED_MODULE_5__angular_http__["a" /* Http */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* LoadingController */],
+        __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Http */],
+        __WEBPACK_IMPORTED_MODULE_8__providers_participant_participant_api_service__["a" /* ParticipantApi */],
+        __WEBPACK_IMPORTED_MODULE_3__providers_my_forum_sql__["a" /* MyForumSql */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* NavParams */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["u" /* ToastController */],
+        __WEBPACK_IMPORTED_MODULE_5__providers_filter_provider_filter_participant_provider__["a" /* FilterParticipantProvider */],
         __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* Events */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */]])
-], HomePage);
+        __WEBPACK_IMPORTED_MODULE_7__providers_place_sql_place_sql__["a" /* PlaceSql */]])
+], ParticipantPage);
 
-//# sourceMappingURL=home.js.map
+//# sourceMappingURL=participant.js.map
 
 /***/ }),
 
-/***/ 146:
+/***/ 145:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -695,7 +589,7 @@ ThematicSql = __decorate([
 
 /***/ }),
 
-/***/ 147:
+/***/ 146:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -948,7 +842,7 @@ DrawFunctionProvider = __decorate([
 
 /***/ }),
 
-/***/ 148:
+/***/ 147:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1051,7 +945,7 @@ FilterParticipantProvider = __decorate([
 
 /***/ }),
 
-/***/ 149:
+/***/ 148:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1061,7 +955,7 @@ FilterParticipantProvider = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__ = __webpack_require__(14);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__base_sql__ = __webpack_require__(24);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__conference_api_service__ = __webpack_require__(150);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__conference_api_service__ = __webpack_require__(149);
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -1187,7 +1081,7 @@ ConferenceSql = __decorate([
 
 /***/ }),
 
-/***/ 150:
+/***/ 149:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1196,7 +1090,7 @@ ConferenceSql = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs__ = __webpack_require__(46);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__base_api_service__ = __webpack_require__(29);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__base_api_service__ = __webpack_require__(30);
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -1252,16 +1146,16 @@ ConferenceApi = __decorate([
 
 /***/ }),
 
-/***/ 151:
+/***/ 150:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ConferenceDetailPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_thematic_conference_sql_thematic_conference_sql__ = __webpack_require__(289);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_thematic_conference_sql_thematic_conference_sql__ = __webpack_require__(288);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_my_forum_sql__ = __webpack_require__(26);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_conference_sql_conference_sql__ = __webpack_require__(149);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_conference_sql_conference_sql__ = __webpack_require__(148);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_http__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_base_list_page_base_list_page__ = __webpack_require__(19);
 var __extends = (this && this.__extends) || (function () {
@@ -1366,16 +1260,6 @@ var ConferenceDetailPage = (function (_super) {
             if (res) {
                 //console.log("res in thematicConference page=", res);
                 _this.thematic = res;
-                /*  this.conferenceDetailSql.getFieldFromTable(this.element.id, 'id', 'myforum').then(
-                    //getMyForumForId(this.element.id).then(
-                    rs => {
-                      if (rs) {
-                        //console.log("res in element myForumitem", rs);
-                        this.myForum = <any>rs;
-                      }
-        
-                    }
-                  );*/
             }
         });
     };
@@ -1392,10 +1276,10 @@ var ConferenceDetailPage = (function (_super) {
                         if (!this.userId) return [3 /*break*/, 4];
                         if (!(element.my_forum_id > 0)) return [3 /*break*/, 2];
                         _a = element;
-                        return [4 /*yield*/, this.deleteFromMyForum(element.id)];
+                        return [4 /*yield*/, this.deleteFromMyForum(element.my_forum_id)];
                     case 1:
                         _a.my_forum_id = _c.sent();
-                        this.events.publish('myforum:delete:conference', (element.id));
+                        this.events.publish('myforum:delete:conference', (element));
                         return [3 /*break*/, 4];
                     case 2:
                         _b = element;
@@ -1403,7 +1287,7 @@ var ConferenceDetailPage = (function (_super) {
                     case 3:
                         _b.my_forum_id = _c.sent();
                         // ''this.participantApi
-                        this.events.publish('myforum:add:conference', ({ id: element.id, my_forum_id: element.my_forum_id }));
+                        this.events.publish('myforum:add:conference', element);
                         _c.label = 4;
                     case 4: return [2 /*return*/];
                 }
@@ -1452,7 +1336,7 @@ ConferenceDetailPage = __decorate([
 
 /***/ }),
 
-/***/ 152:
+/***/ 151:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1606,17 +1490,17 @@ FilterConferenceProvider = __decorate([
 
 /***/ }),
 
-/***/ 153:
+/***/ 152:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BarScannerPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_barcode_scanner__ = __webpack_require__(291);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_barcode_scanner__ = __webpack_require__(290);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_base_lang_page_base_lang_page__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_http__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_base_sql__ = __webpack_require__(24);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__participant_detail_participant_detail__ = __webpack_require__(54);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_my_forum_sql__ = __webpack_require__(26);
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
@@ -1652,7 +1536,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  */
 var BarScannerPage = (function (_super) {
     __extends(BarScannerPage, _super);
-    function BarScannerPage(navCtrl, navParams, barcodeScanner, events, http, platform, alertCtrl) {
+    function BarScannerPage(navCtrl, navParams, barcodeScanner, events, http, platform, alertCtrl, sqlMyForum) {
         var _this = _super.call(this, navCtrl, events, http) || this;
         _this.navCtrl = navCtrl;
         _this.navParams = navParams;
@@ -1661,6 +1545,7 @@ var BarScannerPage = (function (_super) {
         _this.http = http;
         _this.platform = platform;
         _this.alertCtrl = alertCtrl;
+        _this.sqlMyForum = sqlMyForum;
         _this.participantId = 1;
         _this.conferenceId = 14;
         _this.badgeId = 22;
@@ -1700,126 +1585,153 @@ var BarScannerPage = (function (_super) {
                 if (!result.cancelled) {
                     //console.log(result.text);
                     //console.log(result.format);
-                    var qrcode_1 = result.text;
-                    var tableParticipant = new __WEBPACK_IMPORTED_MODULE_5__providers_base_sql__["a" /* BaseSql */](_this.http, 'participant');
-                    tableParticipant.selectWhere('qrcode="' + qrcode_1 + '"').then(function (res) {
-                        //console.log("res",<any>res);
-                        if (res) {
-                            var rec_1 = res[0];
-                            //console.log(rec);
-                            var tableMyForum_1 = new __WEBPACK_IMPORTED_MODULE_6__providers_my_forum_sql__["a" /* MyForumSql */](_this.http);
-                            tableMyForum_1.selectWhere('my_iblock_id=' + _this.participantId + ' and my_id=' + rec_1.id + ' and user=' + _this.userId).then(function (rs) {
-                                //console.log("rs=",rs);
-                                if (rs) {
-                                    var alert_1 = _this.alertCtrl.create({
-                                        title: _this.participantStr + _this.inMyForumStr,
-                                        subTitle: ((_this.lang == 'ru') ? rec_1.name_rus : rec_1.name_eng),
-                                        buttons: ['OK']
-                                    });
-                                    alert_1.present();
-                                }
-                                else {
-                                    var confirm_1 = _this.alertCtrl.create({
-                                        title: _this.participantStr,
-                                        message: _this.addStr + ' ' + ((_this.lang == 'ru') ? rec_1.name_rus : rec_1.name_eng) + ' ' + _this.inMyForumStr,
-                                        buttons: [
-                                            {
-                                                text: _this.yesStr,
-                                                handler: function () {
-                                                    //console.log('Yes clicked');
-                                                    tableMyForum_1.addToMyForumSite(rec_1.id, _this.participantId, _this.userId).then(function (res) {
-                                                        //console.log(rec.name_rus, " added");
-                                                    });
-                                                }
-                                            },
-                                            {
-                                                text: _this.noStr,
-                                                handler: function () {
-                                                    //console.log('No clicked');
-                                                }
-                                            }
-                                        ]
-                                    });
-                                    confirm_1.present();
-                                }
+                    var qrcode = result.text;
+                    //let tableParticipant = new BaseSql(this.http, 'participant');
+                    if (_this.lang == 'ru') {
+                        _this.sqlMyForum.getRusParticipantFull('where a.qrcode="' + qrcode + '"').then(function (res) {
+                            var participant = res;
+                            //console.log("participantDetail=", participant);
+                            _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_5__participant_detail_participant_detail__["a" /* ParticipantDetailPage */], {
+                                participant: participant,
+                                listOut: { participant: participant }
+                            }).then(function (res) {
+                                //console.log("i return from page", res);
                             });
-                        }
-                        else {
-                            var tableConference = new __WEBPACK_IMPORTED_MODULE_5__providers_base_sql__["a" /* BaseSql */](_this.http, 'conference');
-                            tableConference.selectWhere('qrcode="' + qrcode_1 + '"').then(function (resConference) {
-                                if (resConference) {
-                                    var rec_2 = resConference[0];
-                                    //console.log(rec);
-                                    var tableMyForum_2 = new __WEBPACK_IMPORTED_MODULE_6__providers_my_forum_sql__["a" /* MyForumSql */](_this.http);
-                                    tableMyForum_2.selectWhere('my_iblock_id=' + _this.conferenceId +
-                                        ' and my_id=' + rec_2.id + ' and user=' + _this.userId).then(function (rsMyForumConference) {
-                                        //console.log("rsMyForumConference=",rsMyForumConference);
-                                        if (rsMyForumConference) {
-                                            var alert_2 = _this.alertCtrl.create({
-                                                title: _this.conferenceStr + _this.inMyForumStr,
-                                                subTitle: ((_this.lang == 'ru') ? rec_2.name_rus : rec_2.name_eng),
-                                                buttons: ['OK']
-                                            });
-                                            alert_2.present();
-                                        }
-                                        else {
-                                            var confirm_2 = _this.alertCtrl.create({
-                                                title: _this.conferenceStr,
-                                                message: _this.addStr + ' ' + ((_this.lang == 'ru') ? rec_2.name_rus : rec_2.name_eng) + ' ' + _this.inMyForumStr,
-                                                buttons: [
-                                                    {
-                                                        text: _this.yesStr,
-                                                        handler: function () {
-                                                            //console.log('Yes clicked');
-                                                            tableMyForum_2.addToMyForumSite(rec_2.id, _this.conferenceId, _this.userId).then(function (res) {
-                                                                //console.log(rec.name_rus, " added");
-                                                            });
-                                                        }
-                                                    },
-                                                    {
-                                                        text: _this.noStr,
-                                                        handler: function () {
-                                                            //console.log('No clicked');
-                                                        }
-                                                    }
-                                                ]
-                                            });
-                                            confirm_2.present();
-                                        }
-                                    });
-                                }
-                                else {
-                                    var tableContact = new __WEBPACK_IMPORTED_MODULE_5__providers_base_sql__["a" /* BaseSql */](_this.http, 'contact');
-                                    tableContact.selectWhere('qrcode="' + qrcode_1 + '"').then(function (resContact) {
-                                        if (resContact) {
-                                            var rec = resContact[0];
-                                            var alert_3 = _this.alertCtrl.create({
-                                                title: _this.contactStr + _this.inContactStr,
-                                                subTitle: ((_this.lang == 'ru') ? rec.name_rus : rec.name_eng),
-                                                buttons: ['OK']
-                                            });
-                                            alert_3.present();
-                                        }
-                                        else {
-                                            var myApi = new __WEBPACK_IMPORTED_MODULE_5__providers_base_sql__["a" /* BaseSql */](_this.http, 'contact');
-                                            myApi.loadApi('api/contact/get_contact.php');
-                                            var alert_4 = _this.alertCtrl.create({
-                                                title: _this.addedStr,
-                                                subTitle: qrcode_1,
-                                                buttons: ['OK']
-                                            });
-                                            alert_4.present();
-                                        }
-                                    });
-                                }
+                        });
+                    }
+                    else
+                        _this.sqlMyForum.getEngParticipantFull('where a.qrcode="' + qrcode + '"').then(function (res) {
+                            var participant = res;
+                            _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_5__participant_detail_participant_detail__["a" /* ParticipantDetailPage */], {
+                                participant: participant,
+                                listOut: { participant: participant }
+                            }).then(function (res) {
+                                //console.log("i return from page", res);
                             });
-                        }
-                    });
+                        });
                 }
             }, function (error) {
                 //console.log('error when scanning product barcode', error);
             });
         });
+        /*tableParticipant.selectWhere('qrcode="' + qrcode+'"').then(res => {
+          //console.log("res",<any>res);
+          if (res) {
+
+            let rec = <any>res[0];
+            //console.log(rec);
+            let tableMyForum = new MyForumSql(this.http);
+            tableMyForum.selectWhere('my_iblock_id=' + this.participantId + ' and my_id=' + rec.id+' and user='+this.userId).then(rs => {
+              //console.log("rs=",rs);
+              if (rs) {
+                let alert = this.alertCtrl.create({
+                  title: this.participantStr + this.inMyForumStr,
+                  subTitle: ((this.lang == 'ru') ? rec.name_rus : rec.name_eng),
+                  buttons: ['OK']
+                });
+                alert.present();
+              }
+              else {
+                let confirm = this.alertCtrl.create({
+                  title: this.participantStr,
+                  message: this.addStr+' '+((this.lang == 'ru') ? rec.name_rus : rec.name_eng)+' ' + this.inMyForumStr,
+                  buttons: [
+                    {
+                      text: this.yesStr,
+                      handler: () => {
+                        //console.log('Yes clicked');
+                        tableMyForum.addToMyForumSite(rec.id, this.participantId, this.userId).then(res => {
+                          //console.log(rec.name_rus, " added");
+                        })
+                      }
+                    },
+                    {
+                      text: this.noStr,
+                      handler: () => {
+                        //console.log('No clicked');
+                      }
+                    }
+                  ]
+                });
+                confirm.present();
+              }
+
+            });
+          }
+          else {
+            let tableConference = new BaseSql(this.http, 'conference');
+            tableConference.selectWhere('qrcode="' + qrcode+'"').then(resConference => {
+              if (resConference) {
+                let rec = <any>resConference[0];
+                //console.log(rec);
+                let tableMyForum = new MyForumSql(this.http);
+                tableMyForum.selectWhere('my_iblock_id=' + this.conferenceId +
+                  ' and my_id=' + rec.id+' and user='+this.userId).then(rsMyForumConference => {
+                  //console.log("rsMyForumConference=",rsMyForumConference);
+                  if (rsMyForumConference) {
+                    let alert = this.alertCtrl.create({
+                      title: this.conferenceStr + this.inMyForumStr,
+                      subTitle: ((this.lang == 'ru') ? rec.name_rus : rec.name_eng),
+                      buttons: ['OK']
+                    });
+                    alert.present();
+                  }
+                  else {
+                    let confirm = this.alertCtrl.create({
+                      title: this.conferenceStr,
+                      message: this.addStr+' '+((this.lang == 'ru') ? rec.name_rus : rec.name_eng)+' ' + this.inMyForumStr,
+                      buttons: [
+                        {
+                          text: this.yesStr,
+                          handler: () => {
+                            //console.log('Yes clicked');
+                            tableMyForum.addToMyForumSite(rec.id, this.conferenceId, this.userId).then(res => {
+                              //console.log(rec.name_rus, " added");
+                            });
+                          }
+                        },
+                        {
+                          text: this.noStr,
+                          handler: () => {
+                            //console.log('No clicked');
+                          }
+                        }
+                      ]
+                    });
+                    confirm.present();
+                  }
+
+                });
+              }
+              else {
+                let tableContact = new BaseSql(this.http, 'contact');
+                tableContact.selectWhere('qrcode="' + qrcode+'"').then(resContact => {
+                  if (resContact) {
+                    let rec = <any>resContact[0];
+                    let alert = this.alertCtrl.create({
+                      title: this.contactStr + this.inContactStr,
+                      subTitle: ((this.lang == 'ru') ? rec.name_rus : rec.name_eng),
+                      buttons: ['OK']
+                    });
+                    alert.present();
+                  }
+                  else {//if (!resContact) {
+                    let myApi=new BaseSql(this.http,'contact');
+                    myApi.loadApi('api/contact/get_contact.php');
+                    let alert = this.alertCtrl.create({
+                      title: this.addedStr ,
+                      subTitle: qrcode,
+                      buttons: ['OK']
+                    });
+                    alert.present();
+                  }
+                });
+
+              }
+
+            });
+          }
+        });*/
     };
     return BarScannerPage;
 }(__WEBPACK_IMPORTED_MODULE_3__providers_base_lang_page_base_lang_page__["a" /* BaseLangPageProvider */]));
@@ -1827,15 +1739,21 @@ BarScannerPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
         selector: 'page-bar-scanner',template:/*ion-inline-start:"/Users/leonidlyalin/WebstormProjects/army2017/src/pages/bar-scanner/bar-scanner.html"*/'<!--\n  Generated template for the BarScannerPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>{{titleStr}}</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding transparent>\n  <button ion-button (click)="scanBarCode()">\n    {{titleStr}}\n  </button>\n\n</ion-content>\n'/*ion-inline-end:"/Users/leonidlyalin/WebstormProjects/army2017/src/pages/bar-scanner/bar-scanner.html"*/,
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_barcode_scanner__["a" /* BarcodeScanner */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* Events */],
-        __WEBPACK_IMPORTED_MODULE_4__angular_http__["a" /* Http */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["p" /* Platform */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */]])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* NavController */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* NavParams */],
+        __WEBPACK_IMPORTED_MODULE_2__ionic_native_barcode_scanner__["a" /* BarcodeScanner */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* Events */],
+        __WEBPACK_IMPORTED_MODULE_4__angular_http__["a" /* Http */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["p" /* Platform */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */],
+        __WEBPACK_IMPORTED_MODULE_6__providers_my_forum_sql__["a" /* MyForumSql */]])
 ], BarScannerPage);
 
 //# sourceMappingURL=bar-scanner.js.map
 
 /***/ }),
 
-/***/ 154:
+/***/ 153:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1844,7 +1762,7 @@ BarScannerPage = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_my_forum_sql__ = __webpack_require__(26);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_exhibit_exhibit_sql__ = __webpack_require__(155);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_exhibit_exhibit_sql__ = __webpack_require__(154);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_base_list_page_base_list_page__ = __webpack_require__(19);
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
@@ -2010,10 +1928,10 @@ var ExhibitDetailPage = (function (_super) {
                         if (!this.userId) return [3 /*break*/, 4];
                         if (!(element.my_forum_id > 0)) return [3 /*break*/, 2];
                         _a = element;
-                        return [4 /*yield*/, this.deleteFromMyForum(element.id)];
+                        return [4 /*yield*/, this.deleteFromMyForum(element.my_forum_id)];
                     case 1:
                         _a.my_forum_id = _c.sent();
-                        this.events.publish('myforum:delete:exhibit', (element.id));
+                        this.events.publish('myforum:delete:exhibit', (element));
                         return [3 /*break*/, 4];
                     case 2:
                         _b = element;
@@ -2021,7 +1939,7 @@ var ExhibitDetailPage = (function (_super) {
                     case 3:
                         _b.my_forum_id = _c.sent();
                         // ''this.participantApi
-                        this.events.publish('myforum:add:exhibit', ({ id: element.id, my_forum_id: element.my_forum_id }));
+                        this.events.publish('myforum:add:exhibit', element);
                         _c.label = 4;
                     case 4: return [2 /*return*/];
                 }
@@ -2069,7 +1987,7 @@ ExhibitDetailPage = __decorate([
 
 /***/ }),
 
-/***/ 155:
+/***/ 154:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2079,7 +1997,7 @@ ExhibitDetailPage = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__ = __webpack_require__(14);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__base_sql__ = __webpack_require__(24);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_exhibit_exhibit_api_service__ = __webpack_require__(293);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_exhibit_exhibit_api_service__ = __webpack_require__(292);
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -2146,7 +2064,7 @@ ExhibitSql = __decorate([
 
 /***/ }),
 
-/***/ 156:
+/***/ 155:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2242,7 +2160,7 @@ FilterExhibitProvider = __decorate([
 
 /***/ }),
 
-/***/ 157:
+/***/ 156:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2251,7 +2169,7 @@ FilterExhibitProvider = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_my_forum_sql__ = __webpack_require__(26);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_exhibit_exhibit_sql__ = __webpack_require__(155);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_exhibit_exhibit_sql__ = __webpack_require__(154);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_base_list_page_base_list_page__ = __webpack_require__(19);
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
@@ -2339,15 +2257,13 @@ var DemoProgramDetailPage = (function (_super) {
         return _this;
     }
     DemoProgramDetailPage.prototype.setRussianStrings = function () {
-        _super.prototype.setRussianStrings.call(this, 'Экспонат');
-        this.charactersStr = 'ТТХ';
+        _super.prototype.setRussianStrings.call(this, 'Мероприятие');
         this.onMapStr = 'На карте';
         this.myForumStr = 'Мой форум';
         this.thematicStr = 'Тематика:';
     };
     DemoProgramDetailPage.prototype.setEnglishStrings = function () {
-        _super.prototype.setEnglishStrings.call(this, 'Exhibit');
-        this.charactersStr = 'Technical characteristics';
+        _super.prototype.setEnglishStrings.call(this, 'Мероприятие');
         this.onMapStr = 'Map';
         this.myForumStr = 'My Forum';
         this.thematicStr = 'Thematic Section:';
@@ -2399,6 +2315,7 @@ var DemoProgramDetailPage = (function (_super) {
         _super.prototype.ionViewDidLoad.call(this);
         // this.userId = localStorage.getItem('userid');
         this.prepareCharacteristics();
+        this.changeName();
         this.exhibitDetailSql.getFieldFromTable(this.element.id, 'id', 'myforum').then(
         //getMyForumForId(this.conferenceSingle.id).then(
         function (rs) {
@@ -2417,10 +2334,10 @@ var DemoProgramDetailPage = (function (_super) {
                         if (!this.userId) return [3 /*break*/, 4];
                         if (!(element.my_forum_id > 0)) return [3 /*break*/, 2];
                         _a = element;
-                        return [4 /*yield*/, this.deleteFromMyForum(element.id)];
+                        return [4 /*yield*/, this.deleteFromMyForum(element.my_forum_id)];
                     case 1:
                         _a.my_forum_id = _c.sent();
-                        this.events.publish('myforum:delete:demo', (element.id));
+                        this.events.publish('myforum:delete:demo', (element));
                         return [3 /*break*/, 4];
                     case 2:
                         _b = element;
@@ -2428,7 +2345,7 @@ var DemoProgramDetailPage = (function (_super) {
                     case 3:
                         _b.my_forum_id = _c.sent();
                         // ''this.participantApi
-                        this.events.publish('myforum:add:demo', ({ id: element.id, my_forum_id: element.my_forum_id }));
+                        this.events.publish('myforum:add:demo', element);
                         _c.label = 4;
                     case 4: return [2 /*return*/];
                 }
@@ -2458,11 +2375,28 @@ var DemoProgramDetailPage = (function (_super) {
             });
         });
     };
+    DemoProgramDetailPage.prototype.changeName = function () {
+        //this.element.name.replace('&quot;','"');
+        var name = this.element.name.split('::');
+        if (name[0])
+            this.element["name_first"] = name[0].replace(/&quot;/g, '"');
+        else
+            (this.element["name_first"] = this.element.name);
+        if (name[1])
+            this.element["name_second"] = name[1].replace(/&quot;/g, '"');
+        this.element["desc"] = this.element["desc"].replace(/&quot;/g, '"');
+        this.element["desc"] = this.element["desc"].replace(/&quot;/g, '"');
+        this.element["desc"] = this.element["desc"].replace(/&#40;/g, '(');
+        this.element["desc"] = this.element["desc"].replace(/&#41;/g, ')');
+        this.element["desc"] = this.element["desc"].replace(/&#39;/g, "'");
+        this.element["desc"] = this.element["desc"].replace(/<br/g, '');
+        this.element["desc"] = this.element["desc"].replace(/>/g, '');
+    };
     return DemoProgramDetailPage;
 }(__WEBPACK_IMPORTED_MODULE_5__providers_base_list_page_base_list_page__["a" /* BaseListPageProvider */]));
 DemoProgramDetailPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-demo-program-detail',template:/*ion-inline-start:"/Users/leonidlyalin/WebstormProjects/army2017/src/pages/demo-program-detail/demo-program-detail.html"*/'<ion-header>\n    <ion-navbar>\n        <ion-title text-left>{{titleStr}}</ion-title>\n    </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n    <ion-card>\n\n        <ion-card-header text-wrap>\n            <p>{{element.name_first}}</p>\n            <h6>{{element.name_second}}</h6>\n        </ion-card-header>\n        <ion-card-content>\n            <p>\n                <ion-icon name="calendar" color="danger"></ion-icon>\n                <b color="primary">{{element.date_event}} </b>\n            </p>\n            <p>\n                <ion-icon name="timer" color="danger"></ion-icon>\n                <b color="primary">{{element.time_beg}} : {{element.time_end}}</b>\n            </p>\n\n            <p *ngIf="!element.place_name_place">\n                <ion-icon name="pin" color="danger"></ion-icon>\n                {{element.place_name}}\n            </p>\n            <p *ngIf="element.place_name_place">\n                <ion-icon name="pin" color="danger"></ion-icon>\n                {{element.place_name_place}}\n            </p>\n\n\n        </ion-card-content>\n\n\n        <ion-row no-padding>\n            <ion-col>\n                <button ion-button clear small color="danger" icon-left\n                        (click)="this.showLeafLetMap(element,\'exhibitDetail\')">\n                    <ion-icon name=\'map\'></ion-icon>\n                    {{onMapStr}}\n                </button>\n            </ion-col>\n            <ion-col>\n                <button ion-button clear small color="danger" icon-left (click)="changeMyForum(element)">\n                    <ion-icon item-left *ngIf="element.my_forum_id" name="star" color="danger"></ion-icon>\n                    <ion-icon item-left *ngIf="!element.my_forum_id" name="star-outline"></ion-icon>\n                    {{myForumStr}}\n                </button>\n            </ion-col>\n        </ion-row>\n    </ion-card>\n</ion-content>\n'/*ion-inline-end:"/Users/leonidlyalin/WebstormProjects/army2017/src/pages/demo-program-detail/demo-program-detail.html"*/
+        selector: 'page-demo-program-detail',template:/*ion-inline-start:"/Users/leonidlyalin/WebstormProjects/army2017/src/pages/demo-program-detail/demo-program-detail.html"*/'<ion-header>\n    <ion-navbar>\n        <ion-title text-left>{{titleStr}}</ion-title>\n    </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n    <ion-card>\n\n        <ion-card-header text-wrap>\n            <p>{{element.name_first}}</p>\n            <h6>{{element.name_second}}</h6>\n        </ion-card-header>\n        <ion-card-content>\n            <p>\n                <ion-icon name="calendar" color="danger"></ion-icon>\n                <b color="primary">{{element.date_event}} </b>\n            </p>\n            <p>\n                <ion-icon name="timer" color="danger"></ion-icon>\n                <b color="primary">{{element.time_beg}} : {{element.time_end}}</b>\n            </p>\n\n            <p *ngIf="!element.place_name_place">\n                <ion-icon name="pin" color="danger"></ion-icon>\n                {{element.place_name}}\n            </p>\n            <p *ngIf="element.place_name_place">\n                <ion-icon name="pin" color="danger"></ion-icon>\n                {{element.place_name_place}}\n            </p>\n\n\n\n\n        </ion-card-content>\n\n\n        <ion-row no-padding>\n            <ion-col>\n                <button ion-button clear small color="danger" icon-left\n                        (click)="this.showLeafLetMap(element,\'exhibitDetail\')">\n                    <ion-icon name=\'map\'></ion-icon>\n                    {{onMapStr}}\n                </button>\n            </ion-col>\n            <ion-col>\n                <button ion-button clear small color="danger" icon-left (click)="changeMyForum(element)">\n                    <ion-icon item-left *ngIf="element.my_forum_id" name="star" color="danger"></ion-icon>\n                    <ion-icon item-left *ngIf="!element.my_forum_id" name="star-outline"></ion-icon>\n                    {{myForumStr}}\n                </button>\n            </ion-col>\n        </ion-row>\n\n        <ion-card-content *ngIf="element.desc">\n            <p>{{element.desc}}</p>\n        </ion-card-content>\n\n    </ion-card>\n</ion-content>\n'/*ion-inline-end:"/Users/leonidlyalin/WebstormProjects/army2017/src/pages/demo-program-detail/demo-program-detail.html"*/
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* NavController */],
         __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* NavParams */],
@@ -2476,7 +2410,7 @@ DemoProgramDetailPage = __decorate([
 
 /***/ }),
 
-/***/ 158:
+/***/ 157:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2566,7 +2500,7 @@ FilterDemoProgramProvider = __decorate([
 
 /***/ }),
 
-/***/ 159:
+/***/ 158:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2640,25 +2574,19 @@ AboutForumPage = __decorate([
 
 /***/ }),
 
-/***/ 160:
+/***/ 159:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyForumPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginFormPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__ = __webpack_require__(14);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_my_forum_sql__ = __webpack_require__(26);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__participant_detail_participant_detail__ = __webpack_require__(68);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__conference_detail_conference_detail__ = __webpack_require__(151);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_place_sql_place_sql__ = __webpack_require__(40);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__leaflet_map_leaflet_map__ = __webpack_require__(54);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__providers_map_sql_map_sql__ = __webpack_require__(51);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__providers_base_list_page_base_list_page__ = __webpack_require__(19);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__exhibit_detail_exhibit_detail__ = __webpack_require__(154);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__demo_program_detail_demo_program_detail__ = __webpack_require__(157);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__(28);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_user_data__ = __webpack_require__(52);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__tabs_tabs__ = __webpack_require__(45);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__signup_signup__ = __webpack_require__(160);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_base_lang_page_base_lang_page__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__angular_http__ = __webpack_require__(2);
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -2678,6 +2606,41 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (this && this.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = y[op[0] & 2 ? "return" : op[0] ? "throw" : "next"]) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [0, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
 
 
 
@@ -2686,389 +2649,127 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-
-
-
-
-
-/**
- * Generated class for the MyForumPage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
-var MyForumPage = (function (_super) {
-    __extends(MyForumPage, _super);
-    function MyForumPage(navCtrl, navParams, http, sqlMyForum, placeSql, mapSql, events) {
-        var _this = _super.call(this, navCtrl, navParams, events, http) || this;
+var LoginFormPage = (function (_super) {
+    __extends(LoginFormPage, _super);
+    function LoginFormPage(navCtrl, userData, events, http, formBuilder, toastCtrl) {
+        var _this = _super.call(this, navCtrl, events, http) || this;
         _this.navCtrl = navCtrl;
-        _this.navParams = navParams;
-        _this.http = http;
-        _this.sqlMyForum = sqlMyForum;
-        _this.placeSql = placeSql;
-        _this.mapSql = mapSql;
+        _this.userData = userData;
         _this.events = events;
-        _this.forumSegment = 'conferenceItems';
-        _this.setEvents();
+        _this.http = http;
+        _this.formBuilder = formBuilder;
+        _this.toastCtrl = toastCtrl;
+        _this.user = {};
+        _this.submitted = false;
+        _this.login = new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* FormControl */]('', __WEBPACK_IMPORTED_MODULE_1__angular_forms__["g" /* Validators */].required);
+        _this.password = new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* FormControl */]('', __WEBPACK_IMPORTED_MODULE_1__angular_forms__["g" /* Validators */].required);
+        _this.form = formBuilder.group({
+            login: _this.login,
+            password: _this.password,
+        });
         return _this;
     }
-    MyForumPage.prototype.setEvents = function () {
-        //for participants
-        var _this = this;
-        this.events.subscribe('myforum:add:participant', function (id) {
-            //console.log('was added id =', id);
-            var participant = _this.myForumParticipant.find(function (x) { return x.id == id.id; });
-            participant.my_forum_id = id.my_forum_id;
-            //console.log('was added =', participant);
-        });
-        this.events.subscribe('myforum:delete:participan', function (id) {
-            //console.log('was deleted id=', id);
-            var participant = _this.myForumParticipant.find(function (x) { return x.id == id; });
-            participant.my_forum_id = null;
-            //console.log('was deleted =', participant);
-            if (_this.lang == 'ru')
-                _this.selectParticipantRus();
-            else
-                _this.selectParticipantEng();
-        });
-        //for exhibit
-        this.events.subscribe('myforum:add:exhibit', function (id) {
-            //console.log('was added id =', id);
-            var exhibit = _this.myForumExhibit.find(function (x) { return x.id == id.id; });
-            exhibit.my_forum_id = id.my_forum_id;
-            //console.log('was added =', exhibit);
-            if (_this.lang == 'ru')
-                _this.selectExhibitRus();
-            else
-                _this.selectExhibitEng();
-        });
-        this.events.subscribe('myforum:delete:exhibit', function (id) {
-            //console.log('was deleted id=', id);
-            var exhibit = _this.myForumExhibit.find(function (x) { return x.id == id; });
-            exhibit.my_forum_id = null;
-            //console.log('was deleted =', exhibit);
-            if (_this.lang == 'ru')
-                _this.selectExhibitRus();
-            else
-                _this.selectExhibitEng();
-        });
-        //for DemoProgram
-        this.events.subscribe('myforum:add:demo', function (id) {
-            //console.log('was added id =', id);
-            var demo = _this.myForumDemoProgram.find(function (x) { return x.id == id.id; });
-            demo.my_forum_id = id.my_forum_id;
-            //console.log('was added =', demo);
-            if (_this.lang == 'ru')
-                _this.selectDemoProgramRus();
-            else
-                _this.selectDemoProgramEng();
-        });
-        this.events.subscribe('myforum:delete:demo', function (id) {
-            //console.log('was deleted id=', id);
-            var demo = _this.myForumDemoProgram.find(function (x) { return x.id == id; });
-            demo.my_forum_id = null;
-            //console.log('was deleted =', demo);
-            if (_this.lang == 'ru')
-                _this.selectDemoProgramRus();
-            else
-                _this.selectDemoProgramEng();
-        });
-        //
-        this.events.subscribe('myforum:add:conference', function (id) {
-            //console.log('was added id =', id);
-            var conferenceSingle = _this.myForumConference.find(function (x) { return x.id == id.id; });
-            conferenceSingle.my_forum_id = id.my_forum_id;
-            //console.log('was added =', conferenceSingle);
-        });
-        this.events.subscribe('myforum:delete:conference', function (id) {
-            //console.log('was deleted id=', id);
-            var conferenceSingle = _this.myForumConference.find(function (x) { return x.id == id; });
-            conferenceSingle.my_forum_id = null;
-            //console.log('was deleted =', conferenceSingle);
-        });
-    };
-    MyForumPage.prototype.setRussianStrings = function () {
-        _super.prototype.setRussianStrings.call(this, 'Мой форум');
-        this.participantStr = 'Участники';
-        this.conferenceStr = 'Конференция';
-        this.exhibitStr = 'Экспонаты МO';
-        this.demoStr = 'Демо программа';
-    };
-    MyForumPage.prototype.setEnglishStrings = function () {
-        this.titleStr = 'My Forum';
-        this.participantStr = 'Exhibitors';
-        this.conferenceStr = 'Conference';
-        this.exhibitStr = 'Exhibits of MoD';
-        this.demoStr = 'Demo program';
-    };
-    MyForumPage.prototype.getApi = function () {
-        var _this = this;
-        //get My Forum for the User
-        if (!this.userId)
-            alert("Незарегистрированный пользователь");
-        //console.log('run promise for myForumParticipant. run!');
-        this.http.get('http://army2017.ru/api/my_forum/my_forum_list.php?USER=' + this.userId + '&LOWERCASE=1').map(function (res) { return res.json(); }).subscribe(function (data) {
-            _this.myForumApi = data;
-            //console.log(this.myForumApi);
-            //console.log('delete all');
-            _this.sqlMyForum.delAll();
-            //console.log('insert new elements for myforum');
-            _this.sqlMyForum.addItemList(_this.myForumApi);
-            if (_this.lang == 'ru') {
-                _this.selectParticipantRus();
-                _this.selectConferenceRus();
-                _this.selectExhibitRus();
-                _this.selectDemoProgramRus();
-            }
-            else {
-                _this.selectParticipantEng();
-                _this.selectConferenceEng();
-                _this.selectExhibitEng();
-                _this.selectDemoProgramEng();
-            }
-        });
-    };
-    MyForumPage.prototype.ionViewDidLoad = function () {
+    LoginFormPage.prototype.ionViewDidLoad = function () {
         _super.prototype.ionViewDidLoad.call(this);
-        this.getApi();
     };
-    MyForumPage.prototype.ionViewWillEnter = function () {
-        //  this.refreshMyForum();
+    LoginFormPage.prototype.setRussianStrings = function () {
+        _super.prototype.setRussianStrings.call(this, 'Войти');
+        this.loginStr = 'Войти';
+        this.userNameStr = 'Логин';
+        this.needUserNameStr = 'Требуется имя пользователя';
+        this.passwordStr = 'Пароль';
+        this.needPasswordStr = 'Требуется пароль';
+        this.signUpStr = 'Регистрация';
+        this.authSuccessStr = 'Вы успешно авторизовались';
+        this.wrongLogStr = 'Неправильный логин или пароль';
     };
-    MyForumPage.prototype.refreshMyForum = function () {
-        //console.log("refreshMyForum");
-        this.getApi();
+    LoginFormPage.prototype.setEnglishStrings = function () {
+        _super.prototype.setEnglishStrings.call(this, 'Log in');
+        this.loginStr = 'Login';
+        this.userNameStr = 'Username';
+        this.needUserNameStr = 'Need a login';
+        this.passwordStr = 'Password';
+        this.needPasswordStr = 'Need a password';
+        this.signUpStr = 'Sign Up';
+        this.authSuccessStr = 'Successful login';
+        this.wrongLogStr = 'Wrong login or password';
     };
-    MyForumPage.prototype.selectParticipantRus = function () {
-        var _this = this;
-        //console.log('selectParticipantRus');
-        this.sqlMyForum.getRusParticipantMyForum(this.userId).then(function (res) {
-            //console.log('our select');
-            //console.log(res);
-            _this.myForumParticipant = res;
-        });
-    };
-    MyForumPage.prototype.selectParticipantEng = function () {
-        var _this = this;
-        //console.log('selectParticipantEng');
-        this.sqlMyForum.getEngParticipantMyForum(this.userId).then(function (res) {
-            //console.log('our select');
-            //console.log(res);
-            _this.myForumParticipant = res;
-        });
-    };
-    MyForumPage.prototype.selectExhibitRus = function () {
-        var _this = this;
-        //console.log('selectParticipantRus');
-        this.sqlMyForum.getRusExhibitMyForum(this.userId).then(function (res) {
-            //console.log('our select');
-            //console.log(res);
-            _this.myForumExhibit = res;
-        });
-    };
-    MyForumPage.prototype.selectExhibitEng = function () {
-        var _this = this;
-        //console.log('selectParticipantEng');
-        this.sqlMyForum.getEngExhibitMyForum(this.userId).then(function (res) {
-            //console.log('our select');
-            //console.log(res);
-            _this.myForumExhibit = res;
-        });
-    };
-    MyForumPage.prototype.selectConferenceRus = function () {
-        var _this = this;
-        //console.log('selectConferenceRus');
-        this.sqlMyForum.getRusConferenceMyForum(this.userId).then(function (res) {
-            //console.log('our select');
-            //console.log(res);
-            _this.myForumConference = res;
-        });
-    };
-    MyForumPage.prototype.selectConferenceEng = function () {
-        var _this = this;
-        //console.log('selectConferenceEng');
-        this.sqlMyForum.getEngConferenceMyForum(this.userId).then(function (res) {
-            //console.log('our select');
-            //console.log(res);
-            _this.myForumConference = res;
-        });
-    };
-    MyForumPage.prototype.selectDemoProgramRus = function () {
-        var _this = this;
-        //console.log('selectConferenceRus');
-        this.sqlMyForum.getRusDemoProgramMyForum(this.userId).then(function (res) {
-            //console.log('our select');
-            //console.log(res);
-            _this.myForumDemoProgram = res;
-        });
-    };
-    MyForumPage.prototype.selectDemoProgramEng = function () {
-        var _this = this;
-        //console.log('selectConferenceEng');
-        this.sqlMyForum.getEngDemoProgramMyForum(this.userId).then(function (res) {
-            //console.log('our select');
-            //console.log(res);
-            _this.myForumDemoProgram = res;
-        });
-    };
-    MyForumPage.prototype.changeForumSegment = function (itemSegment) {
-        //console.log(itemSegment);
-        this.forumSegment = itemSegment;
-    };
-    /*
-      selectItems() {
-        ////////console.log("this.myForumParticipant");
-        // this.myForumParticipant=this.sqlMyForum.getRows2();
-
-        ////////console.log(this.myForumParticipant);
-        this.sqlMyForum.select().then(res => {
-          //console.log('our select');
-          //console.log(res);
-          this.myForumParticipant = res;
-        })
-      }
-    */
-    MyForumPage.prototype.goToParticipantDetail = function (participant) {
-        var _this = this;
-        //console.log("goToParticipantDetail()");
-        //console.log(participant);
-        // go to the session detail page
-        // and pass in the session data
-        /* this.navCtrl.push(ParticipantDetailPage, {
-             participant
-         });*/
-        if (this.lang == 'ru') {
-            this.sqlMyForum.getRusParticipantFull('where a.id=' + participant.id).then(function (res) {
-                var participant = res;
-                //console.log("participantDetail=", participant);
-                _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_5__participant_detail_participant_detail__["a" /* ParticipantDetailPage */], {
-                    participant: participant,
-                    listOut: _this.myForumParticipant
-                }).then(function (res) {
-                    //console.log("i return from page", res);
-                });
+    LoginFormPage.prototype.onLogin = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var toast, toast;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        if (!this.login.valid) {
+                            toast = this.toastCtrl.create({
+                                message: this.needUserNameStr,
+                                duration: 2000
+                            });
+                            toast.present();
+                            return [2 /*return*/];
+                        }
+                        if (!this.password.valid) {
+                            toast = this.toastCtrl.create({
+                                message: this.needPasswordStr,
+                                duration: 2000
+                            });
+                            toast.present();
+                            return [2 /*return*/];
+                        }
+                        if (!this.form.valid) return [3 /*break*/, 2];
+                        return [4 /*yield*/, this.userData.login(this.login.value, this.password.value)];
+                    case 1:
+                        _a.sent();
+                        /*if (this.userId && this.userId > 0) {
+                            let toast = this.toastCtrl.create({
+                                message: this.authSuccessStr,
+                                duration: 2000
+                            });
+                            toast.present();
+                        } else {
+                            let toast = this.toastCtrl.create({
+                                message: this.wrongLogStr,
+                                duration: 2000
+                            });
+                            toast.present();
+                        }*/
+                        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_4__tabs_tabs__["a" /* TabsPage */]);
+                        _a.label = 2;
+                    case 2: return [2 /*return*/];
+                }
             });
-        }
-        else
-            this.sqlMyForum.getEngParticipantFull('where a.id=' + participant.id).then(function (res) {
-                var participant = res;
-                _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_5__participant_detail_participant_detail__["a" /* ParticipantDetailPage */], {
-                    participant: participant,
-                    listOut: _this.myForumParticipant
-                }).then(function (res) {
-                    //console.log("i return from page", res);
-                });
-            });
-    };
-    /*  delFromMyForum(id) {
-        this.sqlMyForum.delFromMyForum(id).then(res => {
-          if (res) this.refreshMyForum();
-        });
-      }*/
-    MyForumPage.prototype.goToConferenceDetail = function (conferenceSingle) {
-        //console.log("goToParticipantDetail()");
-        //console.log(conferenceSingle);
-        // go to the session detail page
-        // and pass in the session data
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_6__conference_detail_conference_detail__["a" /* ConferenceDetailPage */], {
-            conferenceSingle: conferenceSingle
         });
     };
-    MyForumPage.prototype.showMapMyForum = function () {
-        var _this = this;
-        if (this.forumSegment == 'conferenceItems') {
-            this.placeSql.select().then(function (res) {
-                var place = res;
-                _this.mapSql.getRecordForFieldValue('name_map', "'" + place[0].name_map + "'").then(function (res) {
-                    //console.log("res=", res);
-                    var map = res;
-                    _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_8__leaflet_map_leaflet_map__["a" /* LeafletMapPage */], {
-                        typeOfMap: 'conference',
-                        popupElement: _this.myForumConference,
-                        place: place,
-                        map: map
-                    });
-                });
-            });
-        }
-        if (this.forumSegment == 'participantItems') {
-            this.placeSql.select().then(function (res) {
-                var place = res;
-                _this.mapSql.getRecordForFieldValue('name_map', "'" + place[0].name_map + "'").then(function (res) {
-                    //console.log("res=", res);
-                    var map = res;
-                    _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_8__leaflet_map_leaflet_map__["a" /* LeafletMapPage */], {
-                        typeOfMap: 'participant',
-                        popupElement: _this.myForumParticipant,
-                        place: place,
-                        map: map
-                    });
-                });
-            });
-        }
+    LoginFormPage.prototype.onSignup = function () {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_5__signup_signup__["a" /* SignupPage */]);
     };
-    /**
-     *
-     * @param exhibitSingle
-     */
-    MyForumPage.prototype.goToExhibitDetail = function (elementSingle) {
-        var _this = this;
-        //console.log("goToExhibitDetail()");
-        //console.log(elementSingle);
-        // go to the session detail page
-        // and pass in the session data
-        if (this.lang == 'ru') {
-            this.sqlMyForum.getRusExhibitFull('where a.id=' + elementSingle.id).then(function (res) {
-                var element = res;
-                //console.log("participantDetail=", element);
-                _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_11__exhibit_detail_exhibit_detail__["a" /* ExhibitDetailPage */], {
-                    element: element
-                });
-            });
-        }
-        else
-            this.sqlMyForum.getEngExhibitFull('where a.id=' + elementSingle.id).then(function (res) {
-                var element = res;
-                _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_11__exhibit_detail_exhibit_detail__["a" /* ExhibitDetailPage */], { element: element });
-            });
-    };
-    MyForumPage.prototype.goToDemoProgramDetail = function (element) {
-        //console.log("goToParticipantDetail()");
-        //console.log(element);
-        // go to the session detail page
-        // and pass in the session data
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_12__demo_program_detail_demo_program_detail__["a" /* DemoProgramDetailPage */], {
-            element: element
-        });
-    };
-    return MyForumPage;
-}(__WEBPACK_IMPORTED_MODULE_10__providers_base_list_page_base_list_page__["a" /* BaseListPageProvider */]));
-MyForumPage = __decorate([
+    return LoginFormPage;
+}(__WEBPACK_IMPORTED_MODULE_6__providers_base_lang_page_base_lang_page__["a" /* BaseLangPageProvider */]));
+LoginFormPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-my-forum',template:/*ion-inline-start:"/Users/leonidlyalin/WebstormProjects/army2017/src/pages/my-forum/my-forum.html"*/'<ion-header>\n    <ion-navbar>\n        <button ion-button menuToggle>\n            <ion-icon name="menu"></ion-icon>\n        </button>\n        <ion-title>{{titleStr}}</ion-title>\n        <ion-buttons end>\n\n            <button ion-button icon-only (click)="showMapMyForum()">\n                <ion-icon name="map"></ion-icon>\n            </button>\n        </ion-buttons>\n    </ion-navbar>\n\n    <ion-toolbar no-border-top>\n        <ion-segment [(ngModel)]="forumSegment">\n            <ion-segment-button value="participantItems" (ionchange)="changeForumSegment(\'participantItems\')" text-wrap>\n                {{participantStr}}\n            </ion-segment-button>\n            <ion-segment-button value="conferenceItems" (ionchange)="changeForumSegment(\'conferenceItems\')" text-wrap>\n                {{conferenceStr}}\n            </ion-segment-button>\n            <ion-segment-button value="exhibitItems" (ionchange)="changeForumSegment(\'exhibitItems\')" text-wrap>\n                {{exhibitStr}}\n            </ion-segment-button>\n            <ion-segment-button value="demoItems" (ionchange)="changeForumSegment(\'demoItems\')" text-wrap>\n                {{demoStr}}\n            </ion-segment-button>\n        </ion-segment>\n    </ion-toolbar>\n</ion-header>\n\n\n<ion-content>\n\n\n    <div [ngSwitch]="forumSegment">\n\n        <ion-list *ngSwitchCase="\'participantItems\'">\n            <ion-item *ngFor="let participant of myForumParticipant" #slidingItem>\n\n                <button ion-item (click)="goToParticipantDetail(participant)">\n                    <ion-icon item-left *ngIf="participant.my_forum_id" name="star" color="danger"></ion-icon>\n                    <ion-icon item-left *ngIf="!participant.my_forum_id" name="star-outline"></ion-icon>\n                    <p>{{participant.name}}</p>\n                    <p *ngIf="participant.place_name">\n                        <ion-icon name="pin" color="danger"></ion-icon>\n                        {{participant.place_name}}\n                    <p>\n                </button>\n\n\n            </ion-item>\n        </ion-list>\n\n\n        <ion-list *ngSwitchCase="\'conferenceItems\'">\n            <ion-item text-wrap #slidingItem *ngFor="let conferenceSingle of myForumConference"\n                              no-padding="true"\n                              no-margin="true">\n                <button ion-item (click)="goToConferenceDetail(conferenceSingle)">\n                    <ion-icon item-left *ngIf="conferenceSingle.my_forum_id" name="star" color="danger"></ion-icon>\n                    <ion-icon item-left *ngIf="!conferenceSingle.my_forum_id" name="star-outline"></ion-icon>\n                    <p>\n                        <ion-icon name="calendar" color="danger"></ion-icon>\n                        <b color="primary">{{conferenceSingle.date_event}}</b>\n                    </p>\n                    <p>\n                        <ion-icon name="timer" color="danger"></ion-icon>\n                        <b color="primary">{{conferenceSingle.time_beg}} : {{conferenceSingle.time_end}}</b>\n                    </p>\n                    <p>{{conferenceSingle.name}}</p>\n                    <p *ngIf="conferenceSingle.place_name_place">\n                        <ion-icon name="pin" color="danger"></ion-icon>\n                        <b>{{conferenceSingle.place_name_place}}</b>\n                    <p>\n                </button>\n\n            </ion-item>\n        </ion-list>\n\n\n        <ion-list *ngSwitchCase="\'exhibitItems\'">\n\n            <ion-item *ngFor="let exhibit of myForumExhibit" text-wrap>\n                <button ion-item (click)="goToExhibitDetail(exhibit)">\n                    <ion-icon item-left *ngIf="exhibit.my_forum_id&&userId" name="star" color="danger"></ion-icon>\n                    <ion-icon item-left *ngIf="!exhibit.my_forum_id&&userId" name="star-outline"></ion-icon>\n                    <p>{{exhibit.name}}</p>\n                    <p *ngIf="!exhibit.place_name_place">\n                        <ion-icon name="pin" color="danger"></ion-icon>\n                        {{exhibit.place_name}}\n                    </p>\n                    <p *ngIf="exhibit.place_name_place">\n                        <ion-icon name="pin" color="danger"></ion-icon>\n                        {{exhibit.place_name_place}}\n                    </p>\n                </button>\n\n            </ion-item>\n        </ion-list>\n\n\n        <ion-list *ngSwitchCase="\'demoItems\'">\n\n            <ion-item *ngFor="let demo of myForumDemoProgram" text-wrap no-padding\n                      no-margin="true">\n                <button ion-item (click)="goToListDetail(demo)">\n                    <ion-icon item-left *ngIf="demo.my_forum_id" name="star" color="danger"></ion-icon>\n                    <ion-icon item-left *ngIf="!demo.my_forum_id" name="star-outline"></ion-icon>\n                    <p>\n                        <ion-icon name="calendar" color="danger"></ion-icon>\n                        <b color="primary">{{demo.date_event}} </b>\n                        <ion-icon name="timer" color="danger"></ion-icon>\n                        <b color="primary">{{demo.time_beg}} : {{demo.time_end}}</b>\n                    </p>\n\n                    <p>{{demo.name_first}}</p>\n                    <h6>{{demo.name_second}}</h6>\n                    <p>\n                        <ion-icon name="pin" color="danger"></ion-icon>\n                        <b>{{demo.place_name}}</b>\n                    <p>\n                </button>\n\n            </ion-item>\n        </ion-list>\n\n    </div>\n</ion-content>\n'/*ion-inline-end:"/Users/leonidlyalin/WebstormProjects/army2017/src/pages/my-forum/my-forum.html"*/,
+        selector: 'page-user',template:/*ion-inline-start:"/Users/leonidlyalin/WebstormProjects/army2017/src/pages/login-form/login-form.html"*/'<ion-header>\n    <ion-navbar>\n        <ion-title>{{loginStr}}</ion-title>\n    </ion-navbar>\n</ion-header>\n\n<ion-content>\n    <div class="logo">\n\n        <img src="assets/img/army2017.png"/></div>\n\n    <form [formGroup]="form">\n        <ion-list no-lines>\n            <ion-item>\n                <ion-label stacked color="danger">{{userNameStr}}</ion-label>\n                <ion-input formControlName="login" type="text" required>\n                </ion-input>\n            </ion-item>\n\n            <p ion-text [hidden]="login.valid || submitted == false" color="danger" padding-left>\n                {{needUserNameStr}}\n            </p>\n            <ion-item>\n                <ion-label stacked color="danger">{{passwordStr}}</ion-label>\n                <ion-input formControlName="password" name="password" type="password" required>\n                </ion-input>\n            </ion-item>\n            <p ion-text [hidden]="password.valid || submitted == false" color="danger" padding-left>\n                {{needPasswordStr}}\n            </p>\n        </ion-list>\n\n        <ion-row responsive-sm>\n\n            <ion-col>\n                <button ion-button (click)="onLogin()" type="submit" block color="danger">{{loginStr}}</button>\n            </ion-col>\n            <ion-col>\n                <button ion-button (click)="onSignup()" color="light" block>{{signUpStr}}</button>\n            </ion-col>\n        </ion-row>\n    </form>\n\n</ion-content>\n'/*ion-inline-end:"/Users/leonidlyalin/WebstormProjects/army2017/src/pages/login-form/login-form.html"*/
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* NavController */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* NavParams */],
-        __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Http */],
-        __WEBPACK_IMPORTED_MODULE_4__providers_my_forum_sql__["a" /* MyForumSql */],
-        __WEBPACK_IMPORTED_MODULE_7__providers_place_sql_place_sql__["a" /* PlaceSql */],
-        __WEBPACK_IMPORTED_MODULE_9__providers_map_sql_map_sql__["a" /* MapSql */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* Events */]])
-], MyForumPage);
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["n" /* NavController */],
+        __WEBPACK_IMPORTED_MODULE_3__providers_user_data__["a" /* UserData */],
+        __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* Events */],
+        __WEBPACK_IMPORTED_MODULE_7__angular_http__["a" /* Http */],
+        __WEBPACK_IMPORTED_MODULE_1__angular_forms__["a" /* FormBuilder */],
+        __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["u" /* ToastController */]])
+], LoginFormPage);
 
-//# sourceMappingURL=my-forum.js.map
+//# sourceMappingURL=login-form.js.map
 
 /***/ }),
 
-/***/ 161:
+/***/ 160:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SignupPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_user_data__ = __webpack_require__(69);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__tabs_tabs__ = __webpack_require__(53);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_user_data__ = __webpack_require__(52);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__tabs_tabs__ = __webpack_require__(45);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_base_lang_page_base_lang_page__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_http__ = __webpack_require__(2);
 var __extends = (this && this.__extends) || (function () {
@@ -3106,6 +2807,7 @@ var SignupPage = (function (_super) {
         _this.http = http;
         _this.signup = {};
         _this.submitted = false;
+        _this.confirmPersonal = false;
         return _this;
     }
     SignupPage.prototype.setRussianStrings = function () {
@@ -3119,10 +2821,12 @@ var SignupPage = (function (_super) {
         this.emailIsReq = 'Необходима электронная почта';
         this.confirmIsReq = 'Необходимо подтверждение пароля';
         this.signUpStr = 'Зарегистрироваться';
+        this.personalStr = 'Даю согласие на испоьзование персонлаьных данных';
         this.nameStr = 'Имя';
         this.lastnameStr = 'Фамилия';
         this.emailStr = 'Электронная почта';
         this.confirmStr = 'Подтверждение пароля';
+        this.personalIsReq = 'Необходимо согласие на обработку персональных данных';
     };
     SignupPage.prototype.setEnglishStrings = function () {
         _super.prototype.setEnglishStrings.call(this, 'Signup');
@@ -3135,10 +2839,12 @@ var SignupPage = (function (_super) {
         this.emailIsReq = 'Email is required';
         this.confirmIsReq = 'Password confirm is required';
         this.signUpStr = 'Sign Up';
+        this.personalStr = 'I give my persmission to use my personal data';
         this.nameStr = 'Name';
         this.lastnameStr = 'Lastname';
         this.emailStr = 'Email';
         this.confirmStr = 'Confirm_password';
+        this.personalIsReq = 'Personal data using permission is required';
     };
     SignupPage.prototype.onSignup = function (form) {
         this.submitted = true;
@@ -3151,7 +2857,7 @@ var SignupPage = (function (_super) {
 }(__WEBPACK_IMPORTED_MODULE_4__providers_base_lang_page_base_lang_page__["a" /* BaseLangPageProvider */]));
 SignupPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-user',template:/*ion-inline-start:"/Users/leonidlyalin/WebstormProjects/army2017/src/pages/signup/signup.html"*/'<ion-header>\n	<ion-navbar>\n		<button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n		<ion-title>{{titleStr}}</ion-title>\n	</ion-navbar>\n</ion-header>\n\n<ion-content class="login-page">\n\n	<div class="logo">\n		<img src="assets/img/army2017.png" alt="Ionic Logo">\n	</div>\n\n	<form #signupForm="ngForm" novalidate>\n		<ion-list>\n			<ion-item>\n				<ion-label stacked color="primary">{{loginStr}}</ion-label>\n				<ion-input [(ngModel)]="signup.login" name="login" type="text" #login="ngModel" required>\n				</ion-input>\n			</ion-item>\n			<p ion-text [hidden]="login.valid || submitted == false" color="danger" padding-left>\n				{{loginIsReq}}\n			</p>\n\n			<ion-item>\n				<ion-label stacked color="primary">{{nameStr}}</ion-label>\n				<ion-input [(ngModel)]="signup.name" name="name" type="text" #name="ngModel" required>\n				</ion-input>\n			</ion-item>\n			<p ion-text [hidden]="name.valid || submitted == false" color="danger" padding-left>\n				{{nameIsReq}}\n			</p>\n\n			<ion-item>\n				<ion-label stacked color="primary">{{surnameStr}}</ion-label>\n				<ion-input [(ngModel)]="signup.lastname" name="lastname" type="text" #lastname="ngModel" required>\n				</ion-input>\n			</ion-item>\n			<p ion-text [hidden]="lastname.valid || submitted == false" color="danger" padding-left>\n				{{surnameIsReq}}\n			</p>\n\n			<ion-item>\n				<ion-label stacked color="primary">{{emailStr}}</ion-label>\n				<ion-input [(ngModel)]="signup.email" name="email" type="email" #email="ngModel" required>\n				</ion-input>\n			</ion-item>\n			<p ion-text [hidden]="email.valid || submitted == false" color="danger" padding-left>\n				{{emailIsReq}}\n			</p>\n\n			<ion-item>\n				<ion-label stacked color="primary">{{passwordStr}}</ion-label>\n				<ion-input [(ngModel)]="signup.password" name="password" type="password" #password="ngModel" required>\n				</ion-input>\n			</ion-item>\n			<p ion-text [hidden]="password.valid || submitted == false" color="danger" padding-left>\n				{{passwordIsReq}}\n			</p>\n\n			<ion-item>\n				<ion-label stacked color="primary">{{confirmStr}}</ion-label>\n				<ion-input [(ngModel)]="signup.confirm_password" name="confirm_password" type="password" #confirm_password="ngModel" required>\n				</ion-input>\n			</ion-item>\n			<p ion-text [hidden]="confirm_password.valid || submitted == false" color="danger" padding-left>\n				{{confirmIsReq}}\n			</p>\n		</ion-list>\n\n		<div padding>\n			<button ion-button (click)="onSignup(signupForm)" type="submit" block>{{signUpStr}}</button>\n		</div>\n	</form>\n\n</ion-content>\n'/*ion-inline-end:"/Users/leonidlyalin/WebstormProjects/army2017/src/pages/signup/signup.html"*/
+        selector: 'page-user',template:/*ion-inline-start:"/Users/leonidlyalin/WebstormProjects/army2017/src/pages/signup/signup.html"*/'<ion-header>\n	<ion-navbar>\n		<button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n		<ion-title>{{titleStr}}</ion-title>\n	</ion-navbar>\n</ion-header>\n\n<ion-content class="login-page">\n\n	<div class="logo">\n		<img src="assets/img/army2017.png" alt="Ionic Logo">\n	</div>\n\n	<form #signupForm="ngForm">\n		<ion-list>\n			<ion-item>\n				<ion-label stacked color="danger">{{loginStr}}</ion-label>\n				<ion-input [(ngModel)]="signup.login" name="login" type="text" #login="ngModel" required>\n				</ion-input>\n			</ion-item>\n			<p ion-text [hidden]="login.valid || submitted == false" color="danger" padding-left>\n				{{loginIsReq}}\n			</p>\n\n			<ion-item>\n				<ion-label stacked color="danger">{{nameStr}}</ion-label>\n				<ion-input [(ngModel)]="signup.name" name="name" type="text" #name="ngModel" required>\n				</ion-input>\n			</ion-item>\n			<p ion-text [hidden]="name.valid || submitted == false" color="danger" padding-left>\n				{{nameIsReq}}\n			</p>\n\n			<ion-item>\n				<ion-label stacked color="danger">{{surnameStr}}</ion-label>\n				<ion-input [(ngModel)]="signup.lastname" name="lastname" type="text" #lastname="ngModel" required>\n				</ion-input>\n			</ion-item>\n			<p ion-text [hidden]="lastname.valid || submitted == false" color="danger" padding-left>\n				{{surnameIsReq}}\n			</p>\n\n			<ion-item>\n				<ion-label stacked color="danger">{{emailStr}}</ion-label>\n				<ion-input [(ngModel)]="signup.email" name="email" type="email" #email="ngModel" required>\n				</ion-input>\n			</ion-item>\n			<p ion-text [hidden]="email.valid || submitted == false" color="danger" padding-left>\n				{{emailIsReq}}\n			</p>\n\n			<ion-item>\n				<ion-label stacked color="danger">{{passwordStr}}</ion-label>\n				<ion-input [(ngModel)]="signup.password" name="password" type="password" #password="ngModel" required>\n				</ion-input>\n			</ion-item>\n			<p ion-text [hidden]="password.valid || submitted == false" color="danger" padding-left>\n				{{passwordIsReq}}\n			</p>\n\n			<ion-item>\n				<ion-label stacked color="danger">{{confirmStr}}</ion-label>\n				<ion-input [(ngModel)]="signup.confirm_password" name="confirm_password" type="password" #confirm_password="ngModel" required>\n				</ion-input>\n			</ion-item>\n			<p ion-text [hidden]="confirm_password.valid || submitted == false" color="danger" padding-left>\n				{{confirmIsReq}}\n			</p>\n\n\n			<ion-item>\n				<ion-label stacked color="danger">{{personalStr}}</ion-label>\n				<ion-input [(ngModel)]="signup.confirm_personal" name="confirm_password" type="checkbox" #confirm_personal="ngModel" required>\n				</ion-input>\n			</ion-item>\n			<p ion-text [hidden]="confirm_personal.valid || submitted == false" color="danger" padding-left>\n				{{personalIsReq}}\n			</p>\n		</ion-list>\n\n		<div padding>\n			<button ion-button (click)="onSignup(signupForm)" type="submit" block>{{signUpStr}}</button>\n		</div>\n	</form>\n\n</ion-content>\n'/*ion-inline-end:"/Users/leonidlyalin/WebstormProjects/army2017/src/pages/signup/signup.html"*/
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* NavController */],
         __WEBPACK_IMPORTED_MODULE_2__providers_user_data__["a" /* UserData */],
@@ -3163,116 +2869,7 @@ SignupPage = __decorate([
 
 /***/ }),
 
-/***/ 162:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return WarTacticPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_place_sql_place_sql__ = __webpack_require__(40);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_map_sql_map_sql__ = __webpack_require__(51);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__leaflet_map_leaflet_map__ = __webpack_require__(54);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_base_lang_page_base_lang_page__ = __webpack_require__(12);
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-
-
-
-/**
- * Generated class for the WarTacticPage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
-/**
- * Generated class for the AboutForumPage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
-var WarTacticPage = (function (_super) {
-    __extends(WarTacticPage, _super);
-    function WarTacticPage(navCtrl, navParams, events, http) {
-        var _this = _super.call(this, navCtrl, events, http) || this;
-        _this.navCtrl = navCtrl;
-        _this.navParams = navParams;
-        _this.events = events;
-        _this.http = http;
-        return _this;
-    }
-    WarTacticPage.prototype.ionViewDidLoad = function () {
-        _super.prototype.ionViewDidLoad.call(this);
-        //console.log('ionViewDidLoad AboutForumPage');
-    };
-    WarTacticPage.prototype.setRussianStrings = function () {
-        _super.prototype.setRussianStrings.call(this, 'О Форуме');
-    };
-    WarTacticPage.prototype.setEnglishStrings = function () {
-        _super.prototype.setEnglishStrings.call(this, 'About Forum');
-    };
-    WarTacticPage.prototype.showLeafLetPlaceOnMap = function (name_rus, typeOfMap) {
-        var _this = this;
-        //  //console.log("item=", item);
-        var placeSql = new __WEBPACK_IMPORTED_MODULE_3__providers_place_sql_place_sql__["a" /* PlaceSql */](this.http);
-        var mapSql = new __WEBPACK_IMPORTED_MODULE_4__providers_map_sql_map_sql__["a" /* MapSql */](this.http);
-        placeSql.selectWhere('name_rus=' + name_rus).then(function (res) {
-            //console.log('showLeafLetMap res=', res);
-            var place = res;
-            mapSql.getRecordForFieldValue('name_map', "'" + place[0].name_map + "'").then(function (res) {
-                //console.log("res=", res);
-                var map = res;
-                _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_5__leaflet_map_leaflet_map__["a" /* LeafletMapPage */], {
-                    typeOfMap: typeOfMap,
-                    popupElement: res,
-                    place: place,
-                    map: map
-                });
-            });
-        });
-    };
-    return WarTacticPage;
-}(__WEBPACK_IMPORTED_MODULE_6__providers_base_lang_page_base_lang_page__["a" /* BaseLangPageProvider */]));
-WarTacticPage = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-war-tactic-page',template:/*ion-inline-start:"/Users/leonidlyalin/WebstormProjects/army2017/src/pages/park-patriot-all/war-tactic-page/war-tactic-page.html"*/'<ion-header>\n    <ion-navbar>\n        <button ion-button menuToggle>\n            <ion-icon name="menu"></ion-icon>\n        </button>\n        <ion-title>\n            Центр военно-тактических игр\n        </ion-title>\n    </ion-navbar>\n</ion-header>\n\n\n<ion-content class="cards-bg">\n\n    <ion-card>\n\n\n        <img src="assets/img/park-patriot/war-tactic.png"/>\n        <ion-card-content>\n            <ion-card-title>\n                Центр военно-тактических игр\n            </ion-card-title>\n            <p *ngIf="lang==\'ru\'">\n                Центр военно-тактических игр - это универсальный учебно-тренировочный комплекс площадью более 27 га для\n                отработки элементов боевой подготовки подразделений Вооружённых Сил. Также Центр служит и площадкой для\n                проведения спортивных мероприятий, тренировок и соревнований по страйкболу, фаертагу и лазертагу. Новый\n                объект\n                Парка можно разделить на три зоны: крытую, лесную и спортивную.\n            </p>\n            <p *ngIf="lang==\'ru\'">\n                The center of military tactical games is a universal training and training complex with an area of more\n                than 27 hectares for\n                         The development of elements of combat training for the units of the Armed Forces. The Center\n                also serves as a platform for\n                         Holding sports events, training and competitions in airsoft, e-sports and laser tag. New object\n                         The park can be divided into three zones: indoor, forest and sports.\n            </p>\n        </ion-card-content>\n\n        <ion-row no-padding>\n            <ion-col>\n                <button ion-button clear small color="danger" icon-left (click)="showLeafLetPlaceOnMap(\'Центр военно-тактических игр\', \'showmarker\')">\n                    <ion-icon name=\'map\'></ion-icon>\n                    На карте\n                </button>\n            </ion-col>\n            <ion-col>\n                <button ion-button clear small color="danger" icon-left>\n                    <ion-icon name=\'star\'></ion-icon>\n                    Мой форум\n                </button>\n            </ion-col>\n\n            <ion-col text-right>\n                <button ion-button clear small color="danger" icon-left>\n                    <ion-icon name=\'bus\'></ion-icon>\n                    Показать маршрут\n                </button>\n            </ion-col>\n        </ion-row>\n\n    </ion-card>\n\n\n</ion-content>\n'/*ion-inline-end:"/Users/leonidlyalin/WebstormProjects/army2017/src/pages/park-patriot-all/war-tactic-page/war-tactic-page.html"*/,
-    }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* NavController */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* NavParams */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* Events */],
-        __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Http */]])
-], WarTacticPage);
-
-[{ "name": "id", "type": "text PRIMARY KEY" }, { "name": "name_rus", "type": "text" }, { "name": "name_rus_upper", "type": "text" }, { "name": "name_eng", "type": "text" },
-    { "name": "image", "type": "text" }, { "name": "image_file", "type": "text" }, { "name": "place", "type": "text" }, { "name": "marker", "type": "text" }, { "name": "popup", "type": "text" },
-    { "name": "tooltip", "type": "text" }, { "name": "desc_rus", "type": "text" }, { "name": "desc_eng", "type": "text" }];
-//# sourceMappingURL=war-tactic-page.js.map
-
-/***/ }),
-
-/***/ 174:
+/***/ 172:
 /***/ (function(module, exports) {
 
 function webpackEmptyAsyncContext(req) {
@@ -3281,7 +2878,7 @@ function webpackEmptyAsyncContext(req) {
 webpackEmptyAsyncContext.keys = function() { return []; };
 webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
 module.exports = webpackEmptyAsyncContext;
-webpackEmptyAsyncContext.id = 174;
+webpackEmptyAsyncContext.id = 172;
 
 /***/ }),
 
@@ -3296,9 +2893,9 @@ webpackEmptyAsyncContext.id = 174;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__base_lang_page_base_lang_page__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ionic_angular__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__place_sql_place_sql__ = __webpack_require__(40);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__map_sql_map_sql__ = __webpack_require__(51);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_leaflet_map_leaflet_map__ = __webpack_require__(54);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__place_sql_place_sql__ = __webpack_require__(47);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__map_sql_map_sql__ = __webpack_require__(55);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_leaflet_map_leaflet_map__ = __webpack_require__(69);
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -3397,16 +2994,18 @@ var BaseListPageProvider = (function (_super) {
         var mapSql = new __WEBPACK_IMPORTED_MODULE_6__map_sql_map_sql__["a" /* MapSql */](this.http);
         placeSql.selectWhere('id=' + this.listOut[0].place).then(function (res) {
             var place = res;
-            mapSql.getRecordForFieldValue('name_map', "'" + place[0].name_map + "'").then(function (res) {
-                //console.log("res=", res);
-                var map = res;
-                _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_7__pages_leaflet_map_leaflet_map__["a" /* LeafletMapPage */], {
-                    typeOfMap: typeOfMap_in,
-                    popupElement: _this.listOut,
-                    place: place,
-                    map: map
+            if (place[0].name_map) {
+                mapSql.getRecordForFieldValue('name_map', "'" + place[0].name_map + "'").then(function (res) {
+                    //console.log("res=", res);
+                    var map = res;
+                    _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_7__pages_leaflet_map_leaflet_map__["a" /* LeafletMapPage */], {
+                        typeOfMap: typeOfMap_in,
+                        popupElement: _this.listOut,
+                        place: place,
+                        map: map
+                    });
                 });
-            });
+            }
         });
     };
     BaseListPageProvider.prototype.showLeafLetMap = function (item, typeOfMap) {
@@ -3475,7 +3074,7 @@ BaseListPageProvider = __decorate([
 
 /***/ }),
 
-/***/ 217:
+/***/ 215:
 /***/ (function(module, exports) {
 
 function webpackEmptyAsyncContext(req) {
@@ -3484,7 +3083,7 @@ function webpackEmptyAsyncContext(req) {
 webpackEmptyAsyncContext.keys = function() { return []; };
 webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
 module.exports = webpackEmptyAsyncContext;
-webpackEmptyAsyncContext.id = 217;
+webpackEmptyAsyncContext.id = 215;
 
 /***/ }),
 
@@ -3497,7 +3096,7 @@ webpackEmptyAsyncContext.id = 217;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__ = __webpack_require__(14);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_base_api_service__ = __webpack_require__(29);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_base_api_service__ = __webpack_require__(30);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -4057,7 +3656,7 @@ BaseSql = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__base_sql__ = __webpack_require__(24);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__my_forum_my_forum_api__ = __webpack_require__(286);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__my_forum_my_forum_api__ = __webpack_require__(285);
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -4342,7 +3941,7 @@ var MyForumSql = (function (_super) {
         //console.log('getRusParticipantMyForum()');
         return new Promise(function (res) {
             _this.arr = [];
-            var query = 'select a.id, a.name_rus as name, a.place_name, a.place,  ' +
+            var query = 'select a.id, a.name_rus as name, a.place_name, a.place, a.desc_rus as desc, ' +
                 'a.date_event,  a.time_beg, a.time_end,' +
                 'b.id as my_forum_id, c.name_rus as place_name_place,c.coords, c.name_map ' +
                 'from demo_program a, myforum b  left join place c on a.place=c.id where a.id=b.my_id';
@@ -4373,7 +3972,7 @@ var MyForumSql = (function (_super) {
         //console.log('getRusParticipantMyForum()');
         return new Promise(function (res) {
             _this.arr = [];
-            var query = 'select a.id, a.name_eng as name, a.place_name, a.place, ' +
+            var query = 'select a.id, a.name_eng as name, a.place_name, a.place, a.desc_eng as desc, ' +
                 ' a.date_event,  a.time_beg, a.time_end,' +
                 'b.id as my_forum_id, c.name_eng as place_name, c.name_eng as place_name_place,c.coords, c.name_map ' +
                 'from conference a, myforum b  left join place c on a.place=c.id where a.id=b.my_id';
@@ -4558,9 +4157,10 @@ var MyForumSql = (function (_super) {
             if ((userId) && (userId != ''))
                 query += ' and b.user=' + userId;
             query += ' left join place c on a.place=c.id';
-            //console.log(query);
             if (where != '')
-                query = query + ' ' + where;
+                query += ' ' + where;
+            query += ' order by a.name_rus';
+            //console.log(query);
             _this.db.executeSql(query, [], function (rs) {
                 //console.log("right after executeSql in getRusParticipant");
                 //console.log(rs);
@@ -4632,7 +4232,8 @@ var MyForumSql = (function (_super) {
                 query += ' and b.user=' + userId;
             query += ' left join place c on a.place=c.id';
             if (where != '')
-                query = query + ' ' + where;
+                query += ' ' + where;
+            query += ' order by a.name_eng';
             //console.log(query);
             _this.db.executeSql(query, [], function (rs) {
                 //console.log("right after executeSql in getRusParticipant");
@@ -4742,7 +4343,7 @@ var MyForumSql = (function (_super) {
         return new Promise(function (res) {
             _this.arr = [];
             var userId = localStorage.getItem('userid');
-            var query = 'select a.id, a.name_rus as name, a.place_name, a.place,' +
+            var query = 'select a.id, a.name_rus as name, a.place_name, a.place, a.desc_rus as desc,' +
                 ' a.date_event,  a.time_beg, a.time_end,' +
                 'b.id as my_forum_id, c.name_rus as place_name_place, c.name_map, c.coords ' +
                 'from demo_program a left join myforum b on a.id=b.my_id ';
@@ -4778,7 +4379,7 @@ var MyForumSql = (function (_super) {
         return new Promise(function (res) {
             _this.arr = [];
             var userId = localStorage.getItem('userid');
-            var query = 'select a.id, a.name_eng as name, a.place_name, a.place,' +
+            var query = 'select a.id, a.name_eng as name, a.place_name, a.place, a.desc_rus as desc,' +
                 ' a.date_event,  a.time_beg, a.time_end,' +
                 'b.id as my_forum_id, c.name_eng as place_name_place, c.name_map, c.coords ' +
                 'from demo_program a left join myforum b on a.id=b.my_id ';
@@ -5003,7 +4604,426 @@ MyForumSql = __decorate([
 
 /***/ }),
 
-/***/ 286:
+/***/ 260:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomePage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__participant_participant__ = __webpack_require__(139);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__conference_conference__ = __webpack_require__(287);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_base_api_service__ = __webpack_require__(30);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_http__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_base_sql__ = __webpack_require__(24);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_table_action_sql_thematic_action_sql__ = __webpack_require__(289);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__providers_base_lang_page_base_lang_page__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__leaflet_map_leaflet_map__ = __webpack_require__(69);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__bar_scanner_bar_scanner__ = __webpack_require__(152);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__exhibit_exhibit__ = __webpack_require__(291);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__demo_program_demo_program__ = __webpack_require__(293);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__how_to_get_how_to_get__ = __webpack_require__(294);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__about_forum_about_forum__ = __webpack_require__(158);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__patriot_patriot__ = __webpack_require__(300);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__login_form_login_form__ = __webpack_require__(159);
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var HomePage = (function (_super) {
+    __extends(HomePage, _super);
+    function HomePage(navCtrl, menu, platform, http, loadingCtrl, events, alertCtrl) {
+        var _this = _super.call(this, navCtrl, events, http) || this;
+        _this.navCtrl = navCtrl;
+        _this.menu = menu;
+        _this.platform = platform;
+        _this.http = http;
+        _this.loadingCtrl = loadingCtrl;
+        _this.events = events;
+        _this.alertCtrl = alertCtrl;
+        _this.showSkip = true;
+        // lang: string;
+        _this.iconDivHeight = 10; //divider for the evaliation of the icon optimal size according to content width
+        return _this;
+    }
+    HomePage.prototype.setRussianStrings = function () {
+        _super.prototype.setRussianStrings.call(this, 'Армия 2017');
+        //  this.title = 'Армия 2017';
+        this.aboutForumStr = 'О Форуме';
+        this.mapStr = 'Карта форума';
+        this.participantsStr = 'Участники';
+        this.exhibitsMoDStr = 'Экспонаты МО';
+        this.conferenceStr = 'Конференция';
+        this.demoProgramStr = 'Программа';
+        this.howDoYouGetStr = 'Как добраться';
+        this.onTheForumStr = 'О Форуме "Армия-2017"';
+        this.parkPatriotStr = 'Парк "Патриот"';
+        this.answersAndQuestionsStr = 'Вопросы и ответы';
+        this.entrancesExitsStr = 'Входы-выходы';
+        this.restaurantsCafe = 'Рестораны/кафе';
+        this.wcStr = 'Туалеты';
+        this.infoStr = 'Справочная информация';
+        this.myForumStr = 'Мой форум';
+        this.qrScannerStr = 'QR сканнер';
+        this.waitLoadStr = 'Загрузка...';
+    };
+    HomePage.prototype.setEnglishStrings = function () {
+        _super.prototype.setEnglishStrings.call(this, 'Army 2017');
+        //this.title = 'Army 2017';
+        this.aboutForumStr = 'About';
+        this.mapStr = 'Map';
+        this.participantsStr = 'Exhibitors';
+        this.exhibitsMoDStr = 'Exhibits of the Mod';
+        this.conferenceStr = 'Conference';
+        this.demoProgramStr = 'Program';
+        this.howDoYouGetStr = 'How to get to';
+        this.onTheForumStr = 'Forum "Army-2017"';
+        this.parkPatriotStr = 'Park "Patriot"';
+        this.answersAndQuestionsStr = 'Answers & Questions';
+        this.entrancesExitsStr = 'Entrances & Exits';
+        this.restaurantsCafe = 'Restaurant & Cafe';
+        this.wcStr = 'WC';
+        this.infoStr = 'Info';
+        this.myForumStr = 'My Forum';
+        this.qrScannerStr = 'QR scanner';
+        this.waitLoadStr = 'Loading...';
+    };
+    HomePage.prototype.onSlideChangeStart = function (slider) {
+        this.showSkip = !slider.isEnd();
+    };
+    HomePage.prototype.getDate = function () {
+        var today = new Date();
+        var dd = today.getDate();
+        var ddStr;
+        var mmStr;
+        var mm = today.getMonth() + 1; //January is 0!
+        var yyyy = today.getFullYear();
+        if (dd < 10) {
+            ddStr = '0' + String(dd);
+        }
+        else
+            ddStr = String(dd);
+        if (mm < 10) {
+            mmStr = '0' + String(mm);
+        }
+        else
+            mmStr = String(mm);
+        return ddStr + '.' + mmStr + '.' + yyyy;
+    };
+    // objc[14286]: Class PLBuildVersion is implemented in both /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator.sdk/System/Library/PrivateFrameworks/AssetsLibraryServices.framework/AssetsLibraryServices (0x1105cccc0) and /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator.sdk/System/Library/PrivateFrameworks/PhotoLibraryServices.framework/PhotoLibraryServices (0x1103426f0). One of the two will be used. Which one is undefined.
+    // [{"name": "id", "type": "text PRIMARY KEY"},{"name": "name_rus", "type": "text"},{"name": "name_eng", "type": "text"},{"name": "coords", "type": "text"},{"name": "number_on_map", "type": "text"},{"name": "name_map", "type": "text"},{"name": "goto", "type": "text"},{"name": "shape", "type": "text"}, {"name": "marker", "type": "text"}, {"name": "tooltip", "type": "text"},{"name": "popup", "type": "text"}]
+    //  [{"name":"id","type":"text PRIMARY KEY"},{"name":"map","type":"text"},{"name":"place_previous", "type":"text"},{"name":"name_map","type":"text"},{"name": "name_rus", "type": "text"}, {"name": "name_eng", "type": "text"}, {"name": "width", "type": "text"},{"name": "height", "type": "text"},{"name": "map_left", "type": "text"},{"name": "map_right", "type": "text"},{"name": "map_up", "type": "text"},{"name": "map_down", "type": "text"},{"name": "min_zoom", "type": "text"},{"name": "max_zoom", "type": "text"},{"name": "begin_zoom", "type": "text"}]
+    HomePage.prototype.loadBase = function () {
+        var _this = this;
+        var api = new __WEBPACK_IMPORTED_MODULE_4__providers_base_api_service__["a" /* BaseApi */](this.http);
+        // api.getApi('universal_list.php?IBLOCK=21').subscribe(data => {
+        api.getApi('universal_list.php?IBLOCK=21').subscribe(function (data) {
+            //console.log("in home.ts after getApi=", data);
+            var tableAction = new __WEBPACK_IMPORTED_MODULE_7__providers_table_action_sql_thematic_action_sql__["a" /* TableActionSql */](_this.http);
+            var _loop_1 = function (i) {
+                //console.log("data.id", data[i]["ID"]);
+                tableAction.checkForId(data[i]["ID"]).then(function (res) {
+                    //console.log("tableAction.checkForId res=", res);
+                    if (!res) {
+                        // //console.log(
+                        //console.log("data.status", data[i]["STATUS"]);
+                        //console.log("data.fields", data[i]["FIELDS"]);
+                        var fields_1 = JSON.parse(data[i]["FIELDS"]);
+                        //console.log("fields=", fields);
+                        //console.log("fields.length=", fields.length);
+                        //console.log("fields[1]", fields[1]);
+                        if (!_this.platform.is('core')) {
+                            var loader_1 = _this.loadingCtrl.create({
+                                content: _this.waitLoadStr,
+                                duration: 30000,
+                            });
+                            loader_1.present().then(function () {
+                                if (data[i]["STATUS"] == 'recreate') {
+                                    //console.log('mydata[i]["TABLE_NAME"]=', data[i]["TABLE_NAME"]);
+                                    //console.log('fields=', fields);
+                                    //console.log('mydata[i]["STATUS"]=', data[i]["STATUS"]);
+                                    //console.log('constrains=', data[i]["CONSTRAINS"]);
+                                    var table = new __WEBPACK_IMPORTED_MODULE_6__providers_base_sql__["a" /* BaseSql */](_this.http, data[i]["TABLE_NAME"], fields_1, data[i]["CONSTRAINS"], data[i]["STATUS"]);
+                                    table.loadApi(data[i]["API_PATH"]);
+                                }
+                                if (data[i]["STATUS"] == 'update') {
+                                    //console.log('mydata[i]["TABLE_NAME"]=', data[i]["TABLE_NAME"]);
+                                    //console.log('fields=', fields);
+                                    //console.log('mydata[i]["STATUS"]=', data[i]["STATUS"]);
+                                    //console.log('constrains=', data[i]["CONSTRAINS"]);
+                                    var table = new __WEBPACK_IMPORTED_MODULE_6__providers_base_sql__["a" /* BaseSql */](_this.http, data[i]["TABLE_NAME"], fields_1, data[i]["CONSTRAINS"], data[i]["STATUS"]);
+                                    table.updateApi(data[i]["API_PATH"] + '?DATE_MODIFY_FROM=' + data[i]["DATE_MODIFY_FROM"]);
+                                }
+                                tableAction.addItem({
+                                    id: data[i]["ID"],
+                                    table_name: data[i]["TABLE_NAME"],
+                                    action: data[i]["STATUS"],
+                                    date_change: _this.getDate(),
+                                }).then(function (res) {
+                                    //console.log("tableAction.addItem res=", res);
+                                    loader_1.dismiss();
+                                });
+                                //loader.dismiss();
+                            });
+                        }
+                    }
+                });
+                //if this action was never make
+            };
+            for (var i = 0; i < data.length; i++) {
+                _loop_1(i);
+            }
+        });
+    };
+    /* async loadBase() {
+         let api = new BaseApi(this.http);
+         // api.getApi('universal_list.php?IBLOCK=21').subscribe(data => {
+ 
+         let data = await  api.getApi('universal_list.php?IBLOCK=21').first().toPromise();
+         //console.log("in home.ts after getApi=", data);
+ 
+         let tableAction = new TableActionSql(this.http);
+         for (let i = 0; i < data.length; i++) {
+ 
+             //console.log("data.id", data[i]["ID"]);
+             let res = await tableAction.checkForId(data[i]["ID"]);
+             //console.log("tableAction.checkForId res=", res);
+             if (!res) {
+                 // //console.log(
+                 //console.log("data.status", data[i]["STATUS"]);
+                 //console.log("data.fields", data[i]["FIELDS"]);
+                 let fields = JSON.parse(data[i]["FIELDS"]);
+                 //console.log("fields=", fields);
+                 //console.log("fields.length=", fields.length);
+                 //console.log("fields[1]", fields[1]);
+                 if (!this.platform.is('core')) {
+                     let loader = this.loadingCtrl.create({
+                         content: this.waitLoadStr,
+                         duration: 30000,
+                     });
+                     await loader.present();
+                     if (data[i]["STATUS"] == 'recreate') {
+ 
+                         //console.log('mydata[i]["TABLE_NAME"]=', data[i]["TABLE_NAME"]);
+                         //console.log('fields=', fields);
+                         //console.log('mydata[i]["STATUS"]=', data[i]["STATUS"]);
+                         //console.log('constrains=', data[i]["CONSTRAINS"]);
+                         let table = new BaseSql(this.http, data[i]["TABLE_NAME"], fields, data[i]["CONSTRAINS"], data[i]["STATUS"]);
+                         await table.loadApi(data[i]["API_PATH"]);
+                     }
+                     if (data[i]["STATUS"] == 'update') {
+ 
+                         //console.log('mydata[i]["TABLE_NAME"]=', data[i]["TABLE_NAME"]);
+                         //console.log('fields=', fields);
+                         //console.log('mydata[i]["STATUS"]=', data[i]["STATUS"]);
+                         //console.log('constrains=', data[i]["CONSTRAINS"]);
+                         let table = new BaseSql(this.http, data[i]["TABLE_NAME"], fields, data[i]["CONSTRAINS"], data[i]["STATUS"]);
+                         await table.updateApi(data[i]["API_PATH"] + '?DATE_MODIFY_FROM=' + data[i]["DATE_MODIFY_FROM"]);
+                     }
+                     await tableAction.addItem({
+                             id: data[i]["ID"],
+                             table_name: data[i]["TABLE_NAME"],
+                             action: data[i]["STATUS"],
+                             date_change: this.getDate(),
+                         }
+                     );
+                     await loader.dismiss();
+ 
+                 }
+             }
+ 
+ 
+         }
+ 
+ 
+     }*/
+    HomePage.prototype.ionViewWillEnter = function () {
+        this.iconHeight = this.content.contentHeight / this.iconDivHeight;
+        this.iconWidth = this.iconHeight; //must be th same
+        //console.log("this.iconHeight=" + this.iconHeight);
+        this.slides.update();
+        this.menu.enable(true);
+        this.viewCountStr = localStorage.getItem('viewcount');
+        this.viewCount = Number(this.viewCountStr);
+        //console.log('this.viewCount=', this.viewCount);
+        if (this.viewCount == 0) {
+            if (this.userId) {
+                this.events.publish('user:login');
+            }
+            /**
+             * init tables of database
+             */
+            //   [{"name":"id", "type":"text PRIMARY KEY"},{"name":"name_place","type":"text"},{"name":"coords", "type":"text"}, {"name":"name_rus", "type":"text"},{"name":"purpose", "type":"text"},{"name":"characteristics", "type":"text"}, {"name":"name_eng", "type":"text"}, {"name":"purpose_eng", "type":"text"}, {"name":"composition", "type":"text"}, {"name":"characteristics_eng", "type":"text"},{"name":"map", "type":"text"},{"name":"name_map", "type":"text"},  {"name":"place","type":"text"}]
+            this.loadBase();
+        }
+        this.viewCount++;
+        localStorage.setItem('viewcount', String(this.viewCount));
+    };
+    /*ionViewDidload() {
+
+
+    }*/
+    HomePage.prototype.aboutPage = function () {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_14__about_forum_about_forum__["a" /* AboutForumPage */]);
+    };
+    HomePage.prototype.forumMapPage = function () {
+        var _this = this;
+        var mapSql = new __WEBPACK_IMPORTED_MODULE_6__providers_base_sql__["a" /* BaseSql */](this.http, 'map');
+        mapSql.selectWhere('name_map="forum_map.jpg"').then(function (res) {
+            //console.log("res=", res);
+            var map = res[0];
+            _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_9__leaflet_map_leaflet_map__["a" /* LeafletMapPage */], {
+                typeOfMap: 'simple',
+                icons: 'bus-stops.svg,check-in.svg',
+                map: map
+            });
+        });
+    };
+    ;
+    // this.navCtrl.push(ForumMapPage);
+    HomePage.prototype.parkPatriot = function () {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_15__patriot_patriot__["a" /* PatriotPage */]);
+    };
+    HomePage.prototype.conferencePage = function () {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__conference_conference__["a" /* ConferencePage */], { select: 'all' });
+    };
+    HomePage.prototype.participantPage = function () {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__participant_participant__["a" /* ParticipantPage */], { select: 'all' });
+    };
+    /*toggleMenu(){
+      this.navCtrl.m
+    }*/
+    HomePage.prototype.BarScannerPage = function () {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_10__bar_scanner_bar_scanner__["a" /* BarScannerPage */]);
+    };
+    HomePage.prototype.ExhibitListPage = function () {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_11__exhibit_exhibit__["a" /* ExhibitPage */]);
+    };
+    HomePage.prototype.DemoProgramPage = function () {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_12__demo_program_demo_program__["a" /* DemoProgramPage */]);
+    };
+    HomePage.prototype.showWC = function () {
+        var _this = this;
+        var mapSql = new __WEBPACK_IMPORTED_MODULE_6__providers_base_sql__["a" /* BaseSql */](this.http, 'map');
+        mapSql.selectWhere('name_map="patriot-expo.svg"').then(function (res) {
+            //console.log("res=", res);
+            var map = res[0];
+            _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_9__leaflet_map_leaflet_map__["a" /* LeafletMapPage */], {
+                typeOfMap: 'icon',
+                map: map,
+                icons: 'wc.svg',
+                titleStr: _this.wcStr
+            });
+        });
+    };
+    HomePage.prototype.showCafe = function () {
+        var _this = this;
+        var mapSql = new __WEBPACK_IMPORTED_MODULE_6__providers_base_sql__["a" /* BaseSql */](this.http, 'map');
+        mapSql.selectWhere('name_map="patriot-expo.svg"').then(function (res) {
+            //console.log("res=", res);
+            var map = res[0];
+            _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_9__leaflet_map_leaflet_map__["a" /* LeafletMapPage */], {
+                typeOfMap: 'icon',
+                map: map,
+                icons: 'cafe.svg,restaurant.svg',
+                titleStr: _this.restaurantsCafe
+            });
+        });
+    };
+    HomePage.prototype.showEnrance = function () {
+        var _this = this;
+        var mapSql = new __WEBPACK_IMPORTED_MODULE_6__providers_base_sql__["a" /* BaseSql */](this.http, 'map');
+        mapSql.selectWhere('name_map="patriot-expo.svg"').then(function (res) {
+            //console.log("res=", res);
+            var map = res[0];
+            _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_9__leaflet_map_leaflet_map__["a" /* LeafletMapPage */], {
+                typeOfMap: 'icon',
+                map: map,
+                icons: 'entranceA.svg,entranceB.svg,entranceC.svg',
+                titleStr: _this.entrancesExitsStr
+            });
+        });
+    };
+    HomePage.prototype.showInfo = function () {
+        var _this = this;
+        var mapSql = new __WEBPACK_IMPORTED_MODULE_6__providers_base_sql__["a" /* BaseSql */](this.http, 'map');
+        mapSql.selectWhere('name_map="patriot-expo.svg"').then(function (res) {
+            //console.log("res=", res);
+            var map = res[0];
+            _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_9__leaflet_map_leaflet_map__["a" /* LeafletMapPage */], {
+                typeOfMap: 'icon',
+                map: map,
+                icons: 'medpoint.svg,meeting-point.svg,mother-and-child.svg,media-center.svg,guest-hall.svg',
+                titleStr: _this.infoStr
+            });
+        });
+    };
+    HomePage.prototype.howToGet = function () {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_13__how_to_get_how_to_get__["a" /* HowToGetPage */]);
+    };
+    HomePage.prototype.toLoginFormPage = function () {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_16__login_form_login_form__["a" /* LoginFormPage */]);
+    };
+    return HomePage;
+}(__WEBPACK_IMPORTED_MODULE_8__providers_base_lang_page_base_lang_page__["a" /* BaseLangPageProvider */]));
+__decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_13" /* ViewChild */])('slides'),
+    __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["r" /* Slides */])
+], HomePage.prototype, "slides", void 0);
+__decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_13" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* Content */]),
+    __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* Content */])
+], HomePage.prototype, "content", void 0);
+HomePage = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+        selector: 'page-home',template:/*ion-inline-start:"/Users/leonidlyalin/WebstormProjects/army2017/src/pages/home/home.html"*/'<ion-header>\n    <ion-navbar>\n        <button ion-button menuToggle>\n            <ion-icon name="menu"></ion-icon>\n        </button>\n        <ion-title text-left>{{titleStr}}</ion-title>\n    </ion-navbar>\n\n\n</ion-header>\n<ion-content class="cards-bg" style="background-image: url(\'assets/img/background.jpg\')">\n    <ion-slides #slides (ionSlideWillChange)="onSlideChangeStart($event)" pager>\n\n\n        <ion-slide>\n\n            <ion-grid>\n                <ion-row>\n                    <ion-col col-4>\n                        <a><img tappable src="assets/img/homeicons/about-forum.png" height="{{iconHeight}}"\n                                    width="{{iconWidth}}" (click)="aboutPage()"/></a>\n                        <p>{{aboutForumStr}}</p>\n                    </ion-col>\n                    <ion-col col-4>\n                        <a><img tappable src="assets/img/homeicons/map.png" height="{{iconHeight}}" width="{{iconWidth}}"\n                                (click)="forumMapPage()"/></a>\n                        <p>{{mapStr}}</p>\n                    </ion-col>\n                    <ion-col col-4>\n                        <img tappable src="assets/img/homeicons/exposure.png" height="{{iconHeight}}"\n                             width="{{iconWidth}}" (click)="participantPage()"/>\n                        <p>{{participantsStr}}</p>\n                    </ion-col>\n                </ion-row>\n                <ion-row>\n                    <ion-col col-4>\n                        <img tappable src="assets/img/homeicons/science-program-icon.png" height="{{iconHeight}}"\n                             width="{{iconWidth}}" (click)="conferencePage()"/>\n                        <p>{{conferenceStr}}</p>\n                    </ion-col>\n                    <ion-col col-4>\n                        <img tappable src="assets/img/homeicons/demo-program.jpg" height="{{iconHeight}}"\n                             width="{{iconWidth}}" (click)="DemoProgramPage()"/>\n                        <p>{{demoProgramStr}}</p>\n                    </ion-col>\n                    <ion-col col-4>\n                        <img tappable src="assets/img/homeicons/about-forum.png" height="{{iconHeight}}"\n                             width="{{iconWidth}}" (click)="ExhibitListPage()"/>\n                        <p>{{exhibitsMoDStr}}</p>\n                    </ion-col>\n                </ion-row>\n\n\n            </ion-grid>\n        </ion-slide>\n        <ion-slide>\n            <ion-grid>\n                <ion-row>\n                    <ion-col col-4>\n                        <ion-col col-4>\n                            <img tappable src="assets/img/homeicons/how-to-get.jpg" height="{{iconHeight}}"\n                                 width="{{iconWidth}}" (click)="howToGet()"/>\n                            <p>{{howDoYouGetStr}}</p>\n                        </ion-col>\n\n                    </ion-col>\n                    <ion-col col-4>\n                        <img tappable src="assets/img/homeicons/park-patriot-icon.png" height="{{iconHeight}}"\n                             width="{{iconWidth}}" (click)="parkPatriot()"/>\n                        <p>{{parkPatriotStr}}</p>\n                    </ion-col>\n                    <ion-col col-4>\n                        <img tappable src="assets/img/homeicons/q&a.png" height="{{iconHeight}}" width="{{iconWidth}}"/>\n                        <p>{{answersAndQuestionsStr}}</p>\n                    </ion-col>\n                </ion-row>\n                <ion-row>\n                    <ion-col col-4>\n                        <img tappable src="assets/img/homeicons/entrance-exit.png" height="{{iconHeight}}"\n                             width="{{iconWidth}}" (click)="showEnrance()"/>\n                        <p>{{entrancesExitsStr}}</p>\n                    </ion-col>\n                    <ion-col col-4>\n                        <img tappable src="assets/img/homeicons/restaurants.png" height="{{iconHeight}}"\n                             width="{{iconWidth}}" (click)="showCafe()"/>\n                        <p>{{restaurantsCafe}}</p>\n                    </ion-col>\n                    <ion-col col-4>\n                        <img tappable src="assets/img/homeicons/wc.png" height="{{iconHeight}}" width="{{iconWidth}}" (click)="showWC()"/>\n                        <p>{{wcStr}}</p>\n                    </ion-col>\n                </ion-row>\n\n            </ion-grid>\n        </ion-slide>\n        <ion-slide>\n            <ion-grid>\n                <ion-row>\n                    <ion-col col-4>\n                        <img tappable src="assets/img/homeicons/info.png" height="{{iconHeight}}"\n                             width="{{iconWidth}}" (click)="showInfo()"/>\n                        <p>{{infoStr}}</p>\n                    </ion-col>\n                    <ion-col col-4>\n                        <img tappable src="assets/img/homeicons/army-2017.jpg" height="{{iconHeight}}"\n                             width="{{iconWidth}}" (click)="toLoginFormPage()"/>\n                        <p>{{myForumStr}}</p>\n                    </ion-col>\n                    <ion-col col-4>\n                        <img tappable src="assets/img/homeicons/qr-scanner.png" height="{{iconHeight}}"\n                             width="{{iconWidth}}" (click)="BarScannerPage()"/>\n                        <p>{{qrScannerStr}}</p>\n                    </ion-col>\n                </ion-row>\n            </ion-grid>\n        </ion-slide>\n    </ion-slides>\n\n</ion-content>\n'/*ion-inline-end:"/Users/leonidlyalin/WebstormProjects/army2017/src/pages/home/home.html"*/
+    }),
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* NavController */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* MenuController */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["p" /* Platform */],
+        __WEBPACK_IMPORTED_MODULE_5__angular_http__["a" /* Http */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* LoadingController */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* Events */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */]])
+], HomePage);
+
+//# sourceMappingURL=home.js.map
+
+/***/ }),
+
+/***/ 285:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -5012,7 +5032,7 @@ MyForumSql = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__ = __webpack_require__(14);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__base_api_service__ = __webpack_require__(29);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__base_api_service__ = __webpack_require__(30);
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -5115,7 +5135,7 @@ MyForumApi = __decorate([
 
 /***/ }),
 
-/***/ 287:
+/***/ 286:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -5126,7 +5146,7 @@ MyForumApi = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_Observable__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_Observable__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__base_api_service__ = __webpack_require__(29);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__base_api_service__ = __webpack_require__(30);
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -5208,7 +5228,7 @@ ParticipantApi = __decorate([
 
 /***/ }),
 
-/***/ 288:
+/***/ 287:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -5216,11 +5236,11 @@ ParticipantApi = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_my_forum_sql__ = __webpack_require__(26);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_conference_sql_conference_sql__ = __webpack_require__(149);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_conference_sql_conference_api_service__ = __webpack_require__(150);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_conference_sql_conference_sql__ = __webpack_require__(148);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_conference_sql_conference_api_service__ = __webpack_require__(149);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_http__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__conference_detail_conference_detail__ = __webpack_require__(151);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_filter_provider_filter_conference_provider__ = __webpack_require__(152);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__conference_detail_conference_detail__ = __webpack_require__(150);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_filter_provider_filter_conference_provider__ = __webpack_require__(151);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__providers_base_list_page_base_list_page__ = __webpack_require__(19);
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
@@ -5266,13 +5286,13 @@ var ConferencePage = (function (_super) {
         // this.listOut = [];
         events.subscribe('myforum:add:conference', function (id) {
             //console.log('was added id =', id);
-            var element = _this.listOut.find(function (x) { return x.id == id.id; });
+            var element = _this.listOut.find(function (x) { return Number(x.id) == Number(id.id); });
             element.my_forum_id = id.my_forum_id;
             //console.log('was added =', element);
         });
         events.subscribe('myforum:delete:conference', function (id) {
             //console.log('was deleted id=', id);
-            var element = _this.listOut.find(function (x) { return x.id == id; });
+            var element = _this.listOut.find(function (x) { return Number(x.id) == Number(id); });
             element.my_forum_id = null;
             //console.log('was deleted =', element);
         });
@@ -5425,7 +5445,7 @@ ConferencePage = __decorate([
 
 /***/ }),
 
-/***/ 289:
+/***/ 288:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -5538,64 +5558,7 @@ ThematicConferenceSql = __decorate([
 
 /***/ }),
 
-/***/ 29:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BaseApi; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs__ = __webpack_require__(46);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs__);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-var BaseApi = (function () {
-    function BaseApi(http) {
-        this.http = http;
-        this.baseUrl = 'http://army2017.ru';
-        this.result = {};
-        //console.log('new Base  api is created');
-        this.baseUrlApi = this.baseUrl + '/api';
-        this.baseUrlAjax = this.baseUrl + '/ajax';
-    }
-    //public userId:any;
-    BaseApi.prototype.getApi = function (apiPhp) {
-        //console.log('**about to make HTTP call for', apiPhp);
-        /*var headers = new Headers();
-        headers.append("Access-Control-Allow-Origin", '*');*/
-        /* headers.append("Accept", 'application/json');
-         headers.append('Content-Type', 'application/json' );*/
-        // let options = new RequestOptions(headers);
-        var _this = this;
-        return this.http.get(this.baseUrlApi + "/" + apiPhp)
-            .map(function (response) {
-            _this.result = response.json();
-            //console.log("getApi result=", this.result);
-            return _this.result;
-        });
-    };
-    return BaseApi;
-}());
-BaseApi = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Injectable */])(),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */]])
-], BaseApi);
-
-//# sourceMappingURL=base-api-service.js.map
-
-/***/ }),
-
-/***/ 290:
+/***/ 289:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -5654,7 +5617,7 @@ TableActionSql = __decorate([
 
 /***/ }),
 
-/***/ 292:
+/***/ 291:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -5663,8 +5626,8 @@ TableActionSql = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_my_forum_sql__ = __webpack_require__(26);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__exhibit_detail_exhibit_detail__ = __webpack_require__(154);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_filter_provider_filter_exhibit_provider__ = __webpack_require__(156);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__exhibit_detail_exhibit_detail__ = __webpack_require__(153);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_filter_provider_filter_exhibit_provider__ = __webpack_require__(155);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_base_list_page_base_list_page__ = __webpack_require__(19);
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
@@ -5721,13 +5684,13 @@ var ExhibitPage = (function (_super) {
         _this.iblockId = 10; //number of the infoblock in bitrix
         _this.events.subscribe('myforum:add:exhibit', function (id) {
             //console.log('was added id =', id);
-            var element = _this.listOut.find(function (x) { return x.id == id.id; });
+            var element = _this.listOut.find(function (x) { return Number(x.id) == Number(id.id); });
             element.my_forum_id = id.my_forum_id;
             //console.log('was added =', element);
         });
         _this.events.subscribe('myforum:delete:exhibit', function (id) {
             //console.log('was deleted id=', id);
-            var element = _this.listOut.find(function (x) { return x.id == id; });
+            var element = _this.listOut.find(function (x) { return Number(x.id) == Number(id.id); });
             element.my_forum_id = null;
             //console.log('was deleted =', element);
         });
@@ -5882,7 +5845,7 @@ ExhibitPage = __decorate([
 
 /***/ }),
 
-/***/ 293:
+/***/ 292:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -5891,7 +5854,7 @@ ExhibitPage = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs__ = __webpack_require__(46);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__base_api_service__ = __webpack_require__(29);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__base_api_service__ = __webpack_require__(30);
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -5947,7 +5910,7 @@ ExhibitApiService = __decorate([
 
 /***/ }),
 
-/***/ 294:
+/***/ 293:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -5956,11 +5919,11 @@ ExhibitApiService = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_my_forum_sql__ = __webpack_require__(26);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_map_sql_map_sql__ = __webpack_require__(51);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_place_sql_place_sql__ = __webpack_require__(40);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_map_sql_map_sql__ = __webpack_require__(55);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_place_sql_place_sql__ = __webpack_require__(47);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_base_list_page_base_list_page__ = __webpack_require__(19);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__demo_program_detail_demo_program_detail__ = __webpack_require__(157);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__providers_filter_provider_filter_demo_program_provider__ = __webpack_require__(158);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__demo_program_detail_demo_program_detail__ = __webpack_require__(156);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__providers_filter_provider_filter_demo_program_provider__ = __webpack_require__(157);
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -6023,13 +5986,13 @@ var DemoProgramPage = (function (_super) {
         _this.iblockId = 19;
         _this.events.subscribe('myforum:add:demo', function (id) {
             //console.log('was added id =', id);
-            var element = _this.listOut.find(function (x) { return x.id == id.id; });
+            var element = _this.listOut.find(function (x) { return Number(x.id) == Number(id.id); });
             element.my_forum_id = id.my_forum_id;
             //console.log('was added =', element);
         });
         _this.events.subscribe('myforum:delete:demo', function (id) {
             //console.log('was deleted id=', id);
-            var element = _this.listOut.find(function (x) { return x.id == id; });
+            var element = _this.listOut.find(function (x) { return Number(x.id) == Number(id.id); });
             element.my_forum_id = null;
             //console.log('was deleted =', element);
         });
@@ -6090,6 +6053,13 @@ var DemoProgramPage = (function (_super) {
                 (element["name_first"] = element.name);
             if (name[1])
                 element["name_second"] = name[1].replace(/&quot;/g, '"');
+            /*  element["desc"] = element["desc"].replace(/&quot;/g,'"');
+              element["desc"] = element["desc"].replace(/&quot;/g,'"');
+              element["desc"] = element["desc"].replace(/&#40;/g,'');
+              element["desc"] = element["desc"].replace(/&#41;/g,':');
+              element["desc"] = element["desc"].replace(/&#39;/g,':');
+              element["desc"] = element["desc"].replace(/<br/g,'');
+              element["desc"] = element["desc"].replace(/>/g,'');*/
         });
     };
     DemoProgramPage.prototype.selectDemoProgramAll = function (whereStr) {
@@ -6152,7 +6122,7 @@ var DemoProgramPage = (function (_super) {
         // this.conferenceRefresh();
     };
     DemoProgramPage.prototype.setRussianStrings = function () {
-        _super.prototype.setRussianStrings.call(this, 'Демо-программа');
+        _super.prototype.setRussianStrings.call(this, 'Программа');
         //console.log('this.setRussianStrings()');
     };
     DemoProgramPage.prototype.setEnglishStrings = function () {
@@ -6202,7 +6172,7 @@ var DemoProgramPage = (function (_super) {
 }(__WEBPACK_IMPORTED_MODULE_6__providers_base_list_page_base_list_page__["a" /* BaseListPageProvider */]));
 DemoProgramPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-demo-program',template:/*ion-inline-start:"/Users/leonidlyalin/WebstormProjects/army2017/src/pages/demo-program/demo-program.html"*/'<ion-header>\n    <ion-navbar>\n\n        <button ion-button menuToggle icon-only="">\n            <ion-icon name="menu"></ion-icon>\n        </button>\n        <ion-title>{{titleStr}}</ion-title>\n        <ion-buttons end>\n\n            <button ion-button icon-only (click)="showHideFilter()" [style.color]="colorFilter">\n                <i class="fa fa-filter fa-2x" aria-hidden="true"></i>\n            </button>\n            <button ion-button icon-only (click)="this.showMapList(\'demo-program\')" no-padding no-margin>\n                <i class="fa fa-map fa-2x" aria-hidden="true"></i>\n            </button>\n            <button ion-button icon-only (click)="this.showHideHelp()" [style.color]="colorHelp">\n                <i class="fa fa-info-circle fa-2x" aria-hidden="true"></i>\n            </button>\n        </ion-buttons>\n    </ion-navbar>\n\n\n</ion-header>\n\n\n<ion-content no-padding no-margin>\n    <div *ngIf="showFilter">\n\n        <ion-item>\n            <ion-buttons align-items-center>\n                <button ion-button (click)="setFilterStrDemoProgram()" color="army-red">\n                    <ion-icon name="checkmark"></ion-icon>\n                    {{setFilterStr}}\n                </button>\n                <button ion-button (click)="filterProvider.cancelFilter()" color="army-red">\n                    <ion-icon name="close-circle"></ion-icon>\n                    {{cancelFilterStr}}\n                </button>\n            </ion-buttons>\n        </ion-item>\n        <page-filter-demo-program>\n        </page-filter-demo-program>\n    </div>\n    <div *ngIf="showHelp">\n        <page-demo-program-help>\n        </page-demo-program-help>\n    </div>\n    <div *ngIf="showMainList">\n\n\n        <ion-list>\n\n            <ion-item *ngFor="let element of this.listOut" text-wra no-padding="true"\n                      no-margin="true">\n                <button ion-item (click)="goToListDetail(element)">\n                    <ion-icon item-left *ngIf="element.my_forum_id" name="star" color="danger"></ion-icon>\n                    <ion-icon item-left *ngIf="!element.my_forum_id" name="star-outline"></ion-icon>\n                    <p>\n                        <ion-icon name="calendar" color="danger"></ion-icon>\n                        <b color="primary">{{element.date_event}} </b>\n                        <ion-icon name="timer" color="danger"></ion-icon>\n                        <b color="primary">{{element.time_beg}} : {{element.time_end}}</b>\n                    </p>\n\n                    <p>{{element.name_first}}</p>\n                    <h6>{{element.name_second}}</h6>\n                    <p>\n                        <ion-icon name="pin" color="danger"></ion-icon>\n                        <b>{{element.place_name}}</b>\n                    <p>\n                </button>\n\n            </ion-item>\n        </ion-list>\n\n\n    </div>\n\n</ion-content>\n\n\n'/*ion-inline-end:"/Users/leonidlyalin/WebstormProjects/army2017/src/pages/demo-program/demo-program.html"*/,
+        selector: 'page-demo-program',template:/*ion-inline-start:"/Users/leonidlyalin/WebstormProjects/army2017/src/pages/demo-program/demo-program.html"*/'<ion-header>\n    <ion-navbar>\n\n        <button ion-button menuToggle icon-only="">\n            <ion-icon name="menu"></ion-icon>\n        </button>\n        <ion-title>{{titleStr}}</ion-title>\n        <ion-buttons end>\n\n            <button ion-button icon-only (click)="showHideFilter()" [style.color]="colorFilter">\n                <i class="fa fa-filter fa-2x" aria-hidden="true"></i>\n            </button>\n            <button ion-button icon-only (click)="this.showMapList(\'demo-program\')" no-padding no-margin>\n                <i class="fa fa-map fa-2x" aria-hidden="true"></i>\n            </button>\n            <button ion-button icon-only (click)="this.showHideHelp()" [style.color]="colorHelp">\n                <i class="fa fa-info-circle fa-2x" aria-hidden="true"></i>\n            </button>\n        </ion-buttons>\n    </ion-navbar>\n\n\n</ion-header>\n\n\n<ion-content no-padding no-margin>\n    <div *ngIf="showFilter">\n\n        <ion-item>\n            <ion-buttons align-items-center>\n                <button ion-button (click)="setFilterStrDemoProgram()" color="army-red">\n                    <ion-icon name="checkmark"></ion-icon>\n                    {{setFilterStr}}\n                </button>\n                <button ion-button (click)="filterProvider.cancelFilter()" color="army-red">\n                    <ion-icon name="close-circle"></ion-icon>\n                    {{cancelFilterStr}}\n                </button>\n            </ion-buttons>\n        </ion-item>\n        <page-filter-demo-program>\n        </page-filter-demo-program>\n    </div>\n    <div *ngIf="showHelp">\n        <page-demo-program-help>\n        </page-demo-program-help>\n    </div>\n    <div *ngIf="showMainList">\n\n\n        <ion-list>\n\n            <ion-item *ngFor="let element of this.listOut" text-wra no-padding="true"\n                      no-margin="true">\n                <button ion-item (click)="goToListDetail(element)">\n                    <ion-icon item-left *ngIf="element.my_forum_id" name="star" color="danger"></ion-icon>\n                    <ion-icon item-left *ngIf="!element.my_forum_id" name="star-outline"></ion-icon>\n                    <p>\n                        <ion-icon name="calendar" color="danger"></ion-icon>\n                        <b color="primary">{{element.date_event}} </b>\n                        <ion-icon name="timer" color="danger"></ion-icon>\n                        <b color="primary">{{element.time_beg}} : {{element.time_end}}</b>\n                    </p>\n\n                    <p text-wrap>{{element.name_first}}</p>\n                    <h6 text-wrap>{{element.name_second}}</h6>\n                    <p>\n                        <ion-icon name="pin" color="danger"></ion-icon>\n                        <b text-wrap>{{element.place_name}}</b>\n                    <p>\n                </button>\n\n            </ion-item>\n        </ion-list>\n\n\n    </div>\n\n</ion-content>\n\n\n'/*ion-inline-end:"/Users/leonidlyalin/WebstormProjects/army2017/src/pages/demo-program/demo-program.html"*/,
         providers: [__WEBPACK_IMPORTED_MODULE_8__providers_filter_provider_filter_demo_program_provider__["a" /* FilterDemoProgramProvider */]],
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* NavController */],
@@ -6220,7 +6190,7 @@ DemoProgramPage = __decorate([
 
 /***/ }),
 
-/***/ 295:
+/***/ 294:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -6229,8 +6199,8 @@ DemoProgramPage = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_base_lang_page_base_lang_page__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__how_to_get_patriot_how_to_get_patriot__ = __webpack_require__(296);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__how_to_get_routes_how_to_get_routes__ = __webpack_require__(300);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__how_to_get_patriot_how_to_get_patriot__ = __webpack_require__(295);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__how_to_get_routes_how_to_get_routes__ = __webpack_require__(299);
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -6304,7 +6274,7 @@ HowToGetPage = __decorate([
 
 /***/ }),
 
-/***/ 296:
+/***/ 295:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -6313,9 +6283,9 @@ HowToGetPage = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_base_lang_page_base_lang_page__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__how_to_get_patriot_by_car_how_to_get_patriot_by_car__ = __webpack_require__(297);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__how_to_get_patriot_by_transport_how_to_get_patriot_by_transport__ = __webpack_require__(298);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__how_to_get_patriot_by_transport_kiev_how_to_get_patriot_by_transport_kiev__ = __webpack_require__(299);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__how_to_get_patriot_by_car_how_to_get_patriot_by_car__ = __webpack_require__(296);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__how_to_get_patriot_by_transport_how_to_get_patriot_by_transport__ = __webpack_require__(297);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__how_to_get_patriot_by_transport_kiev_how_to_get_patriot_by_transport_kiev__ = __webpack_require__(298);
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -6393,7 +6363,7 @@ HowToGetPatriotPage = __decorate([
 
 /***/ }),
 
-/***/ 297:
+/***/ 296:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -6467,7 +6437,7 @@ HowToGetPatriotByCarPage = __decorate([
 
 /***/ }),
 
-/***/ 298:
+/***/ 297:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -6541,7 +6511,7 @@ HowToGetPatriotByTransportPage = __decorate([
 
 /***/ }),
 
-/***/ 299:
+/***/ 298:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -6615,7 +6585,7 @@ HowToGetPatriotByTransportKievPage = __decorate([
 
 /***/ }),
 
-/***/ 300:
+/***/ 299:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -6689,7 +6659,64 @@ HowToGetRoutesPage = __decorate([
 
 /***/ }),
 
-/***/ 301:
+/***/ 30:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BaseApi; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs__ = __webpack_require__(46);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs__);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var BaseApi = (function () {
+    function BaseApi(http) {
+        this.http = http;
+        this.baseUrl = 'http://army2017.ru';
+        this.result = {};
+        //console.log('new Base  api is created');
+        this.baseUrlApi = this.baseUrl + '/api';
+        this.baseUrlAjax = this.baseUrl + '/ajax';
+    }
+    //public userId:any;
+    BaseApi.prototype.getApi = function (apiPhp) {
+        //console.log('**about to make HTTP call for', apiPhp);
+        /*var headers = new Headers();
+        headers.append("Access-Control-Allow-Origin", '*');*/
+        /* headers.append("Accept", 'application/json');
+         headers.append('Content-Type', 'application/json' );*/
+        // let options = new RequestOptions(headers);
+        var _this = this;
+        return this.http.get(this.baseUrlApi + "/" + apiPhp)
+            .map(function (response) {
+            _this.result = response.json();
+            //console.log("getApi result=", this.result);
+            return _this.result;
+        });
+    };
+    return BaseApi;
+}());
+BaseApi = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Injectable */])(),
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */]])
+], BaseApi);
+
+//# sourceMappingURL=base-api-service.js.map
+
+/***/ }),
+
+/***/ 300:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -6697,9 +6724,9 @@ HowToGetRoutesPage = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__patriot_detail_patriot_detail__ = __webpack_require__(302);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__patriot_detail_patriot_detail__ = __webpack_require__(301);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_base_list_page_base_list_page__ = __webpack_require__(19);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_patriot_patriot_sql__ = __webpack_require__(303);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_patriot_patriot_sql__ = __webpack_require__(302);
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -6873,7 +6900,7 @@ PatriotPage = __decorate([
 
 /***/ }),
 
-/***/ 302:
+/***/ 301:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7021,7 +7048,7 @@ PatriotDetailPage = __decorate([
 
 /***/ }),
 
-/***/ 303:
+/***/ 302:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7031,7 +7058,7 @@ PatriotDetailPage = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__ = __webpack_require__(14);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__base_sql__ = __webpack_require__(24);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__patriot_api_service__ = __webpack_require__(634);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__patriot_api_service__ = __webpack_require__(629);
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -7219,13 +7246,26 @@ PatriotSql = __decorate([
 
 /***/ }),
 
-/***/ 304:
+/***/ 303:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SettingsPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UserApi; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs__ = __webpack_require__(46);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__base_api_service__ = __webpack_require__(30);
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -7237,27 +7277,608 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
-/*
-  Generated class for the Settings page.
 
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
-*/
-var SettingsPage = (function () {
-    function SettingsPage(navCtrl, navParams) {
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
+
+var UserApi = (function (_super) {
+    __extends(UserApi, _super);
+    //  private baseUrl = 'http://army2017.ru/api';
+    function UserApi(http) {
+        var _this = _super.call(this, http) || this;
+        _this.http = http;
+        return _this;
+        //console.log('conferenceSingle api is created');
     }
-    return SettingsPage;
-}());
-SettingsPage = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-settings',template:/*ion-inline-start:"/Users/leonidlyalin/WebstormProjects/army2017/src/pages/settings/settings.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Settings</ion-title>\n  </ion-navbar>\n</ion-header>\n<ion-content padding>\n  <p>\n    This is settings page\n  </p>\n</ion-content>\n'/*ion-inline-end:"/Users/leonidlyalin/WebstormProjects/army2017/src/pages/settings/settings.html"*/
-    }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* NavParams */]])
-], SettingsPage);
+    UserApi.prototype.createUser = function (login, password, name, lastname, email, confirm_password) {
+        var _this = this;
+        try {
+            //console.log("I'm inside try");
+            //console.log(login);
+            //console.log(password);
+            //console.log(`${this.baseUrlApi}/user/create_user.php?LOGIN=` + login + `&PASSWORD=` + password);
+            //console.log(`${this.baseUrl}/api/user/create_user.php?LOGIN=` + login + `&PASSWORD=` + password + `&NAME=` + name + `&SURNAME=` + lastname + `&EMAIL=` + email + `&CONFIRM_PASSWORD=` + confirm_password);
+            return this.http.get(this.baseUrl + "/api/user/create_user.php?LOGIN=" + login
+                + "&PASSWORD=" + password + "&NAME=" + name
+                + "&SURNAME=" + lastname + "&EMAIL=" + email + "&CONFIRM_PASSWORD=" + confirm_password).map(function (response) {
+                //console.log("response");
+                var res = response.json();
+                //console.log(res);
+                if (res.result)
+                    _this.userId = res.result;
+                else
+                    _this.userId = res;
+                //console.log(this.userId);
+                if ((_this.userId) && (_this.userId > 0)) {
+                    localStorage.setItem('userid', _this.userId);
+                    return _this.userId;
+                }
+                else {
+                    localStorage.removeItem('userid');
+                    return 0;
+                }
+            });
+        }
+        catch (err) {
+            //console.log("error");
+            //console.log(err);
+            return err;
+        }
+    };
+    UserApi.prototype.checkUser = function (login, password) {
+        var _this = this;
+        try {
+            //console.log("I'm inside try");
+            //console.log(login);
+            //console.log(password);
+            //console.log(`${this.baseUrlApi}/user/check_user.php?LOGIN=` + login + `&PASSWORD=` + password);
+            return this.http.get(this.baseUrl + "/api/user/check_user.php?LOGIN=" + login + "&PASSWORD=" + password).map(function (response) {
+                //console.log("response");
+                var res = response.json();
+                //console.log(res);
+                _this.userId = res.result.ID;
+                //console.log(this.userId);
+                localStorage.setItem('userid', _this.userId);
+                return res;
+            });
+        }
+        catch (err) {
+            //console.log("error");
+            //console.log(err);
+            return err;
+        }
+    };
+    return UserApi;
+}(__WEBPACK_IMPORTED_MODULE_3__base_api_service__["a" /* BaseApi */]));
+UserApi = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Injectable */])(),
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */]])
+], UserApi);
 
-//# sourceMappingURL=settings.js.map
+//# sourceMappingURL=user-api.service.js.map
+
+/***/ }),
+
+/***/ 304:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyForumPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_my_forum_sql__ = __webpack_require__(26);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__participant_detail_participant_detail__ = __webpack_require__(54);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__conference_detail_conference_detail__ = __webpack_require__(150);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_place_sql_place_sql__ = __webpack_require__(47);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__leaflet_map_leaflet_map__ = __webpack_require__(69);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__providers_map_sql_map_sql__ = __webpack_require__(55);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__providers_base_list_page_base_list_page__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__exhibit_detail_exhibit_detail__ = __webpack_require__(153);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__demo_program_detail_demo_program_detail__ = __webpack_require__(156);
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (this && this.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = y[op[0] & 2 ? "return" : op[0] ? "throw" : "next"]) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [0, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**
+ * Generated class for the MyForumPage page.
+ *
+ * See http://ionicframework.com/docs/components/#navigation for more info
+ * on Ionic pages and navigation.
+ */
+var MyForumPage = (function (_super) {
+    __extends(MyForumPage, _super);
+    function MyForumPage(navCtrl, navParams, http, sqlMyForum, placeSql, mapSql, events) {
+        var _this = _super.call(this, navCtrl, navParams, events, http) || this;
+        _this.navCtrl = navCtrl;
+        _this.navParams = navParams;
+        _this.http = http;
+        _this.sqlMyForum = sqlMyForum;
+        _this.placeSql = placeSql;
+        _this.mapSql = mapSql;
+        _this.events = events;
+        _this.forumSegment = 'conferenceItems';
+        _this.setEvents();
+        return _this;
+    }
+    MyForumPage.prototype.setEvents = function () {
+        //for participants
+        var _this = this;
+        this.events.subscribe('myforum:add:participant', function (element) {
+            //console.log('was added element =', element);
+            _this.myForumParticipant.push(element);
+            /*  if (this.lang == 'ru') this.selectParticipantRus();
+              else this.selectParticipantEng();*/
+        });
+        this.events.subscribe('myforum:delete:participant', function (participant) {
+            _this.myForumParticipant = _this.myForumParticipant.filter(function (obj) { return Number(obj.id) !== Number(participant.id); });
+        });
+        //for exhibit
+        this.events.subscribe('myforum:add:exhibit', function (element) {
+            //console.log('was added element =', element);
+            _this.myForumExhibit.push(element);
+        });
+        this.events.subscribe('myforum:delete:exhibit', function (id) {
+            _this.myForumExhibit = _this.myForumExhibit.filter(function (obj) { return Number(obj.id) !== Number(id.id); });
+        });
+        //for DemoProgram
+        this.events.subscribe('myforum:add:demo', function (element) {
+            //console.log('was added element =', element);
+            _this.myForumDemoProgram.push(element);
+        });
+        this.events.subscribe('myforum:delete:demo', function (id) {
+            _this.myForumDemoProgram = _this.myForumDemoProgram.filter(function (obj) { return Number(obj.id) !== Number(id.id); });
+        });
+        //for conference
+        this.events.subscribe('myforum:add:conference', function (element) {
+            //console.log('was added element =', element);
+            _this.myForumConference.push(element);
+        });
+        this.events.subscribe('myforum:delete:conference', function (id) {
+            _this.myForumConference = _this.myForumConference.filter(function (obj) { return Number(obj.id) !== Number(id.id); });
+        });
+    };
+    MyForumPage.prototype.setRussianStrings = function () {
+        _super.prototype.setRussianStrings.call(this, 'Мой форум');
+        this.participantStr = 'Участники';
+        this.conferenceStr = 'Конференция';
+        this.exhibitStr = 'Экспонаты МO';
+        this.demoStr = 'Программа';
+    };
+    MyForumPage.prototype.setEnglishStrings = function () {
+        this.titleStr = 'My Forum';
+        this.participantStr = 'Exhibitors';
+        this.conferenceStr = 'Conference';
+        this.exhibitStr = 'Exhibits of MoD';
+        this.demoStr = 'Program';
+    };
+    MyForumPage.prototype.getApi = function () {
+        var _this = this;
+        //get My Forum for the User
+        if (!this.userId)
+            alert("Незарегистрированный пользователь");
+        //console.log('run promise for myForumParticipant. run!');
+        this.http.get('http://army2017.ru/api/my_forum/my_forum_list.php?USER=' + this.userId + '&LOWERCASE=1').map(function (res) { return res.json(); }).subscribe(function (data) {
+            _this.myForumApi = data;
+            //console.log(this.myForumApi);
+            //console.log('delete all');
+            _this.sqlMyForum.delAll();
+            //console.log('insert new elements for myforum');
+            _this.sqlMyForum.addItemList(_this.myForumApi);
+            _this.selectAllList();
+        });
+    };
+    MyForumPage.prototype.selectAllList = function () {
+        if (this.lang == 'ru') {
+            this.selectParticipantRus();
+            this.selectConferenceRus();
+            this.selectExhibitRus();
+            this.selectDemoProgramRus();
+        }
+        else {
+            this.selectParticipantEng();
+            this.selectConferenceEng();
+            this.selectExhibitEng();
+            this.selectDemoProgramEng();
+        }
+    };
+    MyForumPage.prototype.ionViewDidLoad = function () {
+        _super.prototype.ionViewDidLoad.call(this);
+        this.getApi();
+    };
+    MyForumPage.prototype.ionViewWillEnter = function () {
+        //  this.refreshMyForum();
+    };
+    MyForumPage.prototype.refreshMyForum = function () {
+        //console.log("refreshMyForum");
+        this.getApi();
+    };
+    MyForumPage.prototype.selectParticipantRus = function () {
+        var _this = this;
+        //console.log('selectParticipantRus');
+        this.myForumParticipant = [];
+        this.sqlMyForum.getRusParticipantMyForum(this.userId).then(function (res) {
+            //console.log('our select');
+            //console.log(res);
+            _this.myForumParticipant = res;
+            _this.changeNameParticipant();
+        });
+    };
+    MyForumPage.prototype.selectParticipantEng = function () {
+        var _this = this;
+        //console.log('selectParticipantEng');
+        this.myForumParticipant = [];
+        this.sqlMyForum.getEngParticipantMyForum(this.userId).then(function (res) {
+            //console.log('our select');
+            //console.log(res);
+            _this.myForumParticipant = res;
+            _this.changeNameParticipant();
+        });
+    };
+    MyForumPage.prototype.selectExhibitRus = function () {
+        var _this = this;
+        //console.log('selectParticipantRus');
+        this.myForumExhibit = [];
+        this.sqlMyForum.getRusExhibitMyForum(this.userId).then(function (res) {
+            //console.log('our select');
+            //console.log(res);
+            _this.myForumExhibit = res;
+        });
+    };
+    MyForumPage.prototype.selectExhibitEng = function () {
+        var _this = this;
+        //console.log('selectParticipantEng');
+        this.myForumExhibit = [];
+        this.sqlMyForum.getEngExhibitMyForum(this.userId).then(function (res) {
+            //console.log('our select');
+            //console.log(res);
+            _this.myForumExhibit = res;
+        });
+    };
+    MyForumPage.prototype.selectConferenceRus = function () {
+        var _this = this;
+        //console.log('selectConferenceRus');
+        this.myForumConference = [];
+        this.sqlMyForum.getRusConferenceMyForum(this.userId).then(function (res) {
+            //console.log('our select');
+            //console.log(res);
+            _this.myForumConference = res;
+        });
+    };
+    MyForumPage.prototype.selectConferenceEng = function () {
+        var _this = this;
+        //console.log('selectConferenceEng');
+        this.myForumConference = [];
+        this.sqlMyForum.getEngConferenceMyForum(this.userId).then(function (res) {
+            //console.log('our select');
+            //console.log(res);
+            _this.myForumConference = res;
+        });
+    };
+    MyForumPage.prototype.selectDemoProgramRus = function () {
+        var _this = this;
+        //console.log('selectConferenceRus');
+        this.myForumDemoProgram = [];
+        this.sqlMyForum.getRusDemoProgramMyForum(this.userId).then(function (res) {
+            //console.log('our select');
+            //console.log(res);
+            _this.myForumDemoProgram = res;
+            _this.changeNameDepoProgram();
+        });
+    };
+    MyForumPage.prototype.selectDemoProgramEng = function () {
+        var _this = this;
+        //console.log('selectConferenceEng');
+        this.myForumDemoProgram = [];
+        this.sqlMyForum.getEngDemoProgramMyForum(this.userId).then(function (res) {
+            //console.log('our select');
+            //console.log(res);
+            _this.myForumDemoProgram = res;
+            _this.changeNameDepoProgram();
+        });
+    };
+    MyForumPage.prototype.changeForumSegment = function (itemSegment) {
+        //console.log(itemSegment);
+        this.forumSegment = itemSegment;
+    };
+    /*
+      selectItems() {
+        //////////console.log("this.myForumParticipant");
+        // this.myForumParticipant=this.sqlMyForum.getRows2();
+
+        //////////console.log(this.myForumParticipant);
+        this.sqlMyForum.select().then(res => {
+          //console.log('our select');
+          //console.log(res);
+          this.myForumParticipant = res;
+        })
+      }
+    */
+    MyForumPage.prototype.goToParticipantDetail = function (participant) {
+        var _this = this;
+        //console.log("goToParticipantDetail()");
+        //console.log(participant);
+        // go to the session detail page
+        // and pass in the session data
+        /* this.navCtrl.push(ParticipantDetailPage, {
+             participant
+         });*/
+        if (this.lang == 'ru') {
+            this.sqlMyForum.getRusParticipantFull('where a.id=' + participant.id).then(function (res) {
+                var participant = res;
+                //console.log("participantDetail=", participant);
+                _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_5__participant_detail_participant_detail__["a" /* ParticipantDetailPage */], {
+                    participant: participant,
+                    listOut: _this.myForumParticipant
+                }).then(function (res) {
+                    //console.log("i return from page", res);
+                });
+            });
+        }
+        else
+            this.sqlMyForum.getEngParticipantFull('where a.id=' + participant.id).then(function (res) {
+                var participant = res;
+                _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_5__participant_detail_participant_detail__["a" /* ParticipantDetailPage */], {
+                    participant: participant,
+                    listOut: _this.myForumParticipant
+                }).then(function (res) {
+                    //console.log("i return from page", res);
+                });
+            });
+    };
+    /*  delFromMyForum(id) {
+        this.sqlMyForum.delFromMyForum(id).then(res => {
+          if (res) this.refreshMyForum();
+        });
+      }*/
+    MyForumPage.prototype.goToConferenceDetail = function (conferenceSingle) {
+        //console.log("goToParticipantDetail()");
+        //console.log(conferenceSingle);
+        // go to the session detail page
+        // and pass in the session data
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_6__conference_detail_conference_detail__["a" /* ConferenceDetailPage */], {
+            element: conferenceSingle
+        });
+    };
+    MyForumPage.prototype.showMapMyForum = function () {
+        var _this = this;
+        if (this.forumSegment == 'conferenceItems') {
+            if (this.myForumConference.length > 0) {
+                this.placeSql.selectWhere(' where id=' + this.myForumConference[0].place).then(function (res) {
+                    var place = res;
+                    _this.mapSql.getRecordForFieldValue('name_map', "'" + place[0].name_map + "'").then(function (res) {
+                        //console.log("res=", res);
+                        var map = res;
+                        _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_8__leaflet_map_leaflet_map__["a" /* LeafletMapPage */], {
+                            typeOfMap: 'conference',
+                            popupElement: _this.myForumConference,
+                            place: place,
+                            map: map
+                        });
+                    });
+                });
+            }
+        }
+        if (this.forumSegment == 'participantItems') {
+            if (this.myForumParticipant.length > 0) {
+                var place = this.myForumParticipant.filter(function (obj) { return (obj.place && (!obj.place.includes(','))); });
+                if (place) {
+                    this.placeSql.selectWhere(' where id=' + place[0].place).then(function (res) {
+                        var place = res;
+                        _this.mapSql.getRecordForFieldValue('name_map', "'" + place[0].name_map + "'").then(function (res) {
+                            //console.log("res=", res);
+                            var map = res;
+                            _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_8__leaflet_map_leaflet_map__["a" /* LeafletMapPage */], {
+                                typeOfMap: 'participant',
+                                popupElement: _this.myForumParticipant,
+                                place: place,
+                                map: map
+                            });
+                        });
+                    });
+                }
+            }
+        }
+        if (this.forumSegment == 'demoProgramItems') {
+            if (this.myForumDemoProgram.length > 0) {
+                this.placeSql.selectWhere(' where id=' + this.myForumDemoProgram[0].place).then(function (res) {
+                    var place = res;
+                    _this.mapSql.getRecordForFieldValue('name_map', "'" + place[0].name_map + "'").then(function (res) {
+                        //console.log("res=", res);
+                        var map = res;
+                        _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_8__leaflet_map_leaflet_map__["a" /* LeafletMapPage */], {
+                            typeOfMap: 'conference',
+                            popupElement: _this.myForumDemoProgram,
+                            place: place,
+                            map: map
+                        });
+                    });
+                });
+            }
+        }
+        if (this.forumSegment == 'exhibitItems') {
+            if (this.myForumExhibit.length > 0) {
+                this.placeSql.selectWhere(' where id=' + this.myForumExhibit[0].place).then(function (res) {
+                    var place = res;
+                    _this.mapSql.getRecordForFieldValue('name_map', "'" + place[0].name_map + "'").then(function (res) {
+                        //console.log("res=", res);
+                        var map = res;
+                        _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_8__leaflet_map_leaflet_map__["a" /* LeafletMapPage */], {
+                            typeOfMap: 'exhibit',
+                            popupElement: _this.myForumExhibit,
+                            place: place,
+                            map: map
+                        });
+                    });
+                });
+            }
+        }
+    };
+    /**
+     *
+     * @param exhibitSingle
+     */
+    MyForumPage.prototype.goToExhibitDetail = function (elementSingle) {
+        var _this = this;
+        //console.log("goToExhibitDetail()");
+        //console.log(elementSingle);
+        // go to the session detail page
+        // and pass in the session data
+        if (this.lang == 'ru') {
+            this.sqlMyForum.getRusExhibitFull('where a.id=' + elementSingle.id).then(function (res) {
+                var element = res;
+                //console.log("participantDetail=", element);
+                _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_11__exhibit_detail_exhibit_detail__["a" /* ExhibitDetailPage */], {
+                    element: element
+                });
+            });
+        }
+        else
+            this.sqlMyForum.getEngExhibitFull('where a.id=' + elementSingle.id).then(function (res) {
+                var element = res;
+                _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_11__exhibit_detail_exhibit_detail__["a" /* ExhibitDetailPage */], { element: element });
+            });
+    };
+    MyForumPage.prototype.goToDemoProgramDetail = function (element) {
+        //console.log("goToParticipantDetail()");
+        //console.log(element);
+        // go to the session detail page
+        // and pass in the session data
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_12__demo_program_detail_demo_program_detail__["a" /* DemoProgramDetailPage */], {
+            element: element
+        });
+    };
+    MyForumPage.prototype.changeNameDepoProgram = function () {
+        this.myForumDemoProgram.forEach(function (element) {
+            //element.name.replace('&quot;','"');
+            var name = element.name.split('::');
+            if (name[0])
+                element["name_first"] = name[0].replace(/&quot;/g, '"');
+            else
+                (element["name_first"] = element.name);
+            if (name[1])
+                element["name_second"] = name[1].replace(/&quot;/g, '"');
+        });
+    };
+    MyForumPage.prototype.changeNameParticipant = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var i, placeStr, listPlaces, m, res;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        i = 0;
+                        _a.label = 1;
+                    case 1:
+                        if (!(i < this.myForumParticipant.length)) return [3 /*break*/, 6];
+                        this.myForumParticipant[i].name = this.myForumParticipant[i].name.replace(/&quot;/g, '"');
+                        if (!(this.myForumParticipant[i].place && this.myForumParticipant[i].place.includes(','))) return [3 /*break*/, 5];
+                        placeStr = '';
+                        listPlaces = this.myForumParticipant[i].place.split(',');
+                        m = 0;
+                        _a.label = 2;
+                    case 2:
+                        if (!(m < listPlaces.length)) return [3 /*break*/, 5];
+                        return [4 /*yield*/, this.placeSql.selectWhere('id=' + listPlaces[m])];
+                    case 3:
+                        res = _a.sent();
+                        if (res) {
+                            //console.log("res=", res);
+                            placeStr += (placeStr == '' ? '' : ', ') + (this.lang == 'ru' ? res[0].name_rus : res[0].name_eng);
+                            //console.log(listPlaces[m]);
+                            this.myForumParticipant[i].place_name_place = placeStr;
+                            this.myForumParticipant[i].place_name = placeStr;
+                        }
+                        _a.label = 4;
+                    case 4:
+                        m++;
+                        return [3 /*break*/, 2];
+                    case 5:
+                        i++;
+                        return [3 /*break*/, 1];
+                    case 6: return [2 /*return*/];
+                }
+            });
+        });
+    };
+    return MyForumPage;
+}(__WEBPACK_IMPORTED_MODULE_10__providers_base_list_page_base_list_page__["a" /* BaseListPageProvider */]));
+MyForumPage = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+        selector: 'page-my-forum',template:/*ion-inline-start:"/Users/leonidlyalin/WebstormProjects/army2017/src/pages/my-forum/my-forum.html"*/'<ion-header>\n    <ion-navbar>\n        <button ion-button menuToggle>\n            <ion-icon name="menu"></ion-icon>\n        </button>\n        <ion-title>{{titleStr}}</ion-title>\n        <ion-buttons end>\n            <button ion-button icon-only (click)="getApi()">\n                <ion-icon name="cloud"></ion-icon>\n            </button>\n            <button ion-button icon-only (click)="showMapMyForum()">\n                <ion-icon name="map"></ion-icon>\n            </button>\n        </ion-buttons>\n    </ion-navbar>\n\n    <ion-toolbar no-border-top>\n        <ion-segment [(ngModel)]="forumSegment">\n            <ion-segment-button value="participantItems" (ionchange)="changeForumSegment(\'participantItems\')" text-wrap>\n                {{participantStr}}\n            </ion-segment-button>\n            <ion-segment-button value="conferenceItems" (ionchange)="changeForumSegment(\'conferenceItems\')" text-wrap>\n                {{conferenceStr}}\n            </ion-segment-button>\n            <ion-segment-button value="exhibitItems" (ionchange)="changeForumSegment(\'exhibitItems\')" text-wrap>\n                {{exhibitStr}}\n            </ion-segment-button>\n            <ion-segment-button value="demoItems" (ionchange)="changeForumSegment(\'demoItems\')" text-wrap>\n                {{demoStr}}\n            </ion-segment-button>\n        </ion-segment>\n    </ion-toolbar>\n</ion-header>\n\n\n<ion-content>\n\n\n    <div [ngSwitch]="forumSegment">\n\n        <ion-list *ngSwitchCase="\'participantItems\'">\n            <ion-item *ngFor="let participant of myForumParticipant" #slidingItem>\n\n                <button ion-item (click)="goToParticipantDetail(participant)">\n                    <ion-icon item-left *ngIf="participant.my_forum_id" name="star" color="danger"></ion-icon>\n                    <ion-icon item-left *ngIf="!participant.my_forum_id" name="star-outline"></ion-icon>\n                    <p>{{participant.name}}</p>\n                    <p *ngIf="participant.place_name">\n                        <ion-icon name="pin" color="danger"></ion-icon>\n                        {{participant.place_name}}\n                    <p>\n                </button>\n\n\n            </ion-item>\n        </ion-list>\n\n\n        <ion-list *ngSwitchCase="\'conferenceItems\'">\n            <ion-item text-wrap #slidingItem *ngFor="let conferenceSingle of myForumConference"\n                              no-padding="true"\n                              no-margin="true">\n                <button ion-item (click)="goToConferenceDetail(conferenceSingle)">\n                    <ion-icon item-left *ngIf="conferenceSingle.my_forum_id" name="star" color="danger"></ion-icon>\n                    <ion-icon item-left *ngIf="!conferenceSingle.my_forum_id" name="star-outline"></ion-icon>\n                    <p>\n                        <ion-icon name="calendar" color="danger"></ion-icon>\n                        <b color="primary">{{conferenceSingle.date_event}}</b>\n                    </p>\n                    <p>\n                        <ion-icon name="timer" color="danger"></ion-icon>\n                        <b color="primary">{{conferenceSingle.time_beg}} : {{conferenceSingle.time_end}}</b>\n                    </p>\n                    <p>{{conferenceSingle.name}}</p>\n                    <p *ngIf="conferenceSingle.place_name_place">\n                        <ion-icon name="pin" color="danger"></ion-icon>\n                        <b>{{conferenceSingle.place_name_place}}</b>\n                    <p>\n                </button>\n\n            </ion-item>\n        </ion-list>\n\n\n        <ion-list *ngSwitchCase="\'exhibitItems\'">\n\n            <ion-item *ngFor="let exhibit of myForumExhibit" text-wrap>\n                <button ion-item (click)="goToExhibitDetail(exhibit)">\n                    <ion-icon item-left *ngIf="exhibit.my_forum_id&&userId" name="star" color="danger"></ion-icon>\n                    <ion-icon item-left *ngIf="!exhibit.my_forum_id&&userId" name="star-outline"></ion-icon>\n                    <p>{{exhibit.name}}</p>\n                    <p *ngIf="!exhibit.place_name_place">\n                        <ion-icon name="pin" color="danger"></ion-icon>\n                        {{exhibit.place_name}}\n                    </p>\n                    <p *ngIf="exhibit.place_name_place">\n                        <ion-icon name="pin" color="danger"></ion-icon>\n                        {{exhibit.place_name_place}}\n                    </p>\n                </button>\n\n            </ion-item>\n        </ion-list>\n\n\n        <ion-list *ngSwitchCase="\'demoItems\'">\n\n            <ion-item *ngFor="let demo of myForumDemoProgram" text-wrap no-padding\n                      no-margin="true">\n                <button ion-item (click)="goToDemoProgramDetail(demo)">\n                    <ion-icon item-left *ngIf="demo.my_forum_id" name="star" color="danger"></ion-icon>\n                    <ion-icon item-left *ngIf="!demo.my_forum_id" name="star-outline"></ion-icon>\n                    <p>\n                        <ion-icon name="calendar" color="danger"></ion-icon>\n                        <b color="primary">{{demo.date_event}} </b>\n                        <ion-icon name="timer" color="danger"></ion-icon>\n                        <b color="primary">{{demo.time_beg}} : {{demo.time_end}}</b>\n                    </p>\n\n                    <p>{{demo.name_first}}</p>\n                    <h6>{{demo.name_second}}</h6>\n                    <p>\n                        <ion-icon name="pin" color="danger"></ion-icon>\n                        <b>{{demo.place_name}}</b>\n                    <p>\n                </button>\n\n            </ion-item>\n        </ion-list>\n\n    </div>\n</ion-content>\n'/*ion-inline-end:"/Users/leonidlyalin/WebstormProjects/army2017/src/pages/my-forum/my-forum.html"*/,
+    }),
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* NavController */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* NavParams */],
+        __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Http */],
+        __WEBPACK_IMPORTED_MODULE_4__providers_my_forum_sql__["a" /* MyForumSql */],
+        __WEBPACK_IMPORTED_MODULE_7__providers_place_sql_place_sql__["a" /* PlaceSql */],
+        __WEBPACK_IMPORTED_MODULE_9__providers_map_sql_map_sql__["a" /* MapSql */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* Events */]])
+], MyForumPage);
+
+//# sourceMappingURL=my-forum.js.map
 
 /***/ }),
 
@@ -7268,8 +7889,8 @@ SettingsPage = __decorate([
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AccountPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_user_data__ = __webpack_require__(69);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__tabs_tabs__ = __webpack_require__(53);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_user_data__ = __webpack_require__(52);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__tabs_tabs__ = __webpack_require__(45);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_base_lang_page_base_lang_page__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_http__ = __webpack_require__(2);
 var __extends = (this && this.__extends) || (function () {
@@ -7414,283 +8035,6 @@ AccountPage = __decorate([
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UserApi; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs__ = __webpack_require__(46);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__base_api_service__ = __webpack_require__(29);
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-var UserApi = (function (_super) {
-    __extends(UserApi, _super);
-    //  private baseUrl = 'http://army2017.ru/api';
-    function UserApi(http) {
-        var _this = _super.call(this, http) || this;
-        _this.http = http;
-        return _this;
-        //console.log('conferenceSingle api is created');
-    }
-    UserApi.prototype.createUser = function (login, password, name, lastname, email, confirm_password) {
-        var _this = this;
-        try {
-            //console.log("I'm inside try");
-            //console.log(login);
-            //console.log(password);
-            //console.log(`${this.baseUrlApi}/user/create_user.php?LOGIN=` + login + `&PASSWORD=` + password);
-            //console.log(`${this.baseUrl}/api/user/create_user.php?LOGIN=` + login + `&PASSWORD=` + password + `&NAME=` + name + `&SURNAME=` + lastname + `&EMAIL=` + email + `&CONFIRM_PASSWORD=` + confirm_password);
-            return this.http.get(this.baseUrl + "/api/user/create_user.php?LOGIN=" + login
-                + "&PASSWORD=" + password + "&NAME=" + name
-                + "&SURNAME=" + lastname + "&EMAIL=" + email + "&CONFIRM_PASSWORD=" + confirm_password).map(function (response) {
-                //console.log("response");
-                var res = response.json();
-                //console.log(res);
-                if (res.result)
-                    _this.userId = res.result;
-                else
-                    _this.userId = res;
-                //console.log(this.userId);
-                if ((_this.userId) && (_this.userId > 0)) {
-                    localStorage.setItem('userid', _this.userId);
-                    return _this.userId;
-                }
-                else {
-                    localStorage.removeItem('userid');
-                    return 0;
-                }
-            });
-        }
-        catch (err) {
-            //console.log("error");
-            //console.log(err);
-            return err;
-        }
-    };
-    UserApi.prototype.checkUser = function (login, password) {
-        var _this = this;
-        try {
-            //console.log("I'm inside try");
-            //console.log(login);
-            //console.log(password);
-            //console.log(`${this.baseUrlApi}/user/check_user.php?LOGIN=` + login + `&PASSWORD=` + password);
-            return this.http.get(this.baseUrl + "/api/user/check_user.php?LOGIN=" + login + "&PASSWORD=" + password).map(function (response) {
-                //console.log("response");
-                var res = response.json();
-                //console.log(res);
-                _this.userId = res.result.ID;
-                //console.log(this.userId);
-                localStorage.setItem('userid', _this.userId);
-                return res;
-            });
-        }
-        catch (err) {
-            //console.log("error");
-            //console.log(err);
-            return err;
-        }
-    };
-    return UserApi;
-}(__WEBPACK_IMPORTED_MODULE_3__base_api_service__["a" /* BaseApi */]));
-UserApi = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Injectable */])(),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */]])
-], UserApi);
-
-//# sourceMappingURL=user-api.service.js.map
-
-/***/ }),
-
-/***/ 307:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_user_data__ = __webpack_require__(69);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__tabs_tabs__ = __webpack_require__(53);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__signup_signup__ = __webpack_require__(161);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-
-var LoginPage = (function () {
-    function LoginPage(navCtrl, userData, events) {
-        var _this = this;
-        this.navCtrl = navCtrl;
-        this.userData = userData;
-        this.events = events;
-        this.user = {};
-        this.submitted = false;
-        this.events.subscribe('language:change', function () {
-            _this.lang = localStorage.getItem('lang');
-            if (_this.lang == 'ru') {
-                //console.log('this.events.subscribe(language:change)', this.lang);
-                _this.setRussianStrings();
-            }
-            else {
-                _this.setEnglishStrings();
-            }
-        });
-    }
-    LoginPage.prototype.ionViewDidLoad = function () {
-        this.lang = localStorage.getItem('lang');
-        if (this.lang == 'ru')
-            this.setRussianStrings();
-        else
-            this.setEnglishStrings();
-    };
-    LoginPage.prototype.setRussianStrings = function () {
-        this.loginStr = 'Войти';
-        this.userNameStr = 'Логин';
-        this.needUserNameStr = 'Требуется имя пользователя';
-        this.passwordStr = 'Пароль';
-        this.needPasswordStr = 'Требуется пароль';
-        this.signUpStr = 'Регистрация';
-    };
-    LoginPage.prototype.setEnglishStrings = function () {
-        this.loginStr = 'Login';
-        this.userNameStr = 'Username';
-        this.needUserNameStr = 'Need a login';
-        this.passwordStr = 'Password';
-        this.needPasswordStr = 'Need a password';
-        this.signUpStr = 'Sign Up';
-    };
-    LoginPage.prototype.onLogin = function (form) {
-        this.submitted = true;
-        if (form.valid) {
-            this.userData.login(this.user.login, this.user.password);
-            this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__tabs_tabs__["a" /* TabsPage */]);
-        }
-    };
-    LoginPage.prototype.onSignup = function () {
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_4__signup_signup__["a" /* SignupPage */]);
-    };
-    return LoginPage;
-}());
-LoginPage = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-user',template:/*ion-inline-start:"/Users/leonidlyalin/WebstormProjects/army2017/src/pages/login/login.html"*/'<ion-header>\n	<ion-navbar>\n		<ion-title>{{loginStr}}</ion-title>\n	</ion-navbar>\n</ion-header>\n\n<ion-content>\n	<div class="logo">\n\n    <img src="assets/img/army2017.png" /></div>\n\n	<form #loginForm="ngForm" novalidate>\n		<ion-list no-lines>\n			<ion-item>\n				<ion-label stacked color="danger">{{userNameStr}}</ion-label>\n				<ion-input [(ngModel)]="user.login" name="login" type="text" #login="ngModel" spellcheck="false" autocapitalize="off"\n					required>\n				</ion-input>\n			</ion-item>\n			<p ion-text [hidden]="login.valid || submitted == false" color="danger" padding-left>\n				{{needUserNameStr}}\n			</p>\n\n			<ion-item>\n				<ion-label stacked color="danger">{{passwordStr}}</ion-label>\n				<ion-input [(ngModel)]="user.password" name="password" type="password" #password="ngModel" required>\n				</ion-input>\n			</ion-item>\n			<p ion-text [hidden]="password.valid || submitted == false" color="danger" padding-left>\n				{{needPasswordStr}}\n			</p>\n		</ion-list>\n\n		<ion-row responsive-sm>\n			<ion-col>\n				<button ion-button (click)="onLogin(loginForm)" type="submit" block color="danger">{{loginStr}}</button>\n			</ion-col>\n			<ion-col>\n				<button ion-button (click)="onSignup()" color="light" block>{{signUpStr}}</button>\n			</ion-col>\n		</ion-row>\n	</form>\n\n</ion-content>\n'/*ion-inline-end:"/Users/leonidlyalin/WebstormProjects/army2017/src/pages/login/login.html"*/
-    }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__providers_user_data__["a" /* UserData */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* Events */]])
-], LoginPage);
-
-//# sourceMappingURL=login.js.map
-
-/***/ }),
-
-/***/ 308:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SupportPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-var SupportPage = (function () {
-    function SupportPage(navCtrl, alertCtrl, toastCtrl) {
-        this.navCtrl = navCtrl;
-        this.alertCtrl = alertCtrl;
-        this.toastCtrl = toastCtrl;
-        this.submitted = false;
-    }
-    SupportPage.prototype.ionViewDidEnter = function () {
-        var toast = this.toastCtrl.create({
-            message: 'This does not actually send a support request.',
-            duration: 3000
-        });
-        toast.present();
-    };
-    SupportPage.prototype.submit = function (form) {
-        this.submitted = true;
-        if (form.valid) {
-            this.supportMessage = '';
-            this.submitted = false;
-            var toast = this.toastCtrl.create({
-                message: 'Your support request has been sent.',
-                duration: 3000
-            });
-            toast.present();
-        }
-    };
-    // If the user enters text in the support question and then navigates
-    // without submitting first, ask if they meant to leave the page
-    SupportPage.prototype.ionViewCanLeave = function () {
-        var _this = this;
-        // If the support message is empty we should just navigate
-        if (!this.supportMessage || this.supportMessage.trim().length === 0) {
-            return true;
-        }
-        return new Promise(function (resolve, reject) {
-            var alert = _this.alertCtrl.create({
-                title: 'Leave this page?',
-                message: 'Are you sure you want to leave this page? Your support message will not be submitted.'
-            });
-            alert.addButton({ text: 'Stay', handler: reject });
-            alert.addButton({ text: 'Leave', role: 'cancel', handler: resolve });
-            alert.present();
-        });
-    };
-    return SupportPage;
-}());
-SupportPage = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-user',template:/*ion-inline-start:"/Users/leonidlyalin/WebstormProjects/army2017/src/pages/support/support.html"*/'<ion-header>\n\n	<ion-navbar>\n		<button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n		<ion-title>Support</ion-title>\n	</ion-navbar>\n\n</ion-header>\n\n\n<ion-content>\n	<div class="logo">\n		<img src="assets/img/appicon.svg" alt="Ionic Logo">\n	</div>\n\n	<form #submitForm="ngForm" novalidate (ngSubmit)="submit(submitForm)">\n		<ion-list no-lines>\n			<ion-item>\n				<ion-label stacked color="primary">Enter your support message below</ion-label>\n				<ion-textarea [(ngModel)]="supportMessage" name="supportQuestion" #supportQuestion="ngModel" rows="6" required></ion-textarea>\n			</ion-item>\n		</ion-list>\n\n		<p ion-text [hidden]="supportQuestion.valid || submitted === false" color="danger" padding-left>\n			Support message is required\n		</p>\n\n		<div padding>\n			<button ion-button block type="submit">Submit</button>\n		</div>\n	</form>\n</ion-content>\n'/*ion-inline-end:"/Users/leonidlyalin/WebstormProjects/army2017/src/pages/support/support.html"*/
-    }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* NavController */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["u" /* ToastController */]])
-], SupportPage);
-
-//# sourceMappingURL=support.js.map
-
-/***/ }),
-
-/***/ 309:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AboutPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
@@ -7779,15 +8123,15 @@ AboutPage = __decorate([
 
 /***/ }),
 
-/***/ 310:
+/***/ 307:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TutorialPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__tabs_tabs__ = __webpack_require__(53);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_storage__ = __webpack_require__(93);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__tabs_tabs__ = __webpack_require__(45);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_storage__ = __webpack_require__(92);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -7846,16 +8190,28 @@ TutorialPage = __decorate([
 
 /***/ }),
 
-/***/ 311:
+/***/ 308:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ParkPatriotPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SignupFormPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__war_tactic_page_war_tactic_page__ = __webpack_require__(162);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__sektor_vks_page_sector_vks_page__ = __webpack_require__(312);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__demo_opk_page_demo_opk_page__ = __webpack_require__(313);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__(28);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_user_data__ = __webpack_require__(52);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__tabs_tabs__ = __webpack_require__(45);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_base_lang_page_base_lang_page__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_http__ = __webpack_require__(2);
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -7870,130 +8226,176 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-/**
- * Generated class for the ParkPatriotPage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
-var ParkPatriotPage = (function () {
-    function ParkPatriotPage(navCtrl, navParams) {
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-    }
-    ParkPatriotPage.prototype.warTacticPage = function () {
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__war_tactic_page_war_tactic_page__["a" /* WarTacticPage */]);
-    };
-    ParkPatriotPage.prototype.sectorVksPage = function () {
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__sektor_vks_page_sector_vks_page__["a" /* SectorVksPage */]);
-    };
-    ParkPatriotPage.prototype.demoOpkPage = function () {
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_4__demo_opk_page_demo_opk_page__["a" /* DemoOpkPage */]);
-    };
-    return ParkPatriotPage;
-}());
-ParkPatriotPage = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-park-patriot',template:/*ion-inline-start:"/Users/leonidlyalin/WebstormProjects/army2017/src/pages/park-patriot-all/park-patriot/park-patriot.html"*/'<ion-header>\n  <ion-navbar color="red">\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title> Парк патриот</ion-title>\n  </ion-navbar>\n</ion-header>\n<ion-content>\n\n\n  <ion-grid>\n    <ion-row>\n      <ion-col col-4>\n\n\n        <img src="assets/img/park-patriot/war-tactic.png"  (click)="warTacticPage()"/>\n        <p>Центр военно-тактических игр</p>\n      </ion-col>\n      <ion-col col-4>\n\n        <img src="assets/img/park-patriot/sektor-vks.png"  (click)="sectorVksPage()"/>\n        <p>Сектор Воздушно-космических сил</p>\n      </ion-col>\n      <ion-col col-4>\n\n        <img src="assets/img/park-patriot/sektor-vks.png" (click)="demoOpkPage()"/>\n        <p>Демонстрационные центры ведущих предприятий ОПК</p>\n      </ion-col>\n    </ion-row>\n    <ion-row>\n      <ion-col col-4>\n\n        <img src="assets/img/park-patriot/partisan.png" />\n        <p>Партизанская деревня</p>\n      </ion-col>\n      <ion-col col-4>\n\n        <img src="assets/img/park-patriot/yangarmy.png" />\n        <p>ЮнАрмия</p>\n      </ion-col>\n      <ion-col col-4>\n\n        <img src="assets/img/park-patriot/extrim.png" />\n        <p>Сектор экстремальных видов спорта</p>\n      </ion-col>\n    </ion-row>\n    <ion-row>\n      <ion-col col-4>\n\n        <img src="assets/img/park-patriot/warreconstraction.png" />\n        <p>Зона военно-исторической реконструкции</p>\n      </ion-col>\n      <ion-col col-4>\n\n        <img src="assets/img/park-patriot/warreconstraction.png" />\n        <p>Многофункциональный огневой центр</p>\n      </ion-col>\n      <ion-col col-4>\n\n        <img src="assets/img/park-patriot/tankmuseum.png" />\n        <p>Центральный музей бронетанкового вооружения и техники</p>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"/Users/leonidlyalin/WebstormProjects/army2017/src/pages/park-patriot-all/park-patriot/park-patriot.html"*/,
-    }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* NavParams */]])
-], ParkPatriotPage);
 
-//# sourceMappingURL=park-patriot.js.map
+
+var SignupFormPage = (function (_super) {
+    __extends(SignupFormPage, _super);
+    function SignupFormPage(navCtrl, userData, events, http, formBuilder, toastCtrl) {
+        var _this = _super.call(this, navCtrl, events, http) || this;
+        _this.navCtrl = navCtrl;
+        _this.userData = userData;
+        _this.events = events;
+        _this.http = http;
+        _this.formBuilder = formBuilder;
+        _this.toastCtrl = toastCtrl;
+        _this.signup = {};
+        _this.submitted = false;
+        _this.login = new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* FormControl */]('', __WEBPACK_IMPORTED_MODULE_1__angular_forms__["g" /* Validators */].required);
+        _this.password = new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* FormControl */]('', __WEBPACK_IMPORTED_MODULE_1__angular_forms__["g" /* Validators */].required);
+        _this.name = new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* FormControl */]('', __WEBPACK_IMPORTED_MODULE_1__angular_forms__["g" /* Validators */].required);
+        _this.lastname = new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* FormControl */]('', __WEBPACK_IMPORTED_MODULE_1__angular_forms__["g" /* Validators */].required);
+        _this.email = new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* FormControl */]('', __WEBPACK_IMPORTED_MODULE_1__angular_forms__["g" /* Validators */].required);
+        _this.confirm_password = new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* FormControl */]('', __WEBPACK_IMPORTED_MODULE_1__angular_forms__["g" /* Validators */].required);
+        _this.confirm_personal = new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* FormControl */]('', __WEBPACK_IMPORTED_MODULE_1__angular_forms__["g" /* Validators */].required);
+        _this.form = formBuilder.group({
+            login: _this.login,
+            password: _this.password,
+            name: _this.name,
+            lastname: _this.lastname,
+            email: _this.email,
+            confirm_password: _this.confirm_password,
+            confirm_personal: _this.confirm_personal
+        });
+        return _this;
+    }
+    SignupFormPage.prototype.setRussianStrings = function () {
+        _super.prototype.setRussianStrings.call(this, 'Регистрация');
+        this.loginStr = 'Логин';
+        this.passwordStr = 'Пароль';
+        this.passwordIsReq = 'Требуется пароль';
+        this.loginIsReq = 'Необходим логин';
+        this.nameIsReq = 'Необходимо имя';
+        this.lastnameIsReq = 'Необходима фамилия';
+        this.emailIsReq = 'Необходима электронная почта';
+        this.confirmIsReq = 'Необходимо подтверждение пароля';
+        this.signUpStr = 'Зарегистрироваться';
+        this.personalStr = 'Даю согласие на обработку персональных данных';
+        this.nameStr = 'Имя';
+        this.lastnameStr = 'Фамилия';
+        this.emailStr = 'Электронная почта';
+        this.confirmStr = 'Подтверждение пароля';
+        this.personalIsReq = 'Необходимо согласие на обработку персональных данных';
+        this.matchIsReq = 'Не совпадает подтверждение пароля';
+        this.signupSuccessStr = 'Вы успешно зарегистрировались';
+    };
+    SignupFormPage.prototype.setEnglishStrings = function () {
+        _super.prototype.setEnglishStrings.call(this, 'Signup');
+        this.loginStr = 'Login';
+        this.passwordStr = 'Password';
+        this.passwordIsReq = 'Password is required';
+        this.loginIsReq = 'Login is required';
+        this.nameIsReq = 'Name is required';
+        this.lastnameIsReq = 'Last name is required';
+        this.emailIsReq = 'Email is required';
+        this.confirmIsReq = 'Password confirm is required';
+        this.signUpStr = 'Sign Up';
+        this.personalStr = 'I give my persmission to use my personal data';
+        this.nameStr = 'Name';
+        this.lastnameStr = 'Lastname';
+        this.emailStr = 'Email';
+        this.confirmStr = 'Confirm_password';
+        this.personalIsReq = 'Personal data using permission is required';
+        this.matchIsReq = 'Confirm password does not match';
+        this.signupSuccessStr = 'Signup is successful';
+    };
+    SignupFormPage.prototype.onSignup = function (form) {
+        this.submitted = true;
+        if (!this.login.valid) {
+            var toast = this.toastCtrl.create({
+                message: this.loginIsReq,
+                duration: 2000
+            });
+            toast.present();
+            return;
+        }
+        if (!this.password.valid) {
+            var toast = this.toastCtrl.create({
+                message: this.passwordIsReq,
+                duration: 2000
+            });
+            toast.present();
+            return;
+        }
+        if (!this.confirm_password.valid) {
+            var toast = this.toastCtrl.create({
+                message: this.confirmIsReq,
+                duration: 2000
+            });
+            toast.present();
+            return;
+        }
+        if (!this.name.valid) {
+            var toast = this.toastCtrl.create({
+                message: this.nameIsReq,
+                duration: 2000
+            });
+            toast.present();
+            return;
+        }
+        if (!this.lastname.valid) {
+            var toast = this.toastCtrl.create({
+                message: this.lastnameIsReq,
+                duration: 2000
+            });
+            toast.present();
+            return;
+        }
+        if (!this.email.valid) {
+            var toast = this.toastCtrl.create({
+                message: this.emailIsReq,
+                duration: 2000
+            });
+            toast.present();
+            return;
+        }
+        if (!this.confirm_personal.value) {
+            var toast = this.toastCtrl.create({
+                message: this.personalIsReq,
+                duration: 2000
+            });
+            toast.present();
+            return;
+        }
+        if (this.confirm_password.value != this.password.value) {
+            var toast = this.toastCtrl.create({
+                message: this.matchIsReq,
+                duration: 2000
+            });
+            toast.present();
+            return;
+        }
+        if (this.form.valid && this.confirm_personal.value) {
+            this.userData.signup(this.login.value, this.password.value, this.name.value, this.lastname.value, this.email.value, this.confirm_password.value);
+            var toast = this.toastCtrl.create({
+                message: this.signupSuccessStr,
+                duration: 2000
+            });
+            toast.present();
+            this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_4__tabs_tabs__["a" /* TabsPage */]);
+        }
+    };
+    SignupFormPage.prototype.onCancel = function () {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_4__tabs_tabs__["a" /* TabsPage */]);
+    };
+    return SignupFormPage;
+}(__WEBPACK_IMPORTED_MODULE_5__providers_base_lang_page_base_lang_page__["a" /* BaseLangPageProvider */]));
+SignupFormPage = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+        selector: 'page-user',template:/*ion-inline-start:"/Users/leonidlyalin/WebstormProjects/army2017/src/pages/signup-form/signup-form.html"*/'<ion-header>\n    <ion-navbar>\n        <button ion-button menuToggle>\n            <ion-icon name="menu"></ion-icon>\n        </button>\n        <ion-title>{{titleStr}}</ion-title>\n    </ion-navbar>\n</ion-header>\n\n<ion-content class="login-page">\n\n    <div class="logo">\n        <img src="assets/img/army2017.png" alt="Ionic Logo">\n    </div>\n\n    <form [formGroup]="form">\n        <ion-list>\n            <ion-item>\n                <ion-label stacked color="danger">{{loginStr}}</ion-label>\n                <ion-input formControlName="login" type="text" required></ion-input>\n            </ion-item>\n            <ion-item>\n                <ion-label stacked color="danger">{{nameStr}}</ion-label>\n                <ion-input formControlName="name" type="text" required></ion-input>\n            </ion-item>\n            <ion-item>\n                <ion-label stacked color="danger">{{lastnameStr}}</ion-label>\n                <ion-input formControlName="lastname" type="text" required></ion-input>\n            </ion-item>\n            <ion-item>\n                <ion-label stacked color="danger">{{emailStr}}</ion-label>\n                <ion-input formControlName="email" type="email" required></ion-input>\n            </ion-item>\n            <ion-item>\n                <ion-label stacked color="danger">{{passwordStr}}</ion-label>\n                <ion-input formControlName="password" type="password" required></ion-input>\n            </ion-item>\n            <ion-item>\n                <ion-label stacked color="danger">{{confirmStr}}</ion-label>\n                <ion-input formControlName="confirm_password" type="password" required></ion-input>\n            </ion-item>\n            <ion-item>\n                <ion-label stacked color="danger" text-wrap>{{personalStr}}</ion-label>\n                <ion-checkbox formControlName="confirm_personal" type="checkbox" required></ion-checkbox>\n            </ion-item>\n\n        </ion-list>\n\n        <div padding>\n            <button ion-button (click)="onSignup(signupForm)" type="submit" block color="danger">{{signUpStr}}</button>\n        </div>\n        <div padding>\n            <button ion-button (click)="onCancel()" block color="primary">{{cancelFilterStr}}</button>\n        </div>\n    </form>\n\n</ion-content>\n'/*ion-inline-end:"/Users/leonidlyalin/WebstormProjects/army2017/src/pages/signup-form/signup-form.html"*/
+    }),
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["n" /* NavController */],
+        __WEBPACK_IMPORTED_MODULE_3__providers_user_data__["a" /* UserData */],
+        __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* Events */],
+        __WEBPACK_IMPORTED_MODULE_6__angular_http__["a" /* Http */],
+        __WEBPACK_IMPORTED_MODULE_1__angular_forms__["a" /* FormBuilder */],
+        __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["u" /* ToastController */]])
+], SignupFormPage);
+
+//# sourceMappingURL=signup-form.js.map
 
 /***/ }),
 
-/***/ 312:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SectorVksPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-/**
- * Generated class for the SectorVksPage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
-var SectorVksPage = (function () {
-    function SectorVksPage(navCtrl, navParams) {
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-    }
-    SectorVksPage.prototype.ionViewDidLoad = function () {
-        //console.log('ionViewDidLoad SectorVksPage');
-    };
-    return SectorVksPage;
-}());
-SectorVksPage = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-sektor-vks',template:/*ion-inline-start:"/Users/leonidlyalin/WebstormProjects/army2017/src/pages/park-patriot-all/sektor-vks-page/sector-vks-page.html"*/'<!--\n  Generated template for SectorVksPagePage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Cектор ВКС</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n  <ion-card>\n\n\n    <img src="assets/img/park-patriot/sektor-vks.png" height="267" width="400"/>\n    <ion-card-content>\n      <ion-card-title>\n        Сектор Воздушно-космических сил\n      </ion-card-title>\n      <p>\n        На открытых площадках Сектора Воздушно-космических сил представлено свыше 268 образцов советской и российской\n        авиационной, бронированной, бронетанковой и специальной техники последних десятилетий. В павильонах (ТМУ),\n        расположенных на территории сектора, работают экспозиции Центрального музея бронетанкового вооружения и техники\n        (филиала парка «Патриот»), 12-го Главного управления Минобороны России, Воздушно-десантных войск,\n        Военно-воздушных сил, войск противовоздушной обороны и Космических войск Воздушно-космических сил.\n        Программа на время Форума\n      </p>\n    </ion-card-content>\n\n    <ion-row no-padding>\n      <ion-col>\n        <button ion-button clear small color="danger" icon-left>\n          <ion-icon name=\'map\'></ion-icon>\n          На карте\n        </button>\n      </ion-col>\n      <ion-col>\n        <button ion-button clear small color="danger" icon-left>\n          <ion-icon name=\'star\'></ion-icon>\n          Мой форум\n        </button>\n      </ion-col>\n\n      <ion-col text-right>\n        <button ion-button clear small color="danger" icon-left>\n          <ion-icon name=\'bus\'></ion-icon>\n          Показать маршрут\n        </button>\n      </ion-col>\n    </ion-row>\n\n  </ion-card>\n\n</ion-content>\n'/*ion-inline-end:"/Users/leonidlyalin/WebstormProjects/army2017/src/pages/park-patriot-all/sektor-vks-page/sector-vks-page.html"*/,
-    }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* NavParams */]])
-], SectorVksPage);
-
-//# sourceMappingURL=sector-vks-page.js.map
-
-/***/ }),
-
-/***/ 313:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DemoOpkPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-/**
- * Generated class for the DemoOpkPage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
-var DemoOpkPage = (function () {
-    function DemoOpkPage(navCtrl, navParams) {
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-    }
-    DemoOpkPage.prototype.ionViewDidLoad = function () {
-        //console.log('ionViewDidLoad DemoOpkPage');
-    };
-    return DemoOpkPage;
-}());
-DemoOpkPage = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-demo-opk-page',template:/*ion-inline-start:"/Users/leonidlyalin/WebstormProjects/army2017/src/pages/park-patriot-all/demo-opk-page/demo-opk-page.html"*/'<!--\n  Generated template for DemoOpkPagePage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Демо ОПК</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <ion-card>\n\n\n    <img src="assets/img/park-patriot/sektor-vks.png" height="267" width="400"/>\n    <ion-card-content>\n      <ion-card-title>\n        Демонстрационные центры ведущих предприятий ОПК\n      </ion-card-title>\n      <p>\n        В Парке Патриот расположены демонстрационные центры ведущих промышленных организаций оборонно-промышленного комплекса.\n        Объединенная авиационная корпорация\n        Объединенная судостроительная корпорация\n        Концерн Калашников\n        Корпорация тактическое ракетное вооружение\n        Алмаз-Антей\n        Ростех\n      </p>\n    </ion-card-content>\n\n    <ion-row no-padding>\n      <ion-col>\n        <button ion-button clear small color="danger" icon-left>\n          <ion-icon name=\'map\'></ion-icon>\n          На карте\n        </button>\n      </ion-col>\n      <ion-col>\n        <button ion-button clear small color="danger" icon-left>\n          <ion-icon name=\'star\'></ion-icon>\n          Мой форум\n        </button>\n      </ion-col>\n\n      <ion-col text-right>\n        <button ion-button clear small color="danger" icon-left>\n          <ion-icon name=\'bus\'></ion-icon>\n          Показать маршрут\n        </button>\n      </ion-col>\n    </ion-row>\n\n  </ion-card>\n\n</ion-content>\n'/*ion-inline-end:"/Users/leonidlyalin/WebstormProjects/army2017/src/pages/park-patriot-all/demo-opk-page/demo-opk-page.html"*/,
-    }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* NavParams */]])
-], DemoOpkPage);
-
-//# sourceMappingURL=demo-opk-page.js.map
-
-/***/ }),
-
-/***/ 314:
+/***/ 309:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -8002,7 +8404,7 @@ DemoOpkPage = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs__ = __webpack_require__(46);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_base_api_service__ = __webpack_require__(29);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_base_api_service__ = __webpack_require__(30);
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -8057,7 +8459,7 @@ ThematicApi = __decorate([
 
 /***/ }),
 
-/***/ 315:
+/***/ 310:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -8066,7 +8468,7 @@ ThematicApi = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs__ = __webpack_require__(46);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__base_api_service__ = __webpack_require__(29);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__base_api_service__ = __webpack_require__(30);
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -8121,13 +8523,13 @@ PlaceApi = __decorate([
 
 /***/ }),
 
-/***/ 321:
+/***/ 316:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(322);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(326);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(317);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(321);
 
 
 Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_1__app_module__["a" /* AppModule */]);
@@ -8135,103 +8537,99 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 
 /***/ }),
 
-/***/ 326:
+/***/ 321:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_component__ = __webpack_require__(363);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pages_about_about__ = __webpack_require__(309);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_home_home__ = __webpack_require__(140);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_tabs_tabs__ = __webpack_require__(53);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_settings_settings__ = __webpack_require__(304);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_component__ = __webpack_require__(358);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pages_about_about__ = __webpack_require__(306);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_home_home__ = __webpack_require__(260);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_tabs_tabs__ = __webpack_require__(45);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_settings_settings__ = __webpack_require__(633);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_account_account__ = __webpack_require__(305);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__providers_participant_sql__ = __webpack_require__(638);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__ionic_native_splash_screen__ = __webpack_require__(257);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__providers_participant_sql__ = __webpack_require__(634);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__ionic_native_splash_screen__ = __webpack_require__(255);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__angular_http__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__angular_platform_browser__ = __webpack_require__(48);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__ionic_native_status_bar__ = __webpack_require__(261);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_participant_participant__ = __webpack_require__(87);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__providers_participant_participant_api_service__ = __webpack_require__(287);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__ionic_native_sqlite__ = __webpack_require__(639);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_my_forum_my_forum__ = __webpack_require__(160);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__providers_my_forum_my_forum_api__ = __webpack_require__(286);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__angular_platform_browser__ = __webpack_require__(49);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__ionic_native_status_bar__ = __webpack_require__(259);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_participant_participant__ = __webpack_require__(139);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__providers_participant_participant_api_service__ = __webpack_require__(286);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__ionic_native_sqlite__ = __webpack_require__(635);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_my_forum_my_forum__ = __webpack_require__(304);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__providers_my_forum_my_forum_api__ = __webpack_require__(285);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__providers_my_forum_sql__ = __webpack_require__(26);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__pages_participant_detail_participant_detail__ = __webpack_require__(68);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__providers_user_data__ = __webpack_require__(69);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__pages_login_login__ = __webpack_require__(307);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__ionic_storage__ = __webpack_require__(93);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__pages_support_support__ = __webpack_require__(308);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__pages_signup_signup__ = __webpack_require__(161);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__pages_tutorial_tutorial__ = __webpack_require__(310);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__providers_user_user_api_service__ = __webpack_require__(306);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__pages_park_patriot_all_park_patriot_park_patriot__ = __webpack_require__(311);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__pages_park_patriot_all_war_tactic_page_war_tactic_page__ = __webpack_require__(162);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__pages_park_patriot_all_sektor_vks_page_sector_vks_page__ = __webpack_require__(312);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__pages_park_patriot_all_demo_opk_page_demo_opk_page__ = __webpack_require__(313);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__providers_place_sql_place_sql__ = __webpack_require__(40);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__providers_thematic_sql__ = __webpack_require__(146);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__pages_thematic_thematic__ = __webpack_require__(640);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__providers_thematic_thematic_api_service__ = __webpack_require__(314);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__providers_place_place_api_service__ = __webpack_require__(315);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_36__providers_draw_function_draw_function__ = __webpack_require__(147);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_37__providers_conference_sql_conference_sql__ = __webpack_require__(149);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_38__providers_thematic_conference_sql_thematic_conference_sql__ = __webpack_require__(289);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_39__pages_conference_conference__ = __webpack_require__(288);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_40__providers_conference_sql_conference_api_service__ = __webpack_require__(150);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_41__providers_map_sql_map_sql__ = __webpack_require__(51);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_42__pages_conference_detail_conference_detail__ = __webpack_require__(151);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_43__providers_base_api_service__ = __webpack_require__(29);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_44__providers_map_base_map_base__ = __webpack_require__(641);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_45__pages_leaflet_map_leaflet_map__ = __webpack_require__(54);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_46__pages_filter_filter__ = __webpack_require__(70);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_47__pages_filter_filter_participant_filter_participant__ = __webpack_require__(642);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_48__providers_filter_provider_filter_participant_provider__ = __webpack_require__(148);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_49__providers_language_language__ = __webpack_require__(643);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_50__providers_filter_provider_filter_conference_provider__ = __webpack_require__(152);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_51__pages_filter_filter_conference_filter_conference__ = __webpack_require__(644);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_52__pages_demo_program_demo_program__ = __webpack_require__(294);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_53__providers_table_action_sql_thematic_action_sql__ = __webpack_require__(290);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_54__providers_base_lang_page_base_lang_page__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_55__pages_help_participant_help_participant_help__ = __webpack_require__(645);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_56__pages_help_conference_help_conference_help__ = __webpack_require__(646);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_57__providers_base_list_page_base_list_page__ = __webpack_require__(19);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_58_ionic2_custom_icons__ = __webpack_require__(647);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_59__pages_help_map_help_map_help__ = __webpack_require__(654);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_60__pages_qr_scanner_qr_scanner__ = __webpack_require__(655);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_61__pages_bar_scanner_bar_scanner__ = __webpack_require__(153);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_62__ionic_native_barcode_scanner__ = __webpack_require__(291);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_63__pages_exhibit_exhibit__ = __webpack_require__(292);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_64__pages_filter_filter_exhibit_filter_exhibit__ = __webpack_require__(656);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_65__pages_help_exhibit_help_exhibit_help__ = __webpack_require__(657);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_66__providers_exhibit_exhibit_api_service__ = __webpack_require__(293);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_67__providers_exhibit_exhibit_sql__ = __webpack_require__(155);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_68__providers_filter_provider_filter_exhibit_provider__ = __webpack_require__(156);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_69__pages_exhibit_detail_exhibit_detail__ = __webpack_require__(154);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_70__pages_demo_program_detail_demo_program_detail__ = __webpack_require__(157);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_71__providers_filter_provider_filter_demo_program_provider__ = __webpack_require__(158);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_72__pages_filter_filter_demo_program_filter_demo_program__ = __webpack_require__(658);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_73__pages_help_demo_program_help_demo_program_help__ = __webpack_require__(659);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_74__pages_how_to_get_how_to_get__ = __webpack_require__(295);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_75__pages_how_to_get_how_to_get_patriot_how_to_get_patriot__ = __webpack_require__(296);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_76__pages_how_to_get_how_to_get_patriot_how_to_get_patriot_by_car_how_to_get_patriot_by_car__ = __webpack_require__(297);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_77__pages_how_to_get_how_to_get_patriot_how_to_get_patriot_by_transport_how_to_get_patriot_by_transport__ = __webpack_require__(298);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_78__pages_how_to_get_how_to_get_patriot_how_to_get_patriot_by_transport_kiev_how_to_get_patriot_by_transport_kiev__ = __webpack_require__(299);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_79__pages_how_to_get_how_to_get_routes_how_to_get_routes__ = __webpack_require__(300);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_80__pages_about_forum_about_forum__ = __webpack_require__(159);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_81__pages_patriot_patriot__ = __webpack_require__(301);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_82__pages_patriot_detail_patriot_detail__ = __webpack_require__(302);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_83__providers_patriot_patriot_sql__ = __webpack_require__(303);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__pages_participant_detail_participant_detail__ = __webpack_require__(54);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__providers_user_data__ = __webpack_require__(52);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__pages_login_login__ = __webpack_require__(636);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__ionic_storage__ = __webpack_require__(92);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__pages_support_support__ = __webpack_require__(637);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__pages_signup_signup__ = __webpack_require__(160);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__pages_tutorial_tutorial__ = __webpack_require__(307);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__providers_user_user_api_service__ = __webpack_require__(303);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__providers_place_sql_place_sql__ = __webpack_require__(47);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__providers_thematic_sql__ = __webpack_require__(145);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__pages_thematic_thematic__ = __webpack_require__(638);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__providers_thematic_thematic_api_service__ = __webpack_require__(309);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__providers_place_place_api_service__ = __webpack_require__(310);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__providers_draw_function_draw_function__ = __webpack_require__(146);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__providers_conference_sql_conference_sql__ = __webpack_require__(148);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__providers_thematic_conference_sql_thematic_conference_sql__ = __webpack_require__(288);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__pages_conference_conference__ = __webpack_require__(287);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_36__providers_conference_sql_conference_api_service__ = __webpack_require__(149);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_37__providers_map_sql_map_sql__ = __webpack_require__(55);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_38__pages_conference_detail_conference_detail__ = __webpack_require__(150);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_39__providers_base_api_service__ = __webpack_require__(30);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_40__providers_map_base_map_base__ = __webpack_require__(639);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_41__pages_leaflet_map_leaflet_map__ = __webpack_require__(69);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_42__pages_filter_filter__ = __webpack_require__(70);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_43__pages_filter_filter_participant_filter_participant__ = __webpack_require__(640);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_44__providers_filter_provider_filter_participant_provider__ = __webpack_require__(147);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_45__providers_language_language__ = __webpack_require__(641);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_46__providers_filter_provider_filter_conference_provider__ = __webpack_require__(151);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_47__pages_filter_filter_conference_filter_conference__ = __webpack_require__(642);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_48__pages_demo_program_demo_program__ = __webpack_require__(293);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_49__providers_table_action_sql_thematic_action_sql__ = __webpack_require__(289);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_50__providers_base_lang_page_base_lang_page__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_51__pages_help_participant_help_participant_help__ = __webpack_require__(643);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_52__pages_help_conference_help_conference_help__ = __webpack_require__(644);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_53__providers_base_list_page_base_list_page__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_54_ionic2_custom_icons__ = __webpack_require__(645);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_55__pages_help_map_help_map_help__ = __webpack_require__(652);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_56__pages_qr_scanner_qr_scanner__ = __webpack_require__(653);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_57__pages_bar_scanner_bar_scanner__ = __webpack_require__(152);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_58__ionic_native_barcode_scanner__ = __webpack_require__(290);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_59__pages_exhibit_exhibit__ = __webpack_require__(291);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_60__pages_filter_filter_exhibit_filter_exhibit__ = __webpack_require__(654);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_61__pages_help_exhibit_help_exhibit_help__ = __webpack_require__(655);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_62__providers_exhibit_exhibit_api_service__ = __webpack_require__(292);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_63__providers_exhibit_exhibit_sql__ = __webpack_require__(154);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_64__providers_filter_provider_filter_exhibit_provider__ = __webpack_require__(155);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_65__pages_exhibit_detail_exhibit_detail__ = __webpack_require__(153);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_66__pages_demo_program_detail_demo_program_detail__ = __webpack_require__(156);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_67__providers_filter_provider_filter_demo_program_provider__ = __webpack_require__(157);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_68__pages_filter_filter_demo_program_filter_demo_program__ = __webpack_require__(656);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_69__pages_help_demo_program_help_demo_program_help__ = __webpack_require__(657);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_70__pages_how_to_get_how_to_get__ = __webpack_require__(294);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_71__pages_how_to_get_how_to_get_patriot_how_to_get_patriot__ = __webpack_require__(295);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_72__pages_how_to_get_how_to_get_patriot_how_to_get_patriot_by_car_how_to_get_patriot_by_car__ = __webpack_require__(296);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_73__pages_how_to_get_how_to_get_patriot_how_to_get_patriot_by_transport_how_to_get_patriot_by_transport__ = __webpack_require__(297);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_74__pages_how_to_get_how_to_get_patriot_how_to_get_patriot_by_transport_kiev_how_to_get_patriot_by_transport_kiev__ = __webpack_require__(298);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_75__pages_how_to_get_how_to_get_routes_how_to_get_routes__ = __webpack_require__(299);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_76__pages_about_forum_about_forum__ = __webpack_require__(158);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_77__pages_patriot_patriot__ = __webpack_require__(300);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_78__pages_patriot_detail_patriot_detail__ = __webpack_require__(301);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_79__providers_patriot_patriot_sql__ = __webpack_require__(302);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_80__pages_login_form_login_form__ = __webpack_require__(159);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_81__pages_signup_form_signup_form__ = __webpack_require__(308);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-
-
 
 
 
@@ -8324,7 +8722,7 @@ AppModule = __decorate([
         declarations: [
             __WEBPACK_IMPORTED_MODULE_2__app_component__["a" /* MyApp */],
             __WEBPACK_IMPORTED_MODULE_3__pages_about_about__["a" /* AboutPage */],
-            __WEBPACK_IMPORTED_MODULE_80__pages_about_forum_about_forum__["a" /* AboutForumPage */],
+            __WEBPACK_IMPORTED_MODULE_76__pages_about_forum_about_forum__["a" /* AboutForumPage */],
             __WEBPACK_IMPORTED_MODULE_4__pages_home_home__["a" /* HomePage */],
             __WEBPACK_IMPORTED_MODULE_5__pages_tabs_tabs__["a" /* TabsPage */],
             __WEBPACK_IMPORTED_MODULE_6__pages_settings_settings__["a" /* SettingsPage */],
@@ -8333,41 +8731,39 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_16__pages_my_forum_my_forum__["a" /* MyForumPage */],
             __WEBPACK_IMPORTED_MODULE_19__pages_participant_detail_participant_detail__["a" /* ParticipantDetailPage */],
             __WEBPACK_IMPORTED_MODULE_21__pages_login_login__["a" /* LoginPage */],
+            __WEBPACK_IMPORTED_MODULE_80__pages_login_form_login_form__["a" /* LoginFormPage */],
             __WEBPACK_IMPORTED_MODULE_23__pages_support_support__["a" /* SupportPage */],
             __WEBPACK_IMPORTED_MODULE_24__pages_signup_signup__["a" /* SignupPage */],
+            __WEBPACK_IMPORTED_MODULE_81__pages_signup_form_signup_form__["a" /* SignupFormPage */],
             __WEBPACK_IMPORTED_MODULE_25__pages_tutorial_tutorial__["a" /* TutorialPage */],
-            __WEBPACK_IMPORTED_MODULE_27__pages_park_patriot_all_park_patriot_park_patriot__["a" /* ParkPatriotPage */],
-            __WEBPACK_IMPORTED_MODULE_28__pages_park_patriot_all_war_tactic_page_war_tactic_page__["a" /* WarTacticPage */],
-            __WEBPACK_IMPORTED_MODULE_29__pages_park_patriot_all_sektor_vks_page_sector_vks_page__["a" /* SectorVksPage */],
-            __WEBPACK_IMPORTED_MODULE_30__pages_park_patriot_all_demo_opk_page_demo_opk_page__["a" /* DemoOpkPage */],
-            __WEBPACK_IMPORTED_MODULE_33__pages_thematic_thematic__["a" /* ThematicPage */],
-            __WEBPACK_IMPORTED_MODULE_39__pages_conference_conference__["a" /* ConferencePage */],
-            __WEBPACK_IMPORTED_MODULE_42__pages_conference_detail_conference_detail__["a" /* ConferenceDetailPage */],
-            __WEBPACK_IMPORTED_MODULE_45__pages_leaflet_map_leaflet_map__["a" /* LeafletMapPage */],
-            __WEBPACK_IMPORTED_MODULE_46__pages_filter_filter__["a" /* FilterPage */],
-            __WEBPACK_IMPORTED_MODULE_47__pages_filter_filter_participant_filter_participant__["a" /* FilterParticipantPage */],
-            __WEBPACK_IMPORTED_MODULE_51__pages_filter_filter_conference_filter_conference__["a" /* FilterConferencePage */],
-            __WEBPACK_IMPORTED_MODULE_64__pages_filter_filter_exhibit_filter_exhibit__["a" /* FilterExhibitPage */],
-            __WEBPACK_IMPORTED_MODULE_52__pages_demo_program_demo_program__["a" /* DemoProgramPage */],
-            __WEBPACK_IMPORTED_MODULE_55__pages_help_participant_help_participant_help__["a" /* ParticipantHelpPage */],
-            __WEBPACK_IMPORTED_MODULE_56__pages_help_conference_help_conference_help__["a" /* ConferenceHelpPage */],
-            __WEBPACK_IMPORTED_MODULE_65__pages_help_exhibit_help_exhibit_help__["a" /* ExhibitHelpPage */],
-            __WEBPACK_IMPORTED_MODULE_59__pages_help_map_help_map_help__["a" /* MapHelpPage */],
-            __WEBPACK_IMPORTED_MODULE_60__pages_qr_scanner_qr_scanner__["a" /* QrScannerPage */],
-            __WEBPACK_IMPORTED_MODULE_61__pages_bar_scanner_bar_scanner__["a" /* BarScannerPage */],
-            __WEBPACK_IMPORTED_MODULE_63__pages_exhibit_exhibit__["a" /* ExhibitPage */],
-            __WEBPACK_IMPORTED_MODULE_69__pages_exhibit_detail_exhibit_detail__["a" /* ExhibitDetailPage */],
-            __WEBPACK_IMPORTED_MODULE_70__pages_demo_program_detail_demo_program_detail__["a" /* DemoProgramDetailPage */],
-            __WEBPACK_IMPORTED_MODULE_72__pages_filter_filter_demo_program_filter_demo_program__["a" /* FilterDemoProgramPage */],
-            __WEBPACK_IMPORTED_MODULE_73__pages_help_demo_program_help_demo_program_help__["a" /* DemoProgramHelpPage */],
-            __WEBPACK_IMPORTED_MODULE_74__pages_how_to_get_how_to_get__["a" /* HowToGetPage */],
-            __WEBPACK_IMPORTED_MODULE_75__pages_how_to_get_how_to_get_patriot_how_to_get_patriot__["a" /* HowToGetPatriotPage */],
-            __WEBPACK_IMPORTED_MODULE_76__pages_how_to_get_how_to_get_patriot_how_to_get_patriot_by_car_how_to_get_patriot_by_car__["a" /* HowToGetPatriotByCarPage */],
-            __WEBPACK_IMPORTED_MODULE_77__pages_how_to_get_how_to_get_patriot_how_to_get_patriot_by_transport_how_to_get_patriot_by_transport__["a" /* HowToGetPatriotByTransportPage */],
-            __WEBPACK_IMPORTED_MODULE_78__pages_how_to_get_how_to_get_patriot_how_to_get_patriot_by_transport_kiev_how_to_get_patriot_by_transport_kiev__["a" /* HowToGetPatriotByTransportKievPage */],
-            __WEBPACK_IMPORTED_MODULE_79__pages_how_to_get_how_to_get_routes_how_to_get_routes__["a" /* HowToGetRoutesPage */],
-            __WEBPACK_IMPORTED_MODULE_82__pages_patriot_detail_patriot_detail__["a" /* PatriotDetailPage */],
-            __WEBPACK_IMPORTED_MODULE_81__pages_patriot_patriot__["a" /* PatriotPage */]
+            __WEBPACK_IMPORTED_MODULE_29__pages_thematic_thematic__["a" /* ThematicPage */],
+            __WEBPACK_IMPORTED_MODULE_35__pages_conference_conference__["a" /* ConferencePage */],
+            __WEBPACK_IMPORTED_MODULE_38__pages_conference_detail_conference_detail__["a" /* ConferenceDetailPage */],
+            __WEBPACK_IMPORTED_MODULE_41__pages_leaflet_map_leaflet_map__["a" /* LeafletMapPage */],
+            __WEBPACK_IMPORTED_MODULE_42__pages_filter_filter__["a" /* FilterPage */],
+            __WEBPACK_IMPORTED_MODULE_43__pages_filter_filter_participant_filter_participant__["a" /* FilterParticipantPage */],
+            __WEBPACK_IMPORTED_MODULE_47__pages_filter_filter_conference_filter_conference__["a" /* FilterConferencePage */],
+            __WEBPACK_IMPORTED_MODULE_60__pages_filter_filter_exhibit_filter_exhibit__["a" /* FilterExhibitPage */],
+            __WEBPACK_IMPORTED_MODULE_48__pages_demo_program_demo_program__["a" /* DemoProgramPage */],
+            __WEBPACK_IMPORTED_MODULE_51__pages_help_participant_help_participant_help__["a" /* ParticipantHelpPage */],
+            __WEBPACK_IMPORTED_MODULE_52__pages_help_conference_help_conference_help__["a" /* ConferenceHelpPage */],
+            __WEBPACK_IMPORTED_MODULE_61__pages_help_exhibit_help_exhibit_help__["a" /* ExhibitHelpPage */],
+            __WEBPACK_IMPORTED_MODULE_55__pages_help_map_help_map_help__["a" /* MapHelpPage */],
+            __WEBPACK_IMPORTED_MODULE_56__pages_qr_scanner_qr_scanner__["a" /* QrScannerPage */],
+            __WEBPACK_IMPORTED_MODULE_57__pages_bar_scanner_bar_scanner__["a" /* BarScannerPage */],
+            __WEBPACK_IMPORTED_MODULE_59__pages_exhibit_exhibit__["a" /* ExhibitPage */],
+            __WEBPACK_IMPORTED_MODULE_65__pages_exhibit_detail_exhibit_detail__["a" /* ExhibitDetailPage */],
+            __WEBPACK_IMPORTED_MODULE_66__pages_demo_program_detail_demo_program_detail__["a" /* DemoProgramDetailPage */],
+            __WEBPACK_IMPORTED_MODULE_68__pages_filter_filter_demo_program_filter_demo_program__["a" /* FilterDemoProgramPage */],
+            __WEBPACK_IMPORTED_MODULE_69__pages_help_demo_program_help_demo_program_help__["a" /* DemoProgramHelpPage */],
+            __WEBPACK_IMPORTED_MODULE_70__pages_how_to_get_how_to_get__["a" /* HowToGetPage */],
+            __WEBPACK_IMPORTED_MODULE_71__pages_how_to_get_how_to_get_patriot_how_to_get_patriot__["a" /* HowToGetPatriotPage */],
+            __WEBPACK_IMPORTED_MODULE_72__pages_how_to_get_how_to_get_patriot_how_to_get_patriot_by_car_how_to_get_patriot_by_car__["a" /* HowToGetPatriotByCarPage */],
+            __WEBPACK_IMPORTED_MODULE_73__pages_how_to_get_how_to_get_patriot_how_to_get_patriot_by_transport_how_to_get_patriot_by_transport__["a" /* HowToGetPatriotByTransportPage */],
+            __WEBPACK_IMPORTED_MODULE_74__pages_how_to_get_how_to_get_patriot_how_to_get_patriot_by_transport_kiev_how_to_get_patriot_by_transport_kiev__["a" /* HowToGetPatriotByTransportKievPage */],
+            __WEBPACK_IMPORTED_MODULE_75__pages_how_to_get_how_to_get_routes_how_to_get_routes__["a" /* HowToGetRoutesPage */],
+            __WEBPACK_IMPORTED_MODULE_78__pages_patriot_detail_patriot_detail__["a" /* PatriotDetailPage */],
+            __WEBPACK_IMPORTED_MODULE_77__pages_patriot_patriot__["a" /* PatriotPage */]
         ],
         imports: [
             __WEBPACK_IMPORTED_MODULE_11__angular_platform_browser__["a" /* BrowserModule */],
@@ -8381,57 +8777,55 @@ AppModule = __decorate([
                     { component: __WEBPACK_IMPORTED_MODULE_3__pages_about_about__["a" /* AboutPage */], name: 'About', segment: 'about' },
                     { component: __WEBPACK_IMPORTED_MODULE_25__pages_tutorial_tutorial__["a" /* TutorialPage */], name: 'Tutorial', segment: 'tutorial' },
                     { component: __WEBPACK_IMPORTED_MODULE_23__pages_support_support__["a" /* SupportPage */], name: 'SupportPage', segment: 'support' },
-                    { component: __WEBPACK_IMPORTED_MODULE_21__pages_login_login__["a" /* LoginPage */], name: 'LoginPage', segment: 'login' },
+                    { component: __WEBPACK_IMPORTED_MODULE_80__pages_login_form_login_form__["a" /* LoginFormPage */], name: 'LoginFormPage', segment: 'login' },
                     { component: __WEBPACK_IMPORTED_MODULE_7__pages_account_account__["a" /* AccountPage */], name: 'AccountPage', segment: 'account' },
-                    { component: __WEBPACK_IMPORTED_MODULE_24__pages_signup_signup__["a" /* SignupPage */], name: 'SignupPage', segment: 'signup' }
+                    { component: __WEBPACK_IMPORTED_MODULE_81__pages_signup_form_signup_form__["a" /* SignupFormPage */], name: 'SignupFormPage', segment: 'signup' }
                 ]
             }),
-            __WEBPACK_IMPORTED_MODULE_58_ionic2_custom_icons__["a" /* CustomIconsModule */]
+            __WEBPACK_IMPORTED_MODULE_54_ionic2_custom_icons__["a" /* CustomIconsModule */]
         ],
         bootstrap: [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* IonicApp */]],
         entryComponents: [
             __WEBPACK_IMPORTED_MODULE_2__app_component__["a" /* MyApp */],
             __WEBPACK_IMPORTED_MODULE_3__pages_about_about__["a" /* AboutPage */],
-            __WEBPACK_IMPORTED_MODULE_80__pages_about_forum_about_forum__["a" /* AboutForumPage */],
+            __WEBPACK_IMPORTED_MODULE_76__pages_about_forum_about_forum__["a" /* AboutForumPage */],
             __WEBPACK_IMPORTED_MODULE_4__pages_home_home__["a" /* HomePage */],
             __WEBPACK_IMPORTED_MODULE_5__pages_tabs_tabs__["a" /* TabsPage */],
             __WEBPACK_IMPORTED_MODULE_6__pages_settings_settings__["a" /* SettingsPage */],
             __WEBPACK_IMPORTED_MODULE_7__pages_account_account__["a" /* AccountPage */],
             __WEBPACK_IMPORTED_MODULE_13__pages_participant_participant__["a" /* ParticipantPage */],
-            __WEBPACK_IMPORTED_MODULE_39__pages_conference_conference__["a" /* ConferencePage */],
+            __WEBPACK_IMPORTED_MODULE_35__pages_conference_conference__["a" /* ConferencePage */],
             __WEBPACK_IMPORTED_MODULE_16__pages_my_forum_my_forum__["a" /* MyForumPage */],
             __WEBPACK_IMPORTED_MODULE_19__pages_participant_detail_participant_detail__["a" /* ParticipantDetailPage */],
             __WEBPACK_IMPORTED_MODULE_21__pages_login_login__["a" /* LoginPage */],
+            __WEBPACK_IMPORTED_MODULE_80__pages_login_form_login_form__["a" /* LoginFormPage */],
             __WEBPACK_IMPORTED_MODULE_23__pages_support_support__["a" /* SupportPage */],
             __WEBPACK_IMPORTED_MODULE_24__pages_signup_signup__["a" /* SignupPage */],
+            __WEBPACK_IMPORTED_MODULE_81__pages_signup_form_signup_form__["a" /* SignupFormPage */],
             __WEBPACK_IMPORTED_MODULE_25__pages_tutorial_tutorial__["a" /* TutorialPage */],
-            __WEBPACK_IMPORTED_MODULE_27__pages_park_patriot_all_park_patriot_park_patriot__["a" /* ParkPatriotPage */],
-            __WEBPACK_IMPORTED_MODULE_28__pages_park_patriot_all_war_tactic_page_war_tactic_page__["a" /* WarTacticPage */],
-            __WEBPACK_IMPORTED_MODULE_82__pages_patriot_detail_patriot_detail__["a" /* PatriotDetailPage */],
-            __WEBPACK_IMPORTED_MODULE_81__pages_patriot_patriot__["a" /* PatriotPage */],
-            __WEBPACK_IMPORTED_MODULE_29__pages_park_patriot_all_sektor_vks_page_sector_vks_page__["a" /* SectorVksPage */],
-            __WEBPACK_IMPORTED_MODULE_30__pages_park_patriot_all_demo_opk_page_demo_opk_page__["a" /* DemoOpkPage */],
-            __WEBPACK_IMPORTED_MODULE_45__pages_leaflet_map_leaflet_map__["a" /* LeafletMapPage */],
-            __WEBPACK_IMPORTED_MODULE_46__pages_filter_filter__["a" /* FilterPage */],
-            __WEBPACK_IMPORTED_MODULE_52__pages_demo_program_demo_program__["a" /* DemoProgramPage */],
-            __WEBPACK_IMPORTED_MODULE_55__pages_help_participant_help_participant_help__["a" /* ParticipantHelpPage */],
-            __WEBPACK_IMPORTED_MODULE_56__pages_help_conference_help_conference_help__["a" /* ConferenceHelpPage */],
-            __WEBPACK_IMPORTED_MODULE_65__pages_help_exhibit_help_exhibit_help__["a" /* ExhibitHelpPage */],
-            __WEBPACK_IMPORTED_MODULE_59__pages_help_map_help_map_help__["a" /* MapHelpPage */],
-            __WEBPACK_IMPORTED_MODULE_60__pages_qr_scanner_qr_scanner__["a" /* QrScannerPage */],
-            __WEBPACK_IMPORTED_MODULE_61__pages_bar_scanner_bar_scanner__["a" /* BarScannerPage */],
-            __WEBPACK_IMPORTED_MODULE_63__pages_exhibit_exhibit__["a" /* ExhibitPage */],
-            __WEBPACK_IMPORTED_MODULE_69__pages_exhibit_detail_exhibit_detail__["a" /* ExhibitDetailPage */],
-            __WEBPACK_IMPORTED_MODULE_42__pages_conference_detail_conference_detail__["a" /* ConferenceDetailPage */],
-            __WEBPACK_IMPORTED_MODULE_70__pages_demo_program_detail_demo_program_detail__["a" /* DemoProgramDetailPage */],
-            __WEBPACK_IMPORTED_MODULE_72__pages_filter_filter_demo_program_filter_demo_program__["a" /* FilterDemoProgramPage */],
-            __WEBPACK_IMPORTED_MODULE_73__pages_help_demo_program_help_demo_program_help__["a" /* DemoProgramHelpPage */],
-            __WEBPACK_IMPORTED_MODULE_74__pages_how_to_get_how_to_get__["a" /* HowToGetPage */],
-            __WEBPACK_IMPORTED_MODULE_75__pages_how_to_get_how_to_get_patriot_how_to_get_patriot__["a" /* HowToGetPatriotPage */],
-            __WEBPACK_IMPORTED_MODULE_76__pages_how_to_get_how_to_get_patriot_how_to_get_patriot_by_car_how_to_get_patriot_by_car__["a" /* HowToGetPatriotByCarPage */],
-            __WEBPACK_IMPORTED_MODULE_77__pages_how_to_get_how_to_get_patriot_how_to_get_patriot_by_transport_how_to_get_patriot_by_transport__["a" /* HowToGetPatriotByTransportPage */],
-            __WEBPACK_IMPORTED_MODULE_78__pages_how_to_get_how_to_get_patriot_how_to_get_patriot_by_transport_kiev_how_to_get_patriot_by_transport_kiev__["a" /* HowToGetPatriotByTransportKievPage */],
-            __WEBPACK_IMPORTED_MODULE_79__pages_how_to_get_how_to_get_routes_how_to_get_routes__["a" /* HowToGetRoutesPage */]
+            __WEBPACK_IMPORTED_MODULE_78__pages_patriot_detail_patriot_detail__["a" /* PatriotDetailPage */],
+            __WEBPACK_IMPORTED_MODULE_77__pages_patriot_patriot__["a" /* PatriotPage */],
+            __WEBPACK_IMPORTED_MODULE_41__pages_leaflet_map_leaflet_map__["a" /* LeafletMapPage */],
+            __WEBPACK_IMPORTED_MODULE_42__pages_filter_filter__["a" /* FilterPage */],
+            __WEBPACK_IMPORTED_MODULE_48__pages_demo_program_demo_program__["a" /* DemoProgramPage */],
+            __WEBPACK_IMPORTED_MODULE_51__pages_help_participant_help_participant_help__["a" /* ParticipantHelpPage */],
+            __WEBPACK_IMPORTED_MODULE_52__pages_help_conference_help_conference_help__["a" /* ConferenceHelpPage */],
+            __WEBPACK_IMPORTED_MODULE_61__pages_help_exhibit_help_exhibit_help__["a" /* ExhibitHelpPage */],
+            __WEBPACK_IMPORTED_MODULE_55__pages_help_map_help_map_help__["a" /* MapHelpPage */],
+            __WEBPACK_IMPORTED_MODULE_56__pages_qr_scanner_qr_scanner__["a" /* QrScannerPage */],
+            __WEBPACK_IMPORTED_MODULE_57__pages_bar_scanner_bar_scanner__["a" /* BarScannerPage */],
+            __WEBPACK_IMPORTED_MODULE_59__pages_exhibit_exhibit__["a" /* ExhibitPage */],
+            __WEBPACK_IMPORTED_MODULE_65__pages_exhibit_detail_exhibit_detail__["a" /* ExhibitDetailPage */],
+            __WEBPACK_IMPORTED_MODULE_38__pages_conference_detail_conference_detail__["a" /* ConferenceDetailPage */],
+            __WEBPACK_IMPORTED_MODULE_66__pages_demo_program_detail_demo_program_detail__["a" /* DemoProgramDetailPage */],
+            __WEBPACK_IMPORTED_MODULE_68__pages_filter_filter_demo_program_filter_demo_program__["a" /* FilterDemoProgramPage */],
+            __WEBPACK_IMPORTED_MODULE_69__pages_help_demo_program_help_demo_program_help__["a" /* DemoProgramHelpPage */],
+            __WEBPACK_IMPORTED_MODULE_70__pages_how_to_get_how_to_get__["a" /* HowToGetPage */],
+            __WEBPACK_IMPORTED_MODULE_71__pages_how_to_get_how_to_get_patriot_how_to_get_patriot__["a" /* HowToGetPatriotPage */],
+            __WEBPACK_IMPORTED_MODULE_72__pages_how_to_get_how_to_get_patriot_how_to_get_patriot_by_car_how_to_get_patriot_by_car__["a" /* HowToGetPatriotByCarPage */],
+            __WEBPACK_IMPORTED_MODULE_73__pages_how_to_get_how_to_get_patriot_how_to_get_patriot_by_transport_how_to_get_patriot_by_transport__["a" /* HowToGetPatriotByTransportPage */],
+            __WEBPACK_IMPORTED_MODULE_74__pages_how_to_get_how_to_get_patriot_how_to_get_patriot_by_transport_kiev_how_to_get_patriot_by_transport_kiev__["a" /* HowToGetPatriotByTransportKievPage */],
+            __WEBPACK_IMPORTED_MODULE_75__pages_how_to_get_how_to_get_routes_how_to_get_routes__["a" /* HowToGetRoutesPage */]
         ],
         providers: [{ provide: __WEBPACK_IMPORTED_MODULE_0__angular_core__["v" /* ErrorHandler */], useClass: __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicErrorHandler */] },
             __WEBPACK_IMPORTED_MODULE_9__ionic_native_splash_screen__["a" /* SplashScreen */],
@@ -8442,36 +8836,35 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_26__providers_user_user_api_service__["a" /* UserApi */],
             __WEBPACK_IMPORTED_MODULE_20__providers_user_data__["a" /* UserData */],
             __WEBPACK_IMPORTED_MODULE_8__providers_participant_sql__["a" /* ParticipantSql */],
-            __WEBPACK_IMPORTED_MODULE_35__providers_place_place_api_service__["a" /* PlaceApi */],
+            __WEBPACK_IMPORTED_MODULE_31__providers_place_place_api_service__["a" /* PlaceApi */],
             __WEBPACK_IMPORTED_MODULE_18__providers_my_forum_sql__["a" /* MyForumSql */],
-            __WEBPACK_IMPORTED_MODULE_31__providers_place_sql_place_sql__["a" /* PlaceSql */],
-            __WEBPACK_IMPORTED_MODULE_32__providers_thematic_sql__["a" /* ThematicSql */],
-            __WEBPACK_IMPORTED_MODULE_34__providers_thematic_thematic_api_service__["a" /* ThematicApi */],
-            __WEBPACK_IMPORTED_MODULE_36__providers_draw_function_draw_function__["a" /* DrawFunctionProvider */],
-            __WEBPACK_IMPORTED_MODULE_38__providers_thematic_conference_sql_thematic_conference_sql__["a" /* ThematicConferenceSql */],
-            __WEBPACK_IMPORTED_MODULE_37__providers_conference_sql_conference_sql__["a" /* ConferenceSql */],
-            __WEBPACK_IMPORTED_MODULE_38__providers_thematic_conference_sql_thematic_conference_sql__["a" /* ThematicConferenceSql */],
-            __WEBPACK_IMPORTED_MODULE_40__providers_conference_sql_conference_api_service__["a" /* ConferenceApi */],
-            __WEBPACK_IMPORTED_MODULE_40__providers_conference_sql_conference_api_service__["a" /* ConferenceApi */],
-            __WEBPACK_IMPORTED_MODULE_41__providers_map_sql_map_sql__["a" /* MapSql */],
-            __WEBPACK_IMPORTED_MODULE_43__providers_base_api_service__["a" /* BaseApi */],
-            __WEBPACK_IMPORTED_MODULE_44__providers_map_base_map_base__["a" /* MapBaseProvider */],
-            __WEBPACK_IMPORTED_MODULE_47__pages_filter_filter_participant_filter_participant__["a" /* FilterParticipantPage */],
-            __WEBPACK_IMPORTED_MODULE_51__pages_filter_filter_conference_filter_conference__["a" /* FilterConferencePage */],
-            __WEBPACK_IMPORTED_MODULE_64__pages_filter_filter_exhibit_filter_exhibit__["a" /* FilterExhibitPage */],
-            __WEBPACK_IMPORTED_MODULE_49__providers_language_language__["a" /* LanguageProvider */],
-            __WEBPACK_IMPORTED_MODULE_48__providers_filter_provider_filter_participant_provider__["a" /* FilterParticipantProvider */],
-            __WEBPACK_IMPORTED_MODULE_50__providers_filter_provider_filter_conference_provider__["a" /* FilterConferenceProvider */],
-            __WEBPACK_IMPORTED_MODULE_53__providers_table_action_sql_thematic_action_sql__["a" /* TableActionSql */],
-            __WEBPACK_IMPORTED_MODULE_54__providers_base_lang_page_base_lang_page__["a" /* BaseLangPageProvider */],
-            __WEBPACK_IMPORTED_MODULE_57__providers_base_list_page_base_list_page__["a" /* BaseListPageProvider */],
-            //QRScanner,
-            __WEBPACK_IMPORTED_MODULE_62__ionic_native_barcode_scanner__["a" /* BarcodeScanner */],
-            __WEBPACK_IMPORTED_MODULE_66__providers_exhibit_exhibit_api_service__["a" /* ExhibitApiService */],
-            __WEBPACK_IMPORTED_MODULE_67__providers_exhibit_exhibit_sql__["a" /* ExhibitSql */],
-            __WEBPACK_IMPORTED_MODULE_68__providers_filter_provider_filter_exhibit_provider__["a" /* FilterExhibitProvider */],
-            __WEBPACK_IMPORTED_MODULE_71__providers_filter_provider_filter_demo_program_provider__["a" /* FilterDemoProgramProvider */],
-            __WEBPACK_IMPORTED_MODULE_83__providers_patriot_patriot_sql__["a" /* PatriotSql */]
+            __WEBPACK_IMPORTED_MODULE_27__providers_place_sql_place_sql__["a" /* PlaceSql */],
+            __WEBPACK_IMPORTED_MODULE_28__providers_thematic_sql__["a" /* ThematicSql */],
+            __WEBPACK_IMPORTED_MODULE_30__providers_thematic_thematic_api_service__["a" /* ThematicApi */],
+            __WEBPACK_IMPORTED_MODULE_32__providers_draw_function_draw_function__["a" /* DrawFunctionProvider */],
+            __WEBPACK_IMPORTED_MODULE_34__providers_thematic_conference_sql_thematic_conference_sql__["a" /* ThematicConferenceSql */],
+            __WEBPACK_IMPORTED_MODULE_33__providers_conference_sql_conference_sql__["a" /* ConferenceSql */],
+            __WEBPACK_IMPORTED_MODULE_34__providers_thematic_conference_sql_thematic_conference_sql__["a" /* ThematicConferenceSql */],
+            __WEBPACK_IMPORTED_MODULE_36__providers_conference_sql_conference_api_service__["a" /* ConferenceApi */],
+            __WEBPACK_IMPORTED_MODULE_36__providers_conference_sql_conference_api_service__["a" /* ConferenceApi */],
+            __WEBPACK_IMPORTED_MODULE_37__providers_map_sql_map_sql__["a" /* MapSql */],
+            __WEBPACK_IMPORTED_MODULE_39__providers_base_api_service__["a" /* BaseApi */],
+            __WEBPACK_IMPORTED_MODULE_40__providers_map_base_map_base__["a" /* MapBaseProvider */],
+            __WEBPACK_IMPORTED_MODULE_43__pages_filter_filter_participant_filter_participant__["a" /* FilterParticipantPage */],
+            __WEBPACK_IMPORTED_MODULE_47__pages_filter_filter_conference_filter_conference__["a" /* FilterConferencePage */],
+            __WEBPACK_IMPORTED_MODULE_60__pages_filter_filter_exhibit_filter_exhibit__["a" /* FilterExhibitPage */],
+            __WEBPACK_IMPORTED_MODULE_45__providers_language_language__["a" /* LanguageProvider */],
+            __WEBPACK_IMPORTED_MODULE_44__providers_filter_provider_filter_participant_provider__["a" /* FilterParticipantProvider */],
+            __WEBPACK_IMPORTED_MODULE_46__providers_filter_provider_filter_conference_provider__["a" /* FilterConferenceProvider */],
+            __WEBPACK_IMPORTED_MODULE_49__providers_table_action_sql_thematic_action_sql__["a" /* TableActionSql */],
+            __WEBPACK_IMPORTED_MODULE_50__providers_base_lang_page_base_lang_page__["a" /* BaseLangPageProvider */],
+            __WEBPACK_IMPORTED_MODULE_53__providers_base_list_page_base_list_page__["a" /* BaseListPageProvider */],
+            __WEBPACK_IMPORTED_MODULE_58__ionic_native_barcode_scanner__["a" /* BarcodeScanner */],
+            __WEBPACK_IMPORTED_MODULE_62__providers_exhibit_exhibit_api_service__["a" /* ExhibitApiService */],
+            __WEBPACK_IMPORTED_MODULE_63__providers_exhibit_exhibit_sql__["a" /* ExhibitSql */],
+            __WEBPACK_IMPORTED_MODULE_64__providers_filter_provider_filter_exhibit_provider__["a" /* FilterExhibitProvider */],
+            __WEBPACK_IMPORTED_MODULE_67__providers_filter_provider_filter_demo_program_provider__["a" /* FilterDemoProgramProvider */],
+            __WEBPACK_IMPORTED_MODULE_79__providers_patriot_patriot_sql__["a" /* PatriotSql */],
         ]
     })
 ], AppModule);
@@ -8480,31 +8873,24 @@ AppModule = __decorate([
 
 /***/ }),
 
-/***/ 363:
+/***/ 358:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyApp; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_splash_screen__ = __webpack_require__(257);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_status_bar__ = __webpack_require__(261);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_tabs_tabs__ = __webpack_require__(53);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_settings_settings__ = __webpack_require__(304);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_account_account__ = __webpack_require__(305);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_my_forum_my_forum__ = __webpack_require__(160);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_participant_participant__ = __webpack_require__(87);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_login_login__ = __webpack_require__(307);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_support_support__ = __webpack_require__(308);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_signup_signup__ = __webpack_require__(161);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_about_about__ = __webpack_require__(309);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__providers_user_data__ = __webpack_require__(69);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_tutorial_tutorial__ = __webpack_require__(310);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__ionic_storage__ = __webpack_require__(93);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_home_home__ = __webpack_require__(140);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_park_patriot_all_park_patriot_park_patriot__ = __webpack_require__(311);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__pages_park_patriot_all_war_tactic_page_war_tactic_page__ = __webpack_require__(162);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__angular_http__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_splash_screen__ = __webpack_require__(255);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_status_bar__ = __webpack_require__(259);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_tabs_tabs__ = __webpack_require__(45);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_account_account__ = __webpack_require__(305);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_about_about__ = __webpack_require__(306);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_user_data__ = __webpack_require__(52);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_tutorial_tutorial__ = __webpack_require__(307);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__ionic_storage__ = __webpack_require__(92);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__angular_http__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_login_form_login_form__ = __webpack_require__(159);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_signup_form_signup_form__ = __webpack_require__(308);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8527,15 +8913,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-
-
-
-
-
-
-
 var MyApp = (function () {
+    //private wide: boolean = false;
     function MyApp(platform, splashScreen, statusBar, menu, events, userData, storage, http, alertCtrl) {
+        // used for an example of ngFor and navigation
         var _this = this;
         this.platform = platform;
         this.splashScreen = splashScreen;
@@ -8546,48 +8927,16 @@ var MyApp = (function () {
         this.storage = storage;
         this.http = http;
         this.alertCtrl = alertCtrl;
-        this.pages = [
-            { title: 'Homepage', name: 'HomePage', component: __WEBPACK_IMPORTED_MODULE_16__pages_home_home__["a" /* HomePage */], icon: 'home' },
-            { title: 'Settings', name: 'SettingsPage', component: __WEBPACK_IMPORTED_MODULE_5__pages_settings_settings__["a" /* SettingsPage */], icon: 'settings' },
-            { title: 'Account', name: 'AccountPage', component: __WEBPACK_IMPORTED_MODULE_6__pages_account_account__["a" /* AccountPage */], icon: 'person' },
-            { title: 'Участники', name: 'ParticipantPage', component: __WEBPACK_IMPORTED_MODULE_8__pages_participant_participant__["a" /* ParticipantPage */], icon: 'list' },
-            { title: 'Мой форум', name: 'MyForumPage', component: __WEBPACK_IMPORTED_MODULE_7__pages_my_forum_my_forum__["a" /* MyForumPage */], icon: 'bookmark' },
-            { title: 'О Форуме', name: 'AboutPage', component: __WEBPACK_IMPORTED_MODULE_12__pages_about_about__["a" /* AboutPage */], icon: 'information-circle' },
-            { title: 'Парк Патриот', name: 'ParkPatrionPage', component: __WEBPACK_IMPORTED_MODULE_17__pages_park_patriot_all_park_patriot_park_patriot__["a" /* ParkPatriotPage */], icon: 'information-circle' },
-            {
-                title: 'Центр военно-тактических игр',
-                name: 'WarTacticPage',
-                component: __WEBPACK_IMPORTED_MODULE_18__pages_park_patriot_all_war_tactic_page_war_tactic_page__["a" /* WarTacticPage */],
-                icon: 'information-circle'
-            }
-        ];
-        this.loggedInPages = [
-            { title: 'Профиль', name: 'AccountPage', component: __WEBPACK_IMPORTED_MODULE_6__pages_account_account__["a" /* AccountPage */], icon: 'person' },
-            { title: 'Обратная связь', name: 'SupportPage', component: __WEBPACK_IMPORTED_MODULE_10__pages_support_support__["a" /* SupportPage */], icon: 'help' },
-            { title: 'Выйти', name: 'TabsPage', component: __WEBPACK_IMPORTED_MODULE_4__pages_tabs_tabs__["a" /* TabsPage */], icon: 'log-out', logsOut: true }
-        ];
-        this.loggedOutPages = [
-            { title: 'Войти', name: 'LoginPage', component: __WEBPACK_IMPORTED_MODULE_9__pages_login_login__["a" /* LoginPage */], icon: 'log-in' },
-            { title: 'Обратная связь', name: 'SupportPage', component: __WEBPACK_IMPORTED_MODULE_10__pages_support_support__["a" /* SupportPage */], icon: 'help' },
-            { title: 'Зарегистрироваться', name: 'SignupPage', component: __WEBPACK_IMPORTED_MODULE_11__pages_signup_signup__["a" /* SignupPage */], icon: 'person-add' }
-        ];
         this.appPages = [
             {
                 title: 'О форуме',
                 name: 'TabsPage',
                 component: __WEBPACK_IMPORTED_MODULE_4__pages_tabs_tabs__["a" /* TabsPage */],
-                tabComponent: __WEBPACK_IMPORTED_MODULE_12__pages_about_about__["a" /* AboutPage */],
+                tabComponent: __WEBPACK_IMPORTED_MODULE_6__pages_about_about__["a" /* AboutPage */],
                 index: 3,
                 icon: 'information-circle'
             }
         ];
-        this.platform.ready().then(function () {
-            // Okay, so the platform is ready and our plugins are available.
-            // Here you can do any higher level native things you might need.
-            _this.statusBar.backgroundColorByName("red");
-            _this.splashScreen.hide();
-        });
-        // used for an example of ngFor and navigation
         localStorage.setItem('viewcount', '0');
         //console.log("hi!");
         this.lang = localStorage.getItem('lang');
@@ -8649,6 +8998,14 @@ var MyApp = (function () {
         else {
             this.rootPage = __WEBPACK_IMPORTED_MODULE_4__pages_tabs_tabs__["a" /* TabsPage */]; //TutorialPage;
         }
+        this.platform.ready().then(function () {
+            // Okay, so the platform is ready and our plugins are available.
+            // Here you can do any higher level native things you might need.
+            _this.statusBar.backgroundColorByName("red");
+            _this.splashScreen.hide();
+            /*   this.setWidth();
+               this.listenToEvents();*/
+        });
         this.platformReady();
         //  });
         this.listenToLoginEvents();
@@ -8661,6 +9018,20 @@ var MyApp = (function () {
         // this.enableMenu(!this.userData.hasLoggedIn());
         //this.enableMenu(true);
     }
+    /*    setWidth() {
+            if (this.platform.width() > 767) {
+                this.wide = true;
+                this.menu.open();
+            } else {
+                this.wide = false;
+                this.menu.close();
+            }
+        };*/
+    /*   listenToEvents() {
+           window.addEventListener('resize', () => {
+               this.setWidth();
+           });
+       }*/
     MyApp.prototype.openPage = function (page) {
         var params = {};
         // the nav component was found using @ViewChild(Nav)
@@ -8687,7 +9058,7 @@ var MyApp = (function () {
         }
     };
     MyApp.prototype.openTutorial = function () {
-        this.nav.setRoot(__WEBPACK_IMPORTED_MODULE_14__pages_tutorial_tutorial__["a" /* TutorialPage */]);
+        this.nav.setRoot(__WEBPACK_IMPORTED_MODULE_8__pages_tutorial_tutorial__["a" /* TutorialPage */]);
     };
     MyApp.prototype.listenToLoginEvents = function () {
         var _this = this;
@@ -8732,21 +9103,19 @@ var MyApp = (function () {
         this.infoStr = 'Справочная информация';
         this.aboutForumStr = 'Информация о форуме';
         this.loggedInPages = [
-            { title: 'Профиль', name: 'AccountPage', component: __WEBPACK_IMPORTED_MODULE_6__pages_account_account__["a" /* AccountPage */], icon: 'person' },
-            { title: 'Обратная связь', name: 'SupportPage', component: __WEBPACK_IMPORTED_MODULE_10__pages_support_support__["a" /* SupportPage */], icon: 'help' },
+            { title: 'Профиль', name: 'AccountPage', component: __WEBPACK_IMPORTED_MODULE_5__pages_account_account__["a" /* AccountPage */], icon: 'person' },
             { title: 'Выйти', name: 'TabsPage', component: __WEBPACK_IMPORTED_MODULE_4__pages_tabs_tabs__["a" /* TabsPage */], icon: 'log-out', logsOut: true }
         ];
         this.loggedOutPages = [
-            { title: 'Войти', name: 'LoginPage', component: __WEBPACK_IMPORTED_MODULE_9__pages_login_login__["a" /* LoginPage */], icon: 'log-in' },
-            { title: 'Обратная связь', name: 'SupportPage', component: __WEBPACK_IMPORTED_MODULE_10__pages_support_support__["a" /* SupportPage */], icon: 'help' },
-            { title: 'Зарегистрироваться', name: 'SignupPage', component: __WEBPACK_IMPORTED_MODULE_11__pages_signup_signup__["a" /* SignupPage */], icon: 'person-add' }
+            { title: 'Войти', name: 'LoginFormPage', component: __WEBPACK_IMPORTED_MODULE_11__pages_login_form_login_form__["a" /* LoginFormPage */], icon: 'log-in' },
+            { title: 'Зарегистрироваться', name: 'SignupFormPage', component: __WEBPACK_IMPORTED_MODULE_12__pages_signup_form_signup_form__["a" /* SignupFormPage */], icon: 'person-add' }
         ];
         this.appPages = [
             {
                 title: 'О форуме',
                 name: 'TabsPage',
                 component: __WEBPACK_IMPORTED_MODULE_4__pages_tabs_tabs__["a" /* TabsPage */],
-                tabComponent: __WEBPACK_IMPORTED_MODULE_12__pages_about_about__["a" /* AboutPage */],
+                tabComponent: __WEBPACK_IMPORTED_MODULE_6__pages_about_about__["a" /* AboutPage */],
                 index: 3,
                 icon: 'information-circle'
             }
@@ -8758,21 +9127,19 @@ var MyApp = (function () {
         this.infoStr = 'Info';
         this.aboutForumStr = 'About Forum';
         this.loggedInPages = [
-            { title: 'Profile', name: 'AccountPage', component: __WEBPACK_IMPORTED_MODULE_6__pages_account_account__["a" /* AccountPage */], icon: 'person' },
-            { title: 'Help', name: 'SupportPage', component: __WEBPACK_IMPORTED_MODULE_10__pages_support_support__["a" /* SupportPage */], icon: 'help' },
+            { title: 'Profile', name: 'AccountPage', component: __WEBPACK_IMPORTED_MODULE_5__pages_account_account__["a" /* AccountPage */], icon: 'person' },
             { title: 'Log out', name: 'TabsPage', component: __WEBPACK_IMPORTED_MODULE_4__pages_tabs_tabs__["a" /* TabsPage */], icon: 'log-out', logsOut: true }
         ];
         this.loggedOutPages = [
-            { title: 'Log in', name: 'LoginPage', component: __WEBPACK_IMPORTED_MODULE_9__pages_login_login__["a" /* LoginPage */], icon: 'log-in' },
-            { title: 'Help', name: 'SupportPage', component: __WEBPACK_IMPORTED_MODULE_10__pages_support_support__["a" /* SupportPage */], icon: 'help' },
-            { title: 'Sign up', name: 'SignupPage', component: __WEBPACK_IMPORTED_MODULE_11__pages_signup_signup__["a" /* SignupPage */], icon: 'person-add' }
+            { title: 'Log in', name: 'LoginFormPage', component: __WEBPACK_IMPORTED_MODULE_11__pages_login_form_login_form__["a" /* LoginFormPage */], icon: 'log-in' },
+            { title: 'Sign up', name: 'SignupFormPage', component: __WEBPACK_IMPORTED_MODULE_12__pages_signup_form_signup_form__["a" /* SignupFormPage */], icon: 'person-add' }
         ];
         this.appPages = [
             {
                 title: 'About',
                 name: 'TabsPage',
                 component: __WEBPACK_IMPORTED_MODULE_4__pages_tabs_tabs__["a" /* TabsPage */],
-                tabComponent: __WEBPACK_IMPORTED_MODULE_12__pages_about_about__["a" /* AboutPage */],
+                tabComponent: __WEBPACK_IMPORTED_MODULE_6__pages_about_about__["a" /* AboutPage */],
                 index: 3,
                 icon: 'information-circle'
             }
@@ -8802,16 +9169,16 @@ __decorate([
     __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* Nav */])
 ], MyApp.prototype, "nav", void 0);
 MyApp = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({template:/*ion-inline-start:"/Users/leonidlyalin/WebstormProjects/army2017/src/app/app.html"*/'<ion-split-pane>\n\n  <!-- logged out menu -->\n  <ion-menu id="loggedOutMenu" [content]="content">\n\n    <ion-header>\n      <ion-toolbar>\n        <ion-title>{{menuStr}}</ion-title>\n        <ion-item>\n          <ion-label text-wrap>Рус/Eng</ion-label>\n          <ion-toggle [(ngModel)]="langVal" (tap)="setLangRuEn()"></ion-toggle>\n        </ion-item>\n      </ion-toolbar>\n    </ion-header>\n\n    <ion-content class="outer-content">\n\n\n\n\n      <ion-list>\n        <ion-list-header>\n          {{signUpStr}}\n        </ion-list-header>\n        <button ion-item menuClose *ngFor="let p of loggedOutPages" (click)="openPage(p)">\n          <ion-icon item-left [name]="p.icon" [color]="isActive(p)"></ion-icon>\n          {{p.title}}\n        </button>\n      </ion-list>\n\n      <ion-list>\n        <ion-list-header>\n          {{infoStr}}\n        </ion-list-header>\n        <button ion-item menuClose (click)="openTutorial()">\n          <custom-icon set="army2017" name="star"></custom-icon>\n          {{aboutForumStr}}\n        </button>\n      </ion-list>\n\n\n\n    </ion-content>\n\n\n  </ion-menu>\n\n  <!-- logged in menu -->\n  <ion-menu id="loggedInMenu" [content]="content">\n\n    <ion-header>\n      <ion-toolbar>\n        <ion-title>{{menuStr}}</ion-title>\n        <ion-item>\n          <ion-label text-wrap>Рус/Eng</ion-label>\n          <ion-toggle [(ngModel)]="langVal" (tap)="setLangRuEn()"></ion-toggle>\n        </ion-item>\n      </ion-toolbar>\n    </ion-header>\n\n    <ion-content class="outer-content">\n\n\n\n\n\n      <ion-list>\n        <ion-list-header>\n          {{signUpStr}}\n        </ion-list-header>\n        <button ion-item menuClose *ngFor="let p of loggedInPages" (click)="openPage(p)">\n          <ion-icon item-left [name]="p.icon" [color]="isActive(p)"></ion-icon>\n          {{p.title}}\n        </button>\n      </ion-list>\n\n      <ion-list>\n        <ion-list-header>\n          {{infoStr}}\n        </ion-list-header>\n        <button ion-item menuClose (click)="openTutorial()">\n          <custom-icon set="army2017" name="star"></custom-icon>\n          {{aboutForumStr}}\n        </button>\n      </ion-list>\n\n\n\n\n    </ion-content>\n\n  </ion-menu>\n  <ion-nav [root]="rootPage" #content swipeBackEnabled="false" main name="app"></ion-nav>\n\n</ion-split-pane>\n\n\n<!-- Disable swipe-to-go-back because it\'s poor UX to combine STGB with side menus -->\n\n'/*ion-inline-end:"/Users/leonidlyalin/WebstormProjects/army2017/src/app/app.html"*/
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({template:/*ion-inline-start:"/Users/leonidlyalin/WebstormProjects/army2017/src/app/app.html"*/'<!--<ion-split-pane>-->\n\n  <!-- logged out menu -->\n  <ion-menu id="loggedOutMenu" [content]="content">\n\n    <ion-header>\n      <ion-toolbar>\n        <ion-title>{{menuStr}}</ion-title>\n        <ion-item>\n          <ion-label text-wrap>Рус/Eng</ion-label>\n          <ion-toggle [(ngModel)]="langVal" (tap)="setLangRuEn()"></ion-toggle>\n        </ion-item>\n      </ion-toolbar>\n    </ion-header>\n\n    <ion-content class="outer-content">\n\n\n\n\n      <ion-list>\n        <ion-list-header>\n          {{signUpStr}}\n        </ion-list-header>\n        <button ion-item menuClose *ngFor="let p of loggedOutPages" (click)="openPage(p)">\n          <ion-icon item-left [name]="p.icon" [color]="isActive(p)"></ion-icon>\n          {{p.title}}\n        </button>\n      </ion-list>\n\n      <ion-list>\n        <ion-list-header>\n          {{infoStr}}\n        </ion-list-header>\n        <button ion-item menuClose (click)="openTutorial()">\n          <custom-icon set="army2017" name="star"></custom-icon>\n          {{aboutForumStr}}\n        </button>\n      </ion-list>\n\n\n\n    </ion-content>\n\n\n  </ion-menu>\n\n  <!-- logged in menu -->\n  <ion-menu id="loggedInMenu" [content]="content">\n\n    <ion-header>\n      <ion-toolbar>\n        <ion-title>{{menuStr}}</ion-title>\n        <ion-item>\n          <ion-label text-wrap>Рус/Eng</ion-label>\n          <ion-toggle [(ngModel)]="langVal" (tap)="setLangRuEn()"></ion-toggle>\n        </ion-item>\n      </ion-toolbar>\n    </ion-header>\n\n    <ion-content class="outer-content">\n\n\n\n\n\n      <ion-list>\n        <ion-list-header>\n          {{signUpStr}}\n        </ion-list-header>\n        <button ion-item menuClose *ngFor="let p of loggedInPages" (click)="openPage(p)">\n          <ion-icon item-left [name]="p.icon" [color]="isActive(p)"></ion-icon>\n          {{p.title}}\n        </button>\n      </ion-list>\n\n      <ion-list>\n        <ion-list-header>\n          {{infoStr}}\n        </ion-list-header>\n        <button ion-item menuClose (click)="openTutorial()">\n          <custom-icon set="army2017" name="star"></custom-icon>\n          {{aboutForumStr}}\n        </button>\n      </ion-list>\n\n\n\n\n    </ion-content>\n\n  </ion-menu>\n  <ion-nav [root]="rootPage" #content swipeBackEnabled="false" main name="app"></ion-nav>\n\n<!--</ion-split-pane>-->\n\n\n<!-- Disable swipe-to-go-back because it\'s poor UX to combine STGB with side menus -->\n\n'/*ion-inline-end:"/Users/leonidlyalin/WebstormProjects/army2017/src/app/app.html"*/
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["p" /* Platform */],
         __WEBPACK_IMPORTED_MODULE_2__ionic_native_splash_screen__["a" /* SplashScreen */],
         __WEBPACK_IMPORTED_MODULE_3__ionic_native_status_bar__["a" /* StatusBar */],
         __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* MenuController */],
         __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* Events */],
-        __WEBPACK_IMPORTED_MODULE_13__providers_user_data__["a" /* UserData */],
-        __WEBPACK_IMPORTED_MODULE_15__ionic_storage__["b" /* Storage */],
-        __WEBPACK_IMPORTED_MODULE_19__angular_http__["a" /* Http */],
+        __WEBPACK_IMPORTED_MODULE_7__providers_user_data__["a" /* UserData */],
+        __WEBPACK_IMPORTED_MODULE_9__ionic_storage__["b" /* Storage */],
+        __WEBPACK_IMPORTED_MODULE_10__angular_http__["a" /* Http */],
         __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */]])
 ], MyApp);
 
@@ -8819,7 +9186,106 @@ MyApp = __decorate([
 
 /***/ }),
 
-/***/ 40:
+/***/ 45:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TabsPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__home_home__ = __webpack_require__(260);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__my_forum_my_forum__ = __webpack_require__(304);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_base_lang_page_base_lang_page__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_http__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__bar_scanner_bar_scanner__ = __webpack_require__(152);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__about_forum_about_forum__ = __webpack_require__(158);
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+
+
+var TabsPage = (function (_super) {
+    __extends(TabsPage, _super);
+    /*lang: string;*/
+    // login:boolean=false;
+    function TabsPage(navCtrl, events, http) {
+        var _this = _super.call(this, navCtrl, events, http) || this;
+        _this.navCtrl = navCtrl;
+        _this.events = events;
+        _this.http = http;
+        // this tells the tabs component which Pages
+        // should be each tab's root Page
+        _this.tab1Root = __WEBPACK_IMPORTED_MODULE_1__home_home__["a" /* HomePage */];
+        _this.tab2Root = __WEBPACK_IMPORTED_MODULE_7__about_forum_about_forum__["a" /* AboutForumPage */];
+        _this.tab3Root = __WEBPACK_IMPORTED_MODULE_2__my_forum_my_forum__["a" /* MyForumPage */];
+        _this.tab4Root = __WEBPACK_IMPORTED_MODULE_6__bar_scanner_bar_scanner__["a" /* BarScannerPage */];
+        //interface strings
+        _this.homeStr = 'Home';
+        _this.aboutStr = 'About';
+        _this.myForumStr = 'Мой форум';
+        _this.mapStr = 'Карты';
+        _this.thematicStr = 'Тематика';
+        _this.qrScannerStr = 'QR сканер';
+        return _this;
+    }
+    TabsPage.prototype.setRussianStrings = function () {
+        _super.prototype.setRussianStrings.call(this);
+        this.homeStr = 'Главная';
+        this.aboutStr = 'О Форуме';
+        this.myForumStr = 'Мой форум';
+        this.mapStr = 'Карты';
+        this.thematicStr = 'Тематика';
+        this.qrScannerStr = 'QR сканер';
+    };
+    TabsPage.prototype.setEnglishStrings = function () {
+        _super.prototype.setEnglishStrings.call(this);
+        this.homeStr = 'Home';
+        this.aboutStr = 'About';
+        this.myForumStr = 'My Forum';
+        this.mapStr = 'Map';
+        this.thematicStr = 'Thematic';
+        this.qrScannerStr = 'QR scanner';
+    };
+    TabsPage.prototype.ionViewDidLoad = function () {
+        _super.prototype.ionViewDidLoad.call(this);
+    };
+    return TabsPage;
+}(__WEBPACK_IMPORTED_MODULE_4__providers_base_lang_page_base_lang_page__["a" /* BaseLangPageProvider */]));
+TabsPage = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({template:/*ion-inline-start:"/Users/leonidlyalin/WebstormProjects/army2017/src/pages/tabs/tabs.html"*/'<ion-tabs>\n\n  <ion-tab [root]="tab1Root" tabTitle={{homeStr}} tabIcon="home"></ion-tab>\n  <ion-tab [root]="tab2Root" tabTitle={{aboutStr}} tabIcon="information-circle"></ion-tab>\n  <ion-tab [root]="tab3Root" tabTitle={{myForumStr}} tabIcon="contacts"></ion-tab>\n  <ion-tab [root]="tab4Root" tabTitle={{qrScannerStr}} tabIcon="qr-scanner"></ion-tab>\n</ion-tabs>\n'/*ion-inline-end:"/Users/leonidlyalin/WebstormProjects/army2017/src/pages/tabs/tabs.html"*/
+    }),
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3_ionic_angular__["n" /* NavController */],
+        __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["f" /* Events */],
+        __WEBPACK_IMPORTED_MODULE_5__angular_http__["a" /* Http */]])
+], TabsPage);
+
+//# sourceMappingURL=tabs.js.map
+
+/***/ }),
+
+/***/ 47:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -9066,7 +9532,507 @@ PlaceSql = __decorate([
 
 /***/ }),
 
-/***/ 51:
+/***/ 52:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UserData; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(92);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__user_user_api_service__ = __webpack_require__(303);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (this && this.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = y[op[0] & 2 ? "return" : op[0] ? "throw" : "next"]) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [0, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
+
+
+
+
+var UserData = (function () {
+    function UserData(events, storage, userApi, toastCtrl) {
+        var _this = this;
+        this.events = events;
+        this.storage = storage;
+        this.userApi = userApi;
+        this.toastCtrl = toastCtrl;
+        this._favorites = [];
+        this.events.subscribe('language:change', function () {
+            _this.lang = localStorage.getItem('lang');
+            if (_this.lang == 'ru') {
+                //console.log('this.events.subscribe(language:change)', this.lang);
+                _this.setRussianStrings();
+            }
+            else {
+                _this.setEnglishStrings();
+            }
+        });
+    }
+    UserData.prototype.setRussianStrings = function () {
+        this.authSuccessStr = 'Вы успешно авторизовались';
+        this.signupSuccessStr = 'Вы успешно зарегистрировались';
+        this.signupWrongStr = 'Ошибка при регистрации';
+        this.wrongLogStr = 'Неправильный логин или пароль';
+    };
+    UserData.prototype.setEnglishStrings = function () {
+        this.authSuccessStr = 'Successful login';
+        this.signupSuccessStr = 'Successful sign up';
+        this.signupWrongStr = 'Error on sign up';
+        this.wrongLogStr = 'Login or password is wrong';
+    };
+    UserData.prototype.hasFavorite = function (sessionName) {
+        return (this._favorites.indexOf(sessionName) > -1);
+    };
+    ;
+    UserData.prototype.addFavorite = function (sessionName) {
+        this._favorites.push(sessionName);
+    };
+    ;
+    UserData.prototype.removeFavorite = function (sessionName) {
+        var index = this._favorites.indexOf(sessionName);
+        if (index > -1) {
+            this._favorites.splice(index, 1);
+        }
+    };
+    ;
+    UserData.prototype.login = function (login, password) {
+        return __awaiter(this, void 0, void 0, function () {
+            var _this = this;
+            return __generator(this, function (_a) {
+                this.userApi.checkUser(login, password).subscribe(function (res) {
+                    //console.log("res after login");
+                    //console.log(res);
+                    try {
+                        if (res.result.ID > 0) {
+                            //console.log("successful auth");
+                            localStorage.setItem('userid', res.result.ID);
+                            //console.log("login",res.result.LOGIN);
+                            localStorage.setItem('login', res.result.LOGIN);
+                            //console.log("lastname",res.result.LAST_NAME);
+                            localStorage.setItem('lastname', res.result.LAST_NAME);
+                            //console.log(res.result.NAME);
+                            localStorage.setItem('name', res.result.NAME);
+                            //console.log(res.result.EMAIL);
+                            localStorage.setItem('email', res.result.EMAIL);
+                            //console.log("userID");
+                            _this.events.publish('user:login');
+                        }
+                    }
+                    catch (err) {
+                        var toast = _this.toastCtrl.create({
+                            message: _this.wrongLogStr,
+                            duration: 3000
+                        });
+                        toast.present();
+                        //console.log("error");
+                        //console.log(err);
+                        return err;
+                    }
+                });
+                return [2 /*return*/];
+            });
+        });
+    };
+    ;
+    UserData.prototype.signup = function (login, password, name, lastname, email, confirm_password) {
+        return __awaiter(this, void 0, void 0, function () {
+            var _this = this;
+            return __generator(this, function (_a) {
+                confirm_password = confirm_password || confirm_password;
+                this.userApi.createUser(login, password, name, lastname, email, confirm_password).subscribe(function (res) {
+                    if (res > 0) {
+                        // localStorage.set(this.HAS_LOGGED_IN, true);
+                        localStorage.setItem('login', login);
+                        localStorage.setItem('lastname', lastname);
+                        localStorage.setItem('lastname', name);
+                        localStorage.setItem('email', email);
+                        _this.events.publish('user:signup');
+                    }
+                    else {
+                        var toast = _this.toastCtrl.create({
+                            message: _this.signupWrongStr,
+                            duration: 3000
+                        });
+                        toast.present();
+                    }
+                });
+                return [2 /*return*/];
+            });
+        });
+    };
+    ;
+    UserData.prototype.logout = function () {
+        //   localStorage.remove(this.HAS_LOGGED_IN);
+        localStorage.removeItem('login');
+        localStorage.removeItem('userid');
+        localStorage.removeItem('name');
+        localStorage.removeItem('lastname');
+        localStorage.removeItem('email');
+        this.events.publish('user:logout');
+    };
+    ;
+    UserData.prototype.hasLoggedIn = function () {
+        var value = localStorage.getItem('userid');
+        //console.log('value=', value);
+        return !!((value) && (value != '0'));
+    };
+    ;
+    return UserData;
+}());
+UserData = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Injectable */])(),
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* Events */],
+        __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */],
+        __WEBPACK_IMPORTED_MODULE_3__user_user_api_service__["a" /* UserApi */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["u" /* ToastController */]])
+], UserData);
+
+//# sourceMappingURL=user-data.js.map
+
+/***/ }),
+
+/***/ 54:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ParticipantDetailPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_thematic_sql__ = __webpack_require__(145);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_my_forum_sql__ = __webpack_require__(26);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_http__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_base_lang_page_base_lang_page__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_place_sql_place_sql__ = __webpack_require__(47);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_map_sql_map_sql__ = __webpack_require__(55);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__leaflet_map_leaflet_map__ = __webpack_require__(69);
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (this && this.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = y[op[0] & 2 ? "return" : op[0] ? "throw" : "next"]) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [0, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
+
+
+
+
+
+
+
+
+
+var ParticipantDetailPage = (function (_super) {
+    __extends(ParticipantDetailPage, _super);
+    function ParticipantDetailPage(navParams, navCtrl, thematicSql, sqlMyForum, placeSql, mapSql, events, http) {
+        var _this = _super.call(this, navCtrl, events, http) || this;
+        _this.navParams = navParams;
+        _this.navCtrl = navCtrl;
+        _this.thematicSql = thematicSql;
+        _this.sqlMyForum = sqlMyForum;
+        _this.placeSql = placeSql;
+        _this.mapSql = mapSql;
+        _this.events = events;
+        //this.lang = localStorage.getItem('lang');
+        //console.log("now in Participant detail");
+        //console.log(navParams);
+        _this.thematic = [];
+        /* if (this.navParams.data.map) this.showMap = this.navParams.data.map;
+         else this.showMap = true;*/
+        if (navParams.data.participant) {
+            if (navParams.data.participant.length)
+                //  this.participant = navParams.data.participant[0];
+                _this.participantList = navParams.data.participant;
+            else
+                _this.participantList.push(navParams.data.participant);
+        }
+        else {
+            //   if (navParams.data.res) this.participant = navParams.data.res;
+            if (navParams.data.res)
+                _this.participantList.push(navParams.data.res);
+        }
+        if (navParams.data.listOut) {
+            _this.listOut = navParams.data.listOut;
+        }
+        _this.changeName();
+        _this.prepareParticipant();
+        // if (this.showMap) this.showMap =
+        //console.log('this.participant=', this.participantList[0]);
+        _this.iblockId = 1;
+        return _this;
+    }
+    ParticipantDetailPage.prototype.prepareParticipant = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var _i, _a, participant, res;
+            return __generator(this, function (_b) {
+                switch (_b.label) {
+                    case 0:
+                        _i = 0, _a = this.participantList;
+                        _b.label = 1;
+                    case 1:
+                        if (!(_i < _a.length)) return [3 /*break*/, 4];
+                        participant = _a[_i];
+                        participant["thematic"] = [];
+                        if (this.navParams.data.map != null)
+                            participant["showMap"] = this.navParams.data.map;
+                        else
+                            participant["showMap"] = true;
+                        participant["showMap"] = !!this.participantList[0].place_name;
+                        return [4 /*yield*/, this.thematicSql.getThematicOfParticipant(participant.id)
+                            //console.log("res in thematic page=", res);
+                        ];
+                    case 2:
+                        res = _b.sent();
+                        //console.log("res in thematic page=", res);
+                        participant["thematic"] = res;
+                        _b.label = 3;
+                    case 3:
+                        _i++;
+                        return [3 /*break*/, 1];
+                    case 4: return [2 /*return*/];
+                }
+            });
+        });
+    };
+    ParticipantDetailPage.prototype.setRussianStrings = function () {
+        _super.prototype.setRussianStrings.call(this, 'Участник');
+        this.onMapStr = 'На карте';
+        this.myForumStr = 'Мой форум';
+        this.thematicStr = 'Тематика:';
+    };
+    ParticipantDetailPage.prototype.setEnglishStrings = function () {
+        _super.prototype.setEnglishStrings.call(this, 'Exhibitor');
+        this.onMapStr = 'Map';
+        this.myForumStr = 'My Forum';
+        this.thematicStr = 'Thematic Section:';
+    };
+    ParticipantDetailPage.prototype.ionViewDidLoad = function () {
+        _super.prototype.ionViewDidLoad.call(this);
+    };
+    ParticipantDetailPage.prototype.changeMyForum = function (id) {
+        return __awaiter(this, void 0, void 0, function () {
+            var participant, _a, _b;
+            return __generator(this, function (_c) {
+                switch (_c.label) {
+                    case 0:
+                        if (!this.userId) return [3 /*break*/, 4];
+                        participant = this.participantList.find(function (x) { return x.id == id; });
+                        if (!(participant.my_forum_id > 0)) return [3 /*break*/, 2];
+                        _a = participant;
+                        return [4 /*yield*/, this.deleteFromMyForum(participant.my_forum_id)];
+                    case 1:
+                        _a.my_forum_id = _c.sent();
+                        this.events.publish('myforum:delete:participant', (participant));
+                        return [3 /*break*/, 4];
+                    case 2:
+                        _b = participant;
+                        return [4 /*yield*/, this.addToMyForumSite(id)];
+                    case 3:
+                        _b.my_forum_id = _c.sent();
+                        // ''this.participantApi
+                        //    this.events.publish('myforum:add:participant', ({id: id, my_forum_id: participant.my_forum_id})
+                        this.events.publish('myforum:add:participant', participant);
+                        _c.label = 4;
+                    case 4: return [2 /*return*/];
+                }
+            });
+        });
+    };
+    ParticipantDetailPage.prototype.deleteFromMyForum = function (id) {
+        if (this.userId) {
+            this.sqlMyForum.delFromMyForum(id).then(function (res) {
+                if (res)
+                    return null;
+                else
+                    return -1;
+            });
+        }
+    };
+    ParticipantDetailPage.prototype.addToMyForumSite = function (id) {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        if (!this.userId) return [3 /*break*/, 2];
+                        return [4 /*yield*/, this.sqlMyForum.addToMyForumSite(id, this.iblockId, this.userId)];
+                    case 1: return [2 /*return*/, _a.sent()];
+                    case 2: return [2 /*return*/];
+                }
+            });
+        });
+    };
+    ParticipantDetailPage.prototype.changeName = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var _i, _a, participant, placeStr, listPlaces, m, res;
+            return __generator(this, function (_b) {
+                switch (_b.label) {
+                    case 0:
+                        _i = 0, _a = this.participantList;
+                        _b.label = 1;
+                    case 1:
+                        if (!(_i < _a.length)) return [3 /*break*/, 7];
+                        participant = _a[_i];
+                        participant.name = participant.name.replace(/&quot;/g, '"');
+                        participant.desc = participant.desc.replace(/&quot;/g, '"');
+                        participant.desc = participant.desc.replace(/\\r\\n/g, '');
+                        if (!(participant.place && participant.place.includes(','))) return [3 /*break*/, 6];
+                        placeStr = '';
+                        listPlaces = participant.place.split(',');
+                        m = 0;
+                        _b.label = 2;
+                    case 2:
+                        if (!(m < listPlaces.length)) return [3 /*break*/, 5];
+                        return [4 /*yield*/, this.placeSql.selectWhere('id=' + listPlaces[m])];
+                    case 3:
+                        res = _b.sent();
+                        if (res) {
+                            //console.log("res=", res);
+                            placeStr += (placeStr == '' ? '' : ', ') + (this.lang == 'ru' ? res[0].name_rus : res[0].name_eng);
+                            //console.log(listPlaces[m]);
+                            participant.place_name_place = placeStr;
+                            participant.place_name = placeStr;
+                        }
+                        _b.label = 4;
+                    case 4:
+                        m++;
+                        return [3 /*break*/, 2];
+                    case 5:
+                        if ((participant["showMap"]) && (this.participantList.length == 1))
+                            participant["showMap"] = !!participant.place_name;
+                        _b.label = 6;
+                    case 6:
+                        _i++;
+                        return [3 /*break*/, 1];
+                    case 7: return [2 /*return*/];
+                }
+            });
+        });
+    };
+    ParticipantDetailPage.prototype.showLeafLetMap1 = function (participant) {
+        //console.log("participant=", participant);
+        var _this = this;
+        this.placeSql.selectWhere('id=' + participant.place).then(function (res) {
+            //console.log('showLeafLetMap res=', res);
+            var place = res;
+            _this.mapSql.getRecordForFieldValue('name_map', "'" + place[0].name_map + "'").then(function (res) {
+                //console.log("res=", res);
+                var map = res;
+                _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_8__leaflet_map_leaflet_map__["a" /* LeafletMapPage */], {
+                    typeOfMap: 'participantDetail',
+                    popupElement: participant,
+                    place: place,
+                    map: map
+                });
+            });
+        });
+    };
+    return ParticipantDetailPage;
+}(__WEBPACK_IMPORTED_MODULE_5__providers_base_lang_page_base_lang_page__["a" /* BaseLangPageProvider */]));
+ParticipantDetailPage = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+        selector: 'page-participant-detail',template:/*ion-inline-start:"/Users/leonidlyalin/WebstormProjects/army2017/src/pages/participant-detail/participant-detail.html"*/'<ion-header>\n    <ion-navbar>\n        <ion-title>{{titleStr}}</ion-title>\n    </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n    <div *ngFor="let participant of participantList">\n\n        <ion-card>\n            <!-- <img src="assets/img/logo/{{participant.logo}}"/>-->\n            <ion-card-header text-wrap>\n                <h2>{{participant.name}}</h2>\n            </ion-card-header>\n\n            <!-- <ion-card-content>-->\n            <ion-row no-padding>\n                <ion-col>\n                    <div *ngIf="participant.showMap">\n                        <button ion-button clear small color="danger" icon-left (click)="showLeafLetMap1(participant)">\n                            <ion-icon name=\'map\'></ion-icon>\n                            {{onMapStr}}\n                        </button>\n                    </div>\n                </ion-col>\n                <ion-col>\n                    <button *ngIf="userId" ion-button clear small color="danger" icon-left\n                            (click)="changeMyForum(participant.id)">\n                        <ion-icon item-left *ngIf="participant.my_forum_id" name="star" color="danger"></ion-icon>\n                        <ion-icon item-left *ngIf="!participant.my_forum_id" name="star-outline"></ion-icon>\n                        {{myForumStr}}\n                    </button>\n                </ion-col>\n            </ion-row>\n\n\n            <ion-row>\n                <ion-col col-2>\n                    <ion-icon name="pin" color="danger"></ion-icon>\n                </ion-col>\n                <ion-col col-10>\n                    {{participant.place_name}}\n                </ion-col>\n            </ion-row>\n            <ion-row>\n                <ion-col col-2>\n                    <ion-icon name="call" color="danger"></ion-icon>\n                </ion-col>\n                <ion-col col-10>\n                    {{participant.phone}}\n                </ion-col>\n            </ion-row>\n            <ion-row>\n                <ion-col col-2>\n                    <i class="fa fa-address-card" style="color:red"></i>\n                </ion-col>\n                <ion-col col-10>\n                    {{participant.address}}\n                </ion-col>\n            </ion-row>\n\n            <ion-row>\n                <ion-col col-2>\n                    <ion-icon name="at" color="danger"></ion-icon>\n                </ion-col>\n                <ion-col col-10>\n                    {{participant.email}}\n                </ion-col>\n            </ion-row>\n\n            <ion-row>\n                <ion-col col-2>\n                    <ion-icon name="laptop" color="danger"></ion-icon>\n                </ion-col>\n                <ion-col col-10>\n                    <a href="{{participant.www}}">{{participant.www}}</a>\n                </ion-col>\n            </ion-row>\n\n\n            <ion-item text-wrap>\n                {{participant.desc}}\n            </ion-item>\n            <!--  </ion-card-content>-->\n\n            <ion-list>\n                <ion-list-header color="danger">\n                    {{thematicStr}}\n                </ion-list-header>\n                <ion-item *ngFor="let thematicItem of participant.thematic" text-wrap>\n                    <ion-icon name="information-circle" item-left></ion-icon>\n                    <h4 *ngIf="lang==\'ru\'">{{thematicItem.name_rus}}</h4>\n                    <h4 *ngIf="lang==\'en\'">{{thematicItem.name_eng}}</h4>\n                </ion-item>\n            </ion-list>\n\n        </ion-card>\n    </div>\n</ion-content>\n'/*ion-inline-end:"/Users/leonidlyalin/WebstormProjects/army2017/src/pages/participant-detail/participant-detail.html"*/
+    }),
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* NavParams */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* NavController */],
+        __WEBPACK_IMPORTED_MODULE_2__providers_thematic_sql__["a" /* ThematicSql */],
+        __WEBPACK_IMPORTED_MODULE_3__providers_my_forum_sql__["a" /* MyForumSql */],
+        __WEBPACK_IMPORTED_MODULE_6__providers_place_sql_place_sql__["a" /* PlaceSql */],
+        __WEBPACK_IMPORTED_MODULE_7__providers_map_sql_map_sql__["a" /* MapSql */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* Events */],
+        __WEBPACK_IMPORTED_MODULE_4__angular_http__["a" /* Http */]])
+], ParticipantDetailPage);
+
+//# sourceMappingURL=participant-detail.js.map
+
+/***/ }),
+
+/***/ 55:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -9185,989 +10151,7 @@ MapSql = __decorate([
 
 /***/ }),
 
-/***/ 53:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TabsPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__home_home__ = __webpack_require__(140);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__my_forum_my_forum__ = __webpack_require__(160);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_base_lang_page_base_lang_page__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_http__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__bar_scanner_bar_scanner__ = __webpack_require__(153);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__about_forum_about_forum__ = __webpack_require__(159);
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-
-
-
-
-var TabsPage = (function (_super) {
-    __extends(TabsPage, _super);
-    /*lang: string;*/
-    // login:boolean=false;
-    function TabsPage(navCtrl, events, http) {
-        var _this = _super.call(this, navCtrl, events, http) || this;
-        _this.navCtrl = navCtrl;
-        _this.events = events;
-        _this.http = http;
-        // this tells the tabs component which Pages
-        // should be each tab's root Page
-        _this.tab1Root = __WEBPACK_IMPORTED_MODULE_1__home_home__["a" /* HomePage */];
-        _this.tab2Root = __WEBPACK_IMPORTED_MODULE_7__about_forum_about_forum__["a" /* AboutForumPage */];
-        _this.tab3Root = __WEBPACK_IMPORTED_MODULE_2__my_forum_my_forum__["a" /* MyForumPage */];
-        _this.tab4Root = __WEBPACK_IMPORTED_MODULE_6__bar_scanner_bar_scanner__["a" /* BarScannerPage */];
-        //interface strings
-        _this.homeStr = 'Home';
-        _this.aboutStr = 'About';
-        _this.myForumStr = 'Мой форум';
-        _this.mapStr = 'Карты';
-        _this.thematicStr = 'Тематика';
-        _this.qrScannerStr = 'QR сканер';
-        return _this;
-    }
-    TabsPage.prototype.setRussianStrings = function () {
-        _super.prototype.setRussianStrings.call(this);
-        this.homeStr = 'Главная';
-        this.aboutStr = 'О Форуме';
-        this.myForumStr = 'Мой форум';
-        this.mapStr = 'Карты';
-        this.thematicStr = 'Тематика';
-        this.qrScannerStr = 'QR сканер';
-    };
-    TabsPage.prototype.setEnglishStrings = function () {
-        _super.prototype.setEnglishStrings.call(this);
-        this.homeStr = 'Home';
-        this.aboutStr = 'About';
-        this.myForumStr = 'My Forum';
-        this.mapStr = 'Map';
-        this.thematicStr = 'Thematic';
-        this.qrScannerStr = 'QR scanner';
-    };
-    TabsPage.prototype.ionViewDidLoad = function () {
-        _super.prototype.ionViewDidLoad.call(this);
-    };
-    return TabsPage;
-}(__WEBPACK_IMPORTED_MODULE_4__providers_base_lang_page_base_lang_page__["a" /* BaseLangPageProvider */]));
-TabsPage = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({template:/*ion-inline-start:"/Users/leonidlyalin/WebstormProjects/army2017/src/pages/tabs/tabs.html"*/'<ion-tabs>\n\n  <ion-tab [root]="tab1Root" tabTitle={{homeStr}} tabIcon="home"></ion-tab>\n  <ion-tab [root]="tab2Root" tabTitle={{aboutStr}} tabIcon="information-circle"></ion-tab>\n  <ion-tab [root]="tab3Root" tabTitle={{myForumStr}} tabIcon="contacts"></ion-tab>\n  <ion-tab [root]="tab4Root" tabTitle={{qrScannerStr}} tabIcon="qr-scanner"></ion-tab>\n</ion-tabs>\n'/*ion-inline-end:"/Users/leonidlyalin/WebstormProjects/army2017/src/pages/tabs/tabs.html"*/
-    }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3_ionic_angular__["n" /* NavController */],
-        __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["f" /* Events */],
-        __WEBPACK_IMPORTED_MODULE_5__angular_http__["a" /* Http */]])
-], TabsPage);
-
-//# sourceMappingURL=tabs.js.map
-
-/***/ }),
-
-/***/ 54:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LeafletMapPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_place_sql_place_sql__ = __webpack_require__(40);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_draw_function_draw_function__ = __webpack_require__(147);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_leaflet__ = __webpack_require__(633);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_leaflet___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_leaflet__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_map_sql_map_sql__ = __webpack_require__(51);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_http__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__participant_detail_participant_detail__ = __webpack_require__(68);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__providers_my_forum_sql__ = __webpack_require__(26);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__providers_base_list_page_base_list_page__ = __webpack_require__(19);
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
-var __generator = (this && this.__generator) || function (thisArg, body) {
-    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
-    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
-    function verb(n) { return function (v) { return step([n, v]); }; }
-    function step(op) {
-        if (f) throw new TypeError("Generator is already executing.");
-        while (_) try {
-            if (f = 1, y && (t = y[op[0] & 2 ? "return" : op[0] ? "throw" : "next"]) && !(t = t.call(y, op[1])).done) return t;
-            if (y = 0, t) op = [0, t.value];
-            switch (op[0]) {
-                case 0: case 1: t = op; break;
-                case 4: _.label++; return { value: op[1], done: false };
-                case 5: _.label++; y = op[1]; op = [0]; continue;
-                case 7: op = _.ops.pop(); _.trys.pop(); continue;
-                default:
-                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
-                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
-                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
-                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
-                    if (t[2]) _.ops.pop();
-                    _.trys.pop(); continue;
-            }
-            op = body.call(thisArg, _);
-        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
-        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
-    }
-};
-
-
-
-
-
-
-
-
-
-
-var LeafletMapPage = LeafletMapPage_1 = (function (_super) {
-    __extends(LeafletMapPage, _super);
-    // popupLayer:any;
-    function LeafletMapPage(http, navCtrl, navParams, platform, 
-        /*public placeApi: PlaceApi,*/
-        toastCtrl, drawFunction, mapSql, events, placeSql) {
-        var _this = _super.call(this, navCtrl, navParams, events, http) || this;
-        _this.http = http;
-        _this.navCtrl = navCtrl;
-        _this.navParams = navParams;
-        _this.platform = platform;
-        _this.toastCtrl = toastCtrl;
-        _this.drawFunction = drawFunction;
-        _this.mapSql = mapSql;
-        _this.events = events;
-        _this.placeSql = placeSql;
-        _this.iconPath = 'assets/img/icons/';
-        _this.mapPath = 'assets/img/maps/';
-        /**
-         * define show or not popupList on the map
-         */
-        _this.showPopups = true;
-        _this.iconArrowSize = 20;
-        _this.popupElement = navParams.get('popupElement');
-        _this.place = navParams.get('place');
-        _this.currentMap = navParams.get('map');
-        //console.log("popupElement=", this.popupElement);
-        //console.log("place=", this.place);
-        //console.log("currentMap=", this.currentMap);
-        _this.initIcons();
-        return _this;
-        //set a bunch of arrows
-    }
-    LeafletMapPage.prototype.initIcons = function () {
-        this.leftArrowIcon = __WEBPACK_IMPORTED_MODULE_4_leaflet__["icon"]({
-            iconUrl: this.iconPath + 'arrow-left.svg',
-            iconSize: [this.iconArrowSize, this.iconArrowSize],
-        });
-        this.rightArrowIcon = __WEBPACK_IMPORTED_MODULE_4_leaflet__["icon"]({
-            iconUrl: this.iconPath + 'arrow-right.svg',
-            iconSize: [this.iconArrowSize, this.iconArrowSize],
-        });
-        this.upArrowIcon = __WEBPACK_IMPORTED_MODULE_4_leaflet__["icon"]({
-            iconUrl: this.iconPath + 'arrow-up.svg',
-            iconSize: [this.iconArrowSize, this.iconArrowSize],
-        });
-        this.downArrowIcon = __WEBPACK_IMPORTED_MODULE_4_leaflet__["icon"]({
-            iconUrl: this.iconPath + 'arrow-down.svg',
-            iconSize: [this.iconArrowSize, this.iconArrowSize],
-        });
-        this.previousArrowIcon = __WEBPACK_IMPORTED_MODULE_4_leaflet__["icon"]({
-            iconUrl: this.iconPath + 'level-up.svg',
-            iconSize: [this.iconArrowSize, this.iconArrowSize],
-        });
-    };
-    LeafletMapPage.prototype.setRussianStrings = function () {
-        _super.prototype.setRussianStrings.call(this, 'Карта форума');
-    };
-    LeafletMapPage.prototype.setEnglishStrings = function () {
-        _super.prototype.setRussianStrings.call(this, 'Forum map');
-    };
-    LeafletMapPage.prototype.showHideHelp = function () {
-        _super.prototype.showHideHelp.call(this);
-        //console.log(this.lang);
-    };
-    /**
-     * create map list for all USING maps
-     */
-    LeafletMapPage.prototype.createMapList = function () {
-        this.mapList = [];
-        //console.log("createMapList(popupElement=", this.popupElement);
-        if (this.popupElement && this.popupElement.length) {
-            var flags = [], l = (this.popupElement.length);
-            for (var i = 0; i < l; i++) {
-                if (this.popupElement[i].name_map) {
-                    if (flags[this.popupElement[i].name_map])
-                        continue;
-                    flags[this.popupElement[i].name_map] = true;
-                    this.mapList.push(this.popupElement[i].name_map);
-                }
-            }
-            //console.log("mapList=", this.mapList);
-            //  this.showArrow = (this.mapList.length > 1);
-        }
-    };
-    /**
-     * create map
-     */
-    LeafletMapPage.prototype.initMap = function () {
-        return __awaiter(this, void 0, void 0, function () {
-            var _this = this;
-            var _a;
-            return __generator(this, function (_b) {
-                switch (_b.label) {
-                    case 0:
-                        this.popupList = [];
-                        this.placeListForMap = [];
-                        //  this.p
-                        if (!this.map) {
-                            this.map = __WEBPACK_IMPORTED_MODULE_4_leaflet__["map"]('map', {
-                                crs: __WEBPACK_IMPORTED_MODULE_4_leaflet__["CRS"].Simple,
-                                attributionControl: false,
-                                maxBounds: [[0, 0], [(this.content.contentHeight > Number(this.currentMap.height) ? this.content.contentHeight : Number(this.currentMap.height) + this.iconArrowSize),
-                                        (this.content.contentWidth > Number(this.currentMap.width) ? this.content.contentWidth : Number(this.currentMap.width) + this.iconArrowSize)]],
-                            });
-                            this.map.tap = true;
-                            this.map.on('click', function (e) {
-                                _this.mapClick(e);
-                            });
-                            this.map.on('zoom', function (e) {
-                                _this.mapOnZoom(e);
-                            });
-                        }
-                        else
-                            (this.deleteLayers());
-                        //console.log("this.placeListForMap=", this.placeListForMap);
-                        //console.log("currentMap=", this.currentMap);
-                        this.map.options.minZoom = (this.currentMap.min_zoom ? this.currentMap.min_zoom : 0);
-                        this.map.options.maxZoom = (this.currentMap.max_zoom ? this.currentMap.max_zoom : 5);
-                        this.bounds = [[0, 0], [Number(this.currentMap.height), Number(this.currentMap.width)]]; //new L.LatLngBounds(this.southWest, this.northEast);
-                        //console.log("this.bounds=", this.bounds);
-                        __WEBPACK_IMPORTED_MODULE_4_leaflet__["imageOverlay"](this.mapPath + this.currentMap.name_map, this.bounds).addTo(this.map);
-                        this.map.fitBounds(this.bounds);
-                        this.map.options.zoom = (this.currentMap.begin_zoom ? this.currentMap.begin_zoom : 1);
-                        this.titleStr = this.currentMap['name_' + (this.lang == 'ru' ? 'rus' : 'eng')];
-                        if (!((this.typeOfMap == 'conference') || (this.typeOfMap == 'participant')
-                            || (this.typeOfMap == 'exhibit') || (this.typeOfMap == 'simple')
-                            || (this.typeOfMap == 'demo-program'))) return [3 /*break*/, 2];
-                        _a = this;
-                        return [4 /*yield*/, this.placeSql.selectWhere('name_map="' + this.currentMap.name_map + '"')];
-                    case 1:
-                        _a.placeListForMap = _b.sent();
-                        // this.placeListForMap = <any>res;
-                        this.setSignsForMap();
-                        this.showArrowIcons();
-                        this.setIconsForMap();
-                        if ((this.typeOfMap == 'participant') || (this.typeOfMap == 'conference')
-                            || (this.typeOfMap == 'exhibit') || (this.typeOfMap == 'demo-program')) {
-                            this.setSigns();
-                        }
-                        _b.label = 2;
-                    case 2: return [2 /*return*/];
-                }
-            });
-        });
-    };
-    LeafletMapPage.prototype.showArrowIcons = function () {
-        var _this = this;
-        if (this.currentMap.map_left) {
-            this.leftArrow = __WEBPACK_IMPORTED_MODULE_4_leaflet__["marker"]([this.currentMap.height / 2, 0], { icon: this.leftArrowIcon });
-            this.leftArrow.addTo(this.map);
-            this.leftArrow.on('click', function (e) {
-                //console.log(e);
-                _this.mapDirection('left');
-            });
-        }
-        if (this.currentMap.map_right) {
-            this.rightArrow = __WEBPACK_IMPORTED_MODULE_4_leaflet__["marker"]([this.currentMap.height / 2, this.currentMap.width], { icon: this.rightArrowIcon });
-            this.rightArrow.addTo(this.map);
-            this.rightArrow.on('click', function () {
-                _this.mapDirection('right');
-            });
-        }
-        if (this.currentMap.map_up) {
-            this.upArrow = __WEBPACK_IMPORTED_MODULE_4_leaflet__["marker"]([this.currentMap.height - this.iconArrowSize, this.currentMap.width / 2], { icon: this.upArrowIcon });
-            this.upArrow.addTo(this.map);
-            this.upArrow.on('click', function (e) {
-                _this.mapDirection('up');
-            });
-        }
-        if (this.currentMap.map_down) {
-            this.downArrow = __WEBPACK_IMPORTED_MODULE_4_leaflet__["marker"]([this.iconArrowSize, this.currentMap.width / 2], { icon: this.downArrowIcon });
-            this.downArrow.addTo(this.map);
-            this.downArrow.on('click', function () {
-                _this.mapDirection('down');
-            });
-        }
-        if (this.currentMap.place_previous) {
-            this.previousArrow = __WEBPACK_IMPORTED_MODULE_4_leaflet__["marker"]([this.currentMap.height - this.iconArrowSize, this.iconArrowSize], { icon: this.previousArrowIcon });
-            //  this.previousArrow = L.marker([100, 100], {icon: this.previousArrowIcon});
-            this.previousArrow.addTo(this.map);
-            this.previousArrow.on('click', function () {
-                _this.mapPrevious();
-            });
-        }
-    };
-    LeafletMapPage.pnpoly = function (nvert, vertx, verty, testx, testy) {
-        var i, j, c = false;
-        for (i = 0, j = nvert - 1; i < nvert; j = i++) {
-            if (((verty[i] > testy) !== (verty[j] > testy)) &&
-                (testx < (vertx[j] - vertx[i]) * (testy - verty[i]) / (verty[j] - verty[i]) + vertx[i])) {
-                c = !c;
-            }
-        }
-        return c;
-    };
-    LeafletMapPage.prototype.isInsideRect = function (x, y, coords, place_name) {
-        if (this.typeOfMap != 'OpenStreetMap') {
-            //console.log("isInsideRect coords=", coords);
-            //console.log("isInsideRect x=", x);
-            //console.log("isInsideRect y=", y);
-            var coordsList = coords.split(',');
-            //console.log("isInsideRect coordsList=", coordsList);
-            var bounds = [[this.currentMap.height - coordsList[1], coordsList[0]], [this.currentMap.height - coordsList[3], coordsList[2]]];
-            //console.log("bounds before ", place_name, bounds);
-            //console.log("coordsList[1] before ", coordsList[1]);
-            //console.log("height -coordsList[1] before ", this.currentMap.height - coordsList[1]);
-            //console.log("coordsList[3] before ", coordsList[3]);
-            if ((this.currentMap.height - Number(coordsList[1])) > (this.currentMap.height - Number(coordsList[3]))) {
-                var tmp = coordsList[1];
-                coordsList[1] = coordsList[3];
-                coordsList[3] = tmp;
-            }
-            if (Number(coordsList[0]) > Number(coordsList[2])) {
-                var tmp = coordsList[0];
-                coordsList[0] = coordsList[2];
-                coordsList[2] = tmp;
-            }
-            //console.log("coordsList[1] after ", coordsList[1]);
-            bounds = [[this.currentMap.height - coordsList[1], coordsList[0]], [this.currentMap.height - coordsList[3], coordsList[2]]];
-            //console.log("bounds after", place_name, bounds);
-            //L.rectangle(this.bounds, {color: "red", weight: 1}).addTo(this.map);
-            return (((y >= (this.currentMap.height - coordsList[1]))
-                && (y <= (this.currentMap.height - coordsList[3]))) && ((x >= (coordsList[0])) && (x <= (coordsList[2]))));
-        }
-        else {
-            //console.log("isInsideRect coords=", coords);
-            //console.log("isInsideRect x=", x);
-            //console.log("isInsideRect y=", y);
-            var coordsList = coords.split(',');
-            //console.log("isInsideRect coordsList=", coordsList);
-            var bounds = [[coordsList[1], coordsList[0]], [coordsList[3], coordsList[2]]];
-            //console.log("bounds before ", place_name, bounds);
-            //console.log("coordsList[1] before ", coordsList[1]);
-            //console.log("height -coordsList[1] before ", this.currentMap.height - coordsList[1]);
-            //console.log("coordsList[3] before ", coordsList[3]);
-            if ((Number(coordsList[1])) > (Number(coordsList[3]))) {
-                var tmp = coordsList[1];
-                coordsList[1] = coordsList[3];
-                coordsList[3] = tmp;
-            }
-            if (Number(coordsList[0]) > Number(coordsList[2])) {
-                var tmp = coordsList[0];
-                coordsList[0] = coordsList[2];
-                coordsList[2] = tmp;
-            }
-            //console.log("coordsList[1] after ", coordsList[1]);
-            bounds = [[coordsList[1], coordsList[0]], [coordsList[3], coordsList[2]]];
-            //console.log("bounds after", place_name, bounds);
-            //L.rectangle(this.bounds, {color: "red", weight: 1}).addTo(this.map);
-            //console.log((((x >= (coordsList[1])) && (x <= (coordsList[3]))) && ((y >= (coordsList[0])) && (y <= (coordsList[2])))))
-            return (((x >= (coordsList[1]))
-                && (x <= (coordsList[3]))) && ((y >= (coordsList[0])) && (y <= (coordsList[2]))));
-        }
-    };
-    LeafletMapPage.prototype.isInsidePoly = function (x, y, coords) {
-        //prepare for check;
-        var tmpBounds = [];
-        //console.log("isInsidePoly coords=", coords);
-        var coordsList = coords.split(',');
-        //console.log("isInsidePoly coordsList=", coordsList);
-        var vertx = [];
-        var verty = [];
-        var nvert = 0;
-        for (var i = 0; i < coordsList.length; i = i + 2) {
-            nvert++;
-            verty.push(this.currentMap.height - coordsList[i + 1]);
-            vertx.push(coordsList[i] * 1);
-            tmpBounds.push([this.currentMap.height - coordsList[i + 1], coordsList[i]]);
-        }
-        //console.log("isInsidePoly nvert=", nvert);
-        //console.log("isInsidePoly vertx=", vertx);
-        //console.log("isInsidePoly verty=", verty);
-        //console.log("isInsidePoly tmpBounds=", tmpBounds);
-        // L.polygon(tmpBounds, {color: 'blue', weight: 2}).addTo(this.map);
-        return LeafletMapPage_1.pnpoly(nvert, vertx, verty, x, y);
-    };
-    LeafletMapPage.prototype.setCoords = function (coords) {
-        var mCoordsTmp = coords.split(',');
-        var mCoords = [];
-        //console.log('mCoordsTmp= ', mCoordsTmp);
-        for (var _i = 0, mCoordsTmp_1 = mCoordsTmp; _i < mCoordsTmp_1.length; _i++) {
-            var mCoordsSingle = mCoordsTmp_1[_i];
-            if (mCoordsSingle) {
-                //console.log("mCoordsSingle=", mCoordsSingle);
-                mCoords.push(Number(mCoordsSingle));
-            }
-        }
-        return mCoords;
-    };
-    /**
-     * Show and place popupList on the currentmap
-     * @param content - what will be shown on the popup
-     * @param coords - where to place pop up (actualy, firtst two numbers from the coords)
-     */
-    LeafletMapPage.prototype.showPopup = function (content, coords) {
-        //check if already on the map
-        //console.log("content=", content);
-        var popup = __WEBPACK_IMPORTED_MODULE_4_leaflet__["popup"]({
-            closeOnClick: false,
-            autoClose: false,
-        });
-        /*let mCoords = this.setCoords(coords);
-        popup.setLatLng([this.currentMap.height - mCoords[1], mCoords[0]]);*/
-        var xy = this.getCenter(coords);
-        popup.setLatLng([this.currentMap.height - xy.x, xy.y]);
-        popup.setContent(content);
-        popup.openOn(this.map);
-        this.popupList.push({ name_map: this.currentMap.name_map, popup: popup, coords: coords });
-    };
-    LeafletMapPage.prototype.showTooltip = function (content, coords) {
-        var xy = this.getCenter(coords);
-        var tooltip = __WEBPACK_IMPORTED_MODULE_4_leaflet__["tooltip"]([this.currentMap.height - xy.x, xy.y]);
-        tooltip.bindPopup(content);
-        tooltip.addTo(this.map);
-    };
-    LeafletMapPage.prototype.getCenter = function (coords) {
-        var mCoords = this.setCoords(coords);
-        //try to center marker
-        var maxX = 0;
-        var minX = mCoords[1];
-        var maxY = 0;
-        var minY = mCoords[0];
-        for (var i = 0; i < mCoords.length; i = i + 2) {
-            maxX = (mCoords[i + 1] > maxX ? mCoords[i + 1] : maxX);
-            minX = (mCoords[i + 1] < minX ? mCoords[i + 1] : minX);
-            maxY = (mCoords[i] > maxY ? mCoords[i] : maxY);
-            minY = (mCoords[i] < minY ? mCoords[i] : minY);
-        }
-        var x = minX + (maxX - minX) / 2;
-        var y = minY + (maxY - minY) / 2;
-        return { x: x, y: y };
-    };
-    LeafletMapPage.prototype.showMarker = function (content, coords) {
-        var xy = this.getCenter(coords);
-        var marker = __WEBPACK_IMPORTED_MODULE_4_leaflet__["marker"]([this.currentMap.height - xy.x, xy.y]);
-        marker.bindPopup(content);
-        marker.addTo(this.map);
-        this.popupList.push({ name_map: this.currentMap.name_map, marker: marker, coords: coords });
-    };
-    LeafletMapPage.prototype.showIcon = function (content, coords, icon) {
-        var xy = this.getCenter(coords);
-        var marker = __WEBPACK_IMPORTED_MODULE_4_leaflet__["marker"]([this.currentMap.height - xy.x, xy.y], { icon: icon });
-        // let mCoords = this.setCoords(coords);
-        /*let marker = L.marker([this.currentMap.height - mCoords[1], mCoords[0]], {icon: icon});*/
-        marker.bindPopup(content);
-        marker.addTo(this.map);
-        this.iconList.push({ name_map: this.currentMap.name_map, icon: marker, coords: coords });
-    };
-    LeafletMapPage.prototype.mapClick = function (e) {
-        //console.log(e);
-        var _this = this;
-        //console.log(e.latlng.lng, e.latlng.lat, '');
-        //console.log("this.placeListForMap", this.placeListForMap);
-        if (this.placeListForMap.length) {
-            var goDetail = false;
-            var numFind = void 0;
-            for (var i = 0; i < this.placeListForMap.length; i++) {
-                //console.log("mapClick(e) this.placeListForMap[i]=", this.placeListForMap[i]);
-                if (this.placeListForMap[i].shape == 'rect' || !this.placeListForMap[i].shape) {
-                    if (this.isInsideRect(e.latlng.lng, e.latlng.lat, this.placeListForMap[i].coords, this.placeListForMap[i].place_name)) {
-                        numFind = i;
-                        goDetail = true;
-                        break;
-                    }
-                }
-                else {
-                    //console.log('check for poly');
-                    if (this.placeListForMap[i].shape == 'poly') {
-                        if (this.isInsidePoly(e.latlng.lng, e.latlng.lat, this.placeListForMap[i].coords)) {
-                            numFind = i;
-                            goDetail = true;
-                            break;
-                        }
-                    }
-                }
-            }
-            if (goDetail) {
-                //console.log("this.placeListForMap[i]=", this.placeListForMap[numFind]);
-                if (this.placeListForMap[numFind].goto) {
-                    //goto to the new map
-                    for (var i = 0; i < this.fullMapList.length; i++) {
-                        if (this.fullMapList[i].name_map == this.placeListForMap[numFind].goto) {
-                            this.currentMap = this.fullMapList[i];
-                            //console.log("currentMap=", this.currentMap.name_map);
-                            this.currentMapNumber = i;
-                            break;
-                        }
-                    }
-                    this.initMap();
-                    //  this.setButtonsEnable();
-                }
-                else {
-                    var tmpSql = new __WEBPACK_IMPORTED_MODULE_8__providers_my_forum_sql__["a" /* MyForumSql */](this.http);
-                    tmpSql.getRusParticipantFull('where a.place=' + this.placeListForMap[numFind].id).then(function (res) {
-                        if (res.length) {
-                            var participant = res;
-                            //console.log("participant=", participant);
-                            _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_7__participant_detail_participant_detail__["a" /* ParticipantDetailPage */], { participant: participant, map: false });
-                        }
-                    });
-                }
-            }
-        }
-    };
-    LeafletMapPage.prototype.deleteLayers = function () {
-        var _this = this;
-        this.map.eachLayer(function (rs) {
-            _this.map.removeLayer(rs);
-        });
-    };
-    /**
-     * set popup for the map on the previous level
-     * @param mapAsPlace
-     */
-    LeafletMapPage.prototype.setMapAsPlace = function (mapAsPlace) {
-        var _this = this;
-        //first, find the place which was our map
-        //console.log("mapAsPlace=", mapAsPlace);
-        var placeSql = new __WEBPACK_IMPORTED_MODULE_2__providers_place_sql_place_sql__["a" /* PlaceSql */](this.http);
-        placeSql.selectWhere(' goto="' + mapAsPlace + '"').then(function (res) {
-            var place = res[0];
-            var content = place["name_" + ((_this.lang == 'ru') ? 'rus' : 'eng')]; // + '<br>' + this.popupElement.name;
-            _this.showPopup(content, place.coords);
-        });
-    };
-    /*
-        setSigns() {
-            if (!this.popupElement) return;
-            this.popupList = [];
-            for (let m = 0; m < this.placeListForMap.length; m++) {
-                let content: string = '';
-                for (let i = 0; i < this.popupElement.length; i++) {
-                    if ((this.popupElement[i].coords)
-                        && (this.popupElement[i].name_map == this.currentMap.name_map) &&
-                        ((this.popupElement[i].place_name_place == this.placeListForMap[m].name_rus)
-                            || (this.popupElement[i].place_name_place == this.placeListForMap[m].name_eng))) {
-                        content += '<b>' + (this.lang == 'ru' ? this.placeListForMap[m].name_rus : this.placeListForMap[m].name_eng) + '</b>' + '<br>';
-                        //console.log("this.popupElement[i].name_map ", this.popupElement[i].name_map);
-                        //console.log("this.currentMap.name_map=", this.currentMap.name_map);
-                        //console.log("this.popupElement[i].place_name_place=", this.popupElement[i].place_name_place);
-                        // //console.log("this.placeList[m]=", this.placeList[m]);
-
-                        if (this.typeOfMap == 'conference' || this.typeOfMap == 'demo-program') {
-                            content += this.popupElement[i].date_event + '. '
-                                + this.popupElement[i].time_beg + ':' +
-                                this.popupElement[i].time_end + '<br>';
-                        }
-                        content += this.popupElement[i].name.trim() + '<br>';
-                        //console.log("content=", content);
-
-                        this.showPopup(content, this.popupElement[i].coords);
-                    }
-                }
-            }
-        */
-    /**
-     * show popups/tooltips/pins for currentMap;
-     */
-    LeafletMapPage.prototype.setSigns = function () {
-        if (!this.popupElement)
-            return;
-        this.popupList = [];
-        for (var m = 0; m < this.placeListForMap.length; m++) {
-            // let content: string = '';
-            var contentPlace = '';
-            var contentName = '';
-            for (var i = 0; i < this.popupElement.length; i++) {
-                if ((this.popupElement[i].coords)
-                    && (this.popupElement[i].name_map == this.currentMap.name_map) &&
-                    ((this.popupElement[i].place_name_place == this.placeListForMap[m].name_rus)
-                        || (this.popupElement[i].place_name_place == this.placeListForMap[m].name_eng))) {
-                    if (contentPlace == '')
-                        contentPlace = '<b>' + (this.lang == 'ru' ? this.placeListForMap[m].name_rus : this.placeListForMap[m].name_eng) + '</b>' + '<br>';
-                    //console.log("this.popupElement[i].name_map ", this.popupElement[i].name_map);
-                    //console.log("this.currentMap.name_map=", this.currentMap.name_map);
-                    //console.log("this.popupElement[i].place_name_place=", this.popupElement[i].place_name_place);
-                    // //console.log("this.placeList[m]=", this.placeList[m]);
-                    if (this.typeOfMap == 'conference' || this.typeOfMap == 'demo-program') {
-                        contentName += this.popupElement[i].date_event + '. '
-                            + this.popupElement[i].time_beg + ':' +
-                            this.popupElement[i].time_end + '<br>';
-                    }
-                    contentName += this.popupElement[i].name.trim() + '<br>';
-                    //console.log("contentPlace=", contentPlace);
-                    //console.log("contentName=", contentName);
-                }
-            }
-            if ((contentPlace != '') && (contentName != '')) {
-                this.showPopup(contentPlace + contentName, this.placeListForMap[m].coords);
-            }
-        }
-    };
-    LeafletMapPage.prototype.setPictogramsForMap = function (pictStr) {
-        return __awaiter(this, void 0, void 0, function () {
-            var _this = this;
-            var pictList, iconWhere, i, _a;
-            return __generator(this, function (_b) {
-                switch (_b.label) {
-                    case 0:
-                        pictList = pictStr.split(',');
-                        this.placeListForMap = [];
-                        this.iconList = [];
-                        iconWhere = '';
-                        for (i = 0; i < pictList.length; i++) {
-                            iconWhere += (iconWhere.length > 0 ? ' or ' : '') + ' icon_name="' + pictList[i] + '"';
-                        }
-                        // iconWhere=
-                        this.map.autoPan = true;
-                        _a = this;
-                        return [4 /*yield*/, this.placeSql.selectWhere('name_map="' + this.currentMap.name_map + '"' + (iconWhere.length > 0 ? ' and (' + iconWhere + ') ' : ''))];
-                    case 1:
-                        _a.placeListForMap = _b.sent();
-                        this.placeListForMap.forEach(function (placeIcon) {
-                            if (placeIcon.icon_name) {
-                                var icon = __WEBPACK_IMPORTED_MODULE_4_leaflet__["icon"]({
-                                    iconUrl: _this.iconPath + placeIcon.icon_name,
-                                    iconSize: [_this.iconArrowSize, _this.iconArrowSize] // size of the icon
-                                });
-                                var content = placeIcon["name_" + (_this.lang == 'ru' ? 'rus' : 'eng')];
-                                _this.showIcon(content, placeIcon.coords, icon);
-                            }
-                        });
-                        return [2 /*return*/];
-                }
-            });
-        });
-    };
-    LeafletMapPage.prototype.setIconsForMap = function () {
-        var _this = this;
-        if (this.placeListForMap) {
-            this.iconList = [];
-            this.placeListForMap.forEach(function (placeIcon) {
-                if ((placeIcon.icon_name) && (_this.iconStr.includes(placeIcon.icon_name))) {
-                    var icon = __WEBPACK_IMPORTED_MODULE_4_leaflet__["icon"]({
-                        iconUrl: _this.iconPath + placeIcon.icon_name,
-                        iconSize: [_this.iconArrowSize, _this.iconArrowSize] // size of the icon
-                    });
-                    var content = placeIcon["name_" + (_this.lang == 'ru' ? 'rus' : 'eng')];
-                    _this.showIcon(content, placeIcon.coords, icon);
-                }
-            });
-        }
-    };
-    /**
-     * show signs for current map which MUST be shown
-     */
-    LeafletMapPage.prototype.setSignsForMap = function () {
-        var _this = this;
-        if (this.placeListForMap) {
-            if (this.popupList) {
-                if ((this.typeOfMap == 'conference') || (this.typeOfMap == 'participant') || this.typeOfMap == 'exhibit') {
-                    this.popupList.forEach(function (popup) {
-                        if ((popup.popup) && (popup.name_map == _this.currentMap.name_map)) {
-                            _this.map.closePopup(popup.popup);
-                        }
-                        if ((popup.marker) && (popup.name_map == _this.currentMap.name_map)) {
-                            _this.map.closePopup(popup.marker);
-                        }
-                    });
-                }
-            }
-            this.placeListForMap.forEach(function (placeSign) {
-                //console.log("placeSign=", placeSign);
-                var zoom = _this.map.getZoom();
-                var marker = (placeSign.marker ? placeSign.marker : _this.map.getMaxZoom() + 1);
-                if (marker == 'min')
-                    marker = _this.map.getMinZoom();
-                var tooltip = (placeSign.tooltip ? placeSign.tooltip : _this.map.getMaxZoom() + 1);
-                if (tooltip == 'min')
-                    tooltip = _this.map.getMinZoom();
-                var popup = (placeSign.popup ? placeSign.popup : _this.map.getMaxZoom() + 1);
-                if (popup == 'min')
-                    popup = _this.map.getMinZoom();
-                if ((zoom >= marker) && (zoom < tooltip) && (zoom < popup)) {
-                    var content = placeSign["name_" + (_this.lang == 'ru' ? 'rus' : 'eng')];
-                    _this.showMarker(content, placeSign.coords);
-                }
-                if ((zoom >= tooltip) && (popup > zoom)) {
-                    var content = placeSign["name_" + (_this.lang == 'ru' ? 'rus' : 'eng')];
-                    _this.showTooltip(content, placeSign.coords);
-                }
-                if (zoom >= popup) {
-                    var content = placeSign["name_" + (_this.lang == 'ru' ? 'rus' : 'eng')];
-                    _this.showPopup(content, placeSign.coords);
-                }
-            });
-        }
-    };
-    LeafletMapPage.prototype.ionViewDidLoad = function () {
-        return __awaiter(this, void 0, void 0, function () {
-            var _this = this;
-            var _a, content, content_1, xy;
-            return __generator(this, function (_b) {
-                switch (_b.label) {
-                    case 0:
-                        _super.prototype.ionViewDidLoad.call(this);
-                        _a = this;
-                        return [4 /*yield*/, this.mapSql.select()];
-                    case 1:
-                        _a.fullMapList = _b.sent();
-                        this.typeOfMap = this.navParams.get('typeOfMap');
-                        this.popupElement = this.navParams.get('popupElement');
-                        this.place = this.navParams.get('place');
-                        this.currentMap = this.navParams.get('map');
-                        this.iconStr = this.navParams.get('icons');
-                        if (!(this.typeOfMap == 'participantDetail' || this.typeOfMap == 'conferenceDetail' || this.typeOfMap == 'exhibitDetail' ||
-                            this.typeOfMap == 'demoProgramDetail')) return [3 /*break*/, 3];
-                        return [4 /*yield*/, this.initMap()];
-                    case 2:
-                        _b.sent();
-                        this.showArrow = false;
-                        content = void 0;
-                        content = this.place[0]["name_" + ((this.lang == 'ru') ? 'rus' : 'eng')] + '<br>' + this.popupElement.name;
-                        if (this.typeOfMap == 'conferenceDetail') {
-                            content += this.popupElement.date_event + '. '
-                                + this.popupElement.time_beg + ':' +
-                                this.popupElement.time_end + '<br>';
-                        }
-                        this.showPopup(content, this.place[0].coords);
-                        _b.label = 3;
-                    case 3:
-                        if (!(this.typeOfMap == 'showmarker')) return [3 /*break*/, 5];
-                        return [4 /*yield*/, this.initMap()];
-                    case 4:
-                        _b.sent();
-                        content_1 = '';
-                        if (this.popupElement) {
-                            if (this.popupElement.name)
-                                content_1 = this.popupElement.name;
-                            content_1 = ((this.lang == 'ru') ? this.popupElement.name_rus : this.popupElement.name_eng);
-                        }
-                        if (this.place.length) {
-                            this.place.forEach(function (placeSingle) {
-                                content_1 = '';
-                                content_1 = ((_this.lang == 'ru') ? _this.place.name_rus : _this.place.name_eng);
-                                _this.showMarker(content_1, placeSingle.coords);
-                            });
-                        }
-                        else {
-                            if (content_1 == '')
-                                content_1 = ((this.lang == 'ru') ? this.place.name_rus : this.place.name_eng);
-                            this.showMarker(content_1, this.place.coords);
-                        }
-                        xy = this.getCenter(this.place.coords);
-                        //let marker = L.marker();
-                        this.map.setView([this.currentMap.height - xy.x, xy.y]);
-                        _b.label = 5;
-                    case 5:
-                        if ((this.typeOfMap == 'conference') || (this.typeOfMap == 'participant')
-                            || (this.typeOfMap == 'exhibit') || (this.typeOfMap == 'demo-program')) {
-                            this.createMapList();
-                            this.currentMapNumber = 0;
-                            this.initMap();
-                            // this.setSigns();
-                        }
-                        if (this.typeOfMap == 'simple') {
-                            this.initMap();
-                        }
-                        if (this.typeOfMap == 'icon') {
-                            this.initMap();
-                            this.setPictogramsForMap(this.iconStr);
-                            if (this.navParams.get('titleStr'))
-                                this.titleStr = this.navParams.get('titleStr');
-                        }
-                        return [2 /*return*/];
-                }
-            });
-        });
-    };
-    /**
-     * moving through the maps according to direction (up/down, left/right)
-     * @param direction
-     */
-    LeafletMapPage.prototype.mapDirection = function (direction) {
-        direction = 'map_' + direction;
-        //console.log("currentMapNumber=", this.currentMapNumber);
-        //console.log("direction=", direction);
-        //console.log("fullMapList[currentMapNumber]=", this.fullMapList[this.currentMapNumber]);
-        //console.log("fullMapList[currentMapNumber]=", this.fullMapList[this.currentMapNumber][direction]);
-        if (this.fullMapList[this.currentMapNumber][direction]) {
-            for (var i = 0; i < this.fullMapList.length; i++) {
-                if (this.fullMapList[i].name_map == this.fullMapList[this.currentMapNumber][direction]) {
-                    this.currentMap = this.fullMapList[i];
-                    // setMap();
-                    //console.log("currentMap=", this.currentMap.name_map);
-                    this.currentMapNumber = i;
-                    break;
-                }
-            }
-        }
-        //this.getMapFromFullList();
-        this.initMap();
-        // this.setButtonsEnable();
-        if (this.showPopups)
-            this.setSigns();
-    };
-    /**
-     * get previos (i.e. map from the previous level) map for the current map
-     */
-    LeafletMapPage.prototype.mapPrevious = function () {
-        var direction = "place_previous";
-        var old_map_name = this.currentMap.name_map;
-        //console.log("currentMapNumber=", this.currentMapNumber);
-        //console.log("direction=", direction);
-        //console.log("fullMapList[currentMapNumber]=", this.fullMapList[this.currentMapNumber]);
-        //console.log("fullMapList[currentMapNumber]=", this.fullMapList[this.currentMapNumber][direction]);
-        if (this.currentMap[direction]) {
-            for (var i = 0; i < this.fullMapList.length; i++) {
-                if (this.fullMapList[i].name_map == this.currentMap[direction]) {
-                    this.currentMap = this.fullMapList[i];
-                    // setMap();
-                    //console.log("currentMap=", this.currentMap.name_map);
-                    this.currentMapNumber = i;
-                    break;
-                }
-            }
-        }
-        //  this.getMapFromFullList();
-        //this.setMap();
-        this.initMap();
-        // this.setButtonsEnable();
-        //console.log("old_map_name=", old_map_name);
-        if (this.showPopups)
-            this.setMapAsPlace(old_map_name);
-    };
-    LeafletMapPage.prototype.updatePopups = function () {
-        //console.log('updatePopups=', this.showPopups);
-        if (this.showPopups) {
-            for (var _i = 0, _a = this.popupList; _i < _a.length; _i++) {
-                var popup = _a[_i];
-                if (popup.name_map == this.currentMap.name_map)
-                    popup.popup.openOn(this.map);
-            }
-        } //this.setPopups();
-        else {
-            for (var _b = 0, _c = this.popupList; _b < _c.length; _b++) {
-                var popup = _c[_b];
-                if (popup.name_map == this.currentMap.name_map)
-                    this.map.closePopup(popup.popup);
-            }
-        }
-    };
-    LeafletMapPage.prototype.mapOnZoom = function (e) {
-        //console.log(e);
-        //console.log("this.map.getCenter()=", this.map.getCenter());
-        //Returns the geographical center of the map view
-        //console.log("this.map.getZoom()=", this.map.getZoom());
-        this.setSignsForMap();
-        this.setSigns();
-    };
-    LeafletMapPage.prototype.doNothing = function () {
-        //console.log('do nothing, as it was promised');
-    };
-    return LeafletMapPage;
-}(__WEBPACK_IMPORTED_MODULE_9__providers_base_list_page_base_list_page__["a" /* BaseListPageProvider */]));
-__decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_13" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* Content */]),
-    __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* Content */])
-], LeafletMapPage.prototype, "content", void 0);
-__decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_13" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["q" /* Scroll */]),
-    __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["q" /* Scroll */])
-], LeafletMapPage.prototype, "scroll", void 0);
-__decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_13" /* ViewChild */])('drawingCanvas'),
-    __metadata("design:type", Object)
-], LeafletMapPage.prototype, "drawingCanvas", void 0);
-LeafletMapPage = LeafletMapPage_1 = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'leaflet-map',template:/*ion-inline-start:"/Users/leonidlyalin/WebstormProjects/army2017/src/pages/leaflet-map/leaflet-map.html"*/'<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.1/dist/leaflet.css"/>\n\n<ion-header>\n\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>{{titleStr}}</ion-title>\n    <ion-buttons end>\n      <button ion-button icon-only (click)="showHideHelp()" [style.color]="colorHelp">\n        <ion-icon name="help-circle"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-navbar>\n\n  <ion-toolbar *ngIf="showArrow">\n    <ion-buttons>\n      <button *ngIf="showLeftArrow" ion-button icon-only (click)="mapDirection(\'left\')">\n        <i class="fa fa-arrow-circle-left fa-2x"></i>\n        <!-- <ion-icon name="arrow-round-back" color="white"></ion-icon>-->\n      </button>\n      <button *ngIf="!showLeftArrow" ion-button icon-only>\n\n        <ion-icon name="arrow-round-back"></ion-icon>\n      </button>\n      <button *ngIf="showRightArrow" ion-button icon-only (click)="mapDirection(\'right\')">\n        <i class="fa fa-arrow-circle-right fa-2x"></i>\n        <!--<ion-icon name="arrow-round-forward" color="white"></ion-icon>-->\n      </button>\n      <button *ngIf="!showRightArrow" ion-button icon-only>\n        <ion-icon name="arrow-round-forward"></ion-icon>\n      </button>\n      <button *ngIf="showUpArrow" ion-button icon-only (click)="mapDirection(\'up\')">\n        <i class="fa fa-arrow-circle-up fa-2x"></i>\n        <!--<ion-icon name="arrow-round-up" color="white"></ion-icon>-->\n      </button>\n      <button *ngIf="!showUpArrow" ion-button icon-only>\n        <ion-icon name="arrow-round-up"></ion-icon>\n      </button>\n      <button *ngIf="showDownArrow" ion-button icon-only (click)="mapDirection(\'down\')">\n        <i class="fa fa-arrow-circle-down fa-2x"></i>\n        <!--<ion-icon name="arrow-round-down" color="white"></ion-icon>-->\n      </button>\n      <button *ngIf="!showDownArrow" ion-button icon-only>\n        <ion-icon name="arrow-round-down"></ion-icon>\n      </button>\n\n      <button *ngIf="showPreviousArrow" ion-button icon-only (click)="mapPrevious()">\n\n        <ion-icon name="arrow-dropup" color="white"></ion-icon>\n\n      </button>\n      {{mapTitle}}\n\n      <i class="fa fa-comment fa-2x" style="color:red"></i>\n      <ion-checkbox [(ngModel)]="showPopups"\n                    (click)="updatePopups()" end>\n      </ion-checkbox>\n\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n\n\n<ion-content no-padding no-margin="true" (swipe)="doNothing()">\n  <div *ngIf="showHelp">\n    <page-map-help>\n    </page-map-help>\n  </div>\n  <div tappable id="map">\n\n  </div>\n\n\n  <style>\n    #map {\n      width: 100%;\n      height: 100%;\n      border: 1px solid #ccc;\n      margin-bottom: 10px;\n    }\n  </style>\n\n\n</ion-content>\n'/*ion-inline-end:"/Users/leonidlyalin/WebstormProjects/army2017/src/pages/leaflet-map/leaflet-map.html"*/,
-    }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_6__angular_http__["a" /* Http */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* NavController */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* NavParams */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["p" /* Platform */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["u" /* ToastController */],
-        __WEBPACK_IMPORTED_MODULE_3__providers_draw_function_draw_function__["a" /* DrawFunctionProvider */],
-        __WEBPACK_IMPORTED_MODULE_5__providers_map_sql_map_sql__["a" /* MapSql */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* Events */],
-        __WEBPACK_IMPORTED_MODULE_2__providers_place_sql_place_sql__["a" /* PlaceSql */]])
-], LeafletMapPage);
-
-var LeafletMapPage_1;
-// 790 strings before refactoring
-/*
-direction of swipe
-left =1
-right=
-up
-down
-
-
-
-
-offset direction
-left 4
-right 2
- */
-//# sourceMappingURL=leaflet-map.js.map
-
-/***/ }),
-
-/***/ 634:
+/***/ 629:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -10176,7 +10160,7 @@ right 2
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs__ = __webpack_require__(46);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__base_api_service__ = __webpack_require__(29);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__base_api_service__ = __webpack_require__(30);
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -10232,7 +10216,49 @@ PatriotApiService = __decorate([
 
 /***/ }),
 
-/***/ 638:
+/***/ 633:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SettingsPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+/*
+  Generated class for the Settings page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+*/
+var SettingsPage = (function () {
+    function SettingsPage(navCtrl, navParams) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+    }
+    return SettingsPage;
+}());
+SettingsPage = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+        selector: 'page-settings',template:/*ion-inline-start:"/Users/leonidlyalin/WebstormProjects/army2017/src/pages/settings/settings.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Settings</ion-title>\n  </ion-navbar>\n</ion-header>\n<ion-content padding>\n  <p>\n    This is settings page\n  </p>\n</ion-content>\n'/*ion-inline-end:"/Users/leonidlyalin/WebstormProjects/army2017/src/pages/settings/settings.html"*/
+    }),
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* NavParams */]])
+], SettingsPage);
+
+//# sourceMappingURL=settings.js.map
+
+/***/ }),
+
+/***/ 634:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -10368,17 +10394,183 @@ ParticipantSql = __decorate([
 
 /***/ }),
 
-/***/ 640:
+/***/ 636:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_user_data__ = __webpack_require__(52);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__tabs_tabs__ = __webpack_require__(45);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__signup_signup__ = __webpack_require__(160);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var LoginPage = (function () {
+    function LoginPage(navCtrl, userData, events) {
+        var _this = this;
+        this.navCtrl = navCtrl;
+        this.userData = userData;
+        this.events = events;
+        this.user = {};
+        this.submitted = false;
+        this.events.subscribe('language:change', function () {
+            _this.lang = localStorage.getItem('lang');
+            if (_this.lang == 'ru') {
+                //console.log('this.events.subscribe(language:change)', this.lang);
+                _this.setRussianStrings();
+            }
+            else {
+                _this.setEnglishStrings();
+            }
+        });
+    }
+    LoginPage.prototype.ionViewDidLoad = function () {
+        this.lang = localStorage.getItem('lang');
+        if (this.lang == 'ru')
+            this.setRussianStrings();
+        else
+            this.setEnglishStrings();
+    };
+    LoginPage.prototype.setRussianStrings = function () {
+        this.loginStr = 'Войти';
+        this.userNameStr = 'Логин';
+        this.needUserNameStr = 'Требуется имя пользователя';
+        this.passwordStr = 'Пароль';
+        this.needPasswordStr = 'Требуется пароль';
+        this.signUpStr = 'Регистрация';
+    };
+    LoginPage.prototype.setEnglishStrings = function () {
+        this.loginStr = 'Login';
+        this.userNameStr = 'Username';
+        this.needUserNameStr = 'Need a login';
+        this.passwordStr = 'Password';
+        this.needPasswordStr = 'Need a password';
+        this.signUpStr = 'Sign Up';
+    };
+    LoginPage.prototype.onLogin = function (form) {
+        this.submitted = true;
+        if (form.valid) {
+            this.userData.login(this.user.login, this.user.password);
+            this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__tabs_tabs__["a" /* TabsPage */]);
+        }
+    };
+    LoginPage.prototype.onSignup = function () {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_4__signup_signup__["a" /* SignupPage */]);
+    };
+    return LoginPage;
+}());
+LoginPage = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+        selector: 'page-user',template:/*ion-inline-start:"/Users/leonidlyalin/WebstormProjects/army2017/src/pages/login/login.html"*/'<ion-header>\n	<ion-navbar>\n		<ion-title>{{loginStr}}</ion-title>\n	</ion-navbar>\n</ion-header>\n\n<ion-content>\n	<div class="logo">\n\n    <img src="assets/img/army2017.png" /></div>\n\n	<form #loginForm="ngForm" novalidate>\n		<ion-list no-lines>\n			<ion-item>\n				<ion-label stacked color="danger">{{userNameStr}}</ion-label>\n				<ion-input [(ngModel)]="user.login" name="login" type="text" #login="ngModel" spellcheck="false" autocapitalize="off"\n					required>\n				</ion-input>\n			</ion-item>\n			<p ion-text [hidden]="login.valid || submitted == false" color="danger" padding-left>\n				{{needUserNameStr}}\n			</p>\n\n			<ion-item>\n				<ion-label stacked color="danger">{{passwordStr}}</ion-label>\n				<ion-input [(ngModel)]="user.password" name="password" type="password" #password="ngModel" required>\n				</ion-input>\n			</ion-item>\n			<p ion-text [hidden]="password.valid || submitted == false" color="danger" padding-left>\n				{{needPasswordStr}}\n			</p>\n		</ion-list>\n\n		<ion-row responsive-sm>\n			<ion-col>\n				<button ion-button (click)="onLogin(loginForm)" type="submit" block color="danger">{{loginStr}}</button>\n			</ion-col>\n			<ion-col>\n				<button ion-button (click)="onSignup()" color="light" block>{{signUpStr}}</button>\n			</ion-col>\n		</ion-row>\n	</form>\n\n</ion-content>\n'/*ion-inline-end:"/Users/leonidlyalin/WebstormProjects/army2017/src/pages/login/login.html"*/
+    }),
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__providers_user_data__["a" /* UserData */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* Events */]])
+], LoginPage);
+
+//# sourceMappingURL=login.js.map
+
+/***/ }),
+
+/***/ 637:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SupportPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var SupportPage = (function () {
+    function SupportPage(navCtrl, alertCtrl, toastCtrl) {
+        this.navCtrl = navCtrl;
+        this.alertCtrl = alertCtrl;
+        this.toastCtrl = toastCtrl;
+        this.submitted = false;
+    }
+    SupportPage.prototype.ionViewDidEnter = function () {
+        var toast = this.toastCtrl.create({
+            message: 'This does not actually send a support request.',
+            duration: 3000
+        });
+        toast.present();
+    };
+    SupportPage.prototype.submit = function (form) {
+        this.submitted = true;
+        if (form.valid) {
+            this.supportMessage = '';
+            this.submitted = false;
+            var toast = this.toastCtrl.create({
+                message: 'Your support request has been sent.',
+                duration: 3000
+            });
+            toast.present();
+        }
+    };
+    // If the user enters text in the support question and then navigates
+    // without submitting first, ask if they meant to leave the page
+    SupportPage.prototype.ionViewCanLeave = function () {
+        var _this = this;
+        // If the support message is empty we should just navigate
+        if (!this.supportMessage || this.supportMessage.trim().length === 0) {
+            return true;
+        }
+        return new Promise(function (resolve, reject) {
+            var alert = _this.alertCtrl.create({
+                title: 'Leave this page?',
+                message: 'Are you sure you want to leave this page? Your support message will not be submitted.'
+            });
+            alert.addButton({ text: 'Stay', handler: reject });
+            alert.addButton({ text: 'Leave', role: 'cancel', handler: resolve });
+            alert.present();
+        });
+    };
+    return SupportPage;
+}());
+SupportPage = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+        selector: 'page-user',template:/*ion-inline-start:"/Users/leonidlyalin/WebstormProjects/army2017/src/pages/support/support.html"*/'<ion-header>\n\n	<ion-navbar>\n		<button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n		<ion-title>Support</ion-title>\n	</ion-navbar>\n\n</ion-header>\n\n\n<ion-content>\n	<div class="logo">\n		<img src="assets/img/appicon.svg" alt="Ionic Logo">\n	</div>\n\n	<form #submitForm="ngForm" novalidate (ngSubmit)="submit(submitForm)">\n		<ion-list no-lines>\n			<ion-item>\n				<ion-label stacked color="primary">Enter your support message below</ion-label>\n				<ion-textarea [(ngModel)]="supportMessage" name="supportQuestion" #supportQuestion="ngModel" rows="6" required></ion-textarea>\n			</ion-item>\n		</ion-list>\n\n		<p ion-text [hidden]="supportQuestion.valid || submitted === false" color="danger" padding-left>\n			Support message is required\n		</p>\n\n		<div padding>\n			<button ion-button block type="submit">Submit</button>\n		</div>\n	</form>\n</ion-content>\n'/*ion-inline-end:"/Users/leonidlyalin/WebstormProjects/army2017/src/pages/support/support.html"*/
+    }),
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* NavController */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["u" /* ToastController */]])
+], SupportPage);
+
+//# sourceMappingURL=support.js.map
+
+/***/ }),
+
+/***/ 638:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ThematicPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_thematic_thematic_api_service__ = __webpack_require__(314);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_thematic_sql__ = __webpack_require__(146);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__participant_participant__ = __webpack_require__(87);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_base_api_service__ = __webpack_require__(29);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_thematic_thematic_api_service__ = __webpack_require__(309);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_thematic_sql__ = __webpack_require__(145);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__participant_participant__ = __webpack_require__(139);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_base_api_service__ = __webpack_require__(30);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_base_lang_page_base_lang_page__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__angular_http__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__providers_my_forum_sql__ = __webpack_require__(26);
@@ -10526,7 +10718,7 @@ ThematicPage = __decorate([
 
 /***/ }),
 
-/***/ 641:
+/***/ 639:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -10534,11 +10726,11 @@ ThematicPage = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_map__ = __webpack_require__(14);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_map__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__place_sql_place_sql__ = __webpack_require__(40);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__place_sql_place_sql__ = __webpack_require__(47);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__place_place_api_service__ = __webpack_require__(315);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__draw_function_draw_function__ = __webpack_require__(147);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_participant_detail_participant_detail__ = __webpack_require__(68);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__place_place_api_service__ = __webpack_require__(310);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__draw_function_draw_function__ = __webpack_require__(146);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_participant_detail_participant_detail__ = __webpack_require__(54);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -10758,7 +10950,7 @@ MapBaseProvider = __decorate([
 
 /***/ }),
 
-/***/ 642:
+/***/ 640:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -10768,7 +10960,7 @@ MapBaseProvider = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__filter__ = __webpack_require__(70);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_base_sql__ = __webpack_require__(24);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_http__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_filter_provider_filter_participant_provider__ = __webpack_require__(148);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_filter_provider_filter_participant_provider__ = __webpack_require__(147);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_base_lang_page_base_lang_page__ = __webpack_require__(12);
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
@@ -11094,7 +11286,7 @@ FilterParticipantPage = __decorate([
 
 /***/ }),
 
-/***/ 643:
+/***/ 641:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -11137,7 +11329,7 @@ LanguageProvider = __decorate([
 
 /***/ }),
 
-/***/ 644:
+/***/ 642:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -11147,7 +11339,7 @@ LanguageProvider = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__filter__ = __webpack_require__(70);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_base_sql__ = __webpack_require__(24);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_http__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_filter_provider_filter_conference_provider__ = __webpack_require__(152);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_filter_provider_filter_conference_provider__ = __webpack_require__(151);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_base_lang_page_base_lang_page__ = __webpack_require__(12);
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
@@ -11476,7 +11668,7 @@ FilterConferencePage = __decorate([
 
 /***/ }),
 
-/***/ 645:
+/***/ 643:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -11562,7 +11754,7 @@ ParticipantHelpPage = __decorate([
 
 /***/ }),
 
-/***/ 646:
+/***/ 644:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -11652,7 +11844,7 @@ ConferenceHelpPage = __decorate([
 
 /***/ }),
 
-/***/ 654:
+/***/ 652:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -11719,7 +11911,7 @@ MapHelpPage = __decorate([
 
 /***/ }),
 
-/***/ 655:
+/***/ 653:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -11997,7 +12189,7 @@ QrScannerPage = __decorate([
 
 /***/ }),
 
-/***/ 656:
+/***/ 654:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -12008,7 +12200,7 @@ QrScannerPage = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_base_sql__ = __webpack_require__(24);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_http__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_base_lang_page_base_lang_page__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_filter_provider_filter_exhibit_provider__ = __webpack_require__(156);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_filter_provider_filter_exhibit_provider__ = __webpack_require__(155);
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -12360,7 +12552,7 @@ FilterExhibitPage = __decorate([
 
 /***/ }),
 
-/***/ 657:
+/***/ 655:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -12450,7 +12642,7 @@ ExhibitHelpPage = __decorate([
 
 /***/ }),
 
-/***/ 658:
+/***/ 656:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -12460,7 +12652,7 @@ ExhibitHelpPage = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__filter__ = __webpack_require__(70);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_base_lang_page_base_lang_page__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_filter_provider_filter_demo_program_provider__ = __webpack_require__(158);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_filter_provider_filter_demo_program_provider__ = __webpack_require__(157);
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -12666,7 +12858,7 @@ FilterDemoProgramPage = __decorate([
 
 /***/ }),
 
-/***/ 659:
+/***/ 657:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -12722,7 +12914,7 @@ var DemoProgramHelpPage = (function (_super) {
     }
     DemoProgramHelpPage.prototype.setRussianStrings = function () {
         _super.prototype.setRussianStrings.call(this);
-        this.titleStr = 'Работа c демо программой';
+        this.titleStr = 'Работа c программой';
         this.setOneFilterStr = 'Установить фильтр для параметра';
         this.cancelOneFilterStr = 'Сбросить фильтр для параметра';
         this.setFilterStr = 'Установить фильтр для параметра';
@@ -12756,20 +12948,22 @@ DemoProgramHelpPage = __decorate([
 
 /***/ }),
 
-/***/ 68:
+/***/ 69:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ParticipantDetailPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LeafletMapPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_thematic_sql__ = __webpack_require__(146);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_my_forum_sql__ = __webpack_require__(26);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_http__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_base_lang_page_base_lang_page__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_place_sql_place_sql__ = __webpack_require__(40);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_map_sql_map_sql__ = __webpack_require__(51);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__leaflet_map_leaflet_map__ = __webpack_require__(54);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_place_sql_place_sql__ = __webpack_require__(47);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_draw_function_draw_function__ = __webpack_require__(146);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_leaflet__ = __webpack_require__(628);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_leaflet___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_leaflet__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_map_sql_map_sql__ = __webpack_require__(55);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_http__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__participant_detail_participant_detail__ = __webpack_require__(54);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__providers_my_forum_sql__ = __webpack_require__(26);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__providers_base_list_page_base_list_page__ = __webpack_require__(19);
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -12833,432 +13027,838 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 
 
 
-var ParticipantDetailPage = (function (_super) {
-    __extends(ParticipantDetailPage, _super);
-    function ParticipantDetailPage(navParams, navCtrl, thematicSql, sqlMyForum, placeSql, mapSql, events, http) {
-        var _this = _super.call(this, navCtrl, events, http) || this;
-        _this.navParams = navParams;
+
+var LeafletMapPage = LeafletMapPage_1 = (function (_super) {
+    __extends(LeafletMapPage, _super);
+    // popupLayer:any;
+    function LeafletMapPage(http, navCtrl, navParams, platform, 
+        /*public placeApi: PlaceApi,*/
+        toastCtrl, drawFunction, mapSql, events, placeSql) {
+        var _this = _super.call(this, navCtrl, navParams, events, http) || this;
+        _this.http = http;
         _this.navCtrl = navCtrl;
-        _this.thematicSql = thematicSql;
-        _this.sqlMyForum = sqlMyForum;
-        _this.placeSql = placeSql;
+        _this.navParams = navParams;
+        _this.platform = platform;
+        _this.toastCtrl = toastCtrl;
+        _this.drawFunction = drawFunction;
         _this.mapSql = mapSql;
         _this.events = events;
-        //this.lang = localStorage.getItem('lang');
-        //console.log("now in Participant detail");
-        //console.log(navParams);
-        _this.thematic = [];
-        /* if (this.navParams.data.map) this.showMap = this.navParams.data.map;
-         else this.showMap = true;*/
-        if (navParams.data.participant) {
-            if (navParams.data.participant.length)
-                //  this.participant = navParams.data.participant[0];
-                _this.participantList = navParams.data.participant;
-            else
-                _this.participantList.push(navParams.data.participant);
-        }
-        else {
-            //   if (navParams.data.res) this.participant = navParams.data.res;
-            if (navParams.data.res)
-                _this.participantList.push(navParams.data.res);
-        }
-        if (navParams.data.listOut) {
-            _this.listOut = navParams.data.listOut;
-        }
-        _this.changeName();
-        _this.prepareParticipant();
-        // if (this.showMap) this.showMap =
-        //console.log('this.participant=', this.participantList[0]);
-        _this.iblockId = 1;
+        _this.placeSql = placeSql;
+        _this.iconPath = 'assets/img/icons/';
+        _this.mapPath = 'assets/img/maps/';
+        /**
+         * define show or not popupList on the map
+         */
+        _this.showPopups = true;
+        _this.iconArrowSize = 20;
+        _this.popupElement = navParams.get('popupElement');
+        _this.place = navParams.get('place');
+        _this.currentMap = navParams.get('map');
+        //console.log("popupElement=", this.popupElement);
+        //console.log("place=", this.place);
+        //console.log("currentMap=", this.currentMap);
+        _this.initIcons();
         return _this;
+        //  this.content.
+        //set a bunch of arrows
     }
-    ParticipantDetailPage.prototype.prepareParticipant = function () {
+    LeafletMapPage.prototype.initIcons = function () {
+        this.leftArrowIcon = __WEBPACK_IMPORTED_MODULE_4_leaflet__["icon"]({
+            iconUrl: this.iconPath + 'arrow-left.svg',
+            iconSize: [this.iconArrowSize, this.iconArrowSize],
+        });
+        this.rightArrowIcon = __WEBPACK_IMPORTED_MODULE_4_leaflet__["icon"]({
+            iconUrl: this.iconPath + 'arrow-right.svg',
+            iconSize: [this.iconArrowSize, this.iconArrowSize],
+        });
+        this.upArrowIcon = __WEBPACK_IMPORTED_MODULE_4_leaflet__["icon"]({
+            iconUrl: this.iconPath + 'arrow-up.svg',
+            iconSize: [this.iconArrowSize, this.iconArrowSize],
+        });
+        this.downArrowIcon = __WEBPACK_IMPORTED_MODULE_4_leaflet__["icon"]({
+            iconUrl: this.iconPath + 'arrow-down.svg',
+            iconSize: [this.iconArrowSize, this.iconArrowSize],
+        });
+        this.previousArrowIcon = __WEBPACK_IMPORTED_MODULE_4_leaflet__["icon"]({
+            iconUrl: this.iconPath + 'level-up.svg',
+            iconSize: [this.iconArrowSize, this.iconArrowSize],
+        });
+    };
+    LeafletMapPage.prototype.setRussianStrings = function () {
+        _super.prototype.setRussianStrings.call(this, 'Карта форума');
+    };
+    LeafletMapPage.prototype.setEnglishStrings = function () {
+        _super.prototype.setRussianStrings.call(this, 'Forum map');
+    };
+    LeafletMapPage.prototype.showHideHelp = function () {
+        _super.prototype.showHideHelp.call(this);
+        //console.log(this.lang);
+    };
+    /**
+     * create map list for all USING maps
+     */
+    LeafletMapPage.prototype.createMapList = function () {
+        this.mapList = [];
+        //console.log("createMapList(popupElement=", this.popupElement);
+        if (this.popupElement && this.popupElement.length) {
+            var flags = [], l = (this.popupElement.length);
+            for (var i = 0; i < l; i++) {
+                if (this.popupElement[i].name_map) {
+                    if (flags[this.popupElement[i].name_map])
+                        continue;
+                    flags[this.popupElement[i].name_map] = true;
+                    this.mapList.push(this.popupElement[i].name_map);
+                }
+            }
+            //console.log("mapList=", this.mapList);
+            //  this.showArrow = (this.mapList.length > 1);
+        }
+    };
+    /**
+     * create map
+     */
+    LeafletMapPage.prototype.initMap = function () {
         return __awaiter(this, void 0, void 0, function () {
-            var _i, _a, participant, res;
+            var _this = this;
+            var _a;
             return __generator(this, function (_b) {
                 switch (_b.label) {
                     case 0:
-                        _i = 0, _a = this.participantList;
-                        _b.label = 1;
-                    case 1:
-                        if (!(_i < _a.length)) return [3 /*break*/, 4];
-                        participant = _a[_i];
-                        participant["thematic"] = [];
-                        if (this.navParams.data.map != null)
-                            participant["showMap"] = this.navParams.data.map;
+                        this.popupList = [];
+                        this.placeListForMap = [];
+                        //console.log("this.content.contentWidth=", this.content.contentWidth);
+                        //console.log("this.content.contentHeight=", this.content.contentHeight);
+                        //console.log("this.currentMap.width", this.currentMap.width);
+                        //console.log("this.currentMap.height", this.currentMap.height);
+                        //  this.p
+                        if (!this.map) {
+                            this.map = __WEBPACK_IMPORTED_MODULE_4_leaflet__["map"]('map', {
+                                crs: __WEBPACK_IMPORTED_MODULE_4_leaflet__["CRS"].Simple,
+                                attributionControl: false,
+                                maxBounds: [[0, 0], [(this.content.contentHeight > Number(this.currentMap.height) ? this.content.contentHeight : Number(this.currentMap.height) + this.iconArrowSize),
+                                        (this.content.contentWidth > Number(this.currentMap.width) ? this.content.contentWidth : Number(this.currentMap.width) + this.iconArrowSize)]],
+                            });
+                            this.map.tap = true;
+                            this.map.on('click', function (e) {
+                                _this.mapClick(e);
+                            });
+                            this.map.on('zoom', function (e) {
+                                _this.mapOnZoom(e);
+                            });
+                        }
                         else
-                            participant["showMap"] = true;
-                        participant["showMap"] = !!this.participantList[0].place_name;
-                        return [4 /*yield*/, this.thematicSql.getThematicOfParticipant(participant.id)
-                            //console.log("res in thematic page=", res);
-                        ];
-                    case 2:
-                        res = _b.sent();
-                        //console.log("res in thematic page=", res);
-                        participant["thematic"] = res;
-                        _b.label = 3;
-                    case 3:
-                        _i++;
-                        return [3 /*break*/, 1];
-                    case 4: return [2 /*return*/];
-                }
-            });
-        });
-    };
-    ParticipantDetailPage.prototype.setRussianStrings = function () {
-        _super.prototype.setRussianStrings.call(this, 'Участник');
-        this.onMapStr = 'На карте';
-        this.myForumStr = 'Мой форум';
-        this.thematicStr = 'Тематика:';
-    };
-    ParticipantDetailPage.prototype.setEnglishStrings = function () {
-        _super.prototype.setEnglishStrings.call(this, 'Exhibitor');
-        this.onMapStr = 'Map';
-        this.myForumStr = 'My Forum';
-        this.thematicStr = 'Thematic Section:';
-    };
-    ParticipantDetailPage.prototype.ionViewDidLoad = function () {
-        _super.prototype.ionViewDidLoad.call(this);
-    };
-    ParticipantDetailPage.prototype.changeMyForum = function (id) {
-        return __awaiter(this, void 0, void 0, function () {
-            var participant, _a, _b;
-            return __generator(this, function (_c) {
-                switch (_c.label) {
-                    case 0:
-                        if (!this.userId) return [3 /*break*/, 4];
-                        participant = this.participantList.find(function (x) { return x.id == id; });
-                        if (!(participant.my_forum_id > 0)) return [3 /*break*/, 2];
-                        _a = participant;
-                        return [4 /*yield*/, this.deleteFromMyForum(id)];
+                            (this.deleteLayers());
+                        //console.log("this.placeListForMap=", this.placeListForMap);
+                        //console.log("currentMap=", this.currentMap);
+                        this.map.options.minZoom = (this.currentMap.min_zoom ? this.currentMap.min_zoom : 0);
+                        this.map.options.maxZoom = (this.currentMap.max_zoom ? this.currentMap.max_zoom : 5);
+                        /*       if (this.content.contentWidth > Number(this.currentMap.width)) {
+                                   //console.log("this.content.contentWidth=",this.content.contentWidth);
+                                   //console.log("this.currentMap.height",this.currentMap.height);
+                                   //console.log("this.currentMap.width",this.currentMap.width);
+                                   //console.log("this.content.contentWidth*this.currentMap.height/this.currentMap.width=",
+                                       this.content.contentWidth*this.currentMap.height/this.currentMap.width);
+                       
+                                   this.bounds = [[0, 0], [(this.content.contentWidth*this.currentMap.height/this.currentMap.width),
+                                       this.content.contentWidth]];
+                               }
+                               else {
+                                   if (this.content.contentHeight > Number(this.currentMap.height))
+                                   this.bounds = [[0, 0], [this.content.contentHeight,
+                                       this.content.contentHeight*Number(this.currentMap.width)/Number(this.currentMap.height)]];
+                                   else{
+                                       this.bounds = [[0, 0], [Number(this.currentMap.height), Number(this.currentMap.width)]];
+                                   }
+                       
+                               }*/
+                        this.bounds = [[0, 0], [Number(this.currentMap.height), Number(this.currentMap.width)]];
+                        //console.log("this.bounds =",this.bounds);
+                        this.map.fitBounds(this.bounds, { padding: [this.iconArrowSize, this.iconArrowSize] });
+                        //  this.map.options.zoom = (this.currentMap.begin_zoom ? this.currentMap.begin_zoom : 1);
+                        this.titleStr = this.currentMap['name_' + (this.lang == 'ru' ? 'rus' : 'eng')];
+                        // var bounds = [[54.559322, -5.767822], [56.1210604, -3.021240]];
+                        // create an orange rectangle
+                        //L.rectangle(this.bounds, {color: "#ff7800", weight: 1}).addTo(this.map);
+                        //  this.bounds = [[0, 0], [Number(this.currentMap.height), Number(this.currentMap.width)]];//new L.LatLngBounds(this.southWest, this.northEast);
+                        //console.log("this.bounds=", this.bounds);
+                        __WEBPACK_IMPORTED_MODULE_4_leaflet__["imageOverlay"](this.mapPath + this.currentMap.name_map, this.bounds).addTo(this.map);
+                        if (!((this.typeOfMap == 'conference') || (this.typeOfMap == 'participant')
+                            || (this.typeOfMap == 'exhibit') || (this.typeOfMap == 'simple')
+                            || (this.typeOfMap == 'demo-program'))) return [3 /*break*/, 2];
+                        _a = this;
+                        return [4 /*yield*/, this.placeSql.selectWhere('name_map="' + this.currentMap.name_map + '"')];
                     case 1:
-                        _a.my_forum_id = _c.sent();
-                        this.events.publish('myforum:delete:participant', (id));
-                        return [3 /*break*/, 4];
-                    case 2:
-                        _b = participant;
-                        return [4 /*yield*/, this.addToMyForumSite(id)];
-                    case 3:
-                        _b.my_forum_id = _c.sent();
-                        // ''this.participantApi
-                        this.events.publish('myforum:add:participant', ({ id: id, my_forum_id: participant.my_forum_id }));
-                        _c.label = 4;
-                    case 4: return [2 /*return*/];
-                }
-            });
-        });
-    };
-    ParticipantDetailPage.prototype.deleteFromMyForum = function (id) {
-        if (this.userId) {
-            this.sqlMyForum.delFromMyForum(id).then(function (res) {
-                if (res)
-                    return null;
-                else
-                    return -1;
-            });
-        }
-    };
-    ParticipantDetailPage.prototype.addToMyForumSite = function (id) {
-        return __awaiter(this, void 0, void 0, function () {
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        if (!this.userId) return [3 /*break*/, 2];
-                        return [4 /*yield*/, this.sqlMyForum.addToMyForumSite(id, this.iblockId, this.userId)];
-                    case 1: return [2 /*return*/, _a.sent()];
+                        _a.placeListForMap = _b.sent();
+                        // this.placeListForMap = <any>res;
+                        this.setSignsForMap();
+                        this.showArrowIcons();
+                        this.setIconsForMap();
+                        if ((this.typeOfMap == 'participant') || (this.typeOfMap == 'conference')
+                            || (this.typeOfMap == 'exhibit') || (this.typeOfMap == 'demo-program')) {
+                            this.setSigns();
+                        }
+                        _b.label = 2;
                     case 2: return [2 /*return*/];
                 }
             });
         });
     };
-    ParticipantDetailPage.prototype.changeName = function () {
+    LeafletMapPage.prototype.showArrowIcons = function () {
+        var _this = this;
+        if (this.currentMap.map_left) {
+            this.leftArrow = __WEBPACK_IMPORTED_MODULE_4_leaflet__["marker"]([this.currentMap.height / 2, 0], { icon: this.leftArrowIcon });
+            this.leftArrow.addTo(this.map);
+            this.leftArrow.on('click', function (e) {
+                //console.log(e);
+                _this.mapDirection('left');
+            });
+        }
+        if (this.currentMap.map_right) {
+            this.rightArrow = __WEBPACK_IMPORTED_MODULE_4_leaflet__["marker"]([this.currentMap.height / 2, this.currentMap.width], { icon: this.rightArrowIcon });
+            this.rightArrow.addTo(this.map);
+            this.rightArrow.on('click', function () {
+                _this.mapDirection('right');
+            });
+        }
+        if (this.currentMap.map_up) {
+            this.upArrow = __WEBPACK_IMPORTED_MODULE_4_leaflet__["marker"]([this.currentMap.height - this.iconArrowSize, this.currentMap.width / 2], { icon: this.upArrowIcon });
+            this.upArrow.addTo(this.map);
+            this.upArrow.on('click', function (e) {
+                _this.mapDirection('up');
+            });
+        }
+        if (this.currentMap.map_down) {
+            this.downArrow = __WEBPACK_IMPORTED_MODULE_4_leaflet__["marker"]([this.iconArrowSize, this.currentMap.width / 2], { icon: this.downArrowIcon });
+            this.downArrow.addTo(this.map);
+            this.downArrow.on('click', function () {
+                _this.mapDirection('down');
+            });
+        }
+        if (this.currentMap.place_previous) {
+            this.previousArrow = __WEBPACK_IMPORTED_MODULE_4_leaflet__["marker"]([this.currentMap.height - this.iconArrowSize, this.iconArrowSize], { icon: this.previousArrowIcon });
+            //  this.previousArrow = L.marker([100, 100], {icon: this.previousArrowIcon});
+            this.previousArrow.addTo(this.map);
+            this.previousArrow.on('click', function () {
+                _this.mapPrevious();
+            });
+        }
+    };
+    LeafletMapPage.pnpoly = function (nvert, vertx, verty, testx, testy) {
+        var i, j, c = false;
+        for (i = 0, j = nvert - 1; i < nvert; j = i++) {
+            if (((verty[i] > testy) !== (verty[j] > testy)) &&
+                (testx < (vertx[j] - vertx[i]) * (testy - verty[i]) / (verty[j] - verty[i]) + vertx[i])) {
+                c = !c;
+            }
+        }
+        return c;
+    };
+    LeafletMapPage.prototype.isInsideRect = function (x, y, coords, place_name) {
+        if (this.typeOfMap != 'OpenStreetMap') {
+            //console.log("isInsideRect coords=", coords);
+            //console.log("isInsideRect x=", x);
+            //console.log("isInsideRect y=", y);
+            var coordsList = coords.split(',');
+            //console.log("isInsideRect coordsList=", coordsList);
+            var bounds = [[this.currentMap.height - coordsList[1], coordsList[0]], [this.currentMap.height - coordsList[3], coordsList[2]]];
+            //console.log("bounds before ", place_name, bounds);
+            //console.log("coordsList[1] before ", coordsList[1]);
+            //console.log("height -coordsList[1] before ", this.currentMap.height - coordsList[1]);
+            //console.log("coordsList[3] before ", coordsList[3]);
+            if ((this.currentMap.height - Number(coordsList[1])) > (this.currentMap.height - Number(coordsList[3]))) {
+                var tmp = coordsList[1];
+                coordsList[1] = coordsList[3];
+                coordsList[3] = tmp;
+            }
+            if (Number(coordsList[0]) > Number(coordsList[2])) {
+                var tmp = coordsList[0];
+                coordsList[0] = coordsList[2];
+                coordsList[2] = tmp;
+            }
+            //console.log("coordsList[1] after ", coordsList[1]);
+            bounds = [[this.currentMap.height - coordsList[1], coordsList[0]], [this.currentMap.height - coordsList[3], coordsList[2]]];
+            //console.log("bounds after", place_name, bounds);
+            //L.rectangle(this.bounds, {color: "red", weight: 1}).addTo(this.map);
+            return (((y >= (this.currentMap.height - coordsList[1]))
+                && (y <= (this.currentMap.height - coordsList[3]))) && ((x >= (coordsList[0])) && (x <= (coordsList[2]))));
+        }
+        else {
+            //console.log("isInsideRect coords=", coords);
+            //console.log("isInsideRect x=", x);
+            //console.log("isInsideRect y=", y);
+            var coordsList = coords.split(',');
+            //console.log("isInsideRect coordsList=", coordsList);
+            var bounds = [[coordsList[1], coordsList[0]], [coordsList[3], coordsList[2]]];
+            //console.log("bounds before ", place_name, bounds);
+            //console.log("coordsList[1] before ", coordsList[1]);
+            //console.log("height -coordsList[1] before ", this.currentMap.height - coordsList[1]);
+            //console.log("coordsList[3] before ", coordsList[3]);
+            if ((Number(coordsList[1])) > (Number(coordsList[3]))) {
+                var tmp = coordsList[1];
+                coordsList[1] = coordsList[3];
+                coordsList[3] = tmp;
+            }
+            if (Number(coordsList[0]) > Number(coordsList[2])) {
+                var tmp = coordsList[0];
+                coordsList[0] = coordsList[2];
+                coordsList[2] = tmp;
+            }
+            //console.log("coordsList[1] after ", coordsList[1]);
+            bounds = [[coordsList[1], coordsList[0]], [coordsList[3], coordsList[2]]];
+            //console.log("bounds after", place_name, bounds);
+            //L.rectangle(this.bounds, {color: "red", weight: 1}).addTo(this.map);
+            //console.log((((x >= (coordsList[1])) && (x <= (coordsList[3]))) && ((y >= (coordsList[0])) && (y <= (coordsList[2])))))
+            return (((x >= (coordsList[1]))
+                && (x <= (coordsList[3]))) && ((y >= (coordsList[0])) && (y <= (coordsList[2]))));
+        }
+    };
+    LeafletMapPage.prototype.isInsidePoly = function (x, y, coords) {
+        //prepare for check;
+        var tmpBounds = [];
+        //console.log("isInsidePoly coords=", coords);
+        var coordsList = coords.split(',');
+        //console.log("isInsidePoly coordsList=", coordsList);
+        var vertx = [];
+        var verty = [];
+        var nvert = 0;
+        for (var i = 0; i < coordsList.length; i = i + 2) {
+            nvert++;
+            verty.push(this.currentMap.height - coordsList[i + 1]);
+            vertx.push(coordsList[i] * 1);
+            tmpBounds.push([this.currentMap.height - coordsList[i + 1], coordsList[i]]);
+        }
+        //console.log("isInsidePoly nvert=", nvert);
+        //console.log("isInsidePoly vertx=", vertx);
+        //console.log("isInsidePoly verty=", verty);
+        //console.log("isInsidePoly tmpBounds=", tmpBounds);
+        // L.polygon(tmpBounds, {color: 'blue', weight: 2}).addTo(this.map);
+        return LeafletMapPage_1.pnpoly(nvert, vertx, verty, x, y);
+    };
+    LeafletMapPage.prototype.setCoords = function (coords) {
+        var mCoordsTmp = coords.split(',');
+        var mCoords = [];
+        //console.log('mCoordsTmp= ', mCoordsTmp);
+        for (var _i = 0, mCoordsTmp_1 = mCoordsTmp; _i < mCoordsTmp_1.length; _i++) {
+            var mCoordsSingle = mCoordsTmp_1[_i];
+            if (mCoordsSingle) {
+                //console.log("mCoordsSingle=", mCoordsSingle);
+                mCoords.push(Number(mCoordsSingle));
+            }
+        }
+        return mCoords;
+    };
+    /**
+     * Show and place popupList on the currentmap
+     * @param content - what will be shown on the popup
+     * @param coords - where to place pop up (actualy, firtst two numbers from the coords)
+     */
+    LeafletMapPage.prototype.showPopup = function (content, coords) {
+        //check if already on the map
+        //console.log("content=", content);
+        var popup = __WEBPACK_IMPORTED_MODULE_4_leaflet__["popup"]({
+            closeOnClick: false,
+            autoClose: false,
+        });
+        /*let mCoords = this.setCoords(coords);
+        popup.setLatLng([this.currentMap.height - mCoords[1], mCoords[0]]);*/
+        var xy = this.getCenter(coords);
+        popup.setLatLng([this.currentMap.height - xy.x, xy.y]);
+        popup.setContent(content);
+        popup.openOn(this.map);
+        this.popupList.push({ name_map: this.currentMap.name_map, popup: popup, coords: coords });
+    };
+    LeafletMapPage.prototype.showTooltip = function (content, coords) {
+        var xy = this.getCenter(coords);
+        var tooltip = __WEBPACK_IMPORTED_MODULE_4_leaflet__["tooltip"]([this.currentMap.height - xy.x, xy.y]);
+        tooltip.bindPopup(content);
+        tooltip.addTo(this.map);
+    };
+    LeafletMapPage.prototype.getCenter = function (coords) {
+        var mCoords = this.setCoords(coords);
+        //try to center marker
+        var maxX = 0;
+        var minX = mCoords[1];
+        var maxY = 0;
+        var minY = mCoords[0];
+        for (var i = 0; i < mCoords.length; i = i + 2) {
+            maxX = (mCoords[i + 1] > maxX ? mCoords[i + 1] : maxX);
+            minX = (mCoords[i + 1] < minX ? mCoords[i + 1] : minX);
+            maxY = (mCoords[i] > maxY ? mCoords[i] : maxY);
+            minY = (mCoords[i] < minY ? mCoords[i] : minY);
+        }
+        var x = minX + (maxX - minX) / 2;
+        var y = minY + (maxY - minY) / 2;
+        return { x: x, y: y };
+    };
+    LeafletMapPage.prototype.showMarker = function (content, coords) {
+        var xy = this.getCenter(coords);
+        var marker = __WEBPACK_IMPORTED_MODULE_4_leaflet__["marker"]([this.currentMap.height - xy.x, xy.y]);
+        marker.bindPopup(content);
+        marker.addTo(this.map);
+        this.popupList.push({ name_map: this.currentMap.name_map, marker: marker, coords: coords });
+    };
+    LeafletMapPage.prototype.showIcon = function (content, coords, icon) {
+        var xy = this.getCenter(coords);
+        var marker = __WEBPACK_IMPORTED_MODULE_4_leaflet__["marker"]([this.currentMap.height - xy.x, xy.y], { icon: icon });
+        // let mCoords = this.setCoords(coords);
+        /*let marker = L.marker([this.currentMap.height - mCoords[1], mCoords[0]], {icon: icon});*/
+        marker.bindPopup(content);
+        marker.addTo(this.map);
+        this.iconList.push({ name_map: this.currentMap.name_map, icon: marker, coords: coords });
+    };
+    LeafletMapPage.prototype.mapClick = function (e) {
+        //console.log(e);
+        var _this = this;
+        //console.log(e.latlng.lng, e.latlng.lat, '');
+        //console.log("this.placeListForMap", this.placeListForMap);
+        if (this.placeListForMap.length) {
+            var goDetail = false;
+            var numFind = void 0;
+            for (var i = 0; i < this.placeListForMap.length; i++) {
+                //console.log("mapClick(e) this.placeListForMap[i]=", this.placeListForMap[i]);
+                if (this.placeListForMap[i].shape == 'rect' || !this.placeListForMap[i].shape) {
+                    if (this.isInsideRect(e.latlng.lng, e.latlng.lat, this.placeListForMap[i].coords, this.placeListForMap[i].place_name)) {
+                        numFind = i;
+                        goDetail = true;
+                        break;
+                    }
+                }
+                else {
+                    //console.log('check for poly');
+                    if (this.placeListForMap[i].shape == 'poly') {
+                        if (this.isInsidePoly(e.latlng.lng, e.latlng.lat, this.placeListForMap[i].coords)) {
+                            numFind = i;
+                            goDetail = true;
+                            break;
+                        }
+                    }
+                }
+            }
+            if (goDetail) {
+                //console.log("this.placeListForMap[i]=", this.placeListForMap[numFind]);
+                if (this.placeListForMap[numFind].goto) {
+                    //goto to the new map
+                    for (var i = 0; i < this.fullMapList.length; i++) {
+                        if (this.fullMapList[i].name_map == this.placeListForMap[numFind].goto) {
+                            this.currentMap = this.fullMapList[i];
+                            //console.log("currentMap=", this.currentMap.name_map);
+                            //   this.currentMapNumber = i;
+                            break;
+                        }
+                    }
+                    this.initMap();
+                    //  this.setButtonsEnable();
+                }
+                else {
+                    var tmpSql = new __WEBPACK_IMPORTED_MODULE_8__providers_my_forum_sql__["a" /* MyForumSql */](this.http);
+                    tmpSql.getRusParticipantFull('where a.place=' + this.placeListForMap[numFind].id).then(function (res) {
+                        if (res.length) {
+                            var participant = res;
+                            //console.log("participant=", participant);
+                            _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_7__participant_detail_participant_detail__["a" /* ParticipantDetailPage */], { participant: participant, map: false });
+                        }
+                    });
+                }
+            }
+        }
+    };
+    LeafletMapPage.prototype.deleteLayers = function () {
+        var _this = this;
+        this.map.eachLayer(function (rs) {
+            _this.map.removeLayer(rs);
+        });
+    };
+    /**
+     * set popup for the map on the previous level
+     * @param mapAsPlace
+     */
+    LeafletMapPage.prototype.setMapAsPlace = function (mapAsPlace) {
+        var _this = this;
+        //first, find the place which was our map
+        //console.log("mapAsPlace=", mapAsPlace);
+        var placeSql = new __WEBPACK_IMPORTED_MODULE_2__providers_place_sql_place_sql__["a" /* PlaceSql */](this.http);
+        placeSql.selectWhere(' goto="' + mapAsPlace + '"').then(function (res) {
+            var place = res[0];
+            var content = place["name_" + ((_this.lang == 'ru') ? 'rus' : 'eng')]; // + '<br>' + this.popupElement.name;
+            _this.showPopup(content, place.coords);
+        });
+    };
+    /*
+        setSigns() {
+            if (!this.popupElement) return;
+            this.popupList = [];
+            for (let m = 0; m < this.placeListForMap.length; m++) {
+                let content: string = '';
+                for (let i = 0; i < this.popupElement.length; i++) {
+                    if ((this.popupElement[i].coords)
+                        && (this.popupElement[i].name_map == this.currentMap.name_map) &&
+                        ((this.popupElement[i].place_name_place == this.placeListForMap[m].name_rus)
+                            || (this.popupElement[i].place_name_place == this.placeListForMap[m].name_eng))) {
+                        content += '<b>' + (this.lang == 'ru' ? this.placeListForMap[m].name_rus : this.placeListForMap[m].name_eng) + '</b>' + '<br>';
+                        //console.log("this.popupElement[i].name_map ", this.popupElement[i].name_map);
+                        //console.log("this.currentMap.name_map=", this.currentMap.name_map);
+                        //console.log("this.popupElement[i].place_name_place=", this.popupElement[i].place_name_place);
+                        // //console.log("this.placeList[m]=", this.placeList[m]);
+
+                        if (this.typeOfMap == 'conference' || this.typeOfMap == 'demo-program') {
+                            content += this.popupElement[i].date_event + '. '
+                                + this.popupElement[i].time_beg + ':' +
+                                this.popupElement[i].time_end + '<br>';
+                        }
+                        content += this.popupElement[i].name.trim() + '<br>';
+                        //console.log("content=", content);
+
+                        this.showPopup(content, this.popupElement[i].coords);
+                    }
+                }
+            }
+        */
+    /**
+     * show popups/tooltips/pins for currentMap;
+     */
+    LeafletMapPage.prototype.setSigns = function () {
+        if (!this.popupElement)
+            return;
+        this.popupList = [];
+        for (var m = 0; m < this.placeListForMap.length; m++) {
+            // let content: string = '';
+            var contentPlace = '';
+            var contentName = '';
+            for (var i = 0; i < this.popupElement.length; i++) {
+                if ((this.popupElement[i].coords)
+                    && (this.popupElement[i].name_map == this.currentMap.name_map) &&
+                    ((this.popupElement[i].place_name_place == this.placeListForMap[m].name_rus)
+                        || (this.popupElement[i].place_name_place == this.placeListForMap[m].name_eng))) {
+                    if (contentPlace == '')
+                        contentPlace = '<b>' + (this.lang == 'ru' ? this.placeListForMap[m].name_rus : this.placeListForMap[m].name_eng) + '</b>' + '<br>';
+                    //console.log("this.popupElement[i].name_map ", this.popupElement[i].name_map);
+                    //console.log("this.currentMap.name_map=", this.currentMap.name_map);
+                    //console.log("this.popupElement[i].place_name_place=", this.popupElement[i].place_name_place);
+                    // //console.log("this.placeList[m]=", this.placeList[m]);
+                    if (this.typeOfMap == 'conference' || this.typeOfMap == 'demo-program') {
+                        contentName += '<br> ' + this.popupElement[i].date_event + '. '
+                            + this.popupElement[i].time_beg + ':' +
+                            this.popupElement[i].time_end + '<br>';
+                    }
+                    contentName += this.popupElement[i].name.trim() + '<br>';
+                    //console.log("contentPlace=", contentPlace);
+                    //console.log("contentName=", contentName);
+                }
+            }
+            if ((contentPlace != '') && (contentName != '')) {
+                this.showPopup(contentPlace + contentName, this.placeListForMap[m].coords);
+            }
+        }
+    };
+    LeafletMapPage.prototype.setPictogramsForMap = function (pictStr) {
         return __awaiter(this, void 0, void 0, function () {
-            var _i, _a, participant, placeStr, listPlaces, m, res;
+            var _this = this;
+            var pictList, iconWhere, i, _a;
             return __generator(this, function (_b) {
                 switch (_b.label) {
                     case 0:
-                        _i = 0, _a = this.participantList;
-                        _b.label = 1;
-                    case 1:
-                        if (!(_i < _a.length)) return [3 /*break*/, 7];
-                        participant = _a[_i];
-                        participant.name = participant.name.replace(/&quot;/g, '"');
-                        participant.desc = participant.desc.replace(/&quot;/g, '"');
-                        participant.desc = participant.desc.replace(/\\r\\n/g, '');
-                        if (!(participant.place && participant.place.includes(','))) return [3 /*break*/, 6];
-                        placeStr = '';
-                        listPlaces = participant.place.split(',');
-                        m = 0;
-                        _b.label = 2;
-                    case 2:
-                        if (!(m < listPlaces.length)) return [3 /*break*/, 5];
-                        return [4 /*yield*/, this.placeSql.selectWhere('id=' + listPlaces[m])];
-                    case 3:
-                        res = _b.sent();
-                        if (res) {
-                            //console.log("res=", res);
-                            placeStr += (placeStr == '' ? '' : ', ') + (this.lang == 'ru' ? res[0].name_rus : res[0].name_eng);
-                            //console.log(listPlaces[m]);
-                            participant.place_name_place = placeStr;
-                            participant.place_name = placeStr;
+                        pictList = pictStr.split(',');
+                        this.placeListForMap = [];
+                        this.iconList = [];
+                        iconWhere = '';
+                        for (i = 0; i < pictList.length; i++) {
+                            iconWhere += (iconWhere.length > 0 ? ' or ' : '') + ' icon_name="' + pictList[i] + '"';
                         }
-                        _b.label = 4;
-                    case 4:
-                        m++;
-                        return [3 /*break*/, 2];
-                    case 5:
-                        if ((participant["showMap"]) && (this.participantList.length == 1))
-                            participant["showMap"] = !!participant.place_name;
-                        _b.label = 6;
-                    case 6:
-                        _i++;
-                        return [3 /*break*/, 1];
-                    case 7: return [2 /*return*/];
+                        // iconWhere=
+                        this.map.autoPan = true;
+                        _a = this;
+                        return [4 /*yield*/, this.placeSql.selectWhere('name_map="' + this.currentMap.name_map + '"' + (iconWhere.length > 0 ? ' and (' + iconWhere + ') ' : ''))];
+                    case 1:
+                        _a.placeListForMap = _b.sent();
+                        this.placeListForMap.forEach(function (placeIcon) {
+                            if (placeIcon.icon_name) {
+                                var icon = __WEBPACK_IMPORTED_MODULE_4_leaflet__["icon"]({
+                                    iconUrl: _this.iconPath + placeIcon.icon_name,
+                                    iconSize: [_this.iconArrowSize, _this.iconArrowSize] // size of the icon
+                                });
+                                var content = placeIcon["name_" + (_this.lang == 'ru' ? 'rus' : 'eng')];
+                                _this.showIcon(content, placeIcon.coords, icon);
+                            }
+                        });
+                        return [2 /*return*/];
                 }
             });
         });
     };
-    ParticipantDetailPage.prototype.showLeafLetMap1 = function (participant) {
-        //console.log("participant=", participant);
+    LeafletMapPage.prototype.setIconsForMap = function () {
         var _this = this;
-        this.placeSql.selectWhere('id=' + participant.place).then(function (res) {
-            //console.log('showLeafLetMap res=', res);
-            var place = res;
-            _this.mapSql.getRecordForFieldValue('name_map', "'" + place[0].name_map + "'").then(function (res) {
-                //console.log("res=", res);
-                var map = res;
-                _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_8__leaflet_map_leaflet_map__["a" /* LeafletMapPage */], {
-                    typeOfMap: 'participantDetail',
-                    popupElement: participant,
-                    place: place,
-                    map: map
-                });
+        if (this.placeListForMap) {
+            this.iconList = [];
+            this.placeListForMap.forEach(function (placeIcon) {
+                if ((placeIcon.icon_name) && (_this.iconStr.includes(placeIcon.icon_name))) {
+                    var icon = __WEBPACK_IMPORTED_MODULE_4_leaflet__["icon"]({
+                        iconUrl: _this.iconPath + placeIcon.icon_name,
+                        iconSize: [_this.iconArrowSize, _this.iconArrowSize] // size of the icon
+                    });
+                    var content = placeIcon["name_" + (_this.lang == 'ru' ? 'rus' : 'eng')];
+                    _this.showIcon(content, placeIcon.coords, icon);
+                }
             });
-        });
-    };
-    return ParticipantDetailPage;
-}(__WEBPACK_IMPORTED_MODULE_5__providers_base_lang_page_base_lang_page__["a" /* BaseLangPageProvider */]));
-ParticipantDetailPage = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-participant-detail',template:/*ion-inline-start:"/Users/leonidlyalin/WebstormProjects/army2017/src/pages/participant-detail/participant-detail.html"*/'<ion-header>\n    <ion-navbar>\n        <ion-title>{{titleStr}}</ion-title>\n    </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n    <div *ngFor="let participant of participantList">\n\n        <ion-card>\n            <!-- <img src="assets/img/logo/{{participant.logo}}"/>-->\n            <ion-card-header text-wrap>\n                <h2>{{participant.name}}</h2>\n            </ion-card-header>\n\n            <!-- <ion-card-content>-->\n            <ion-row no-padding>\n                <ion-col>\n                    <div *ngIf="participant.showMap">\n                        <button ion-button clear small color="danger" icon-left (click)="showLeafLetMap1(participant)">\n                            <ion-icon name=\'map\'></ion-icon>\n                            {{onMapStr}}\n                        </button>\n                    </div>\n                </ion-col>\n                <ion-col>\n                    <button *ngIf="userId" ion-button clear small color="danger" icon-left\n                            (click)="changeMyForum(participant.id)">\n                        <ion-icon item-left *ngIf="participant.my_forum_id" name="star" color="danger"></ion-icon>\n                        <ion-icon item-left *ngIf="!participant.my_forum_id" name="star-outline"></ion-icon>\n                        {{myForumStr}}\n                    </button>\n                </ion-col>\n            </ion-row>\n\n\n            <ion-row>\n                <ion-col col-2>\n                    <ion-icon name="pin" color="danger"></ion-icon>\n                </ion-col>\n                <ion-col col-10>\n                    {{participant.place_name}}\n                </ion-col>\n            </ion-row>\n            <ion-row>\n                <ion-col col-2>\n                    <ion-icon name="call" color="danger"></ion-icon>\n                </ion-col>\n                <ion-col col-10>\n                    {{participant.phone}}\n                </ion-col>\n            </ion-row>\n            <ion-row>\n                <ion-col col-2>\n                    <i class="fa fa-address-card" style="color:red"></i>\n                </ion-col>\n                <ion-col col-10>\n                    {{participant.address}}\n                </ion-col>\n            </ion-row>\n\n            <ion-row>\n                <ion-col col-2>\n                    <ion-icon name="at" color="danger"></ion-icon>\n                </ion-col>\n                <ion-col col-10>\n                    {{participant.email}}\n                </ion-col>\n            </ion-row>\n\n            <ion-row>\n                <ion-col col-2>\n                    <ion-icon name="laptop" color="danger"></ion-icon>\n                </ion-col>\n                <ion-col col-10>\n                    <a href="{{participant.www}}">{{participant.www}}</a>\n                </ion-col>\n            </ion-row>\n\n\n            <ion-item text-wrap>\n                {{participant.desc}}\n            </ion-item>\n            <!--  </ion-card-content>-->\n\n            <ion-list>\n                <ion-list-header color="danger">\n                    {{thematicStr}}\n                </ion-list-header>\n                <ion-item *ngFor="let thematicItem of participant.thematic" text-wrap>\n                    <ion-icon name="information-circle" item-left></ion-icon>\n                    <h4 *ngIf="lang==\'ru\'">{{thematicItem.name_rus}}</h4>\n                    <h4 *ngIf="lang==\'en\'">{{thematicItem.name_eng}}</h4>\n                </ion-item>\n            </ion-list>\n\n        </ion-card>\n    </div>\n</ion-content>\n'/*ion-inline-end:"/Users/leonidlyalin/WebstormProjects/army2017/src/pages/participant-detail/participant-detail.html"*/
-    }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* NavParams */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* NavController */],
-        __WEBPACK_IMPORTED_MODULE_2__providers_thematic_sql__["a" /* ThematicSql */],
-        __WEBPACK_IMPORTED_MODULE_3__providers_my_forum_sql__["a" /* MyForumSql */],
-        __WEBPACK_IMPORTED_MODULE_6__providers_place_sql_place_sql__["a" /* PlaceSql */],
-        __WEBPACK_IMPORTED_MODULE_7__providers_map_sql_map_sql__["a" /* MapSql */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* Events */],
-        __WEBPACK_IMPORTED_MODULE_4__angular_http__["a" /* Http */]])
-], ParticipantDetailPage);
-
-//# sourceMappingURL=participant-detail.js.map
-
-/***/ }),
-
-/***/ 69:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UserData; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(93);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__user_user_api_service__ = __webpack_require__(306);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
-var __generator = (this && this.__generator) || function (thisArg, body) {
-    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
-    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
-    function verb(n) { return function (v) { return step([n, v]); }; }
-    function step(op) {
-        if (f) throw new TypeError("Generator is already executing.");
-        while (_) try {
-            if (f = 1, y && (t = y[op[0] & 2 ? "return" : op[0] ? "throw" : "next"]) && !(t = t.call(y, op[1])).done) return t;
-            if (y = 0, t) op = [0, t.value];
-            switch (op[0]) {
-                case 0: case 1: t = op; break;
-                case 4: _.label++; return { value: op[1], done: false };
-                case 5: _.label++; y = op[1]; op = [0]; continue;
-                case 7: op = _.ops.pop(); _.trys.pop(); continue;
-                default:
-                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
-                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
-                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
-                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
-                    if (t[2]) _.ops.pop();
-                    _.trys.pop(); continue;
-            }
-            op = body.call(thisArg, _);
-        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
-        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
-    }
-};
-
-
-
-
-var UserData = (function () {
-    function UserData(events, storage, userApi, toastCtrl) {
-        var _this = this;
-        this.events = events;
-        this.storage = storage;
-        this.userApi = userApi;
-        this.toastCtrl = toastCtrl;
-        this._favorites = [];
-        this.events.subscribe('language:change', function () {
-            _this.lang = localStorage.getItem('lang');
-            if (_this.lang == 'ru') {
-                //console.log('this.events.subscribe(language:change)', this.lang);
-                _this.setRussianStrings();
-            }
-            else {
-                _this.setEnglishStrings();
-            }
-        });
-    }
-    UserData.prototype.setRussianStrings = function () {
-        this.authSuccessStr = 'Вы успешно авторизовались';
-        this.signupSuccessStr = 'Вы успешно зарегистрировались';
-        this.signupWrongStr = 'Ошибка при регистрации';
-        this.wrongLogStr = 'Неправильный логин или пароль';
-    };
-    UserData.prototype.setEnglishStrings = function () {
-        this.authSuccessStr = 'Successful login';
-        this.signupSuccessStr = 'Successful sign up';
-        this.signupWrongStr = 'Error on sign up';
-        this.wrongLogStr = 'Login or password is wrong';
-    };
-    UserData.prototype.hasFavorite = function (sessionName) {
-        return (this._favorites.indexOf(sessionName) > -1);
-    };
-    ;
-    UserData.prototype.addFavorite = function (sessionName) {
-        this._favorites.push(sessionName);
-    };
-    ;
-    UserData.prototype.removeFavorite = function (sessionName) {
-        var index = this._favorites.indexOf(sessionName);
-        if (index > -1) {
-            this._favorites.splice(index, 1);
         }
     };
-    ;
-    UserData.prototype.login = function (login, password) {
+    /**
+     * show signs for current map which MUST be shown
+     */
+    LeafletMapPage.prototype.setSignsForMap = function () {
         var _this = this;
-        this.userApi.checkUser(login, password).subscribe(function (res) {
-            //console.log("res after login");
-            //console.log(res);
-            try {
-                if (res.result.ID > 0) {
-                    //console.log("successful auth");
-                    localStorage.setItem('userid', res.result.ID);
-                    //console.log("login",res.result.LOGIN);
-                    localStorage.setItem('login', res.result.LOGIN);
-                    //console.log("lastname",res.result.LAST_NAME);
-                    localStorage.setItem('lastname', res.result.LAST_NAME);
-                    //console.log(res.result.NAME);
-                    localStorage.setItem('name', res.result.NAME);
-                    //console.log(res.result.EMAIL);
-                    localStorage.setItem('email', res.result.EMAIL);
-                    //console.log("userID");
-                    _this.events.publish('user:login');
-                    var toast = _this.toastCtrl.create({
-                        message: _this.authSuccessStr,
-                        duration: 3000
+        if (this.placeListForMap) {
+            if (this.popupList) {
+                if ((this.typeOfMap == 'conference') || (this.typeOfMap == 'participant') || this.typeOfMap == 'exhibit') {
+                    this.popupList.forEach(function (popup) {
+                        if ((popup.popup) && (popup.name_map == _this.currentMap.name_map)) {
+                            _this.map.closePopup(popup.popup);
+                        }
+                        if ((popup.marker) && (popup.name_map == _this.currentMap.name_map)) {
+                            _this.map.closePopup(popup.marker);
+                        }
                     });
-                    toast.present();
-                }
-                else {
-                    var toast = _this.toastCtrl.create({
-                        message: _this.wrongLogStr,
-                        duration: 3000
-                    });
-                    toast.present();
                 }
             }
-            catch (err) {
-                var toast = _this.toastCtrl.create({
-                    message: _this.wrongLogStr,
-                    duration: 3000
-                });
-                toast.present();
-                //console.log("error");
-                //console.log(err);
-                return err;
-            }
-        });
+            this.placeListForMap.forEach(function (placeSign) {
+                //console.log("placeSign=", placeSign);
+                var zoom = _this.map.getZoom();
+                var marker = (placeSign.marker ? placeSign.marker : _this.map.getMaxZoom() + 1);
+                if (marker == 'min')
+                    marker = _this.map.getMinZoom();
+                var tooltip = (placeSign.tooltip ? placeSign.tooltip : _this.map.getMaxZoom() + 1);
+                if (tooltip == 'min')
+                    tooltip = _this.map.getMinZoom();
+                var popup = (placeSign.popup ? placeSign.popup : _this.map.getMaxZoom() + 1);
+                if (popup == 'min')
+                    popup = _this.map.getMinZoom();
+                if ((zoom >= marker) && (zoom < tooltip) && (zoom < popup)) {
+                    var content = placeSign["name_" + (_this.lang == 'ru' ? 'rus' : 'eng')];
+                    _this.showMarker(content, placeSign.coords);
+                }
+                if ((zoom >= tooltip) && (popup > zoom)) {
+                    var content = placeSign["name_" + (_this.lang == 'ru' ? 'rus' : 'eng')];
+                    _this.showTooltip(content, placeSign.coords);
+                }
+                if (zoom >= popup) {
+                    var content = placeSign["name_" + (_this.lang == 'ru' ? 'rus' : 'eng')];
+                    _this.showPopup(content, placeSign.coords);
+                }
+            });
+        }
     };
-    ;
-    UserData.prototype.signup = function (login, password, name, lastname, email, confirm_password) {
+    LeafletMapPage.prototype.ionViewDidLoad = function () {
         return __awaiter(this, void 0, void 0, function () {
             var _this = this;
-            return __generator(this, function (_a) {
-                confirm_password = confirm_password || confirm_password;
-                this.userApi.createUser(login, password, name, lastname, email, confirm_password).subscribe(function (res) {
-                    if (res > 0) {
-                        // localStorage.set(this.HAS_LOGGED_IN, true);
-                        localStorage.setItem('login', login);
-                        localStorage.setItem('lastname', lastname);
-                        localStorage.setItem('lastname', name);
-                        localStorage.setItem('email', email);
-                        _this.events.publish('user:signup');
-                    }
-                    else {
-                        var toast = _this.toastCtrl.create({
-                            message: _this.signupWrongStr,
-                            duration: 3000
-                        });
-                        toast.present();
-                    }
-                });
-                return [2 /*return*/];
+            var _a, content, content_1, xy;
+            return __generator(this, function (_b) {
+                switch (_b.label) {
+                    case 0:
+                        _super.prototype.ionViewDidLoad.call(this);
+                        _a = this;
+                        return [4 /*yield*/, this.mapSql.select()];
+                    case 1:
+                        _a.fullMapList = _b.sent();
+                        this.typeOfMap = this.navParams.get('typeOfMap');
+                        this.popupElement = this.navParams.get('popupElement');
+                        this.place = this.navParams.get('place');
+                        this.currentMap = this.navParams.get('map');
+                        this.iconStr = this.navParams.get('icons');
+                        if (!(this.typeOfMap == 'participantDetail' || this.typeOfMap == 'conferenceDetail' || this.typeOfMap == 'exhibitDetail' ||
+                            this.typeOfMap == 'demoProgramDetail')) return [3 /*break*/, 3];
+                        return [4 /*yield*/, this.initMap()];
+                    case 2:
+                        _b.sent();
+                        this.showArrow = false;
+                        content = void 0;
+                        content = this.place[0]["name_" + ((this.lang == 'ru') ? 'rus' : 'eng')] + '<br>' + this.popupElement.name;
+                        if (this.typeOfMap == 'conferenceDetail') {
+                            content += '<br>' + this.popupElement.date_event + '. '
+                                + this.popupElement.time_beg + ':' +
+                                this.popupElement.time_end + '<br>';
+                        }
+                        this.showPopup(content, this.place[0].coords);
+                        _b.label = 3;
+                    case 3:
+                        if (!(this.typeOfMap == 'showmarker')) return [3 /*break*/, 5];
+                        return [4 /*yield*/, this.initMap()];
+                    case 4:
+                        _b.sent();
+                        content_1 = '';
+                        if (this.popupElement) {
+                            if (this.popupElement.name)
+                                content_1 = this.popupElement.name;
+                            content_1 = ((this.lang == 'ru') ? this.popupElement.name_rus : this.popupElement.name_eng);
+                        }
+                        if (this.place.length) {
+                            this.place.forEach(function (placeSingle) {
+                                content_1 = '';
+                                content_1 = ((_this.lang == 'ru') ? _this.place.name_rus : _this.place.name_eng);
+                                _this.showMarker(content_1, placeSingle.coords);
+                            });
+                        }
+                        else {
+                            if (content_1 == '')
+                                content_1 = ((this.lang == 'ru') ? this.place.name_rus : this.place.name_eng);
+                            this.showMarker(content_1, this.place.coords);
+                        }
+                        xy = this.getCenter(this.place.coords);
+                        //let marker = L.marker();
+                        this.map.setView([this.currentMap.height - xy.x, xy.y]);
+                        _b.label = 5;
+                    case 5:
+                        if ((this.typeOfMap == 'conference') || (this.typeOfMap == 'participant')
+                            || (this.typeOfMap == 'exhibit') || (this.typeOfMap == 'demo-program')) {
+                            this.createMapList();
+                            // this.currentMapNumber = 0;
+                            this.initMap();
+                            // this.setSigns();
+                        }
+                        if (this.typeOfMap == 'simple') {
+                            this.initMap();
+                        }
+                        if (this.typeOfMap == 'icon') {
+                            this.initMap();
+                            this.setPictogramsForMap(this.iconStr);
+                            if (this.navParams.get('titleStr'))
+                                this.titleStr = this.navParams.get('titleStr');
+                        }
+                        return [2 /*return*/];
+                }
             });
         });
     };
-    ;
-    UserData.prototype.logout = function () {
-        //   localStorage.remove(this.HAS_LOGGED_IN);
-        localStorage.removeItem('login');
-        localStorage.removeItem('userid');
-        localStorage.removeItem('name');
-        localStorage.removeItem('lastname');
-        localStorage.removeItem('email');
-        this.events.publish('user:logout');
+    /**
+     * moving through the maps according to direction (up/down, left/right)
+     * @param direction
+     */
+    LeafletMapPage.prototype.mapDirection = function (direction) {
+        direction = 'map_' + direction;
+        //        //console.log("currentMapNumber=", this.currentMapNumber);
+        //console.log("direction=", direction);
+        //     //console.log("fullMapList[currentMapNumber]=", this.fullMapList[this.currentMapNumber]);
+        //     //console.log("fullMapList[currentMapNumber]=", this.fullMapList[this.currentMapNumber][direction]);
+        // if (this.fullMapList[this.currentMapNumber][direction]) {
+        if (this.currentMap[direction]) {
+            for (var i = 0; i < this.fullMapList.length; i++) {
+                //     if (this.fullMapList[i].name_map == this.fullMapList[this.currentMapNumber][direction]) {
+                if (this.fullMapList[i].name_map == this.currentMap[direction]) {
+                    this.currentMap = this.fullMapList[i];
+                    // setMap();
+                    //console.log("currentMap=", this.currentMap.name_map);
+                    //    this.currentMapNumber = i;
+                    break;
+                }
+            }
+        }
+        //this.getMapFromFullList();
+        this.initMap();
+        // this.setButtonsEnable();
+        if (this.showPopups)
+            this.setSigns();
     };
-    ;
-    UserData.prototype.hasLoggedIn = function () {
-        var value = localStorage.getItem('userid');
-        //console.log('value=', value);
-        return !!((value) && (value != '0'));
+    /**
+     * get previos (i.e. map from the previous level) map for the current map
+     */
+    LeafletMapPage.prototype.mapPrevious = function () {
+        var direction = "place_previous";
+        var old_map_name = this.currentMap.name_map;
+        //        //console.log("currentMapNumber=", this.currentMapNumber);
+        //console.log("direction=", direction);
+        //      //console.log("fullMapList[currentMapNumber]=", this.fullMapList[this.currentMapNumber]);
+        //      //console.log("fullMapList[currentMapNumber]=", this.fullMapList[this.currentMapNumber][direction]);
+        if (this.currentMap[direction]) {
+            for (var i = 0; i < this.fullMapList.length; i++) {
+                if (this.fullMapList[i].name_map == this.currentMap[direction]) {
+                    this.currentMap = this.fullMapList[i];
+                    // setMap();
+                    //console.log("currentMap=", this.currentMap.name_map);
+                    //     this.currentMapNumber = i;
+                    break;
+                }
+            }
+        }
+        //  this.getMapFromFullList();
+        //this.setMap();
+        this.initMap();
+        // this.setButtonsEnable();
+        //console.log("old_map_name=", old_map_name);
+        if (this.showPopups)
+            this.setMapAsPlace(old_map_name);
     };
-    ;
-    return UserData;
-}());
-UserData = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Injectable */])(),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* Events */],
-        __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */],
-        __WEBPACK_IMPORTED_MODULE_3__user_user_api_service__["a" /* UserApi */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["u" /* ToastController */]])
-], UserData);
+    LeafletMapPage.prototype.updatePopups = function () {
+        //console.log('updatePopups=', this.showPopups);
+        if (this.showPopups) {
+            for (var _i = 0, _a = this.popupList; _i < _a.length; _i++) {
+                var popup = _a[_i];
+                if (popup.name_map == this.currentMap.name_map)
+                    popup.popup.openOn(this.map);
+            }
+        } //this.setPopups();
+        else {
+            for (var _b = 0, _c = this.popupList; _b < _c.length; _b++) {
+                var popup = _c[_b];
+                if (popup.name_map == this.currentMap.name_map)
+                    this.map.closePopup(popup.popup);
+            }
+        }
+    };
+    LeafletMapPage.prototype.mapOnZoom = function (e) {
+        //console.log(e);
+        //console.log("this.map.getCenter()=", this.map.getCenter());
+        //Returns the geographical center of the map view
+        //console.log("this.map.getZoom()=", this.map.getZoom());
+        this.setSignsForMap();
+        this.setSigns();
+    };
+    LeafletMapPage.prototype.doNothing = function () {
+        //console.log('do nothing, as it was promised');
+    };
+    return LeafletMapPage;
+}(__WEBPACK_IMPORTED_MODULE_9__providers_base_list_page_base_list_page__["a" /* BaseListPageProvider */]));
+__decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_13" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* Content */]),
+    __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* Content */])
+], LeafletMapPage.prototype, "content", void 0);
+__decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_13" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["q" /* Scroll */]),
+    __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["q" /* Scroll */])
+], LeafletMapPage.prototype, "scroll", void 0);
+__decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_13" /* ViewChild */])('drawingCanvas'),
+    __metadata("design:type", Object)
+], LeafletMapPage.prototype, "drawingCanvas", void 0);
+LeafletMapPage = LeafletMapPage_1 = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+        selector: 'leaflet-map',template:/*ion-inline-start:"/Users/leonidlyalin/WebstormProjects/army2017/src/pages/leaflet-map/leaflet-map.html"*/'<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.1/dist/leaflet.css"/>\n\n<ion-header swipeBackEnabled="false">\n\n    <ion-navbar swipeBackEnabled="false">\n        <button ion-button menuToggle>\n            <ion-icon name="menu"></ion-icon>\n        </button>\n        <ion-title>{{titleStr}}</ion-title>\n        <ion-buttons end>\n            <button ion-button icon-only (click)="showHideHelp()" [style.color]="colorHelp">\n                <ion-icon name="help-circle"></ion-icon>\n            </button>\n        </ion-buttons>\n    </ion-navbar>\n\n    <ion-toolbar *ngIf="showArrow">\n        <ion-buttons>\n            <button *ngIf="showLeftArrow" ion-button icon-only (click)="mapDirection(\'left\')">\n                <i class="fa fa-arrow-circle-left fa-2x"></i>\n                <!-- <ion-icon name="arrow-round-back" color="white"></ion-icon>-->\n            </button>\n            <button *ngIf="!showLeftArrow" ion-button icon-only>\n\n                <ion-icon name="arrow-round-back"></ion-icon>\n            </button>\n            <button *ngIf="showRightArrow" ion-button icon-only (click)="mapDirection(\'right\')">\n                <i class="fa fa-arrow-circle-right fa-2x"></i>\n                <!--<ion-icon name="arrow-round-forward" color="white"></ion-icon>-->\n            </button>\n            <button *ngIf="!showRightArrow" ion-button icon-only>\n                <ion-icon name="arrow-round-forward"></ion-icon>\n            </button>\n            <button *ngIf="showUpArrow" ion-button icon-only (click)="mapDirection(\'up\')">\n                <i class="fa fa-arrow-circle-up fa-2x"></i>\n                <!--<ion-icon name="arrow-round-up" color="white"></ion-icon>-->\n            </button>\n            <button *ngIf="!showUpArrow" ion-button icon-only>\n                <ion-icon name="arrow-round-up"></ion-icon>\n            </button>\n            <button *ngIf="showDownArrow" ion-button icon-only (click)="mapDirection(\'down\')">\n                <i class="fa fa-arrow-circle-down fa-2x"></i>\n                <!--<ion-icon name="arrow-round-down" color="white"></ion-icon>-->\n            </button>\n            <button *ngIf="!showDownArrow" ion-button icon-only>\n                <ion-icon name="arrow-round-down"></ion-icon>\n            </button>\n\n            <button *ngIf="showPreviousArrow" ion-button icon-only (click)="mapPrevious()">\n\n                <ion-icon name="arrow-dropup" color="white"></ion-icon>\n\n            </button>\n            {{mapTitle}}\n\n            <i class="fa fa-comment fa-2x" style="color:red"></i>\n            <ion-checkbox [(ngModel)]="showPopups"\n                          (click)="updatePopups()" end>\n            </ion-checkbox>\n\n        </ion-buttons>\n    </ion-toolbar>\n</ion-header>\n\n\n<ion-content no-padding no-margin="true" (swipe)="doNothing()" swipeBackEnabled="false">\n    <div *ngIf="showHelp">\n        <page-map-help>\n        </page-map-help>\n    </div>\n\n        <div tappable id="map" swipeBackEnabled="false">\n\n        </div>\n\n\n    <style>\n        #map {\n            width: 100%;\n            height: 100%;\n            border: 1px solid #ccc;\n            margin-bottom: 10px;\n        }\n    </style>\n\n\n</ion-content>\n'/*ion-inline-end:"/Users/leonidlyalin/WebstormProjects/army2017/src/pages/leaflet-map/leaflet-map.html"*/,
+    }),
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_6__angular_http__["a" /* Http */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* NavController */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* NavParams */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["p" /* Platform */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["u" /* ToastController */],
+        __WEBPACK_IMPORTED_MODULE_3__providers_draw_function_draw_function__["a" /* DrawFunctionProvider */],
+        __WEBPACK_IMPORTED_MODULE_5__providers_map_sql_map_sql__["a" /* MapSql */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* Events */],
+        __WEBPACK_IMPORTED_MODULE_2__providers_place_sql_place_sql__["a" /* PlaceSql */]])
+], LeafletMapPage);
 
-//# sourceMappingURL=user-data.js.map
+var LeafletMapPage_1;
+// 790 strings before refactoring
+/*
+direction of swipe
+left =1
+right=
+up
+down
+
+
+
+
+offset direction
+left 4
+right 2
+ */
+//# sourceMappingURL=leaflet-map.js.map
 
 /***/ }),
 
@@ -13373,338 +13973,7 @@ FilterPage = __decorate([
 
 //# sourceMappingURL=filter.js.map
 
-/***/ }),
-
-/***/ 87:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ParticipantPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_my_forum_sql__ = __webpack_require__(26);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__participant_detail_participant_detail__ = __webpack_require__(68);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_filter_provider_filter_participant_provider__ = __webpack_require__(148);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_base_list_page_base_list_page__ = __webpack_require__(19);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_place_sql_place_sql__ = __webpack_require__(40);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__providers_participant_participant_api_service__ = __webpack_require__(287);
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
-var __generator = (this && this.__generator) || function (thisArg, body) {
-    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
-    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
-    function verb(n) { return function (v) { return step([n, v]); }; }
-    function step(op) {
-        if (f) throw new TypeError("Generator is already executing.");
-        while (_) try {
-            if (f = 1, y && (t = y[op[0] & 2 ? "return" : op[0] ? "throw" : "next"]) && !(t = t.call(y, op[1])).done) return t;
-            if (y = 0, t) op = [0, t.value];
-            switch (op[0]) {
-                case 0: case 1: t = op; break;
-                case 4: _.label++; return { value: op[1], done: false };
-                case 5: _.label++; y = op[1]; op = [0]; continue;
-                case 7: op = _.ops.pop(); _.trys.pop(); continue;
-                default:
-                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
-                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
-                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
-                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
-                    if (t[2]) _.ops.pop();
-                    _.trys.pop(); continue;
-            }
-            op = body.call(thisArg, _);
-        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
-        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
-    }
-};
-/**
- * Created by lsl-info on 14.04.17.
- * list of participants
- */
-
-
-
-
-
-
-
-
-
-var ParticipantPage = (function (_super) {
-    __extends(ParticipantPage, _super);
-    function ParticipantPage(navCtrl, http, participantApi, sqlMyForum, navParams, toastCtrl, filterProvider, events, placeSql) {
-        var _this = 
-        //подгружаем список участников выставки
-        _super.call(this, navCtrl, navParams, events, http) || this;
-        _this.navCtrl = navCtrl;
-        _this.http = http;
-        _this.participantApi = participantApi;
-        _this.sqlMyForum = sqlMyForum;
-        _this.navParams = navParams;
-        _this.toastCtrl = toastCtrl;
-        _this.filterProvider = filterProvider;
-        _this.events = events;
-        _this.placeSql = placeSql;
-        events.subscribe('myforum:add:participant', function (id) {
-            //console.log('was added id =', id);
-            var element = _this.listOut.find(function (x) { return x.id == id.id; });
-            element.my_forum_id = id.my_forum_id;
-            //console.log('was added =', element);
-        });
-        events.subscribe('myforum:delete:participant', function (id) {
-            //console.log('was deleted id=', id);
-            var element = _this.listOut.find(function (x) { return x.id == id; });
-            element.my_forum_id = null;
-            //console.log('was deleted =', element);
-        });
-        //console.log("navParams in constructor", navParams);
-        //console.log("navParams==null", this.navParams == null);
-        //console.log("navParams.data.length", navParams.data.length);
-        var param = navParams.get('select');
-        //console.log("navParams.get('select')", param);
-        if (param == 'thematic') {
-            var toast = _this.toastCtrl.create({
-                message: _this.loadStr,
-                duration: 5000
-            });
-            toast.present();
-            //console.log("navParams.data", navParams.data.data);
-            _this.listOut = navParams.data.data;
-        }
-        _this.iblockId = 1; //for my_forum
-        return _this;
-    }
-    ParticipantPage.prototype.setRussianStrings = function () {
-        _super.prototype.setRussianStrings.call(this, 'Участники');
-    };
-    ParticipantPage.prototype.setEnglishStrings = function () {
-        _super.prototype.setEnglishStrings.call(this, 'Exhibitors');
-    };
-    ParticipantPage.prototype.ionViewDidLoad = function () {
-        _super.prototype.ionViewDidLoad.call(this);
-        //console.log('ionViewDidLoad MyForumPage');
-        //console.log("this.navParams=", this.navParams);
-        //console.log("this.navParams.data=", this.navParams.data);
-        //console.log("navParams==null", this.navParams == null);
-        var param = this.navParams.get('select');
-        if (param == 'thematic') {
-            //console.log("this.navParams in ioViewDidLoad =", this.navParams);
-            this.listOut = this.navParams.data.data;
-        }
-        else {
-            //console.log("this.selectParticipantAll()");
-            var toast = this.toastCtrl.create({
-                message: this.loadStr,
-                duration: 2000
-            });
-            toast.present();
-            this.selectParticipantAll();
-        }
-    };
-    /**
-     * add a record in to the myforum table and in site infoblock "myforum" for current Participant element
-     * @param id
-     */
-    /*    addToMyForum(id) {
-            //console.log('add', id);
-            this.myForumApi.addToMyForumSite(this.iblockId, id).subscribe(data => {
-                //console.log("here are the results of adding through api");
-                //console.log(data);
-
-                //  this.sqlMyForum.addItemAndSelect(data, this.userId, this.iblockId, id).then(res => {
-                this.sqlMyForum.addItem({id: data, user: this.userId, my_iblock_id: this.iblockId, my_id: id}).then(res => {
-                    //console.log('added', id);
-                    //console.log(res);
-                    if (this.lang == 'ru') {
-                        this.selectParticipantRus()
-                    }
-                    else {
-                        this.selectParticipantEng()
-                    }
-                });
-            });
-        }*/
-    /**
-     * Show the detail view of the Participant
-     * @param participant - record in the json format for current Participant element
-     */
-    ParticipantPage.prototype.goToParticipantDetail = function (participant) {
-        var _this = this;
-        //console.log("goToParticipantDetail()");
-        //console.log(participant);
-        // go to the session detail page
-        // and pass in the session data
-        if (this.lang == 'ru') {
-            this.sqlMyForum.getRusParticipantFull('where a.id=' + participant.id).then(function (res) {
-                var participant = res;
-                //console.log("participantDetail=", participant);
-                _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_4__participant_detail_participant_detail__["a" /* ParticipantDetailPage */], {
-                    participant: participant,
-                    listOut: _this.listOut
-                }).then(function (res) {
-                    //console.log("i return from page", res);
-                });
-            });
-        }
-        else
-            this.sqlMyForum.getEngParticipantFull('where a.id=' + participant.id).then(function (res) {
-                var participant = res;
-                _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_4__participant_detail_participant_detail__["a" /* ParticipantDetailPage */], {
-                    participant: participant,
-                    listOut: _this.listOut
-                }).then(function (res) {
-                    //console.log("i return from page", res);
-                });
-            });
-    };
-    ParticipantPage.prototype.changeName = function () {
-        return __awaiter(this, void 0, void 0, function () {
-            var i, placeStr, listPlaces, m, res;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        i = 0;
-                        _a.label = 1;
-                    case 1:
-                        if (!(i < this.listOut.length)) return [3 /*break*/, 6];
-                        this.listOut[i].name = this.listOut[i].name.replace(/&quot;/g, '"');
-                        if (!(this.listOut[i].place && this.listOut[i].place.includes(','))) return [3 /*break*/, 5];
-                        placeStr = '';
-                        listPlaces = this.listOut[i].place.split(',');
-                        m = 0;
-                        _a.label = 2;
-                    case 2:
-                        if (!(m < listPlaces.length)) return [3 /*break*/, 5];
-                        return [4 /*yield*/, this.placeSql.selectWhere('id=' + listPlaces[m])];
-                    case 3:
-                        res = _a.sent();
-                        if (res) {
-                            //console.log("res=", res);
-                            placeStr += (placeStr == '' ? '' : ', ') + (this.lang == 'ru' ? res[0].name_rus : res[0].name_eng);
-                            //console.log(listPlaces[m]);
-                            this.listOut[i].place_name_place = placeStr;
-                            this.listOut[i].place_name = placeStr;
-                        }
-                        _a.label = 4;
-                    case 4:
-                        m++;
-                        return [3 /*break*/, 2];
-                    case 5:
-                        i++;
-                        return [3 /*break*/, 1];
-                    case 6: return [2 /*return*/];
-                }
-            });
-        });
-    };
-    ParticipantPage.prototype.selectParticipantAll = function () {
-        var _this = this;
-        if (this.lang == 'ru') {
-            this.sqlMyForum.getRusParticipant().then(function (res) {
-                //console.log('this.sqlMyForum.getRusParticipant().then( res=', res);
-                //console.log('(<participant[]>res).length=', (<participant[]>res).length);
-                _this.listOut = res;
-                _this.changeName();
-            });
-        }
-        else {
-            this.sqlMyForum.getEngParticipant().then(function (res) {
-                //console.log('this.sqlMyForum.getEngParticipant().then( res=', res);
-                //console.log('(<participant[]>res).length=', (<participant[]>res).length);
-                _this.listOut = res;
-                _this.changeName();
-            });
-        }
-    };
-    ParticipantPage.prototype.deleteFromMyForum = function (id) {
-        var _this = this;
-        this.sqlMyForum.delFromMyForum(id).then(function (res) {
-            //  this.selectParticipantAll();
-            _this.getListOut();
-            _this.changeName();
-        });
-    };
-    ParticipantPage.prototype.addToMyForumSite = function (id) {
-        this.sqlMyForum.addToMyForumSite(id, this.iblockId, this.userId, this.listOut).then(function (res) {
-        });
-    };
-    ParticipantPage.prototype.getListOut = function () {
-        var _this = this;
-        this.filterStr = this.filterProvider.filterStr;
-        //console.log("this.filterStr", this.filterStr);
-        if (this.lang == 'ru') {
-            this.sqlMyForum.getRusParticipant(this.filterStr).then(function (res) {
-                //console.log('our select');
-                //console.log(res);
-                _this.listOut = res;
-                _this.changeName();
-            });
-        }
-        else {
-            this.sqlMyForum.getEngParticipant(this.filterStr).then(function (res) {
-                //console.log('our select');
-                //console.log(res);
-                _this.listOut = res;
-                _this.changeName();
-            });
-        }
-    };
-    ParticipantPage.prototype.setFilterStrParticipant = function () {
-        this.getListOut();
-        this.showHideFilter();
-    };
-    ParticipantPage.prototype.cancelFilterStrParticipant = function () {
-        this.filterProvider.cancelFilter();
-        this.getListOut();
-        this.showHideFilter();
-    };
-    return ParticipantPage;
-}(__WEBPACK_IMPORTED_MODULE_6__providers_base_list_page_base_list_page__["a" /* BaseListPageProvider */]));
-ParticipantPage = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-participant',template:/*ion-inline-start:"/Users/leonidlyalin/WebstormProjects/army2017/src/pages/participant/participant.html"*/'<ion-header>\n    <ion-navbar>\n\n\n        <ion-title text-left>{{titleStr}}</ion-title>\n        <ion-buttons end>\n            <button ion-button icon-only (click)="showHideFilter()" [style.color]="colorFilter">\n                <i class="fa fa-filter fa-2x" aria-hidden="true"></i>\n            </button>\n            <button ion-button icon-only (click)="showMapList(\'participant\')">\n                <i class="fa fa-map fa-2x" aria-hidden="true"></i>\n            </button>\n            <button ion-button icon-only (click)="showHideHelp()" [style.color]="colorHelp">\n                <i class="fa fa-info-circle fa-2x" aria-hidden="true"></i>\n            </button>\n        </ion-buttons>\n\n    </ion-navbar>\n\n\n</ion-header>\n<ion-content no-padding="true" no-margin="true">\n    <div no-border-top *ngIf="showFilter">\n\n        <ion-item>\n            <ion-buttons align-items-center>\n                <button ion-button (click)="setFilterStrParticipant()" color="army-red">\n                    <ion-icon name="checkmark"></ion-icon>\n                    {{setFilterStr}}\n                </button>\n                <button ion-button (click)="cancelFilterStrParticipant()" color="army-red">\n                    <ion-icon name="close-circle"></ion-icon>\n                    {{cancelFilterStr}}\n                </button>\n            </ion-buttons>\n        </ion-item>\n        <page-filter-participant>\n        </page-filter-participant>\n    </div>\n\n\n    <div *ngIf="showHelp">\n        <page-participant-help>\n        </page-participant-help>\n    </div>\n    <div *ngIf="showMainList">\n        <ion-list text-wrap>\n\n            <!--  <ion-item-sliding *ngFor="let participant of listOut" #slidingItem>-->\n            <ion-item *ngFor="let participant of listOut" >\n\n                <button ion-item (click)="goToParticipantDetail(participant)">\n\n                        <ion-icon item-left *ngIf="participant.my_forum_id&&userId" name="star" color="danger"></ion-icon>\n                        <ion-icon item-left *ngIf="!participant.my_forum_id&&userId" name="star-outline"></ion-icon>\n\n                    <p text-wrap>{{participant.name}}</p>\n                    <p text-wrap *ngIf="participant.place_name_place">\n                        <ion-icon name="pin" color="danger"></ion-icon>\n                        {{participant.place_name_place}}\n                    <p>\n\n                </button>\n\n\n                <!--  <ion-item-options>\n                    <button ion-button color="danger" *ngIf="!participant.my_forum_id" (click)="addToMyForumSite(participant.id)">\n                      {{addMyForumStr}}\n                    </button>\n                    <button ion-button color="favorite" *ngIf="participant.my_forum_id"\n                            (click)="deleteFromMyForum(participant.my_forum_id)">\n                      {{delMyForumStr}}\n                    </button>\n                  </ion-item-options>-->\n\n            </ion-item>\n        </ion-list>\n    </div>\n</ion-content>\n'/*ion-inline-end:"/Users/leonidlyalin/WebstormProjects/army2017/src/pages/participant/participant.html"*/,
-        providers: [__WEBPACK_IMPORTED_MODULE_5__providers_filter_provider_filter_participant_provider__["a" /* FilterParticipantProvider */]],
-    }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* NavController */],
-        __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Http */],
-        __WEBPACK_IMPORTED_MODULE_8__providers_participant_participant_api_service__["a" /* ParticipantApi */],
-        __WEBPACK_IMPORTED_MODULE_3__providers_my_forum_sql__["a" /* MyForumSql */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* NavParams */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["u" /* ToastController */],
-        __WEBPACK_IMPORTED_MODULE_5__providers_filter_provider_filter_participant_provider__["a" /* FilterParticipantProvider */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* Events */],
-        __WEBPACK_IMPORTED_MODULE_7__providers_place_sql_place_sql__["a" /* PlaceSql */]])
-], ParticipantPage);
-
-//# sourceMappingURL=participant.js.map
-
 /***/ })
 
-},[321]);
+},[316]);
 //# sourceMappingURL=main.js.map

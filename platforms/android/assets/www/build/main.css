@@ -30117,6 +30117,33 @@ ion-navbar.toolbar {
   white-space: pre-line;
 }
 
+/*@media (min-width: 768px) {
+  ion-page{
+    margin-left: 30%;
+    width:70%;
+  }
+  ion-menu{
+    width:30%;
+    display:block;
+  }
+
+  .bar-button-menutoggle {
+    display: none;
+  }
+
+  ion-menu ion-backdrop {
+    display:none;
+  }
+  ion-content {
+    border-left: none;
+  }
+  ion-menu[type=overlay] .menu-inner {
+    -webkit-transform: translateX(0px)!important;
+    transform: translateX(0px)!important;
+    box-shadow: none;
+    width:100%;
+  }
+}*/
 page-about .card-background-page ion-card {
   position: relative;
   text-align: center;
@@ -49183,11 +49210,15 @@ page-home ion-grid {
 }
 
 page-home ion-grid ion-row ion-col p {
-  text-wrap: true;
+  text-wrap: normal;
 }
 
 page-home .swiper-pagination-bullet {
   background-color: white;
+}
+
+page-home ion-row ion-col {
+  text-align: center;
 }
 
 leaflet-map {
@@ -49202,6 +49233,20 @@ leaflet-map {
     color:red;
   }
   */
+}
+
+page-user .logo {
+  padding: 20px 0;
+  min-height: 200px;
+  text-align: center;
+}
+
+page-user .logo img {
+  max-width: 150px;
+}
+
+page-user .list {
+  margin-bottom: 0;
 }
 
 page-user .logo {

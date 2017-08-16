@@ -32,8 +32,7 @@ export class ConferenceDetailPage extends BaseListPageProvider {
                 public conferenceDetailSql: ConferenceSql,
                 public sqlMyForum: MyForumSql,
                 public events: Events,
-                public http: Http,
-                ) {
+                public http: Http,) {
         super(NavCtrl, navParams, events, http);
         //console.log("now in conference detail");
         //console.log(navParams);
@@ -71,22 +70,12 @@ export class ConferenceDetailPage extends BaseListPageProvider {
                     //console.log("res in thematicConference page=", res);
                     this.thematic = <any>res;
 
-                    /*  this.conferenceDetailSql.getFieldFromTable(this.element.id, 'id', 'myforum').then(
-                        //getMyForumForId(this.element.id).then(
-                        rs => {
-                          if (rs) {
-                            //console.log("res in element myForumitem", rs);
-                            this.myForum = <any>rs;
-                          }
-            
-                        }
-                      );*/
+
                 }
             }
         );
 
     }
-
 
 
     /**
@@ -102,16 +91,14 @@ export class ConferenceDetailPage extends BaseListPageProvider {
             // //console.log('was added =', element);
             if (element.my_forum_id > 0) {
 
-                element.my_forum_id = await this.deleteFromMyForum(element.id);
-                this.events.publish('myforum:delete:conference', (element.id)
+                element.my_forum_id = await this.deleteFromMyForum(element.my_forum_id);
+                this.events.publish('myforum:delete:conference', (element)
                 );
             }
             else {
                 element.my_forum_id = await this.addToMyForumSite(element.id);
                 // ''this.participantApi
-                this.events.publish('myforum:add:conference', ({id: element.id, my_forum_id: element.my_forum_id})
-                );
-
+                this.events.publish('myforum:add:conference', element);
 
 
             }

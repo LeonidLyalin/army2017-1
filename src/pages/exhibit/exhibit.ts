@@ -43,14 +43,14 @@ export class ExhibitPage extends BaseListPageProvider {
         this.iblockId = 10;//number of the infoblock in bitrix
         this.events.subscribe('myforum:add:exhibit', (id) => {
                 //console.log('was added id =', id);
-                let element = this.listOut.find(x => x.id == id.id);
+                let element = this.listOut.find(x => Number(x.id) == Number(id.id));
                 element.my_forum_id = id.my_forum_id;
                 //console.log('was added =', element);
             }
         );
         this.events.subscribe('myforum:delete:exhibit', (id) => {
                 //console.log('was deleted id=', id);
-                let element = this.listOut.find(x => x.id == id);
+                let element = this.listOut.find(x => Number(x.id) == Number(id.id));
                 element.my_forum_id = null;
                 //console.log('was deleted =', element);
             }

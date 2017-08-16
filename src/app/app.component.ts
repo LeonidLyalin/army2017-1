@@ -24,9 +24,10 @@ import {TutorialPage} from "../pages/tutorial/tutorial";
 import {Storage} from '@ionic/storage';
 import {HomePage} from "../pages/home/home";
 
-import {ParkPatriotPage} from "../pages/park-patriot-all/park-patriot/park-patriot";
-import {WarTacticPage} from "../pages/park-patriot-all/war-tactic-page/war-tactic-page";
+
 import {Http} from "@angular/http";
+import {LoginFormPage} from "../pages/login-form/login-form";
+import {SignupFormPage} from "../pages/signup-form/signup-form";
 
 
 export interface PageInterface {
@@ -60,10 +61,10 @@ export class MyApp {
     signUpStr: string;
     infoStr: string;
     aboutForumStr: string;
-    pages: PageInterface[] = [
+    /*pages: PageInterface[] = [
 
         {title: 'Homepage', name: 'HomePage', component: HomePage, icon: 'home'},
-        {title: 'Settings', name: 'SettingsPage', component: SettingsPage, icon: 'settings'},
+
         {title: 'Account', name: 'AccountPage', component: AccountPage, icon: 'person'},
 
         {title: 'Участники', name: 'ParticipantPage', component: ParticipantPage, icon: 'list'},
@@ -71,26 +72,20 @@ export class MyApp {
 
 
         {title: 'О Форуме', name: 'AboutPage', component: AboutPage, icon: 'information-circle'},
-        {title: 'Парк Патриот', name: 'ParkPatrionPage', component: ParkPatriotPage, icon: 'information-circle'},
-        {
-            title: 'Центр военно-тактических игр',
-            name: 'WarTacticPage',
-            component: WarTacticPage,
-            icon: 'information-circle'
-        }
+
+
 
     ];
-
-    loggedInPages: PageInterface[] = [
+*/
+    loggedInPages: PageInterface[]; /*= [
         {title: 'Профиль', name: 'AccountPage', component: AccountPage, icon: 'person'},
-        {title: 'Обратная связь', name: 'SupportPage', component: SupportPage, icon: 'help'},
+
         {title: 'Выйти', name: 'TabsPage', component: TabsPage, icon: 'log-out', logsOut: true}
 
-    ];
-    loggedOutPages: PageInterface[] = [
-        {title: 'Войти', name: 'LoginPage', component: LoginPage, icon: 'log-in'},
-        {title: 'Обратная связь', name: 'SupportPage', component: SupportPage, icon: 'help'},
-        {title: 'Зарегистрироваться', name: 'SignupPage', component: SignupPage, icon: 'person-add'}];
+    ];*/
+    loggedOutPages: PageInterface[]; /*= [
+        {title: 'Войти', name: 'LoginFormPage', component: LoginFormPage, icon: 'log-in'},
+        {title: 'Зарегистрироваться', name: 'SignupFormPage', component: SignupFormPage, icon: 'person-add'}];*/
 
 
     appPages: PageInterface[] = [
@@ -105,6 +100,7 @@ export class MyApp {
             icon: 'information-circle'
         }];
 
+    //private wide: boolean = false;
 
     constructor(public platform: Platform,
                 public splashScreen: SplashScreen,
@@ -117,13 +113,7 @@ export class MyApp {
                 public alertCtrl: AlertController) {
 
 
-        this.platform.ready().then(() => {
-            // Okay, so the platform is ready and our plugins are available.
-            // Here you can do any higher level native things you might need.
-            this.statusBar.backgroundColorByName("red");
-            this.splashScreen.hide();
 
-        });
         // used for an example of ngFor and navigation
 
 
@@ -191,6 +181,17 @@ export class MyApp {
         } else {
             this.rootPage = TabsPage;//TutorialPage;
         }
+
+        this.platform.ready().then(() => {
+            // Okay, so the platform is ready and our plugins are available.
+            // Here you can do any higher level native things you might need.
+            this.statusBar.backgroundColorByName("red");
+            this.splashScreen.hide();
+         /*   this.setWidth();
+            this.listenToEvents();*/
+
+        });
+
         this.platformReady();
         //  });
 
@@ -207,6 +208,22 @@ export class MyApp {
 
 
     }
+
+/*    setWidth() {
+        if (this.platform.width() > 767) {
+            this.wide = true;
+            this.menu.open();
+        } else {
+            this.wide = false;
+            this.menu.close();
+        }
+    };*/
+
+ /*   listenToEvents() {
+        window.addEventListener('resize', () => {
+            this.setWidth();
+        });
+    }*/
 
     openPage(page: PageInterface) {
         let params = {};
@@ -292,14 +309,14 @@ export class MyApp {
         this.aboutForumStr = 'Информация о форуме';
         this.loggedInPages = [
             {title: 'Профиль', name: 'AccountPage', component: AccountPage, icon: 'person'},
-            {title: 'Обратная связь', name: 'SupportPage', component: SupportPage, icon: 'help'},
+
             {title: 'Выйти', name: 'TabsPage', component: TabsPage, icon: 'log-out', logsOut: true}
 
         ];
         this.loggedOutPages = [
-            {title: 'Войти', name: 'LoginPage', component: LoginPage, icon: 'log-in'},
-            {title: 'Обратная связь', name: 'SupportPage', component: SupportPage, icon: 'help'},
-            {title: 'Зарегистрироваться', name: 'SignupPage', component: SignupPage, icon: 'person-add'}];
+            {title: 'Войти', name: 'LoginFormPage', component: LoginFormPage, icon: 'log-in'},
+
+            {title: 'Зарегистрироваться', name: 'SignupFormPage', component: SignupFormPage, icon: 'person-add'}];
 
 
         this.appPages = [
@@ -324,14 +341,14 @@ export class MyApp {
 
         this.loggedInPages = [
             {title: 'Profile', name: 'AccountPage', component: AccountPage, icon: 'person'},
-            {title: 'Help', name: 'SupportPage', component: SupportPage, icon: 'help'},
+
             {title: 'Log out', name: 'TabsPage', component: TabsPage, icon: 'log-out', logsOut: true}
 
         ];
         this.loggedOutPages = [
-            {title: 'Log in', name: 'LoginPage', component: LoginPage, icon: 'log-in'},
-            {title: 'Help', name: 'SupportPage', component: SupportPage, icon: 'help'},
-            {title: 'Sign up', name: 'SignupPage', component: SignupPage, icon: 'person-add'}];
+            {title: 'Log in', name: 'LoginFormPage', component: LoginFormPage, icon: 'log-in'},
+
+            {title: 'Sign up', name: 'SignupFormPage', component: SignupFormPage, icon: 'person-add'}];
 
 
         this.appPages = [
